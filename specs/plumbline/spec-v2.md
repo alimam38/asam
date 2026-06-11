@@ -106,7 +106,7 @@ Each KPI ships with: formula, source mapping, definition-version reference, owne
 
 | # | Item | Question that closes it | Owner | Default until closed |
 |---|---|---|---|---|
-| 1 | Populi API access | Will Turner authorize a Populi API key, and which endpoints/permissions does their plan expose? | Aliman (meeting 2026-06-12) | Fallback lane: saved-report exports |
+| 1 | Populi API access | **CLOSED 2026-06-11** — full-access API key already in hand. Key lives in the secrets store / deployment .env only, never in this repo. | Aliman | — |
 | 2 | QBO access | Read-only QuickBooks Online API authorization for GL/budget? | Turner business office | Monthly QB export via fallback lane |
 | 3 | Official definitions | active / enrolled / retained / withdrawn / graduated / FTE divisor / cohort rules | Registrar + liaison | Populi defaults; FTE divisor 12; fall-entry cohorts — flagged |
 | 4 | Aid data location | Are awards and funds fully in Populi Financial Aid, or partly in spreadsheets? | Business office | Populi-first; CSV lane for funds ledger |

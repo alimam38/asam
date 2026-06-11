@@ -1,0 +1,38 @@
+# OS cruft
+Thumbs.db
+Desktop.ini
+desktop.ini
+.DS_Store
+._*
+
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*credentials*
+*secrets*
+
+# Editors / tooling
+.obsidian/
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Docker / local overrides
+docker-compose.override.yml
+
+# Logs and temp
+*.log
+*.tmp
+~$*

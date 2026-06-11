@@ -112,12 +112,12 @@ Each KPI ships with: formula, source mapping, definition-version reference, owne
 |---|---|---|---|---|
 | 1 | Populi API access | **CLOSED 2026-06-11** — full-access API key already in hand. Key lives in the secrets store / deployment .env only, never in this repo. | Aliman | — |
 | 2 | QBO access | **CLOSED 2026-06-11** — QBO access in hand; live connector verified against "Turner Theological Seminary, Inc" (NAICS 611310). Credentials follow the same secrets-store rule as Populi. | Aliman | — |
-| 3 | Official definitions | active / enrolled / retained / withdrawn / graduated / FTE divisor / cohort rules | Registrar + liaison | Populi defaults; FTE divisor 12; fall-entry cohorts — flagged |
+| 3 | Official definitions | active / enrolled / retained / withdrawn / graduated / FTE divisor. **Cohort rules CLOSED 2026-06-11:** cohorts are keyed to entry term under Turner's standalone status — Cohort 1 = Fall 2024 entrants; pre-standalone history is outside cohort scope. | Registrar + liaison (remaining: statuses, FTE divisor) | Populi defaults; FTE divisor 12 — flagged |
 | 4 | Aid data location | **CLOSED 2026-06-11** — aid is institutional scholarships only; no DOE/Title IV. Scholarships module scope set accordingly (§3.4). | Aliman | — |
 | 5 | Survey tooling | Where do surveys live (Populi? Google Forms?) and can responses export with question IDs? | Turner IE | CSV import with question→goal mapping table |
 | 6 | Payroll feed | **CLOSED 2026-06-11** — Gusto API; live connector verified against "Turner Theological Seminary" (Gusto Plus, non-profit, single pay schedule). Comp types include Minister Housing Allowance — the payroll model must carry it as its own category (seminary-relevant for the product, not just Turner). | Aliman | — |
 | 7 | Pilot hosting | Cloud target and budget for the pilot instance? | Aliman | Single small cloud VM, Docker Compose |
-| 8 | Turner-facing scope cut | Which v2 modules does Turner see first (their view will be tweaked post-meeting)? | Aliman | Phase 0 set |
+| 8 | Turner-facing scope cut | **CLOSED 2026-06-11** — Turner-facing view: Admissions, Academics, Strategy/Evidence. Financials and Scholarships are not for that audience; they may be alluded to as future modules. Financials remains President-only in role design. | Aliman | — |
 
 ## 11. What changed from v1
 

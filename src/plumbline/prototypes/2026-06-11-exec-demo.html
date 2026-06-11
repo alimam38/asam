@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plumbline — Turner Theological Seminary — Executive View (Demo)</title>
+<style>
+  :root{--ink:#1a2332;--mut:#6b7686;--line:#e3e7ee;--bg:#f6f8fb;--card:#ffffff;
+        --navy:#1f3a5f;--gold:#b8893a;--green:#2e7d54;--red:#b04a3a;--soft:#eef2f8;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Segoe UI,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);padding:28px 36px;max-width:1180px;margin:0 auto}
+  header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid var(--navy);padding-bottom:14px;margin-bottom:10px}
+  .brand{font-size:26px;font-weight:700;letter-spacing:.5px;color:var(--navy)}
+  .brand small{color:var(--gold);font-weight:600;letter-spacing:2px}
+  .stamp{text-align:right;color:var(--mut);font-size:12.5px;line-height:1.5}
+  nav{display:flex;gap:8px;margin:14px 0 22px;flex-wrap:wrap}
+  nav span{padding:7px 14px;border-radius:18px;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--mut)}
+  nav .on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  nav .soon{border-style:dashed}
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:22px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 16px 13px}
+  .tile .n{font-size:30px;font-weight:700;color:var(--navy)}
+  .tile .l{font-size:12.5px;color:var(--mut);margin-top:3px;line-height:1.35}
+  .tile.gold .n{color:var(--gold)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+  .card h2{font-size:15px;margin-bottom:4px;color:var(--navy)}
+  .card .sub{font-size:12px;color:var(--mut);margin-bottom:14px}
+  .bar{display:flex;align-items:center;margin:7px 0;font-size:12.5px}
+  .bar .lab{width:190px;color:var(--ink);flex-shrink:0}
+  .bar .trk{flex:1;background:var(--soft);border-radius:4px;height:18px;position:relative;overflow:hidden;display:flex}
+  .bar .fill{background:var(--navy);height:100%}
+  .bar .fill.alt{background:var(--gold)}
+  .bar .fill.ok{background:var(--green)}
+  .bar .fill.warn{background:var(--red)}
+  .bar .val{width:62px;text-align:right;color:var(--mut);flex-shrink:0;padding-left:8px}
+  .legend{font-size:11.5px;color:var(--mut);margin-top:10px}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 4px 0 12px;vertical-align:middle}
+  .pending{border:1px dashed var(--line);background:repeating-linear-gradient(45deg,#fff,#fff 12px,#fafbfd 12px,#fafbfd 24px)}
+  .pending h2{color:var(--mut)}
+  .pending p{font-size:12.5px;color:var(--mut);line-height:1.55}
+  footer{margin-top:10px;padding-top:12px;border-top:1px solid var(--line);font-size:11.5px;color:var(--mut);line-height:1.6}
+  @media print{body{padding:10px}.tiles{grid-template-columns:repeat(5,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">PLUMBLINE <small>· EXECUTIVE VIEW</small><div style="font-size:14px;font-weight:500;color:var(--mut);margin-top:2px">Turner Theological Seminary</div></div>
+  <div class="stamp"><b>DEMO — live data</b><br>Source: Populi API2 (read-only)<br>Pulled: June 11, 2026 · Sync age shown on every screen</div>
+</header>
+
+<nav>
+  <span class="on">Admissions</span>
+  <span class="on">Academics</span>
+  <span class="soon">Strategic Goals — awaiting survey mapping</span>
+  <span class="soon">Future module</span>
+  <span class="soon">Future module</span>
+</nav>
+
+<div class="tiles">
+  <div class="tile"><div class="n">233</div><div class="l">Active enrolled students<br>(unique, current)</div></div>
+  <div class="tile"><div class="n">118</div><div class="l">Fall 2026 pipeline — leads<br>(degree 83 · certificate 35)</div></div>
+  <div class="tile"><div class="n">99</div><div class="l">Fall 2026 applications<br>(degree 60 · certificate 39)</div></div>
+  <div class="tile gold"><div class="n">102</div><div class="l">Applications sitting in progress<br>— follow-up opportunity</div></div>
+  <div class="tile"><div class="n">38%</div><div class="l">All-time lead → enrolled<br>conversion (251 of 659)</div></div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>Admissions funnel — all recorded cycles</h2>
+    <div class="sub">Raw Populi record counts. Stage definitions to be confirmed with the registrar.</div>
+    <div class="bar"><span class="lab">Leads (all sources)</span><div class="trk"><div class="fill" style="width:100%"></div></div><span class="val">659</span></div>
+    <div class="bar"><span class="lab">Application started</span><div class="trk"><div class="fill" style="width:40%"></div></div><span class="val">263</span></div>
+    <div class="bar"><span class="lab">Application completed</span><div class="trk"><div class="fill" style="width:4.7%"></div></div><span class="val">31</span></div>
+    <div class="bar"><span class="lab">Accepted</span><div class="trk"><div class="fill ok" style="width:7.6%"></div></div><span class="val">50</span></div>
+    <div class="bar"><span class="lab">Enrolled</span><div class="trk"><div class="fill ok" style="width:38.1%"></div></div><span class="val">251</span></div>
+    <div class="legend">Inquiry-form submissions on record: 125 (13 currently awaiting a reply — 13 on them, 1 on us). Most leads enter without the inquiry form.</div>
+  </div>
+
+  <div class="card">
+    <h2>Where applications stand right now</h2>
+    <div class="sub">All 200 application records on file, by current status.</div>
+    <div class="bar"><span class="lab">In progress</span><div class="trk"><div class="fill alt" style="width:100%"></div></div><span class="val">102</span></div>
+    <div class="bar"><span class="lab">Accepted</span><div class="trk"><div class="fill ok" style="width:45%"></div></div><span class="val">46</span></div>
+    <div class="bar"><span class="lab">Submitted, awaiting decision</span><div class="trk"><div class="fill" style="width:13.7%"></div></div><span class="val">14</span></div>
+    <div class="bar"><span class="lab">Withdrawn</span><div class="trk"><div class="fill warn" style="width:25.5%"></div></div><span class="val">26</span></div>
+    <div class="bar"><span class="lab">Declined</span><div class="trk"><div class="fill warn" style="width:10.8%"></div></div><span class="val">11</span></div>
+    <div class="bar"><span class="lab">Deferred</span><div class="trk"><div class="fill" style="width:1%"></div></div><span class="val">1</span></div>
+    <div class="legend">Program mix: Graduate 114 · Theology Certificate 84. The 102 in-progress applications are the single largest recoverable pool on this page.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Recruiting volume by entry term — degree vs. certificate</h2>
+  <div class="sub">Leads recorded per intended entry term, Fall 2024 (standalone Cohort 1) through Spring 2027.</div>
+  <div class="bar"><span class="lab">Fall 2024</span><div class="trk"><div class="fill" style="width:12%"></div><div class="fill alt" style="width:43.6%"></div></div><span class="val">130</span></div>
+  <div class="bar"><span class="lab">Spring 2025</span><div class="trk"><div class="fill" style="width:30.8%"></div><div class="fill alt" style="width:9.8%"></div></div><span class="val">95</span></div>
+  <div class="bar"><span class="lab">Fall 2025</span><div class="trk"><div class="fill" style="width:48.3%"></div><div class="fill alt" style="width:50%"></div></div><span class="val">230</span></div>
+  <div class="bar"><span class="lab">Spring 2026</span><div class="trk"><div class="fill" style="width:16.2%"></div><div class="fill alt" style="width:16.2%"></div></div><span class="val">76</span></div>
+  <div class="bar"><span class="lab">Fall 2026 (current cycle)</span><div class="trk"><div class="fill" style="width:35.5%"></div><div class="fill alt" style="width:15%"></div></div><span class="val">118</span></div>
+  <div class="bar"><span class="lab">Spring 2027 (opening)</span><div class="trk"><div class="fill" style="width:3.4%"></div></div><span class="val">8</span></div>
+  <div class="legend"><span class="dot" style="background:var(--navy)"></span>Degree programs <span class="dot" style="background:var(--gold)"></span>Certificate cohorts — certificate recruiting has matched or beaten degree recruiting in three of the last four cycles.</div>
+</div>
+
+<div class="grid">
+  <div class="card pending">
+    <h2>Retention &amp; completion — ready to compute, awaiting two answers</h2>
+    <p>Cohort 1 (Fall 2024 standalone entrants) is loaded and trackable. The retention and completion tiles light up the moment two questions on today's sheet are answered: <b>what counts as "kept" a student</b> (question 6) and <b>what makes a graduate official</b> (question 5).</p>
+  </div>
+  <div class="card pending">
+    <h2>Strategic goals &amp; survey scores — awaiting one mapping</h2>
+    <p>Goal scores appear here as soon as each survey question is linked to a strategic goal (questions 11–13 on today's sheet). Response rates and trends compute automatically after that.</p>
+  </div>
+</div>
+
+<footer>
+  Plumbline demo · All figures are aggregate counts pulled live from Populi API2 with a read-only token. No student-level records are displayed or stored. Sensitive identity fields (SSN and equivalents) are never requested. Counts reflect raw Populi records; official counting rules will be locked in from the definitions sheet and every figure will then cite its definition version.
+</footer>
+</body>
+</html>

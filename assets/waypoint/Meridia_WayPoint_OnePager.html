@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridia — WayPoint One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FAFAF8;
+    color: #1A1A1A;
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding: 0.6in 0.7in;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #1A1A1A;
+    margin-bottom: 18px;
+  }
+
+  .logo-area h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 28pt;
+    letter-spacing: 0.04em;
+    color: #1A1A1A;
+    line-height: 1;
+  }
+
+  .logo-area .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5pt;
+    color: #6B6B6B;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .contact-info {
+    text-align: right;
+    font-size: 8pt;
+    color: #6B6B6B;
+    line-height: 1.6;
+  }
+
+  .contact-info strong {
+    color: #1A1A1A;
+    font-weight: 600;
+  }
+
+  /* Section headers */
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8B7355;
+    margin-bottom: 5px;
+  }
+
+  /* Lead statement */
+  .lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+    max-width: 95%;
+  }
+
+  /* Two column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 18px;
+  }
+
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+  }
+
+  .section p {
+    font-size: 9pt;
+    line-height: 1.55;
+    color: #3A3A3A;
+  }
+
+  /* Product tiers */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .tier {
+    background: #F0EDE8;
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+
+  .tier .tier-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: #1A1A1A;
+    margin-bottom: 3px;
+  }
+
+  .tier .tier-audience {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8B7355;
+    margin-bottom: 5px;
+  }
+
+  .tier p {
+    font-size: 8pt;
+    line-height: 1.45;
+    color: #555;
+  }
+
+  /* Traction grid */
+  .traction-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .traction-item {
+    text-align: center;
+    padding: 10px 6px;
+    background: #1A1A1A;
+    border-radius: 4px;
+  }
+
+  .traction-item .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: #D4C5A0;
+    line-height: 1;
+  }
+
+  .traction-item .label {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #A0A0A0;
+    margin-top: 4px;
+  }
+
+  /* Market stats */
+  .market-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 18px;
+  }
+
+  .stat-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #E5E2DC;
+    font-size: 8.5pt;
+  }
+
+  .stat-line .stat-label { color: #6B6B6B; }
+  .stat-line .stat-value { font-weight: 700; color: #1A1A1A; }
+
+  /* Founder section */
+  .founder-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+    padding-top: 14px;
+    border-top: 1px solid #D5D0C8;
+    margin-bottom: 14px;
+  }
+
+  .founder-bio p {
+    font-size: 8.5pt;
+    line-height: 1.55;
+    color: #3A3A3A;
+  }
+
+  .founder-credentials {
+    font-size: 8pt;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  .founder-credentials strong {
+    color: #1A1A1A;
+  }
+
+  /* Footer ask */
+  .ask-bar {
+    background: #1A1A1A;
+    color: #FAFAF8;
+    padding: 14px 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ask-bar .ask-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 600;
+  }
+
+  .ask-bar .ask-detail {
+    font-size: 8pt;
+    color: #A0A0A0;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: #D5D0C8;
+    margin: 16px 0;
+  }
+
+  @media print {
+    body { padding: 0.5in 0.65in; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-area">
+    <h1>MERIDIA</h1>
+    <div class="tagline">Financial Intelligence Infrastructure</div>
+  </div>
+  <div class="contact-info">
+    <strong>Aliman Neal</strong> — Founder &amp; Architect<br>
+    Atlanta, GA<br>
+    aliman@meridiaholdings.com
+  </div>
+</div>
+
+<!-- LEAD STATEMENT -->
+<div class="lead">
+  WayPoint gives small institutions and underserved households the same financial positioning intelligence that family offices rely on — governed, transparent, and built with dignity.
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<div class="two-col">
+  <div class="section">
+    <div class="section-label">The Problem</div>
+    <p>Small institutions — seminaries, HBCUs, churches, nonprofits — run on QuickBooks reports that no one fully understands. Financial data exists but financial intelligence doesn't. Board members receive spreadsheets, not strategy. Leaders make decisions without seeing their true financial position. Meanwhile, family offices and large institutions pay six figures for the governance and positioning tools that make informed decision-making possible.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">The Solution</div>
+    <p>WayPoint is an AI-powered financial intelligence platform that ingests institutional financial data and produces governed, audience-differentiated outputs — board-ready summaries, operational dashboards, compliance-ready reports, and plain-language guidance — from a single data source. Every score is explained. Every recommendation shows its reasoning. The system doesn't just display numbers. It translates them into action.</p>
+  </div>
+</div>
+
+<!-- PRODUCT TIERS -->
+<div class="section-label">Product Lines</div>
+<div class="tiers">
+  <div class="tier">
+    <div class="tier-name">WayPoint Core</div>
+    <div class="tier-audience">Institutions &amp; Households</div>
+    <p>Financial positioning, report generation, and governance dashboards for small organizations and families building financial stability.</p>
+  </div>
+  <div class="tier">
+    <div class="tier-name">WayPoint Renaissance</div>
+    <div class="tier-audience">Re-Entry &amp; Excluded</div>
+    <p>Purpose-built for people excluded from traditional banking — ChexSystems flagged, prepaid-only, formerly incarcerated. Dignity-first financial intelligence.</p>
+  </div>
+  <div class="tier">
+    <div class="tier-name">WayPoint Edge</div>
+    <div class="tier-audience">Underserved Verticals</div>
+    <p>Tailored for industries in permanent penalty boxes — creators, cannabis operators, seasonal trades, gig economy. Banking access meets financial governance.</p>
+  </div>
+</div>
+
+<!-- TRACTION -->
+<div class="section-label">What's Built</div>
+<div class="traction-grid">
+  <div class="traction-item">
+    <div class="number">1</div>
+    <div class="label">Working Prototype</div>
+  </div>
+  <div class="traction-item">
+    <div class="number">6,030</div>
+    <div class="label">Education Standards<br>Loaded</div>
+  </div>
+  <div class="traction-item">
+    <div class="number">17</div>
+    <div class="label">Database Tables<br>Deployed</div>
+  </div>
+  <div class="traction-item">
+    <div class="number">2</div>
+    <div class="label">Institutional<br>Validators</div>
+  </div>
+</div>
+
+<!-- MARKET -->
+<div class="market-row">
+  <div>
+    <div class="section-label">Market Opportunity</div>
+    <div class="stat-line"><span class="stat-label">U.S. nonprofits with &lt;$1M budget</span><span class="stat-value">1.4M+</span></div>
+    <div class="stat-line"><span class="stat-label">HBCUs and minority-serving institutions</span><span class="stat-value">700+</span></div>
+    <div class="stat-line"><span class="stat-label">AME churches (domestic)</span><span class="stat-value">5,000+</span></div>
+    <div class="stat-line"><span class="stat-label">Unbanked/underbanked U.S. households</span><span class="stat-value">24.5M</span></div>
+    <div class="stat-line"><span class="stat-label">Financial wellness market (2025)</span><span class="stat-value">$3.4B</span></div>
+  </div>
+  <div>
+    <div class="section-label">Differentiation</div>
+    <p style="font-size: 8.5pt; line-height: 1.55; color: #3A3A3A; margin-bottom: 8px;">
+      <strong>Governance-first architecture.</strong> WayPoint doesn't just aggregate data — it routes it through governed permission cascades. The board sees strategy. The operations team sees execution detail. The regulator sees compliance. The family sees plain-language guidance. Same data, different governed outputs.
+    </p>
+    <p style="font-size: 8.5pt; line-height: 1.55; color: #3A3A3A;">
+      <strong>Dignity over charity.</strong> Renaissance and Edge tiers serve excluded populations with the same architectural sophistication as Core — not watered-down products or condescending interfaces.
+    </p>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<div class="founder-section">
+  <div class="founder-bio">
+    <div class="section-label">Founder</div>
+    <p><strong>Aliman Neal</strong> is an enterprise systems architect and financial operations professional with 15+ years of experience implementing and managing ERP platforms (SAP, Oracle, Microsoft Dynamics) across institutional environments including Coca-Cola and CDC Software. He holds an MS in Accounting and MBA, carries an active NMLS certification, and currently manages financial operations at a theological seminary — the same institution that serves as WayPoint's first pilot environment. He sees the problem every day because he lives inside it.</p>
+  </div>
+  <div class="founder-credentials">
+    <div class="section-label">Credentials</div>
+    <strong>Education</strong><br>
+    MS Accounting · MBA<br><br>
+    <strong>Enterprise Systems</strong><br>
+    SAP · Oracle · Dynamics · Great Plains<br><br>
+    <strong>Certifications</strong><br>
+    NMLS Licensed<br><br>
+    <strong>Validators</strong><br>
+    Keith Mosley — Enterprise Architect, Genuine Parts<br>
+    Andre Waits — VP Global Card Ops, JPMC
+  </div>
+</div>
+
+<!-- ASK -->
+<div class="ask-bar">
+  <div class="ask-text">Seeking: $100K pre-seed to complete backend integration and launch institutional pilot</div>
+  <div class="ask-detail">
+    Georgia LLC · Filed 2026<br>
+    aliman@meridiaholdings.com
+  </div>
+</div>
+
+</body>
+</html>

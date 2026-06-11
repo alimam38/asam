@@ -1,0 +1,96 @@
+# ═══════════════════════════════════════════════════════════════
+# AIA Corpus Infrastructure — Docker Compose
+# Deploy on Synology DS925+ alongside existing PostgreSQL
+#
+# If PostgreSQL is already running as a container:
+#   - Update DB_HOST to match your existing container name
+#   - Connect both to the same Docker network
+#
+# If starting fresh:
+#   - Uncomment the postgres service below
+# ═══════════════════════════════════════════════════════════════
+
+version: '3.8'
+
+services:
+
+  # ─── Uncomment if PostgreSQL is NOT already running ───────────
+  # postgres:
+  #   image: postgres:16
+  #   container_name: aia-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: meridia
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #     - ./aia_corpus_schema.sql:/docker-entrypoint-initdb.d/01_corpus_schema.sql
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - aia-network
+
+  # ─── AIA Cataloger — Watch Mode ──────────────────────────────
+  # Monitors the Dropbox sync folder and auto-registers new files
+  aia-cataloger:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aia-cataloger
+    restart: unless-stopped
+    command: [
+      "--watch", "/data/dropbox",
+      "--db-host", "${DB_HOST:-aia-postgres}",
+      "--db-port", "${DB_PORT:-5432}",
+      "--db-name", "${DB_NAME:-meridia}",
+      "--db-user", "${DB_USER:-postgres}",
+      "--db-pass", "${DB_PASSWORD:-changeme}",
+      "--origin", "dropbox",
+      "--interval", "120",
+      "--verbose"
+    ]
+    volumes:
+      # Mount your Dropbox Cloud Sync folder here
+      - ${DROPBOX_PATH:-/volume1/Dropbox}:/data/dropbox:ro
+      # Mount for any other source folders
+      - ${CORPUS_PATH:-/volume1/AIA_Corpus}:/data/corpus
+    networks:
+      - aia-network
+    depends_on:
+      - aia-cataloger-init
+
+  # ─── One-time schema deployment ──────────────────────────────
+  # Runs the corpus schema SQL, then exits
+  aia-cataloger-init:
+    image: postgres:16
+    container_name: aia-cataloger-init
+    restart: "no"
+    environment:
+      PGHOST: ${DB_HOST:-aia-postgres}
+      PGPORT: ${DB_PORT:-5432}
+      PGDATABASE: ${DB_NAME:-meridia}
+      PGUSER: ${DB_USER:-postgres}
+      PGPASSWORD: ${DB_PASSWORD:-changeme}
+    volumes:
+      - ./aia_corpus_schema.sql:/schema.sql:ro
+    entrypoint: >
+      sh -c '
+        echo "Waiting for PostgreSQL..."
+        until pg_isready -h $$PGHOST -p $$PGPORT; do sleep 2; done
+        echo "Deploying corpus schema..."
+        psql -f /schema.sql 2>&1 || echo "Schema may already exist (OK)"
+        echo "Done."
+      '
+    networks:
+      - aia-network
+
+networks:
+  aia-network:
+    driver: bridge
+    # If your PostgreSQL is on an existing network, use:
+    # external: true
+    # name: your-existing-network-name
+
+# volumes:
+#   pgdata:

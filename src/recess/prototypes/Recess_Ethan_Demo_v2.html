@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recess — Ethan's Word Neighborhood</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;background:#87CEEB;overflow:hidden;}
+:root{
+  --mp:#E8834A;--mp-light:#FFF0E0;--mp-dark:#C4622A;
+  --nk:#7B68EE;--nk-light:#F0EEFF;--nk-dark:#5A4AC0;
+  --nd:#E84A8A;--nd-light:#FFF0F8;--nd-dark:#C42A6A;
+  --es:#3AB5A0;--es-light:#E8FFF8;--es-dark:#2A8A78;
+  --gold:#FFD700;--text:#2A1F0E;--mid:#5A4A2E;
+  --act-color:#E8834A;--act-light:#FFF0E0;--act-dark:#C4622A;
+}
+
+/* ── SCREENS ── */
+.screen{position:absolute;inset:0;display:none;opacity:0;transition:opacity .4s;}
+.screen.active{display:flex;opacity:1;}
+
+/* ── SPEECH BUTTON (global) ── */
+.speak-btn{
+  background:none;border:none;cursor:pointer;font-size:18px;
+  padding:3px 6px;border-radius:8px;transition:background .2s;
+  vertical-align:middle;opacity:.7;
+}
+.speak-btn:hover{background:rgba(0,0,0,.08);opacity:1;}
+.speaking{animation:speakPulse .6s ease-in-out infinite;}
+@keyframes speakPulse{0%,100%{opacity:.7;}50%{opacity:1;transform:scale(1.2);}}
+
+/* ── INSTRUCTION BANNER ── */
+.instruction-banner{
+  width:100%;max-width:580px;
+  background:white;border-radius:16px;
+  padding:12px 16px;
+  display:flex;align-items:flex-start;gap:10px;
+  box-shadow:0 3px 16px rgba(0,0,0,.12);
+  border-left:5px solid var(--act-color);
+  animation:bannerIn .5s ease;
+}
+@keyframes bannerIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+.banner-orb{font-size:24px;flex-shrink:0;margin-top:2px;}
+.banner-text{flex:1;}
+.banner-title{font-family:'Fredoka One',cursive;font-size:15px;color:var(--act-color);margin-bottom:3px;}
+.banner-body{font-size:14px;font-weight:700;color:var(--text);line-height:1.5;font-family:'Patrick Hand',cursive;}
+.banner-read-btn{
+  flex-shrink:0;background:var(--act-color);color:white;border:none;
+  border-radius:20px;padding:6px 12px;font-size:12px;font-weight:800;
+  cursor:pointer;font-family:'Nunito',sans-serif;
+  white-space:nowrap;transition:all .2s;
+}
+.banner-read-btn:hover{filter:brightness(1.1);}
+
+/* ── HOME SCREEN ── */
+#s-home{
+  flex-direction:column;align-items:center;justify-content:flex-end;
+  background:linear-gradient(180deg,#87CEEB 0%,#B0E0FF 55%,#5CB85C 55%,#4A9A4A 100%);
+}
+.sun{position:absolute;top:6%;right:10%;width:70px;height:70px;
+  background:radial-gradient(circle,#FFE066,#FFD700 60%,#FFC200);
+  border-radius:50%;box-shadow:0 0 40px rgba(255,215,0,.6);
+  animation:pulse 3s ease-in-out infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 40px rgba(255,215,0,.6);}50%{box-shadow:0 0 70px rgba(255,215,0,.9);}}
+.cloud{position:absolute;background:white;border-radius:50px;opacity:.9;}
+.cloud::before,.cloud::after{content:'';position:absolute;background:white;border-radius:50%;}
+.c1{width:110px;height:36px;top:12%;left:6%;animation:drift 22s ease-in-out infinite;}
+.c1::before{width:52px;height:52px;top:-26px;left:12px;}
+.c1::after{width:40px;height:40px;top:-18px;left:46px;}
+.c2{width:85px;height:28px;top:7%;left:40%;animation:drift 30s ease-in-out infinite 8s;}
+.c2::before{width:42px;height:42px;top:-20px;left:10px;}
+.c2::after{width:32px;height:32px;top:-14px;left:34px;}
+.c3{width:95px;height:32px;top:18%;right:8%;animation:drift 25s ease-in-out infinite 4s;}
+.c3::before{width:46px;height:46px;top:-23px;left:14px;}
+.c3::after{width:36px;height:36px;top:-16px;left:42px;}
+@keyframes drift{0%,100%{transform:translateX(0);}50%{transform:translateX(25px);}}
+.home-title{position:absolute;top:4%;left:50%;transform:translateX(-50%);text-align:center;z-index:10;}
+.home-title h1{font-family:'Fredoka One',cursive;font-size:clamp(30px,7vw,58px);
+  color:white;text-shadow:3px 3px 0 rgba(0,100,200,.3);letter-spacing:2px;}
+.home-title .sub{font-size:clamp(12px,2.5vw,17px);font-weight:800;color:rgba(255,255,255,.9);margin-top:4px;}
+.aletheia-bar{position:absolute;top:27%;left:50%;transform:translateX(-50%);
+  z-index:20;text-align:center;animation:floatIn .8s ease .3s both;white-space:nowrap;}
+@keyframes floatIn{from{opacity:0;transform:translateX(-50%) translateY(-16px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+.orb{width:50px;height:50px;background:radial-gradient(circle,#FFF8D0,#FFD700 60%,#FFC000);
+  border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:24px;
+  box-shadow:0 0 20px rgba(255,215,0,.8);animation:orbGlow 2s ease-in-out infinite;cursor:pointer;}
+@keyframes orbGlow{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.bubble{background:white;border-radius:18px;padding:12px 20px;
+  font-size:clamp(13px,2vw,16px);font-weight:800;color:var(--text);
+  box-shadow:0 4px 18px rgba(0,0,0,.15);max-width:320px;position:relative;
+  font-family:'Patrick Hand',cursive;line-height:1.5;}
+.bubble::before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  border:9px solid transparent;border-bottom-color:white;border-top:0;}
+.ground{position:absolute;bottom:0;left:0;right:0;height:46%;background:linear-gradient(180deg,#5CB85C,#4A9A4A);}
+.center-path{position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:120px;height:50%;background:linear-gradient(180deg,#D4A96A,#C49050);
+  clip-path:polygon(18% 0%,82% 0%,100% 100%,0% 100%);}
+.center-path::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:7px;height:100%;background:repeating-linear-gradient(180deg,rgba(255,255,255,.4) 0,rgba(255,255,255,.4) 14px,transparent 14px,transparent 28px);}
+.houses{position:absolute;bottom:33%;left:0;right:0;
+  display:flex;justify-content:space-around;align-items:flex-end;padding:0 3%;z-index:5;}
+.house{display:flex;flex-direction:column;align-items:center;cursor:pointer;
+  width:23%;max-width:170px;transition:transform .25s;animation:houseRise .6s ease both;}
+.house:hover{transform:translateY(-12px) scale(1.05);}
+.house:nth-child(1){animation-delay:.1s;}.house:nth-child(2){animation-delay:.2s;}
+.house:nth-child(3){animation-delay:.3s;}.house:nth-child(4){animation-delay:.4s;}
+@keyframes houseRise{from{opacity:0;transform:translateY(36px);}to{opacity:1;transform:translateY(0);}}
+.h-char{font-size:clamp(26px,5vw,40px);animation:charBounce 2s ease-in-out infinite;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));}
+.house:nth-child(1) .h-char{animation-delay:0s;}.house:nth-child(2) .h-char{animation-delay:.5s;}
+.house:nth-child(3) .h-char{animation-delay:1s;}.house:nth-child(4) .h-char{animation-delay:1.5s;}
+@keyframes charBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.h-roof{width:100%;height:0;border-left:48px solid transparent;border-right:48px solid transparent;position:relative;}
+.h-chimney{position:absolute;top:-44px;right:10px;width:12px;height:26px;border-radius:2px;}
+.h-body{width:78%;min-height:65px;border-radius:4px 4px 0 0;
+  display:flex;flex-direction:column;align-items:center;padding:8px 6px 0;
+  box-shadow:2px 2px 8px rgba(0,0,0,.15);}
+.h-window{width:28px;height:26px;background:rgba(255,255,200,.9);
+  border:3px solid rgba(0,0,0,.15);border-radius:4px;margin-bottom:3px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;}
+.h-door{width:22px;height:28px;border-radius:11px 11px 0 0;border:3px solid rgba(0,0,0,.2);margin-top:2px;}
+.h-label{font-family:'Fredoka One',cursive;font-size:clamp(10px,1.8vw,14px);
+  color:white;text-shadow:1px 1px 0 rgba(0,0,0,.3);margin-top:7px;padding:4px 10px;
+  border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,.2);text-align:center;white-space:nowrap;}
+.tree{position:absolute;display:flex;flex-direction:column;align-items:center;pointer-events:none;}
+.t-top{width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:32px solid #2D8A2D;z-index:2;}
+.t-top2{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:26px solid #3A9A3A;margin-top:-10px;}
+.t-trunk{width:7px;height:16px;background:#8B6340;border-radius:2px;}
+.tr1{bottom:38%;left:5%}.tr2{bottom:37%;left:13%}.tr3{bottom:39%;right:6%}.tr4{bottom:38%;right:14%}
+.ethan-tag{position:absolute;top:12px;left:16px;background:rgba(255,255,255,.92);
+  border-radius:12px;padding:6px 14px;font-weight:800;font-size:13px;color:var(--text);
+  box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:30;display:flex;align-items:center;gap:6px;}
+
+/* ── ACTIVITY SCREEN ── */
+#s-activity{flex-direction:column;overflow:hidden;}
+.act-header{flex-shrink:0;padding:10px 18px;display:flex;align-items:center;gap:10px;
+  color:white;box-shadow:0 3px 12px rgba(0,0,0,.15);}
+.act-char{font-size:26px;}
+.act-title{font-family:'Fredoka One',cursive;font-size:clamp(15px,3vw,20px);}
+.prog-dots{margin-left:auto;display:flex;gap:5px;}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s;}
+.dot.done{background:rgba(255,255,255,.8);}.dot.now{background:white;box-shadow:0 0 8px rgba(255,255,255,.8);}
+.act-body{flex:1;overflow-y:auto;padding:clamp(12px,3vw,22px);
+  display:flex;flex-direction:column;align-items:center;gap:12px;}
+.back-link{position:absolute;top:14px;left:18px;background:none;border:none;
+  font-size:13px;font-weight:800;color:rgba(255,255,255,.8);cursor:pointer;
+  font-family:'Nunito',sans-serif;padding:3px 8px;border-radius:8px;transition:background .2s;}
+.back-link:hover{background:rgba(255,255,255,.15);}
+.card{width:100%;max-width:580px;background:white;border-radius:22px;
+  padding:clamp(14px,3vw,22px);box-shadow:0 4px 22px rgba(0,0,0,.1);}
+.next-btn{font-family:'Fredoka One',cursive;font-size:clamp(15px,2.5vw,19px);
+  padding:11px 32px;border:none;border-radius:50px;color:white;cursor:pointer;
+  box-shadow:0 4px 0 rgba(0,0,0,.25);transition:all .15s;display:none;}
+.next-btn:hover{transform:translateY(-2px);}
+.next-btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.25);}
+.next-btn.show{display:block;animation:pop .3s ease;}
+@keyframes pop{0%{transform:scale(.8);opacity:0;}60%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+.feedback-ok{color:#2A8A78;font-weight:800;font-size:14px;margin-top:6px;text-align:center;}
+.feedback-no{color:#CC4444;font-weight:800;font-size:14px;margin-top:6px;text-align:center;}
+
+/* ── SORT ── */
+.sort-prompt{font-size:clamp(14px,2.5vw,17px);font-weight:800;color:var(--text);text-align:center;margin-bottom:8px;line-height:1.4;}
+.word-bank{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+  padding:12px;background:#F8F8F8;border-radius:12px;border:2px dashed #DDD;min-height:50px;}
+.sort-word{font-family:'Fredoka One',cursive;font-size:clamp(14px,2.5vw,17px);
+  padding:7px 14px;border-radius:20px;border:3px solid var(--act-color);background:white;
+  color:var(--act-color);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.1);transition:all .2s;}
+.sort-word:hover{background:var(--act-color);color:white;transform:scale(1.05);}
+.sort-word.placed{opacity:.35;pointer-events:none;border-style:dashed;}
+.sort-bins{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
+.sort-bin{flex:1;min-width:110px;max-width:190px;border:3px solid;border-radius:16px;
+  padding:10px;min-height:90px;transition:background .2s;}
+.sort-bin-label{font-family:'Fredoka One',cursive;font-size:clamp(14px,2.5vw,18px);
+  text-align:center;margin-bottom:6px;padding-bottom:5px;border-bottom:2px dashed;}
+.bin-words{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;min-height:36px;}
+.placed-chip{font-family:'Fredoka One',cursive;font-size:clamp(11px,2vw,14px);
+  padding:4px 10px;border-radius:12px;color:white;animation:chipPop .25s ease;}
+@keyframes chipPop{from{transform:scale(0);}to{transform:scale(1);}}
+.sort-score{text-align:center;font-weight:800;font-size:14px;margin-top:8px;}
+
+/* ── STORY FILL ── */
+.story-passage{font-family:'Patrick Hand',cursive;font-size:clamp(16px,2.8vw,20px);
+  line-height:2;color:var(--text);margin-bottom:12px;}
+.blank{display:inline-block;min-width:80px;height:30px;border-bottom:3px solid var(--act-color);
+  margin:0 3px;vertical-align:bottom;text-align:center;cursor:pointer;
+  font-family:'Fredoka One',cursive;font-size:clamp(14px,2.5vw,17px);color:var(--act-color);
+  transition:background .2s;border-radius:4px 4px 0 0;padding:0 6px;}
+.blank:hover{background:rgba(0,0,0,.04);}
+.blank.correct{background:rgba(58,181,160,.12);color:var(--es-dark);border-bottom-color:var(--es);}
+.blank.wrong{animation:shake .3s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+.word-choices{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+  padding:10px;background:#F5F5F5;border-radius:12px;}
+.word-chip{font-family:'Fredoka One',cursive;font-size:clamp(13px,2.3vw,16px);
+  padding:6px 14px;border-radius:18px;border:3px solid var(--act-color);background:white;
+  color:var(--act-color);cursor:pointer;transition:all .2s;}
+.word-chip:hover{background:var(--act-color);color:white;}
+.word-chip.used{opacity:.3;pointer-events:none;border-style:dashed;}
+
+/* ── SCRAMBLE ── */
+.scramble-big{font-family:'Fredoka One',cursive;font-size:clamp(26px,6vw,42px);
+  color:var(--act-color);letter-spacing:8px;text-align:center;
+  background:var(--act-light);padding:12px 24px;border-radius:14px;display:block;}
+.scramble-hint{font-size:13px;color:var(--mid);font-style:italic;
+  font-family:'Patrick Hand',cursive;text-align:center;margin:4px 0;}
+.answer-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:10px 0;}
+.ans-slot{font-family:'Fredoka One',cursive;font-size:clamp(20px,4.5vw,30px);
+  width:clamp(38px,7vw,50px);height:clamp(44px,7vw,56px);
+  border-bottom:4px solid var(--act-color);display:flex;align-items:center;
+  justify-content:center;color:var(--act-color);cursor:pointer;
+  border-radius:6px 6px 0 0;transition:background .2s;}
+.ans-slot.filled{background:rgba(0,0,0,.04);}
+.letter-row{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:8px 0;}
+.l-btn{font-family:'Fredoka One',cursive;font-size:clamp(16px,3.5vw,22px);
+  width:clamp(40px,7vw,52px);height:clamp(40px,7vw,52px);border-radius:10px;
+  border:3px solid var(--act-color);background:white;color:var(--act-color);
+  cursor:pointer;transition:all .2s;box-shadow:0 3px 0 var(--act-dark);}
+.l-btn:hover{background:var(--act-color);color:white;transform:translateY(-2px);}
+.l-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--act-dark);}
+.l-btn.used{opacity:.2;pointer-events:none;}
+.sc-action-row{display:flex;gap:8px;justify-content:center;margin-top:6px;}
+.sc-btn{font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;
+  padding:7px 16px;border-radius:16px;border:3px solid var(--act-color);
+  background:white;color:var(--act-color);cursor:pointer;transition:all .2s;}
+.sc-btn:hover{background:var(--act-color);color:white;}
+.sc-counter{font-size:12px;color:var(--mid);font-weight:700;text-align:center;margin-top:4px;}
+
+/* ── PATTERN ── */
+.pat-prompt{font-size:clamp(14px,2.5vw,17px);font-weight:800;color:var(--text);
+  text-align:center;margin-bottom:12px;line-height:1.4;}
+.pat-word-btn{font-family:'Fredoka One',cursive;font-size:clamp(15px,2.8vw,20px);
+  padding:9px 20px;border-radius:22px;border:3px solid;background:white;
+  cursor:pointer;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1);}
+.pat-word-btn:hover{transform:scale(1.05);}
+.pat-choice{font-family:'Nunito',sans-serif;font-weight:700;
+  font-size:clamp(14px,2vw,16px);padding:12px 16px;border-radius:14px;
+  border:3px solid var(--es);background:white;color:var(--text);
+  cursor:pointer;text-align:left;transition:all .2s;line-height:1.4;width:100%;}
+.pat-choice:hover{background:rgba(58,181,160,.08);}
+
+/* ── CELEBRATION ── */
+#s-celebration{flex-direction:column;align-items:center;justify-content:center;padding:20px;
+  background:linear-gradient(135deg,#87CEEB,#B0E0FF 50%,#87CEEB);}
+.celeb-card{background:white;border-radius:28px;padding:clamp(22px,5vw,42px);
+  max-width:520px;width:100%;text-align:center;
+  box-shadow:0 12px 48px rgba(0,0,0,.15);animation:cIn .6s cubic-bezier(.34,1.56,.64,1);}
+@keyframes cIn{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
+.celeb-big{font-size:clamp(44px,10vw,68px);display:block;margin-bottom:10px;
+  animation:eBounce .6s ease .2s both;}
+@keyframes eBounce{0%{transform:scale(0);}50%{transform:scale(1.3);}100%{transform:scale(1);}}
+.celeb-title{font-family:'Fredoka One',cursive;font-size:clamp(22px,5vw,36px);margin-bottom:10px;}
+.celeb-box{background:#FFFBEF;border:2px solid rgba(255,215,0,.4);border-radius:14px;
+  padding:14px 18px;font-size:clamp(14px,2.2vw,16px);font-weight:700;
+  color:var(--text);line-height:1.5;margin-bottom:12px;}
+.celeb-quote{font-size:clamp(13px,1.8vw,15px);color:var(--mid);
+  font-style:italic;font-family:'Patrick Hand',cursive;margin-bottom:20px;}
+.celeb-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.c-btn{font-family:'Fredoka One',cursive;font-size:clamp(14px,2.3vw,17px);
+  padding:10px 24px;border-radius:50px;border:none;cursor:pointer;
+  box-shadow:0 4px 0 rgba(0,0,0,.2);transition:all .15s;}
+.c-btn:hover{transform:translateY(-2px);}
+.c-btn.primary{color:white;}
+.c-btn.sec{background:#F0F0F0;color:var(--mid);}
+.conf{position:fixed;width:8px;height:8px;border-radius:2px;
+  animation:confFall linear infinite;pointer-events:none;}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}
+  100%{transform:translateY(100vh) rotate(540deg);opacity:0;}}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div class="screen active" id="s-home">
+  <div class="sun" onclick="speakText('Recess! Tap a house to start.')"></div>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <div class="home-title">
+    <h1>Recess</h1>
+    <div class="sub">Ethan's Word Neighborhood</div>
+  </div>
+  <div class="aletheia-bar">
+    <div class="orb" onclick="speakWelcome()" title="Tap me to hear the welcome!">✨</div>
+    <div class="bubble" onclick="speakWelcome()" style="cursor:pointer;">
+      Hi Ethan! 👋 Tap a house to start!<br>
+      <span style="font-size:12px;opacity:.7;">🔊 Tap the star to hear this</span>
+    </div>
+  </div>
+  <div class="ethan-tag">⭐ Ethan's Words</div>
+  <div class="ground">
+    <div class="center-path"></div>
+    <div class="houses">
+      <div class="house" onclick="startAct('sort')">
+        <div class="h-char">🗂️</div>
+        <div class="h-roof" style="border-bottom-color:#C4622A;"><div class="h-chimney" style="background:#C4622A;"></div></div>
+        <div class="h-body" style="background:#F5D5B8;"><div class="h-window">📋</div><div class="h-door" style="background:#A04820;"></div></div>
+        <div class="h-label" style="background:var(--mp);">Sort by Sound</div>
+      </div>
+      <div class="house" onclick="startAct('story')">
+        <div class="h-char">📖</div>
+        <div class="h-roof" style="border-bottom-color:#5A4AC0;"><div class="h-chimney" style="background:#5A4AC0;"></div></div>
+        <div class="h-body" style="background:#D8D0FF;"><div class="h-window">🌟</div><div class="h-door" style="background:#4A3AAA;"></div></div>
+        <div class="h-label" style="background:var(--nk);">Fill the Story</div>
+      </div>
+      <div class="house" onclick="startAct('scramble')">
+        <div class="h-char">🔤</div>
+        <div class="h-roof" style="border-bottom-color:#C42A6A;"><div class="h-chimney" style="background:#C42A6A;"></div></div>
+        <div class="h-body" style="background:#FFD0E8;"><div class="h-window">🔡</div><div class="h-door" style="background:#AA1858;"></div></div>
+        <div class="h-label" style="background:var(--nd);">Unscramble It</div>
+      </div>
+      <div class="house" onclick="startAct('pattern')">
+        <div class="h-char">🧩</div>
+        <div class="h-roof" style="border-bottom-color:#2A8A78;"><div class="h-chimney" style="background:#2A8A78;"></div></div>
+        <div class="h-body" style="background:#C8F0E8;"><div class="h-window">💡</div><div class="h-door" style="background:#1A6A58;"></div></div>
+        <div class="h-label" style="background:var(--es);">Find the Pattern</div>
+      </div>
+    </div>
+    <div class="tree tr1"><div class="t-top"></div><div class="t-top2"></div><div class="t-trunk"></div></div>
+    <div class="tree tr2"><div class="t-top"></div><div class="t-trunk"></div></div>
+    <div class="tree tr3"><div class="t-top"></div><div class="t-top2"></div><div class="t-trunk"></div></div>
+    <div class="tree tr4"><div class="t-top"></div><div class="t-trunk"></div></div>
+  </div>
+</div>
+
+<!-- ACTIVITY -->
+<div class="screen" id="s-activity">
+  <div class="act-header" id="act-hdr">
+    <button class="back-link" onclick="goHome()">← Back</button>
+    <span class="act-char" id="act-char">🗂️</span>
+    <span class="act-title" id="act-title">Sort by Sound</span>
+    <div class="prog-dots" id="prog-dots"></div>
+  </div>
+  <div class="act-body" id="act-body"></div>
+</div>
+
+<!-- CELEBRATION -->
+<div class="screen" id="s-celebration">
+  <div class="celeb-card">
+    <span class="celeb-big" id="c-emojis">⭐🌟✨</span>
+    <div class="celeb-title" id="c-title">You got it, Ethan!</div>
+    <div class="celeb-box" id="c-box">Great work today!</div>
+    <div class="celeb-quote" id="c-quote">"You already knew these words. You just proved it."</div>
+    <div class="celeb-btns">
+      <button class="c-btn primary" id="c-primary" onclick="goHome()">Try Another! 🏠</button>
+      <button class="c-btn sec" onclick="goHome()">Back to Neighborhood</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// SPEECH ENGINE — Web Speech API
+// Built into Chrome, Safari, Edge, Firefox
+// No internet or API key required
+// ══════════════════════════════════════════
+const synth = window.speechSynthesis;
+let speechReady = false;
+let voices = [];
+
+function loadVoices(){
+  voices = synth.getVoices();
+  if(voices.length) speechReady = true;
+}
+loadVoices();
+if(synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
+
+function speakText(text, rate=0.85, pitch=1.05){
+  if(!synth) return;
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.rate = rate;
+  utt.pitch = pitch;
+  utt.volume = 1;
+  // Prefer a clear, child-friendly voice
+  const preferred = voices.find(v=>
+    v.name.includes('Samantha') ||
+    v.name.includes('Karen') ||
+    v.name.includes('Google US English') ||
+    v.name.includes('en-US') ||
+    (v.lang && v.lang.startsWith('en'))
+  );
+  if(preferred) utt.voice = preferred;
+  synth.speak(utt);
+}
+
+function speakWord(word){
+  // Speak the word slowly and clearly for a child
+  speakText(word, 0.7, 1.0);
+}
+
+function speakInstruction(text){
+  speakText(text, 0.8, 1.05);
+}
+
+function speakWelcome(){
+  speakText("Hi Ethan! Welcome to Recess! Tap a house to start learning your spelling words today!", 0.8, 1.1);
+}
+
+// ══════════════════════════════════════════
+// ACTIVITY DATA
+// ══════════════════════════════════════════
+const ACTS = {
+  sort:{
+    color:'#E8834A', light:'#FFF0E0', dark:'#C4622A',
+    char:'🗂️', title:'Sort by Sound',
+    instructions:[
+      "Sort the words into groups by their ending sound. Tap a word to hear it, then tap the group it belongs to!",
+      "Great job! Keep sorting. Tap each word to hear it again if you need to!",
+      "Last round! You know these patterns now — show me what you know!"
+    ],
+    celebrate:{
+      emojis:'🗂️⭐🎉', title:'Amazing sorting, Ethan!',
+      box:'You just discovered that words ending in the same letters belong to the same family — like lamp, jump, and camp are all -mp words!',
+      quote:'"When you know one word in a family, you can spell the whole family."',
+      speech:'Amazing job Ethan! You sorted all the words correctly! You discovered spelling families!'
+    }
+  },
+  story:{
+    color:'#7B68EE', light:'#F0EEFF', dark:'#5A4AC0',
+    char:'📖', title:'Fill the Story',
+    instructions:[
+      "Read the sentence. Tap a word from the box at the bottom, then tap the blank where it belongs!",
+      "You're writing a real story with your spelling words! Tap a word, then tap the blank!",
+      "Last sentence! You're doing great — one more to complete the story!"
+    ],
+    celebrate:{
+      emojis:'📖🌟✍️', title:'You wrote the story, Ethan!',
+      box:'Every word you picked made the sentence make sense — that means you know what each word means, not just how to spell it!',
+      quote:'"Knowing a word means knowing when to use it. You do."',
+      speech:'You did it Ethan! You completed the whole story using your spelling words!'
+    }
+  },
+  scramble:{
+    color:'#E84A8A', light:'#FFF0F8', dark:'#C42A6A',
+    char:'🔤', title:'Unscramble It',
+    instructions:[
+      "The letters are all there — just mixed up! Tap letters to build the word. Tap a letter in your answer to remove it.",
+      "You're halfway through! Keep building the words from the letters.",
+      "Last set of words! You've got this — you already know how to spell them!"
+    ],
+    celebrate:{
+      emojis:'🔤🏆🎊', title:'You unscrambled them all!',
+      box:'Unscrambling a word means your brain already knows what it looks like. You recognized the pattern before you even finished — that is spelling mastery!',
+      quote:'"You did not just memorize these words. You own them."',
+      speech:'Wow Ethan! You unscrambled every single word! Your brain already knew what they looked like!'
+    }
+  },
+  pattern:{
+    color:'#3AB5A0', light:'#E8FFF8', dark:'#2A8A78',
+    char:'🧩', title:'Find the Pattern',
+    instructions:[
+      "Look at all the words carefully. Which one is different from the others?",
+      "Now find the two words that follow the same rule. Tap both of them!",
+      "Last one — this is a big discovery question. Think carefully!"
+    ],
+    celebrate:{
+      emojis:'🧩💡🌟', title:'You found all the patterns!',
+      box:'When you notice that boxes, dishes, and matches all add -es to become plural, you can spell hundreds of new words — not just these ones!',
+      quote:'"One pattern unlocks a whole family of words. That is not just spelling — that is reading the code."',
+      speech:'Incredible, Ethan! You found every single pattern. You are thinking like a real reader now!'
+    }
+  }
+};
+
+// ══════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════
+let S = { act:null, step:0, steps:3, signals:[], attempts:{} };
+
+// ══════════════════════════════════════════
+// SCREENS
+// ══════════════════════════════════════════
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');s.style.display='none';});
+  const el=document.getElementById('s-'+id);
+  el.style.display='flex';
+  requestAnimationFrame(()=>el.classList.add('active'));
+}
+function goHome(){ synth.cancel(); show('home'); S.act=null; S.step=0; }
+
+function startAct(type){
+  S.act=type; S.step=0; S.signals=[{event:'start',type,time:Date.now()}]; S.attempts={};
+  const cfg=ACTS[type];
+  document.getElementById('act-hdr').style.background=cfg.color;
+  document.getElementById('act-char').textContent=cfg.char;
+  document.getElementById('act-title').textContent=cfg.title;
+  document.getElementById('s-activity').style.background=cfg.light;
+  document.documentElement.style.setProperty('--act-color',cfg.color);
+  document.documentElement.style.setProperty('--act-light',cfg.light);
+  document.documentElement.style.setProperty('--act-dark',cfg.dark);
+  buildDots(); renderStep(); show('activity');
+}
+
+function buildDots(){
+  const c=document.getElementById('prog-dots'); c.innerHTML='';
+  for(let i=0;i<S.steps;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i===0?' now':'');d.id='d'+i;c.appendChild(d);
+  }
+}
+function updDots(){
+  for(let i=0;i<S.steps;i++){
+    const d=document.getElementById('d'+i);
+    d.className='dot'+(i<S.step?' done':i===S.step?' now':'');
+  }
+}
+
+function renderStep(){
+  updDots();
+  const body=document.getElementById('act-body');
+  body.innerHTML='';
+  S.attempts[S.step]=0;
+
+  const cfg=ACTS[S.act];
+
+  // Instruction banner
+  const banner=document.createElement('div');
+  banner.className='instruction-banner';
+  banner.innerHTML=`
+    <div class="banner-orb">✨</div>
+    <div class="banner-text">
+      <div class="banner-title">What to do:</div>
+      <div class="banner-body" id="banner-text-body">${cfg.instructions[S.step]}</div>
+    </div>
+    <button class="banner-read-btn" onclick="speakInstruction('${cfg.instructions[S.step].replace(/'/g,"\\'")}')">🔊 Read to me</button>`;
+  body.appendChild(banner);
+
+  // Auto-read instructions
+  setTimeout(()=>speakInstruction(cfg.instructions[S.step]), 400);
+
+  // Render activity
+  ({sort:[renderSort0,renderSort1,renderSort2],
+    story:[renderStory0,renderStory1,renderStory2],
+    scramble:[renderSc0,renderSc1,renderSc2],
+    pattern:[renderPat0,renderPat1,renderPat2]})[S.act][S.step]();
+
+  // Next btn
+  const nb=document.createElement('button');
+  nb.className='next-btn'; nb.id='next-btn';
+  nb.style.background=ACTS[S.act].color;
+  nb.textContent = S.step<S.steps-1 ? 'Keep Going! →' : 'See What I Learned! ⭐';
+  nb.onclick=advance; body.appendChild(nb);
+}
+
+function showNext(){
+  const nb=document.getElementById('next-btn');
+  if(nb) nb.classList.add('show');
+  speakText("Great job! Tap keep going!", 0.85, 1.1);
+}
+
+function advance(){
+  S.signals.push({event:'step_done',step:S.step,attempts:S.attempts[S.step]});
+  S.step++;
+  if(S.step>=S.steps) celebrate();
+  else renderStep();
+}
+
+function celebrate(){
+  const cfg=ACTS[S.act].celebrate;
+  document.getElementById('c-emojis').textContent=cfg.emojis;
+  document.getElementById('c-title').textContent=cfg.title;
+  document.getElementById('c-title').style.color=ACTS[S.act].color;
+  document.getElementById('c-box').textContent=cfg.box;
+  document.getElementById('c-quote').textContent=cfg.quote;
+  document.getElementById('c-primary').style.background=ACTS[S.act].color;
+  document.documentElement.style.setProperty('--act-color',ACTS[S.act].color);
+  fireConf();
+  show('celebration');
+  setTimeout(()=>speakText(cfg.speech, 0.8, 1.1), 600);
+}
+
+function fireConf(){
+  const cols=['#E8834A','#7B68EE','#E84A8A','#3AB5A0','#FFD700','#5CB85C'];
+  for(let i=0;i<30;i++){
+    const c=document.createElement('div'); c.className='conf';
+    c.style.cssText=`left:${Math.random()*100}vw;background:${cols[~~(Math.random()*cols.length)]};
+      animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*.8}s;
+      width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;
+      border-radius:${Math.random()>.5?'50%':'2px'};`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+
+// ══════════════════════════════════════════
+// HELPER: speakable word element
+// ══════════════════════════════════════════
+function makeWordEl(word, cls, extraStyle=''){
+  const el=document.createElement('div');
+  el.className=cls; el.dataset.word=word;
+  if(extraStyle) el.style.cssText+=extraStyle;
+  // Word text + small speaker icon
+  el.innerHTML=`${word} <span style="font-size:12px;opacity:.6;">🔊</span>`;
+  el.addEventListener('click',()=>speakWord(word));
+  return el;
+}
+
+// ══════════════════════════════════════════
+// SORT ACTIVITY
+// ══════════════════════════════════════════
+const SORT_DATA=[
+  {words:['lamp','jump','camp','bank','sink','tank','grand','land','stand'],
+   bins:[
+     {lbl:'-mp',key:'mp',words:['lamp','jump','camp'],color:'#E8834A',bg:'rgba(232,131,74,.1)'},
+     {lbl:'-nk',key:'nk',words:['bank','sink','tank'],color:'#7B68EE',bg:'rgba(123,104,238,.1)'},
+     {lbl:'-nd',key:'nd',words:['grand','land','stand'],color:'#E84A8A',bg:'rgba(232,74,138,.1)'},
+   ]},
+  {words:['champ','hump','stamp','wink','pink','honk','junk','bent','sent','dent'],
+   bins:[
+     {lbl:'-mp',key:'mp',words:['champ','hump','stamp'],color:'#E8834A',bg:'rgba(232,131,74,.1)'},
+     {lbl:'-nk',key:'nk',words:['wink','pink','honk','junk'],color:'#7B68EE',bg:'rgba(123,104,238,.1)'},
+     {lbl:'-nt',key:'nt',words:['bent','sent','dent'],color:'#3AB5A0',bg:'rgba(58,181,160,.1)'},
+   ]},
+  {words:['dishes','boxes','benches','foxes','wishes','matches','dust','fast','past','just'],
+   bins:[
+     {lbl:'-es plurals',key:'es',words:['dishes','boxes','benches','foxes','wishes','matches'],color:'#3AB5A0',bg:'rgba(58,181,160,.1)'},
+     {lbl:'-st words',key:'st',words:['dust','fast','past','just'],color:'#E8834A',bg:'rgba(232,131,74,.1)'},
+   ]},
+];
+let sortCorrect=0;
+
+function renderSort(i){
+  const r=SORT_DATA[i]; sortCorrect=0;
+  const body=document.getElementById('act-body');
+  const card=document.createElement('div'); card.className='card';
+
+  const p=document.createElement('div'); p.className='sort-prompt';
+  p.innerHTML='Tap a word to hear it, then tap the group it belongs to! <span style="color:var(--act-color)">🔊</span>';
+  card.appendChild(p);
+
+  const bankLbl=document.createElement('div');
+  bankLbl.style.cssText='font-size:11px;font-weight:800;color:#888;text-align:center;margin:8px 0 3px;';
+  bankLbl.textContent='TAP A WORD TO HEAR IT'; card.appendChild(bankLbl);
+
+  const bank=document.createElement('div'); bank.className='word-bank'; bank.id='sort-bank';
+  [...r.words].sort(()=>Math.random()-.5).forEach(w=>{
+    const el=document.createElement('div');
+    el.className='sort-word'; el.dataset.word=w;
+    el.innerHTML=`${w} <span style="font-size:11px;opacity:.5;">🔊</span>`;
+    el.addEventListener('click',()=>handleSortWord(el,r));
+    bank.appendChild(el);
+  });
+  card.appendChild(bank);
+
+  const binsRow=document.createElement('div'); binsRow.className='sort-bins';
+  r.bins.forEach(b=>{
+    const bin=document.createElement('div'); bin.className='sort-bin';
+    bin.id='bin-'+b.key;
+    bin.style.borderColor=b.color; bin.style.background=b.bg;
+    bin.innerHTML=`<div class="sort-bin-label" style="color:${b.color};border-bottom-color:${b.color};">${b.lbl}</div><div class="bin-words" id="bw-${b.key}"></div>`;
+    binsRow.appendChild(bin);
+  });
+  card.appendChild(binsRow);
+
+  const sc=document.createElement('div'); sc.className='sort-score';
+  sc.id='sort-sc'; sc.style.color=ACTS.sort.color; card.appendChild(sc);
+  body.insertBefore(card,document.getElementById('next-btn'));
+}
+
+let sortSelected=null;
+function handleSortWord(el,r){
+  speakWord(el.dataset.word);
+  if(el.classList.contains('placed')) return;
+  // Deselect previous
+  if(sortSelected) {
+    sortSelected.style.background='white';
+    sortSelected.style.color=ACTS.sort.color;
+    sortSelected.style.transform='';
+  }
+  if(sortSelected===el){sortSelected=null;return;}
+  sortSelected=el;
+  el.style.background=ACTS.sort.color; el.style.color='white'; el.style.transform='scale(1.06)';
+  // Wire bins
+  document.querySelectorAll('.sort-bin').forEach(bin=>{
+    bin.onclick=()=>{
+      const binKey=bin.id.replace('bin-','');
+      const word=el.dataset.word;
+      const binCfg=r.bins.find(b=>b.key===binKey);
+      if(!binCfg) return;
+      S.attempts[S.step]++;
+      const ok=binCfg.words.includes(word);
+      S.signals.push({event:'sort',word,bin:binKey,ok});
+      if(ok){
+        el.classList.add('placed'); el.style.background=''; el.style.color=''; el.style.transform='';
+        const pw=document.createElement('div'); pw.className='placed-chip';
+        pw.style.background=binCfg.color; pw.textContent=word;
+        // make placed chip speakable
+        pw.style.cursor='pointer';
+        pw.onclick=()=>speakWord(word);
+        document.getElementById('bw-'+binKey).appendChild(pw);
+        sortCorrect++;
+        const sc=document.getElementById('sort-sc');
+        if(sc) sc.textContent=`✓ ${sortCorrect} sorted correctly`;
+        speakText(word+'. That is right!', 0.8, 1.1);
+        if(sortCorrect===r.words.length) setTimeout(showNext,400);
+      } else {
+        speakText('Try again! Listen to the ending of the word.', 0.85, 1.05);
+        el.style.background='#FFE0E0'; el.style.color='#CC4444';
+        setTimeout(()=>{el.style.background='white';el.style.color=ACTS.sort.color;el.style.transform='';},600);
+      }
+      sortSelected=null;
+      document.querySelectorAll('.sort-bin').forEach(b=>b.onclick=null);
+    };
+  });
+}
+function renderSort0(){renderSort(0);}
+function renderSort1(){renderSort(1);}
+function renderSort2(){renderSort(2);}
+
+// ══════════════════════════════════════════
+// STORY FILL
+// ══════════════════════════════════════════
+const STORIES=[
+  {text:"Ethan went to [camp] and found a [pink] box near the [bank].",
+   words:['camp','pink','bank','jump','wind','grand'],answers:['camp','pink','bank']},
+  {text:"He could [stand] on the [land] and feel the [wind] blow.",
+   words:['stand','land','wind','stamp','lamp','sink'],answers:['stand','land','wind']},
+  {text:"Ethan felt happy [because] he could share the [dishes] and [glasses] [together].",
+   words:['because','dishes','glasses','together','boxes','just','must'],answers:['because','dishes','glasses','together']},
+];
+let storyFilled=0; let storyAnswers=[]; let storyChip=null; let storyBlank=null;
+
+function renderStory(idx){
+  const s=STORIES[idx]; storyFilled=0; storyAnswers=s.answers.slice(); storyChip=null; storyBlank=null;
+  const body=document.getElementById('act-body');
+  const card=document.createElement('div'); card.className='card';
+
+  // Build passage with blanks
+  let html='<div class="story-passage">'; let rem=s.text; let bi=0;
+  s.answers.forEach(ans=>{
+    const pos=rem.indexOf('['+ans+']');
+    if(pos>=0){
+      html+=rem.substring(0,pos);
+      html+=`<span class="blank" id="bl-${bi}" data-answer="${ans}" data-idx="${bi}" onclick="blankTap(${bi})">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>`;
+      rem=rem.substring(pos+ans.length+2); bi++;
+    }
+  });
+  html+=rem+'</div>';
+  card.innerHTML=html;
+
+  // Read passage button
+  const readPassage=document.createElement('button');
+  readPassage.className='banner-read-btn';
+  readPassage.style.cssText='display:block;margin:8px auto;background:var(--act-color);';
+  readPassage.textContent='🔊 Read the sentence';
+  readPassage.onclick=()=>speakText(s.text.replace(/\[|\]/g,''), 0.75, 1.05);
+  card.appendChild(readPassage);
+
+  // Word choices
+  const lbl=document.createElement('div');
+  lbl.style.cssText='font-size:11px;font-weight:800;color:#888;text-align:center;margin:10px 0 4px;';
+  lbl.textContent='TAP A WORD, THEN TAP THE BLANK';
+  card.appendChild(lbl);
+
+  const choices=document.createElement('div'); choices.className='word-choices'; choices.id='s-choices';
+  [...s.words].sort(()=>Math.random()-.5).forEach(w=>{
+    const c=document.createElement('div'); c.className='word-chip'; c.dataset.word=w; c.id='chip-'+w;
+    c.innerHTML=`${w} <span style="font-size:11px;opacity:.5;">🔊</span>`;
+    c.addEventListener('click',()=>{speakWord(w); selectChip(c);});
+    choices.appendChild(c);
+  });
+  card.appendChild(choices);
+
+  const fb=document.createElement('div'); fb.id='s-fb';
+  fb.style.cssText='text-align:center;font-weight:800;font-size:14px;min-height:22px;margin-top:6px;';
+  card.appendChild(fb);
+  body.insertBefore(card,document.getElementById('next-btn'));
+}
+
+function selectChip(el){
+  if(storyChip){storyChip.style.background='white';storyChip.style.color=ACTS.story.color;}
+  storyChip=el; el.style.background=ACTS.story.color; el.style.color='white';
+  if(storyBlank!==null) tryFill();
+}
+function blankTap(idx){
+  storyBlank=idx;
+  document.querySelectorAll('.blank').forEach(b=>b.style.background='');
+  const bl=document.getElementById('bl-'+idx);
+  if(bl) bl.style.background='rgba(0,0,0,.06)';
+  if(storyChip) tryFill();
+}
+function tryFill(){
+  if(!storyChip||storyBlank===null) return;
+  const word=storyChip.dataset.word;
+  const bl=document.getElementById('bl-'+storyBlank);
+  const correct=bl.dataset.answer;
+  S.attempts[S.step]++; S.signals.push({event:'fill',word,ok:word===correct});
+  if(word===correct){
+    bl.textContent=word; bl.classList.add('correct'); bl.onclick=()=>speakWord(word);
+    storyChip.classList.add('used'); storyChip=null; storyBlank=null;
+    storyFilled++;
+    const fb=document.getElementById('s-fb');
+    if(fb) fb.innerHTML=`<span style="color:var(--es-dark)">✓ "${word}" — that is right!</span>`;
+    speakText(word+'. Yes! That fits perfectly!', 0.8, 1.1);
+    const total=STORIES[S.step].answers.length;
+    if(storyFilled>=total) setTimeout(showNext,500);
+  } else {
+    bl.classList.add('wrong'); setTimeout(()=>bl.classList.remove('wrong'),400);
+    storyChip.style.background='white'; storyChip.style.color=ACTS.story.color;
+    storyChip=null; storyBlank=null;
+    const fb=document.getElementById('s-fb');
+    if(fb) fb.innerHTML='<span style="color:#CC4444">That word does not fit here — try another!</span>';
+    speakText('Try a different word. Read the sentence again!', 0.85, 1.05);
+  }
+}
+function renderStory0(){renderStory(0);}
+function renderStory1(){renderStory(1);}
+function renderStory2(){renderStory(2);}
+
+// ══════════════════════════════════════════
+// SCRAMBLE
+// ══════════════════════════════════════════
+const SC_ROUNDS=[
+  [{word:'stamp',hint:'You put it on a letter'},{word:'grand',hint:'Really big or amazing'},{word:'wink',hint:'One eye blinks quickly'}],
+  [{word:'plump',hint:'Soft and round'},{word:'benches',hint:'Seats in a park'},{word:'harvest',hint:'When farmers pick their crops'}],
+  [{word:'because',hint:'Gives the reason why'},{word:'together',hint:'Not alone, as a group'},{word:'around',hint:'Going in a circle'}],
+];
+let scState={};
+
+function scrambleWord(w){
+  const a=[...w];
+  do{for(let i=a.length-1;i>0;i--){const j=~~(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}}
+  while(a.join('')===w&&w.length>2);
+  return a.join('');
+}
+
+function renderSc(ri){
+  scState={words:SC_ROUNDS[ri],idx:0,ri};
+  renderScSingle();
+}
+function renderSc0(){renderSc(0);}
+function renderSc1(){renderSc(1);}
+function renderSc2(){renderSc(2);}
+
+window.scAnswer=[]; window.scTarget='';
+
+function renderScSingle(){
+  const body=document.getElementById('act-body');
+  const old=document.getElementById('sc-card'); if(old) old.remove();
+  const {words,idx}=scState;
+  if(idx>=words.length){showNext();return;}
+  const {word,hint}=words[idx];
+  const sc=scrambleWord(word);
+  window.scAnswer=[]; window.scTarget=word;
+
+  const card=document.createElement('div'); card.className='card'; card.id='sc-card';
+
+  const hdr=document.createElement('div');
+  hdr.style.cssText='font-size:clamp(14px,2.5vw,17px);font-weight:800;text-align:center;color:var(--text);margin-bottom:8px;';
+  hdr.textContent=`Unscramble the letters! (${word.length} letters)`;
+  card.appendChild(hdr);
+
+  const scDisp=document.createElement('div'); scDisp.className='scramble-big';
+  scDisp.textContent=sc.toUpperCase(); card.appendChild(scDisp);
+
+  // Listen to scrambled button
+  const listenBtn=document.createElement('button');
+  listenBtn.className='banner-read-btn';
+  listenBtn.style.cssText='display:block;margin:6px auto 2px;background:var(--act-color);';
+  listenBtn.textContent='🔊 Hear the word';
+  listenBtn.onclick=()=>speakWord(word);
+  card.appendChild(listenBtn);
+
+  const hintEl=document.createElement('div'); hintEl.className='scramble-hint';
+  hintEl.textContent='💡 Hint: '+hint; card.appendChild(hintEl);
+
+  const ansRow=document.createElement('div'); ansRow.className='answer-row';
+  for(let i=0;i<word.length;i++){
+    const sl=document.createElement('div'); sl.className='ans-slot'; sl.id='sl-'+i;
+    sl.onclick=()=>removeScSlot(i); ansRow.appendChild(sl);
+  }
+  card.appendChild(ansRow);
+
+  const lRow=document.createElement('div'); lRow.className='letter-row';
+  [...sc].forEach((l,i)=>{
+    const b=document.createElement('button'); b.className='l-btn'; b.id='lb-'+i;
+    b.textContent=l.toUpperCase(); b.onclick=()=>pickScLetter(l,i); lRow.appendChild(b);
+  });
+  card.appendChild(lRow);
+
+  const actRow=document.createElement('div'); actRow.className='sc-action-row';
+  const clearBtn=document.createElement('button'); clearBtn.className='sc-btn';
+  clearBtn.textContent='Clear ↺'; clearBtn.onclick=clearSc;
+  const checkBtn=document.createElement('button'); checkBtn.className='sc-btn'; checkBtn.id='sc-check';
+  checkBtn.textContent='Check ✓'; checkBtn.onclick=checkSc;
+  actRow.appendChild(clearBtn); actRow.appendChild(checkBtn); card.appendChild(actRow);
+
+  const ctr=document.createElement('div'); ctr.className='sc-counter';
+  ctr.textContent=`Word ${idx+1} of ${words.length}`; card.appendChild(ctr);
+
+  const fb=document.createElement('div'); fb.id='sc-fb';
+  fb.style.cssText='text-align:center;font-weight:800;font-size:14px;min-height:22px;margin-top:4px;color:var(--act-color);';
+  card.appendChild(fb);
+
+  body.insertBefore(card,document.getElementById('next-btn'));
+  // Auto-hear the word
+  setTimeout(()=>speakWord(word), 800);
+}
+
+function pickScLetter(l,bi){
+  const ans=window.scAnswer; const target=window.scTarget;
+  if(ans.filter(Boolean).length>=target.length) return;
+  const idx=ans.length; ans.push({l,bi});
+  const sl=document.getElementById('sl-'+idx);
+  if(sl){sl.textContent=l.toUpperCase();sl.classList.add('filled');}
+  const lb=document.getElementById('lb-'+bi); if(lb) lb.classList.add('used');
+}
+function removeScSlot(idx){
+  const ans=window.scAnswer; if(!ans[idx]) return;
+  const {bi}=ans[idx]; ans[idx]=null;
+  while(ans.length&&!ans[ans.length-1]) ans.pop();
+  const sl=document.getElementById('sl-'+idx); if(sl){sl.textContent='';sl.classList.remove('filled');}
+  const lb=document.getElementById('lb-'+bi); if(lb) lb.classList.remove('used');
+}
+function clearSc(){
+  window.scAnswer=[];
+  document.querySelectorAll('.ans-slot').forEach(s=>{s.textContent='';s.classList.remove('filled');});
+  document.querySelectorAll('.l-btn').forEach(b=>b.classList.remove('used'));
+  const fb=document.getElementById('sc-fb'); if(fb) fb.innerHTML='';
+}
+function checkSc(){
+  const ans=window.scAnswer.filter(Boolean).map(a=>a.l).join('');
+  const target=window.scTarget;
+  S.attempts[S.step]++; S.signals.push({event:'scramble',word:target,ans,ok:ans.toLowerCase()===target.toLowerCase()});
+  const fb=document.getElementById('sc-fb');
+  if(ans.toLowerCase()===target.toLowerCase()){
+    if(fb) fb.innerHTML=`<span>✓ "${target}" — you got it! 🎉</span>`;
+    speakText(target+'. Yes! You spelled it correctly!', 0.75, 1.1);
+    document.querySelectorAll('.l-btn,.sc-btn').forEach(b=>b.disabled=true);
+    scState.idx++;
+    setTimeout(renderScSingle,1200);
+  } else if(!ans){
+    speakText('Tap the letters to build the word!', 0.85, 1.05);
+  } else {
+    if(fb) fb.innerHTML='<span style="color:#CC4444">Not quite — clear it and try again!</span>';
+    speakText('Almost! Clear it and try again.', 0.85, 1.05);
+    document.querySelectorAll('.ans-slot').forEach(s=>{
+      const orig=s.style.color; s.style.color='#CC4444';
+      setTimeout(()=>s.style.color=orig,600);
+    });
+  }
+}
+
+// ══════════════════════════════════════════
+// PATTERN
+// ══════════════════════════════════════════
+const PAT_DATA=[
+  {type:'odd',prompt:"Three of these words are in the same sound family. Which one is DIFFERENT?",
+   words:['lamp','camp','jump','land'],odd:'land',
+   explain:'"land" ends in n-d, not m-p. The dash m-p family is: lamp, camp, and jump!'},
+  {type:'multi',prompt:"Which TWO words follow the same rule as dishes and boxes? Add e-s to make them plural!",
+   words:['benches','fast','matches','grand','dust'],correct:['benches','matches'],
+   explain:'"benches" and "matches" both add e-s to become plural — same rule as dishes and boxes!'},
+  {type:'concept',prompt:"Ethan notices: bank gets -s, but dish gets -es and bench gets -es. What is the rule?",
+   choices:[
+     {text:'Words ending in sh, ch, or x need to add -es for plural', key:'correct'},
+     {text:'All words just add -s to become plural', key:'wrong1'},
+     {text:'You have to memorize each word separately', key:'wrong2'},
+   ],correct:'correct',
+   explain:'Words ending in sh, ch, x, and s add -es. That is the rule you just discovered — and now you can spell hundreds of new words!'},
+];
+
+function renderPat(idx){
+  const r=PAT_DATA[idx]; const body=document.getElementById('act-body');
+  const card=document.createElement('div'); card.className='card';
+  const p=document.createElement('div'); p.className='pat-prompt'; p.textContent=r.prompt;
+  card.appendChild(p);
+  // Read prompt btn
+  const rb=document.createElement('button'); rb.className='banner-read-btn';
+  rb.style.cssText='display:block;margin:0 auto 12px;background:var(--act-color);';
+  rb.textContent='🔊 Read question'; rb.onclick=()=>speakText(r.prompt,0.8,1.05);
+  card.appendChild(rb);
+  const fb=document.createElement('div'); fb.id='pat-fb';
+  fb.style.cssText='text-align:center;font-weight:800;font-size:14px;min-height:22px;margin-top:10px;color:var(--act-color);';
+
+  if(r.type==='odd'){
+    const row=document.createElement('div'); row.style.cssText='display:flex;flex-wrap:wrap;gap:9px;justify-content:center;';
+    r.words.forEach(w=>{
+      const b=document.createElement('button'); b.className='pat-word-btn';
+      b.style.borderColor=ACTS.sort.color; b.style.color=ACTS.sort.color;
+      b.innerHTML=`${w} <span style="font-size:11px;opacity:.5;">🔊</span>`;
+      b.addEventListener('click',()=>{
+        speakWord(w);
+        setTimeout(()=>patOdd(b,w,r),300);
+      });
+      row.appendChild(b);
+    });
+    card.appendChild(row);
+  } else if(r.type==='multi'){
+    const patSel=[]; const patCorrect=r.correct;
+    const row=document.createElement('div'); row.style.cssText='display:flex;flex-wrap:wrap;gap:9px;justify-content:center;';
+    r.words.forEach(w=>{
+      const b=document.createElement('button'); b.className='pat-word-btn';
+      b.style.borderColor=ACTS.es.color; b.style.color=ACTS.es.color;
+      b.innerHTML=`${w} <span style="font-size:11px;opacity:.5;">🔊</span>`;
+      b.addEventListener('click',()=>{
+        speakWord(w);
+        if(patSel.includes(w)) return;
+        patSel.push(w); b.style.background=ACTS.es.color; b.style.color='white';
+        S.signals.push({event:'pat_multi',word:w});
+        if(patSel.length===2){
+          const ok=patCorrect.every(c=>patSel.includes(c))&&patSel.every(c=>patCorrect.includes(c));
+          if(ok){
+            fb.innerHTML=`✓ "${patCorrect.join('" and "')}" — both add -es! 🎉`;
+            speakText(patCorrect.join(' and ')+'. Yes! Both add e-s to become plural!',0.8,1.1);
+            row.querySelectorAll('button').forEach(btn=>btn.onclick=null);
+            showNext();
+          } else {
+            fb.innerHTML='<span style="color:#CC4444">One or both do not fit — try again!</span>';
+            speakText('Try again! Listen to the words — which ones add e-s?',0.85,1.05);
+            setTimeout(()=>{
+              patSel.length=0;
+              row.querySelectorAll('button').forEach(btn=>{btn.style.background='white';btn.style.color=ACTS.es.color;});
+              fb.innerHTML='';
+            },1000);
+          }
+        }
+      });
+      row.appendChild(b);
+    });
+    card.appendChild(row);
+  } else {
+    // Concept choice
+    const col=document.createElement('div'); col.style.cssText='display:flex;flex-direction:column;gap:8px;';
+    r.choices.forEach(c=>{
+      const b=document.createElement('button'); b.className='pat-choice';
+      b.textContent=c.text;
+      b.onclick=()=>{
+        S.attempts[S.step]++; S.signals.push({event:'pat_concept',key:c.key,ok:c.key===r.correct});
+        if(c.key===r.correct){
+          b.style.background='rgba(58,181,160,.15)'; b.style.borderColor=ACTS.es.color;
+          fb.textContent='✓ '+r.explain;
+          speakText('Yes! That is exactly right. '+r.explain,0.8,1.05);
+          col.querySelectorAll('button').forEach(btn=>btn.onclick=null);
+          showNext();
+        } else {
+          b.style.background='rgba(255,80,80,.08)'; b.style.borderColor='#CC4444';
+          setTimeout(()=>{b.style.background='white';b.style.borderColor=ACTS.es.color;},700);
+          fb.innerHTML='<span style="color:#CC4444">Look at the examples again — what do dish and bench have in common?</span>';
+          speakText('Think about how dish and bench end. Try again!',0.85,1.05);
+        }
+      };
+      col.appendChild(b);
+    });
+    card.appendChild(col);
+  }
+  card.appendChild(fb);
+  body.insertBefore(card,document.getElementById('next-btn'));
+  // Auto-read the prompt
+  setTimeout(()=>speakText(r.prompt,0.8,1.05),300);
+}
+
+function patOdd(btn,w,r){
+  S.attempts[S.step]++; S.signals.push({event:'pat_odd',word:w,ok:w===r.odd});
+  const fb=document.getElementById('pat-fb');
+  if(w===r.odd){
+    btn.style.background='#FFE0E0'; btn.style.color='#CC4444';
+    fb.textContent='✓ "'+w+'" is different! '+r.explain;
+    speakText(w+'. Yes! That one is different. '+r.explain,0.8,1.05);
+    // Highlight correct ones
+    document.querySelectorAll('.pat-word-btn').forEach(b=>{
+      if(b.textContent.trim().startsWith(w)) return;
+      b.style.background=ACTS.sort.color; b.style.color='white';
+    });
+    document.querySelectorAll('.pat-word-btn').forEach(b=>b.onclick=null);
+    showNext();
+  } else {
+    btn.style.background='rgba(255,100,100,.1)'; btn.style.color='#CC4444';
+    setTimeout(()=>{btn.style.background='white';btn.style.color=ACTS.sort.color;},600);
+    fb.innerHTML='<span style="color:#CC4444">Listen to how each word ends — one sounds different!</span>';
+    speakText('Listen to the end of each word. One does not match!',0.85,1.05);
+  }
+}
+
+function renderPat0(){renderPat(0);}
+function renderPat1(){renderPat(1);}
+function renderPat2(){renderPat(2);}
+
+// Auto-start welcome speech
+setTimeout(()=>speakText("Welcome to Recess, Ethan! Tap a house to start learning your spelling words!", 0.82, 1.1), 1000);
+</script>
+</body>
+</html>

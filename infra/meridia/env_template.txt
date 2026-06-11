@@ -1,0 +1,19 @@
+# ═══════════════════════════════════════════════════════════
+# AIA Corpus — Environment Configuration
+# Copy this to .env and update with your NAS values
+# ═══════════════════════════════════════════════════════════
+
+# PostgreSQL connection
+# If your existing PostgreSQL container has a different name, update DB_HOST
+DB_HOST=aia-postgres
+DB_PORT=5432
+DB_NAME=meridia
+DB_USER=postgres
+DB_PASSWORD=changeme
+
+# Path to your Dropbox Cloud Sync folder on the NAS
+# This is where Synology Cloud Sync puts your Dropbox files
+DROPBOX_PATH=/volume1/Dropbox
+
+# Path for AIA corpus file storage on the NAS
+CORPUS_PATH=/volume1/AIA_Corpus

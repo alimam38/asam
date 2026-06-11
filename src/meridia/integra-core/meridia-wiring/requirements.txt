@@ -1,0 +1,40 @@
+# Meridia Backend Dependencies
+# Install: pip install -r requirements.txt
+
+# ── API FRAMEWORK ─────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# ── DATABASE ──────────────────────────────────────────────
+asyncpg==0.29.0                  # Async PostgreSQL driver
+sqlalchemy[asyncio]==2.0.30      # ORM + async support
+alembic==1.13.1                  # Database migrations
+psycopg2-binary==2.9.9           # Sync driver for scripts
+
+# ── DATA VALIDATION ───────────────────────────────────────
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# ── EXTERNAL API CLIENTS ──────────────────────────────────
+httpx==0.27.0                    # Async HTTP — all API calls
+fredapi==0.5.2                   # FRED Federal Reserve data
+census==0.8.22                   # Census Bureau API wrapper
+requests==2.31.0                 # Sync HTTP for scripts
+
+# ── DATA PROCESSING ───────────────────────────────────────
+pandas==2.2.2                    # Data manipulation
+numpy==1.26.4                    # Numerical operations
+
+# ── SCHEDULING ────────────────────────────────────────────
+apscheduler==3.10.4              # Feed layer scheduler
+
+# ── SECURITY ──────────────────────────────────────────────
+python-jose[cryptography]==3.3.0  # JWT tokens
+passlib[bcrypt]==1.7.4            # Password hashing
+cryptography==42.0.5
+
+# ── UTILITIES ─────────────────────────────────────────────
+python-dotenv==1.0.1             # .env file loading
+tenacity==8.3.0                  # Retry logic for API calls
+loguru==0.7.2                    # Structured logging

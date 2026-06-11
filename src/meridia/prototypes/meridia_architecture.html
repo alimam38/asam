@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridia — System Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #06080e;
+  --chamber: #0b0e17;
+  --panel: #0f1320;
+  --rail: #141824;
+  --gold: #c9a84c;
+  --gold-light: #e2c97e;
+  --gold-dim: rgba(201,168,76,0.35);
+  --cream: #f0e8d5;
+  --mist: rgba(240,232,213,0.55);
+  --border: rgba(180,155,90,0.12);
+  --border-hi: rgba(180,155,90,0.3);
+  --green: #4a9e7a;
+  --blue: #4a7eb8;
+  --amber: #c8874a;
+  --mono: 'DM Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; background:var(--deep); color:var(--cream); font-family:'DM Sans',sans-serif; font-weight:300; overflow:hidden; }
+
+/* HEADER */
+#hdr {
+  height:52px;
+  background:var(--chamber);
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 28px;
+  flex-shrink:0;
+}
+.hdr-left { display:flex; align-items:center; gap:16px; }
+.hdr-crest {
+  width:22px; height:22px;
+  border:1px solid var(--gold-dim);
+  transform:rotate(45deg);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.hdr-crest-inner { width:8px; height:8px; background:var(--gold); opacity:0.35; }
+.hdr-title { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.35em; color:var(--gold); text-transform:uppercase; }
+.hdr-sub { font-size:9px; letter-spacing:.2em; color:var(--mist); text-transform:uppercase; }
+.hdr-right { display:flex; align-items:center; gap:24px; }
+.hdr-tag {
+  font-size:8.5px; letter-spacing:.2em; text-transform:uppercase;
+  padding:3px 10px; border:1px solid var(--border-hi); color:var(--gold-dim);
+}
+.hdr-instruction { font-size:9px; letter-spacing:.12em; color:rgba(240,232,213,0.25); text-transform:uppercase; }
+
+/* LAYOUT */
+#layout { display:grid; grid-template-columns:1fr 340px; height:calc(100vh - 52px); gap:1px; background:var(--border); }
+
+/* CANVAS AREA */
+#canvas-wrap {
+  background:var(--deep);
+  position:relative;
+  overflow:hidden;
+}
+
+/* GRID TEXTURE */
+#canvas-wrap::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(180,155,90,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180,155,90,0.04) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+}
+
+#arch-canvas {
+  width:100%; height:100%;
+  display:block;
+}
+
+/* DETAIL PANEL */
+#detail {
+  background:var(--chamber);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.detail-header {
+  padding:16px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.detail-title { font-size:8.5px; letter-spacing:.28em; color:var(--gold); text-transform:uppercase; }
+.detail-body {
+  padding:18px 20px;
+  flex:1; overflow-y:auto;
+}
+.detail-body::-webkit-scrollbar { width:3px; }
+.detail-body::-webkit-scrollbar-thumb { background:var(--border-hi); }
+
+.detail-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:300;
+  color:var(--cream);
+  margin-bottom:6px;
+}
+.detail-type {
+  font-size:8.5px; letter-spacing:.22em; text-transform:uppercase;
+  margin-bottom:16px;
+}
+.detail-desc {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:14px; line-height:1.65;
+  color:var(--mist);
+  margin-bottom:18px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.detail-section { margin-bottom:16px; }
+.detail-section-title {
+  font-size:8px; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--gold-dim); margin-bottom:8px;
+}
+.detail-item {
+  font-size:10.5px; letter-spacing:.04em;
+  color:rgba(240,232,213,0.6);
+  padding:5px 0; border-bottom:1px solid rgba(180,155,90,0.07);
+  line-height:1.5;
+}
+.detail-item:last-child { border-bottom:none; }
+.detail-code {
+  font-family:var(--mono);
+  font-size:9.5px; color:var(--gold-light);
+  background:rgba(201,168,76,0.06);
+  border:1px solid rgba(201,168,76,0.1);
+  padding:8px 12px;
+  margin:6px 0;
+  display:block;
+  line-height:1.6;
+}
+.detail-badge {
+  display:inline-block;
+  font-size:8px; letter-spacing:.15em; text-transform:uppercase;
+  padding:2px 8px; border-radius:1px;
+  margin:2px 3px 2px 0;
+}
+.badge-green { background:rgba(74,158,122,0.12); color:var(--green); border:1px solid rgba(74,158,122,0.25); }
+.badge-blue { background:rgba(74,126,184,0.12); color:var(--blue); border:1px solid rgba(74,126,184,0.25); }
+.badge-amber { background:rgba(200,135,74,0.12); color:var(--amber); border:1px solid rgba(200,135,74,0.25); }
+.badge-gold { background:rgba(201,168,76,0.1); color:var(--gold); border:1px solid rgba(201,168,76,0.22); }
+
+.detail-placeholder {
+  text-align:center;
+  padding:60px 20px;
+}
+.detail-placeholder-icon {
+  width:40px; height:40px;
+  border:1px solid var(--border-hi);
+  transform:rotate(45deg);
+  margin:0 auto 20px;
+  display:flex; align-items:center; justify-content:center;
+}
+.detail-placeholder-icon-inner {
+  width:14px; height:14px;
+  background:var(--gold-dim);
+  transform:rotate(-45deg);
+}
+.detail-placeholder-text {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:15px;
+  color:rgba(240,232,213,0.3);
+  line-height:1.6;
+}
+
+/* LAYER LABELS */
+.layer-labels {
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:32px;
+  display:flex; flex-direction:column;
+  pointer-events:none;
+}
+
+/* TOOLTIP */
+#tooltip {
+  position:fixed;
+  background:var(--rail);
+  border:1px solid var(--border-hi);
+  padding:8px 12px;
+  font-size:9.5px; letter-spacing:.08em;
+  color:var(--cream);
+  pointer-events:none;
+  display:none;
+  z-index:50;
+  max-width:200px;
+}
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <div class="hdr-left">
+    <div class="hdr-crest"><div class="hdr-crest-inner"></div></div>
+    <div>
+      <div class="hdr-title">Meridia — System Architecture</div>
+      <div class="hdr-sub">Technical Reference · Integra Core</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="hdr-tag">Confidential · March 2026</div>
+    <div class="hdr-instruction">Click any component to inspect</div>
+  </div>
+</div>
+
+<div id="layout">
+  <div id="canvas-wrap">
+    <canvas id="arch-canvas"></canvas>
+  </div>
+
+  <div id="detail">
+    <div class="detail-header">
+      <div class="detail-title">Component Detail</div>
+      <div style="font-size:9px;letter-spacing:.15em;color:rgba(240,232,213,0.2);text-transform:uppercase">Select a node</div>
+    </div>
+    <div class="detail-body" id="detail-body">
+      <div class="detail-placeholder">
+        <div class="detail-placeholder-icon"><div class="detail-placeholder-icon-inner"></div></div>
+        <div class="detail-placeholder-text">Select any component in the diagram to inspect its technical specifications, data contracts, and security posture.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+const canvas = document.getElementById('arch-canvas');
+const ctx = canvas.getContext('2d');
+const wrap = document.getElementById('canvas-wrap');
+const tooltip = document.getElementById('tooltip');
+
+// ── COLOR PALETTE ──
+const C = {
+  deep: '#06080e', chamber: '#0b0e17', panel: '#0f1320', rail: '#141824',
+  gold: '#c9a84c', goldLight: '#e2c97e', goldDim: 'rgba(201,168,76,0.35)',
+  cream: '#f0e8d5', mist: 'rgba(240,232,213,0.55)',
+  border: 'rgba(180,155,90,0.12)', borderHi: 'rgba(180,155,90,0.3)',
+  green: '#4a9e7a', blue: '#4a7eb8', amber: '#c8874a',
+  greenDim: 'rgba(74,158,122,0.2)', blueDim: 'rgba(74,126,184,0.2)', amberDim: 'rgba(200,135,74,0.2)',
+  goldBg: 'rgba(201,168,76,0.06)', panelStroke: 'rgba(180,155,90,0.18)',
+};
+
+// ── NODE DEFINITIONS ──
+const NODES = [];
+let W, H, hovered = null, selected = null;
+
+const LAYER_COLORS = {
+  presentation: C.blue,
+  intelligence: C.gold,
+  storage: C.green,
+  pipeline: C.amber,
+  sources: C.mist,
+  security: 'rgba(180,155,90,0.5)',
+};
+
+const NODE_DATA = {
+  // LAYER 5 — PRESENTATION
+  index8: {
+    id:'index8', layer:'presentation', label:'Index8', sublabel:'Crown Console',
+    color: C.blue,
+    detail: {
+      name:'Index8', type:'Presentation Layer · Crown Tier',
+      desc:'WayPoint Crown financial position console. The primary interface for UHNW and family office clients. Renders FPS score, entity map, trust structure, governance queue, and scenario engine.',
+      sections:[
+        { title:'Tech Stack', items:['HTML5 / CSS3 / Vanilla JS','Cormorant Garamond + Cinzel typography','Responsive — desktop and tablet','No framework dependency — zero build step'] },
+        { title:'API Surface (consuming)', items:['/api/v1/position — FPS calculation','/api/v1/entities — entity map + status','/api/v1/trust-index — 4-dimension scoring','/api/v1/governance/alerts — approval queue','/api/v1/scenario — POST scenario modeling','/api/v1/reports/{audience} — differentiated output'] },
+        { title:'Current Status', items:['Frontend complete — Keith demo ready','Static mock data — API wiring pending','Scenario sliders connected to calculation logic'] },
+      ],
+      badges:['badge-blue:HTML5','badge-blue:CSS3','badge-gold:Crown Tier','badge-green:Demo Ready']
+    }
+  },
+  adaptive: {
+    id:'adaptive', layer:'presentation', label:'WayPoint', sublabel:'Adaptive Layer',
+    color: C.blue,
+    detail: {
+      name:'WayPoint Adaptive', type:'Presentation Layer · All Tiers',
+      desc:'Adaptive intelligence interface serving four distinct customer experiences from one engine. Tier is determined at authentication. Renaissance, Core, Edge, and Crown users each receive a tailored arrival, vocabulary, and Aletheia voice.',
+      sections:[
+        { title:'Tier Configuration', items:['Renaissance — journey-based, warm copper, plain language','Core — Mercury-comparable, daily position + actions','Edge — operations room, industry-specific compliance','Crown — governance instrument, full FPS console'] },
+        { title:'Adaptation Mechanism', items:['Auth token carries tier classification','CSS custom properties cascade tier accent colors','Navigation, vocabulary, and Aletheia prompts all tier-scoped','Organic tier graduation — position threshold crossing triggers upgrade'] },
+      ],
+      badges:['badge-blue:Adaptive','badge-gold:4 Tiers','badge-green:Built']
+    }
+  },
+  vantage: {
+    id:'vantage', layer:'presentation', label:'Vantage', sublabel:'Institutional Console',
+    color: C.blue,
+    detail: {
+      name:'Vantage Financial Partners', type:'Presentation Layer · Institutional',
+      desc:'The institutional intelligence console. The owner\'s suite — a separate entrance, elevated experience, and an inverted view of the same engine. Where the institution sees its entire book, the client sees only their position.',
+      sections:[
+        { title:'Six Panel Architecture', items:['Portfolio Position — aggregate FPS across 847 relationships','Compliance Intelligence — CRA/HMDA/ECOA/BSA/UDAAP real-time','Relationship Heat Map — FFIEC census tract overlay','Bilateral Risk — institution ↔ client simultaneously','Opportunity Intelligence — position-derived pipeline','Governance Queue — approvals, audit trail, policy adherence'] },
+        { title:'Institutional Scale', items:['Configures from family office (50 relationships) to money center (500K+)','Default view configurable per institution type','CRA reportable activity tracked automatically as byproduct of operation'] },
+      ],
+      badges:['badge-blue:Institutional','badge-gold:6 Panels','badge-green:Built']
+    }
+  },
+
+  // LAYER 4 — INTEGRA ENGINE
+  positionEngine: {
+    id:'positionEngine', layer:'intelligence', label:'Position Engine', sublabel:'Layer 1',
+    color: C.gold,
+    detail: {
+      name:'Position Engine', type:'Integra Core · Layer 1',
+      desc:'Calculates the Financial Position Score (FPS) from five weighted dimensions. Reads real inputs, returns a single position reading with directional language. The number every other panel depends on.',
+      sections:[
+        { title:'FPS Formula', items:['Net Position · 25% weight','Liquidity Coverage · 25% weight','DSCR (Debt Service) · 15% weight','Runway · 20% weight','Distribution Alignment · 15% weight'] },
+        { title:'Endpoint', items:['/api/v1/position — GET returns FPS + component breakdown','POST with scenario params returns projected FPS','Response time target: <50ms p99'] },
+        { title:'Scale Design', items:['Stateless calculation — horizontal scaling trivial','No session dependency — each call self-contained','Designed for 100M+ daily calls at Home Depot payment architecture scale'] },
+      ],
+      code:'POST /api/v1/scenario\n{\n  "entity_id": "hargrove-001",\n  "adjustments": {\n    "net_position_delta": 500000,\n    "new_liability": 250000\n  }\n}',
+      badges:['badge-gold:Stateless','badge-green:FastAPI','badge-blue:Python 3.11+']
+    }
+  },
+  causalModel: {
+    id:'causalModel', layer:'intelligence', label:'Causal Model', sublabel:'Layer 2a',
+    color: C.gold,
+    detail: {
+      name:'Causal Model', type:'Integra Core · Layer 2',
+      desc:'Cross-entity impact projection. Reads how a change in one entity affects all connected entities simultaneously. This is the engine behind the bilateral risk reading — the same event is evaluated from both the institution and client perspective at once.',
+      sections:[
+        { title:'Bilateral Logic', items:['Each relationship carries two risk vectors: client→institution and institution→client','Risk direction classified: toward client / toward institution / bilateral','Tolerance threshold per entity type configurable per institution'] },
+        { title:'Cross-Entity Cascade', items:['Change in Foundation position flows up to Holdings FPS','Portfolio-level event propagates to individual relationship scores','CRA exposure recalculated automatically on each position change'] },
+      ],
+      badges:['badge-gold:Bilateral','badge-amber:Cross-Entity','badge-blue:Real-Time']
+    }
+  },
+  trustIndex: {
+    id:'trustIndex', layer:'intelligence', label:'Trust Index', sublabel:'Layer 2b',
+    color: C.gold,
+    detail: {
+      name:'Trust Index Engine', type:'Integra Core · Layer 2',
+      desc:'Four-dimension trust scoring derived from behavioral and governance data. Not a credit score. A trust reading — how consistently this entity operates within its stated parameters.',
+      sections:[
+        { title:'Four Dimensions', items:['Behavioral Consistency — patterns vs. stated intent','Governance Adherence — policy compliance over time','Communication Reliability — response and reporting patterns','Commitment Fulfillment — stated obligations met'] },
+        { title:'Output', items:['Single Trust Index score 0–100','Directional trend (improving / declining / stable)','Dimension breakdown per entity','Feeds both client-facing view and institutional portfolio scoring'] },
+      ],
+      badges:['badge-gold:Behavioral','badge-blue:4 Dimensions','badge-green:Non-Credit']
+    }
+  },
+  reportGenerator: {
+    id:'reportGenerator', layer:'intelligence', label:'Report Generator', sublabel:'Layer 3',
+    color: C.gold,
+    detail: {
+      name:'Report Generator', type:'Integra Core · Layer 3',
+      desc:'Five differentiated reports from the same underlying data. The audience parameter routes identical input through different lenses — what a board needs to hear is not what a regulator needs to see. Same truth. Different presentation of it.',
+      sections:[
+        { title:'Audience Outputs', items:['board — strategic summary, risk indicators, recommendations','technical — data lineage, calculation methodology, API health','regulator — compliance status, audit trail, policy adherence','family — plain language position, action items, Aletheia guidance','governance — people + entities + institutions, dual-creation rule status'] },
+        { title:'Endpoint', items:['/api/v1/reports/{audience} — GET with entity scope','Accepts: board | technical | regulator | family | governance','All five reports generated from same data snapshot — no separate data pulls'] },
+      ],
+      code:'GET /api/v1/reports/regulator\n?entity=vantage-portfolio\n&period=Q1-2026\n&scope=cra_activity',
+      badges:['badge-gold:5 Audiences','badge-green:Andre Requirement','badge-blue:Same Data']
+    }
+  },
+
+  // LAYER 3 — STORAGE
+  postgres: {
+    id:'postgres', layer:'storage', label:'PostgreSQL', sublabel:'Meridia Core NAS',
+    color: C.green,
+    detail: {
+      name:'PostgreSQL · NAS Container', type:'Storage Layer · On-Premises',
+      desc:'Primary data store running as a container on the Meridia Core NAS (Synology DS925+). Two schemas: meridia_market for financial/CRA data, meridia_edu for 6,030 Georgia education standards.',
+      sections:[
+        { title:'Infrastructure', items:['Synology DS925+ · 34GB RAM','2×6TB RAID 1 · 2×1TB NVMe cache','Btrfs encrypted at rest','DSM 7 · 2FA enforced','AES-256 encryption at rest'] },
+        { title:'Schema: meridia_market', items:['entities — all tracked entities with tier classification','positions — FPS history per entity per period','trust_scores — Trust Index readings over time','relationships — bilateral mapping institution ↔ client','cra_activity — qualifying CRA events log','census_tracts — FFIEC + HMDA + ACS overlay data','compliance_events — regulatory calendar + status'] },
+        { title:'Schema: meridia_edu', items:['6,030 Georgia standards (K-12 ELA, Math, CS)','Full hierarchy — domain → standard → sub-standard','Progress tracking tables (pending Crown\'s Eye build)'] },
+      ],
+      badges:['badge-green:PostgreSQL 16','badge-green:AES-256','badge-amber:On-Premises','badge-blue:2 Schemas']
+    }
+  },
+
+  // LAYER 2 — FEED LAYER / PIPELINE
+  feedLayer: {
+    id:'feedLayer', layer:'pipeline', label:'Feed Layer', sublabel:'Ingestion · Normalization',
+    color: C.amber,
+    detail: {
+      name:'Feed Layer', type:'Data Pipeline · Ingestion',
+      desc:'Sits between external APIs and the calculation engine. Pulls, normalizes, and schedules. Each data source runs on its own cadence. Outputs clean, schema-aligned records into PostgreSQL.',
+      sections:[
+        { title:'Pipeline Architecture', items:['Pull-based ingestion — no streaming dependency','Source-specific normalizers — each API has its own adapter','Scheduling: FFIEC quarterly, HMDA annually, FRED monthly, Census annually, BLS monthly, CFPB daily','Schema validation via Pydantic before write','Failed pulls logged, retried, never silently dropped'] },
+        { title:'Tech Stack', items:['Python 3.11+ · FastAPI · Pydantic','PostgreSQL driver: asyncpg for non-blocking writes','Scheduled via cron on NAS — no external orchestrator needed in Phase 1','fred_data_pull.py already built and tested'] },
+        { title:'Data Flow', items:['External API → Adapter → Pydantic Model → Validation → PostgreSQL write → Calculation engine reads on next request'] },
+      ],
+      code:'# Each source has its own pull cycle\nscheduler.add_job(pull_ffiec, "cron", month="*/3")\nscheduler.add_job(pull_hmda, "cron", month=1)\nscheduler.add_job(pull_fred, "cron", day=1)\nscheduler.add_job(pull_bls, "cron", day=1)',
+      badges:['badge-amber:Python','badge-amber:AsyncPG','badge-green:Pydantic Validated','badge-blue:6 Sources Active']
+    }
+  },
+
+  // LAYER 1 — EXTERNAL SOURCES
+  ffiec: {
+    id:'ffiec', layer:'sources', label:'FFIEC', sublabel:'Census Flat Files',
+    color: 'rgba(240,232,213,0.5)',
+    detail: {
+      name:'FFIEC Census Flat Files', type:'External Source · Regulatory',
+      desc:'Federal Financial Institutions Examination Council census-level data. 1,000+ fields per census tract. Distressed and underserved flags built in. The authoritative source for CRA geographic analysis.',
+      sections:[
+        { title:'Data Points', items:['Distressed tract designation','Underserved designation','Median family income by tract vs. MSA median','Population and housing density','LMI tract classification (Low and Moderate Income)'] },
+        { title:'Access', items:['Direct download — ffiec.gov/censusapp.htm','No API key required','Annual release — Q1 update cycle','Georgia + Atlanta MSA loaded first'] },
+        { title:'Powers', items:['Vantage heat map underserved gap analysis','CRA compliance coverage calculation','Opportunity Intelligence — East Corridor gap detection'] },
+      ],
+      badges:['badge-green:Free','badge-green:No Key Required','badge-amber:Annual Update']
+    }
+  },
+  hmda: {
+    id:'hmda', layer:'sources', label:'HMDA', sublabel:'CFPB Loan Data',
+    color: 'rgba(240,232,213,0.5)',
+    detail: {
+      name:'HMDA · Home Mortgage Disclosure Act', type:'External Source · Regulatory',
+      desc:'Loan-level data showing where institutions are and aren\'t lending. The exact data the OCC examiner pulls during a CRA exam. Required for any institution presenting a compliance narrative to regulators.',
+      sections:[
+        { title:'Data Points', items:['Loan applications by census tract','Approval / denial rates by geography and demographics','Institution-level lending concentration','Product type breakdown by market'] },
+        { title:'Access', items:['REST API — ffiec.cfpb.gov/api/public/swagger','No key required — rate limits apply','Registration at cfpb.gov for higher limits','Georgia 2022–2024 scope for demo'] },
+        { title:'Powers', items:['Bilateral risk — lending gap detection','CRA compliance cascade','Regulator-ready pack generation','Andre\'s core requirement — real institution data'] },
+      ],
+      badges:['badge-green:Free API','badge-amber:Loan-Level','badge-blue:Regulator Grade']
+    }
+  },
+  fred: {
+    id:'fred', layer:'sources', label:'FRED', sublabel:'Macro Economic',
+    color: 'rgba(240,232,213,0.5)',
+    detail: {
+      name:'FRED · Federal Reserve Economic Data', type:'External Source · Economic',
+      desc:'Federal Reserve Bank of St. Louis macroeconomic data. Interest rates, regional employment, GDP components, inflation metrics. The macro context layer for every position reading.',
+      sections:[
+        { title:'Key Series Used', items:['Federal funds rate — baseline cost of capital','Regional unemployment by MSA','30-year fixed mortgage rate — DSCR context','CPI components — inflation adjustment','GDP by region — economic trajectory'] },
+        { title:'Access', items:['API key: configured ✓','Python SDK: fredapi installed','fred_data_pull.py: built and tested'] },
+      ],
+      badges:['badge-green:Key Configured','badge-green:Python SDK','badge-amber:Monthly Update']
+    }
+  },
+  census: {
+    id:'census', layer:'sources', label:'Census ACS', sublabel:'Demographic Layer',
+    color: 'rgba(240,232,213,0.5)',
+    detail: {
+      name:'Census ACS · American Community Survey', type:'External Source · Demographic',
+      desc:'Tract-level demographic and income data from the Census Bureau. Powers the demographic overlay in the heat map and provides the income context for LMI classification.',
+      sections:[
+        { title:'Key Variables', items:['Median household income by tract','Poverty rate by tract','Race and ethnicity distribution','Educational attainment','Housing cost burden percentage'] },
+        { title:'Access', items:['API key: configured ✓','Python wrapper: censusdataquerier','5-year ACS — highest geographic granularity'] },
+      ],
+      badges:['badge-green:Key Configured','badge-amber:5-Year ACS','badge-blue:Tract Level']
+    }
+  },
+  fdic: {
+    id:'fdic', layer:'sources', label:'FDIC', sublabel:'Deposit Data',
+    color: 'rgba(240,232,213,0.5)',
+    detail: {
+      name:'FDIC Summary of Deposits', type:'External Source · Competitive Intelligence',
+      desc:'Branch locations and deposit concentration by institution. Shows where competitors are deployed and where the gaps are. Critical for opportunity intelligence and CRA coverage analysis.',
+      sections:[
+        { title:'Data Points', items:['Branch location by institution and census tract','Deposit volume by branch','Market share by geographic area','Institution type (national bank, state bank, credit union)'] },
+        { title:'Access', items:['REST API — banks.data.fdic.gov/api','No key required','Query by state and county'] },
+      ],
+      badges:['badge-green:Free API','badge-amber:Annual','badge-blue:Competitor Intel']
+    }
+  },
+  cfpb: {
+    id:'cfpb', layer:'sources', label:'CFPB', sublabel:'Complaint Data',
+    color: 'rgba(240,232,213,0.5)',
+    detail: {
+      name:'CFPB Complaint Database', type:'External Source · Consumer Signal',
+      desc:'Consumer complaints by product type and geography. Feeds the bilateral risk signal layer — where are consumers experiencing problems with institutions in specific markets.',
+      sections:[
+        { title:'Signal Value', items:['Geographic complaint concentration = bilateral risk indicator','Product-specific complaints flag compliance exposure','Institution-named complaints feed regulator pack context'] },
+        { title:'Access', items:['Public API — cfpb.gov/data-research/consumer-complaints','No key required','Filter by product, geography, institution','Daily update cycle'] },
+      ],
+      badges:['badge-green:Free API','badge-amber:Daily','badge-blue:Risk Signal']
+    }
+  },
+
+  // SECURITY LAYER (horizontal)
+  security: {
+    id:'security', layer:'security', label:'Security', sublabel:'Cross-Layer',
+    color: 'rgba(180,155,90,0.7)',
+    detail: {
+      name:'Security Architecture', type:'Cross-Layer · All Tiers',
+      desc:'Security is not a layer on top of the system. It runs through every layer simultaneously. Every data element in motion and at rest is protected. Every API call is authenticated. Every sensitive insight is gated by governance approval before release.',
+      sections:[
+        { title:'Encryption', items:['At rest: AES-256 · Btrfs on NAS','In transit: TLS 1.3 minimum · no fallback to 1.2','Database connections: SSL enforced on PostgreSQL','API responses: HTTPS only — HTTP requests rejected'] },
+        { title:'Authentication', items:['OAuth 2.0 PKCE flow — no implicit grants','JWT tokens — short-lived (15 min access, 7 day refresh)','API key rotation — 90-day mandatory cycle','2FA enforced on NAS admin access'] },
+        { title:'Data Handling', items:['PII fields encrypted at column level in PostgreSQL','Sensitive insights locked until governance approval — Integra enforces','Audit log: every data access event recorded immutably','No PII in URL parameters or query strings','Data residency: US-only — no cross-border transfer in Phase 1'] },
+        { title:'Institutional Alignment', items:['SOC 2 Type II roadmap — Phase 3','PCI DSS scoping — payment rail integration phase','GLBA safeguards rule compliance — financial data handling','CCPA / state privacy law compliance built into data model'] },
+      ],
+      badges:['badge-green:AES-256','badge-green:TLS 1.3','badge-blue:OAuth 2.0 PKCE','badge-amber:SOC 2 Roadmap']
+    }
+  }
+};
+
+// ── LAYOUT CALCULATION ──
+function calcLayout() {
+  W = wrap.offsetWidth;
+  H = wrap.offsetHeight;
+  canvas.width = W;
+  canvas.height = H;
+
+  const pad = { l:48, r:24, t:24, b:24 };
+  const usableW = W - pad.l - pad.r;
+  const usableH = H - pad.t - pad.b;
+
+  const layers = 5;
+  const layerH = usableH / layers;
+
+  // Layer Y centers
+  const ly = i => pad.t + layerH * i + layerH / 2;
+
+  // Presentation (layer 0) — 3 nodes
+  place('index8',       pad.l + usableW * 0.15, ly(0), 110, 36);
+  place('adaptive',     pad.l + usableW * 0.50, ly(0), 110, 36);
+  place('vantage',      pad.l + usableW * 0.85, ly(0), 110, 36);
+
+  // Intelligence (layer 1) — 4 nodes
+  place('positionEngine',  pad.l + usableW * 0.12, ly(1), 108, 36);
+  place('causalModel',     pad.l + usableW * 0.38, ly(1), 108, 36);
+  place('trustIndex',      pad.l + usableW * 0.62, ly(1), 108, 36);
+  place('reportGenerator', pad.l + usableW * 0.88, ly(1), 108, 36);
+
+  // Storage (layer 2) — 1 node centered
+  place('postgres', pad.l + usableW * 0.50, ly(2), 130, 36);
+
+  // Feed Layer (layer 3) — 1 node centered
+  place('feedLayer', pad.l + usableW * 0.50, ly(3), 130, 36);
+
+  // Sources (layer 4) — 6 nodes
+  const srcCount = 6;
+  const srcNames = ['ffiec','hmda','fred','census','fdic','cfpb'];
+  srcNames.forEach((n,i) => {
+    place(n, pad.l + usableW * (i + 0.5) / srcCount, ly(4), 72, 30);
+  });
+
+  // Security — virtual node at left
+  place('security', pad.l - 14, H/2, 0, 0);
+}
+
+function place(id, x, y, w, h) {
+  const n = NODE_DATA[id];
+  n.x = x; n.y = y; n.w = w; n.h = h;
+  NODES.push(n);
+}
+
+// ── DRAW ──
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  drawLayerBands();
+  drawConnections();
+  drawSecurityRail();
+  NODES.forEach(n => { if(n.id !== 'security') drawNode(n); });
+  drawLayerLabels();
+}
+
+function drawLayerBands() {
+  const pad = { l:48, t:24, b:24 };
+  const usableH = H - pad.t - pad.b;
+  const layerH = usableH / 5;
+  const labels = ['Presentation', 'Intelligence Engine', 'Data Store', 'Feed Pipeline', 'External Sources'];
+  const colors = [C.blueDim, C.goldBg, C.greenDim, C.amberDim, 'rgba(240,232,213,0.02)'];
+
+  labels.forEach((lbl, i) => {
+    const y = pad.t + layerH * i;
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(pad.l, y, W - pad.l - 24, layerH);
+    // right border
+    ctx.strokeStyle = 'rgba(180,155,90,0.07)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.l, y + layerH);
+    ctx.lineTo(W - 24, y + layerH);
+    ctx.stroke();
+  });
+}
+
+function drawLayerLabels() {
+  const pad = { l:48, t:24, b:24 };
+  const usableH = H - pad.t - pad.b;
+  const layerH = usableH / 5;
+  const labels = ['Presentation','Intelligence','Storage','Pipeline','Sources'];
+  const colors = [C.blue, C.gold, C.green, C.amber, 'rgba(240,232,213,0.3)'];
+
+  ctx.save();
+  labels.forEach((lbl, i) => {
+    const y = pad.t + layerH * i + layerH / 2;
+    ctx.font = '8px DM Sans, sans-serif';
+    ctx.fillStyle = colors[i];
+    ctx.globalAlpha = 0.7;
+    ctx.save();
+    ctx.translate(20, y);
+    ctx.rotate(-Math.PI/2);
+    ctx.fillText(lbl.toUpperCase(), -lbl.length * 2.5, 0);
+    ctx.restore();
+  });
+  ctx.restore();
+}
+
+function drawConnections() {
+  // Presentation → Intelligence
+  const presNodes = ['index8','adaptive','vantage'];
+  const intNodes = ['positionEngine','causalModel','trustIndex','reportGenerator'];
+  presNodes.forEach(p => {
+    intNodes.forEach(q => {
+      if (
+        (p==='index8' && (q==='positionEngine'||q==='reportGenerator')) ||
+        (p==='adaptive' && (q==='positionEngine'||q==='trustIndex')) ||
+        (p==='vantage' && (q==='causalModel'||q==='reportGenerator'))
+      ) {
+        drawWire(NODE_DATA[p], NODE_DATA[q], C.blueDim, false);
+      }
+    });
+  });
+
+  // Intelligence → Storage
+  intNodes.forEach(n => drawWire(NODE_DATA[n], NODE_DATA['postgres'], 'rgba(201,168,76,0.15)', false));
+
+  // Storage → FeedLayer
+  drawWire(NODE_DATA['postgres'], NODE_DATA['feedLayer'], 'rgba(74,158,122,0.2)', true);
+
+  // FeedLayer → Sources
+  ['ffiec','hmda','fred','census','fdic','cfpb'].forEach(s => {
+    drawWire(NODE_DATA['feedLayer'], NODE_DATA[s], 'rgba(200,135,74,0.2)', false);
+  });
+}
+
+function drawWire(a, b, color, dashed) {
+  if(!a.x||!b.x) return;
+  ctx.beginPath();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1;
+  if(dashed) ctx.setLineDash([3,5]); else ctx.setLineDash([]);
+
+  const x1 = a.x, y1 = a.y + (a.h||0)/2;
+  const x2 = b.x, y2 = b.y - (b.h||0)/2;
+  const cp = (y1 + y2) / 2;
+
+  ctx.moveTo(x1, y1);
+  ctx.bezierCurveTo(x1, cp, x2, cp, x2, y2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // small arrow at destination
+  const angle = Math.atan2(y2 - cp, x2 - x1 * 0.01);
+  ctx.beginPath();
+  ctx.fillStyle = color;
+  ctx.moveTo(x2, y2);
+  ctx.lineTo(x2 - 4 * Math.cos(angle - 0.4), y2 - 4 * Math.sin(angle - 0.4));
+  ctx.lineTo(x2 - 4 * Math.cos(angle + 0.4), y2 - 4 * Math.sin(angle + 0.4));
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawSecurityRail() {
+  // Vertical gold rail on left indicating security runs through all layers
+  const x = 44;
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgba(201,168,76,0.25)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4,6]);
+  ctx.moveTo(x, 24);
+  ctx.lineTo(x, H - 24);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Lock icon
+  const ly = H/2;
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgba(201,168,76,0.5)';
+  ctx.lineWidth = 1;
+  ctx.rect(x - 7, ly - 5, 14, 10);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(x, ly - 5, 4, Math.PI, 0, false);
+  ctx.stroke();
+
+  // label
+  ctx.save();
+  ctx.translate(12, H/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.font = '7.5px DM Sans, sans-serif';
+  ctx.fillStyle = 'rgba(201,168,76,0.4)';
+  ctx.fillText('SECURITY · AES-256 · TLS 1.3 · OAUTH 2.0', -60, 0);
+  ctx.restore();
+}
+
+function drawNode(n) {
+  if(!n.x) return;
+  const { x, y, w, h, color, label, sublabel } = n;
+  const isHov = hovered === n.id;
+  const isSel = selected === n.id;
+
+  const bx = x - w/2, by = y - h/2;
+
+  // glow
+  if(isHov || isSel) {
+    ctx.shadowColor = color;
+    ctx.shadowBlur = isSel ? 14 : 8;
+  }
+
+  // fill
+  ctx.fillStyle = isSel ? `${color}18` : isHov ? `${color}10` : `${color}08`;
+  ctx.strokeStyle = isSel ? color : isHov ? color : `${color}55`;
+  ctx.lineWidth = isSel ? 1.5 : 1;
+  ctx.beginPath();
+  ctx.rect(bx, by, w, h);
+  ctx.fill();
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+  ctx.shadowColor = 'transparent';
+
+  // label
+  ctx.font = isSel ? '600 9.5px DM Sans, sans-serif' : '400 9.5px DM Sans, sans-serif';
+  ctx.fillStyle = isSel ? C.cream : isHov ? C.cream : 'rgba(240,232,213,0.7)';
+  ctx.textAlign = 'center';
+  ctx.fillText(label.toUpperCase(), x, y - 1);
+
+  // sublabel
+  ctx.font = '300 8px DM Sans, sans-serif';
+  ctx.fillStyle = `${color}AA`;
+  ctx.fillText(sublabel, x, y + 9);
+
+  ctx.textAlign = 'left';
+}
+
+// ── INTERACTION ──
+function getNode(mx, my) {
+  for(const n of NODES) {
+    if(!n.x || !n.w) continue;
+    if(mx >= n.x - n.w/2 && mx <= n.x + n.w/2 &&
+       my >= n.y - n.h/2 && my <= n.y + n.h/2) return n;
+  }
+  // check security rail
+  if(mx < 48) return NODE_DATA['security'];
+  return null;
+}
+
+canvas.addEventListener('mousemove', e => {
+  const r = canvas.getBoundingClientRect();
+  const mx = e.clientX - r.left;
+  const my = e.clientY - r.top;
+  const n = getNode(mx, my);
+  hovered = n ? n.id : null;
+  canvas.style.cursor = n ? 'pointer' : 'default';
+
+  if(n) {
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX + 12) + 'px';
+    tooltip.style.top = (e.clientY - 24) + 'px';
+    tooltip.textContent = n.label + ' — click to inspect';
+  } else {
+    tooltip.style.display = 'none';
+  }
+  draw();
+});
+
+canvas.addEventListener('click', e => {
+  const r = canvas.getBoundingClientRect();
+  const n = getNode(e.clientX - r.left, e.clientY - r.top);
+  if(n) {
+    selected = n.id;
+    renderDetail(n);
+  }
+  draw();
+});
+
+canvas.addEventListener('mouseleave', () => {
+  hovered = null;
+  tooltip.style.display = 'none';
+  draw();
+});
+
+function renderDetail(n) {
+  const d = n.detail;
+  if(!d) return;
+  const body = document.getElementById('detail-body');
+
+  let badgeHTML = '';
+  if(d.badges) {
+    d.badges.forEach(b => {
+      const [cls, lbl] = b.split(':');
+      badgeHTML += `<span class="detail-badge ${cls}">${lbl}</span>`;
+    });
+  }
+
+  let sectionsHTML = '';
+  if(d.sections) {
+    d.sections.forEach(s => {
+      sectionsHTML += `<div class="detail-section">
+        <div class="detail-section-title">${s.title}</div>
+        ${s.items.map(i => `<div class="detail-item">${i}</div>`).join('')}
+      </div>`;
+    });
+  }
+
+  let codeHTML = '';
+  if(d.code) {
+    codeHTML = `<div class="detail-section">
+      <div class="detail-section-title">Example</div>
+      <code class="detail-code">${d.code.replace(/\n/g,'<br>').replace(/ /g,'&nbsp;')}</code>
+    </div>`;
+  }
+
+  body.innerHTML = `
+    <div class="detail-name">${d.name}</div>
+    <div class="detail-type" style="color:${n.color}">${d.type}</div>
+    <div class="detail-desc">${d.desc}</div>
+    <div style="margin-bottom:14px">${badgeHTML}</div>
+    ${sectionsHTML}
+    ${codeHTML}
+  `;
+}
+
+// ── RESIZE ──
+window.addEventListener('resize', () => {
+  NODES.length = 0;
+  calcLayout();
+  draw();
+});
+
+// ── INIT ──
+calcLayout();
+draw();
+</script>
+</body>
+</html>

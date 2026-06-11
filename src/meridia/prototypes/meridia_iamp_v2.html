@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridia — IAMP System Architecture v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #0d1b2a;
+    --navy-mid:   #152236;
+    --navy-light: #1e3352;
+    --gold:       #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale:  #f5e8c0;
+    --cream:      #f8f3e8;
+    --burgundy:   #6b2d3e;
+    --forest:     #2d4a3e;
+    --slate:      #3d5a73;
+    --court:      #1a2f1e;
+    --court-line: rgba(201,168,76,0.25);
+    --text-light: rgba(248,243,232,0.85);
+    --text-dim:   rgba(248,243,232,0.45);
+  }
+
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 0% 100%, rgba(30,51,82,0.6) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: 1160px; margin: 0 auto;
+    padding: 56px 36px 80px;
+  }
+
+  /* ── HEADER ─────────────────────────────────── */
+  .hdr { text-align: center; margin-bottom: 56px; animation: fadeDown 0.9s ease both; }
+  .eyebrow { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.5em; color:var(--gold); opacity:.7; margin-bottom:16px; }
+  .hdr h1 { font-family:'Cinzel',serif; font-size:clamp(26px,3.5vw,42px); font-weight:500; letter-spacing:.07em; line-height:1.2; margin-bottom:14px; }
+  .rule { display:flex; align-items:center; justify-content:center; gap:14px; margin:16px 0; }
+  .rl { height:1px; width:80px; }
+  .rl.l { background:linear-gradient(90deg,transparent,var(--gold)); }
+  .rl.r { background:linear-gradient(90deg,var(--gold),transparent); }
+  .dia { width:6px; height:6px; background:var(--gold); transform:rotate(45deg); }
+  .sub { font-size:16px; font-style:italic; color:var(--text-dim); letter-spacing:.02em; }
+
+  /* ── SECTION LABELS ─────────────────────────── */
+  .sl { font-family:'Cinzel',serif; font-size:8.5px; letter-spacing:.4em; color:var(--gold); opacity:.65; margin-bottom:20px; text-transform:uppercase; }
+
+  /* ── CONNECTORS ─────────────────────────────── */
+  .arrow { text-align:center; font-size:20px; color:rgba(201,168,76,0.3); margin:6px 0 14px; }
+
+  /* ── GUARDRAIL WRAPPER ──────────────────────── */
+  /*  Everything from IAMP down lives inside the guardrail boundary  */
+  .guardrail-outer {
+    position: relative;
+    border: 2px solid var(--gold);
+    border-radius: 2px;
+    padding: 0;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .guardrail-label-top {
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--navy);
+    padding: 0 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: .5em;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .guardrail-label-bottom {
+    position: absolute;
+    bottom: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--navy);
+    padding: 0 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: .35em;
+    color: rgba(201,168,76,0.5);
+    white-space: nowrap;
+  }
+
+  .guardrail-inner { padding: 32px 28px 28px; }
+
+  /* ── GUARDRAIL PILLARS (three layers) ────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+  }
+
+  .pillar {
+    padding: 20px 20px 18px;
+    border-right: 1px solid rgba(201,168,76,0.1);
+    position: relative;
+  }
+  .pillar:last-child { border-right: none; }
+
+  .pillar::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+  }
+  .pillar.p1::before { background: var(--forest); }
+  .pillar.p2::before { background: var(--slate); }
+  .pillar.p3::before { background: var(--burgundy); }
+
+  .pillar.p1 { background: linear-gradient(135deg,rgba(45,74,62,.2),rgba(13,27,42,.95)); }
+  .pillar.p2 { background: linear-gradient(135deg,rgba(30,51,82,.35),rgba(13,27,42,.95)); }
+  .pillar.p3 { background: linear-gradient(135deg,rgba(107,45,62,.18),rgba(13,27,42,.95)); }
+
+  .p-num { font-family:'Cinzel',serif; font-size:8px; letter-spacing:.3em; color:var(--gold); opacity:.5; margin-bottom:6px; }
+  .p-name { font-family:'Cinzel',serif; font-size:15px; color:var(--cream); margin-bottom:4px; font-weight:500; }
+  .p-guardrail-tag {
+    display:inline-block; margin-bottom:10px;
+    padding: 2px 10px;
+    border: 1px solid rgba(201,168,76,0.25);
+    font-family:'Cinzel',serif; font-size:7.5px; letter-spacing:.2em; color:var(--gold); opacity:.7;
+  }
+  .p-serves { font-size:12px; color:var(--gold); font-style:italic; margin-bottom:8px; opacity:.8; }
+  .p-desc { font-size:12.5px; color:var(--text-light); line-height:1.6; }
+
+  /* ── IAMP FLOW (inside guardrails) ──────────── */
+  .iamp-flow {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0;
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .iamp-flow::before {
+    content:'';
+    position:absolute; top:40px; left:12.5%; right:12.5%;
+    height:1px;
+    background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));
+    opacity:.3; z-index:0;
+  }
+
+  .is { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; padding:0 12px; }
+  .il { font-family:'Cinzel',serif; font-size:40px; font-weight:600; color:var(--gold); line-height:1; margin-bottom:2px; text-shadow:0 0 32px rgba(201,168,76,.25); }
+  .iw { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.22em; color:var(--cream); margin-bottom:12px; opacity:.75; }
+  .in {
+    width:52px; height:52px; border-radius:50%;
+    background:var(--navy-mid); border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:12px; font-size:20px;
+    box-shadow:0 0 20px rgba(201,168,76,.15),inset 0 1px 0 rgba(201,168,76,.15);
+  }
+  .id { font-size:11.5px; color:var(--text-dim); text-align:center; line-height:1.5; font-style:italic; max-width:130px; }
+
+  /* ── RECESS COURT (inside guardrails) ────────── */
+  .recess-court {
+    border: 1.5px solid var(--court-line);
+    background: linear-gradient(135deg, rgba(26,47,30,.6), rgba(13,27,42,.95));
+    position: relative;
+    overflow: hidden;
+    padding: 28px 28px 24px;
+    margin-top: 4px;
+  }
+
+  /* Court lines background */
+  .recess-court::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* Center circle */
+  .recess-court::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,.1);
+    pointer-events: none;
+  }
+
+  .court-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .court-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 9px; letter-spacing: .35em;
+    color: var(--gold); opacity: .8;
+    border: 1px solid rgba(201,168,76,.3);
+    padding: 4px 14px;
+    white-space: nowrap;
+  }
+
+  .court-title {
+    font-family: 'Cinzel', serif;
+    font-size: 18px; font-weight: 500;
+    color: var(--cream);
+  }
+
+  .court-sub {
+    font-size: 13px; font-style: italic;
+    color: var(--gold); opacity: .75;
+    margin-left: auto;
+  }
+
+  .court-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    position: relative; z-index: 1;
+  }
+
+  .play-card {
+    background: rgba(13,27,42,.75);
+    border: 1px solid rgba(201,168,76,.15);
+    padding: 16px 14px;
+    position: relative;
+  }
+
+  .play-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .play-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .play-name { font-family:'Cinzel',serif; font-size:11px; color:var(--cream); margin-bottom:6px; font-weight:500; letter-spacing:.04em; }
+  .play-desc { font-size:11px; color:var(--text-dim); line-height:1.5; }
+
+  /* ── ENTRY SECTION (clients — above guardrails) ── */
+  .entry-section { margin-bottom: 20px; animation: fadeUp 0.7s ease 0.1s both; }
+
+  .entry-grid {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+  }
+
+  .ec {
+    background: linear-gradient(135deg,rgba(21,34,54,.9),rgba(13,27,42,.9));
+    border: 1px solid rgba(201,168,76,.18);
+    border-top: 2px solid var(--gold);
+    padding: 18px 12px;
+    text-align: center;
+    transition: all .3s ease;
+  }
+  .ec:hover { transform:translateY(-2px); border-color:rgba(201,168,76,.5); }
+  .ec .tb { font-family:'Cinzel',serif; font-size:7.5px; letter-spacing:.25em; color:var(--gold); opacity:.65; display:block; margin-bottom:8px; }
+  .ec .tn { font-family:'Cinzel',serif; font-size:12px; color:var(--cream); margin-bottom:4px; font-weight:500; }
+  .ec .td { font-size:10.5px; color:var(--text-dim); font-style:italic; line-height:1.4; }
+
+  /* ── OUTCOME BRANCHES (outside guardrails, output) ── */
+  .outcomes-section { margin-bottom: 40px; animation: fadeUp 0.8s ease 0.5s both; }
+
+  .outcomes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+
+  .oc {
+    padding: 24px 22px;
+    border: 1px solid rgba(201,168,76,.12);
+    position: relative; overflow: hidden;
+    transition: all .3s ease;
+  }
+  .oc:hover { transform:translateY(-2px); }
+  .oc::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+
+  .oc.perfect { background:linear-gradient(135deg,rgba(45,74,62,.2),rgba(13,27,42,.97)); }
+  .oc.perfect::after { background:linear-gradient(90deg,var(--forest),#4a8c6e); }
+
+  .oc.partial { background:linear-gradient(135deg,rgba(30,51,82,.35),rgba(13,27,42,.97)); }
+  .oc.partial::after { background:linear-gradient(90deg,var(--slate),var(--gold)); }
+
+  .oc.none { background:linear-gradient(135deg,rgba(107,45,62,.18),rgba(13,27,42,.97)); }
+  .oc.none::after { background:linear-gradient(90deg,var(--burgundy),#a85570); }
+
+  .os { display:flex; align-items:center; gap:9px; margin-bottom:12px; }
+  .oi { width:9px; height:9px; border-radius:50%; }
+  .perfect .oi { background:#4a8c6e; box-shadow:0 0 8px rgba(74,140,110,.5); }
+  .partial .oi { background:var(--gold); box-shadow:0 0 8px rgba(201,168,76,.5); }
+  .none    .oi { background:#a85570; box-shadow:0 0 8px rgba(168,85,112,.5); }
+
+  .ot { font-family:'Cinzel',serif; font-size:13px; color:var(--cream); font-weight:500; }
+  .osub { font-size:11.5px; color:var(--gold); font-style:italic; margin-bottom:10px; opacity:.8; }
+  .od { font-size:12.5px; color:var(--text-light); line-height:1.65; }
+  .otag {
+    display:inline-block; margin-top:12px;
+    padding:3px 10px;
+    border:1px solid rgba(201,168,76,.25);
+    font-family:'Cinzel',serif; font-size:7.5px; letter-spacing:.18em; color:var(--gold); opacity:.65;
+  }
+
+  /* ── INSTITUTION PLAYERS ─────────────────────── */
+  .players-section { margin-bottom: 40px; animation: fadeUp 0.8s ease 0.65s both; }
+
+  .coach-bar {
+    background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.03));
+    border:1px solid rgba(201,168,76,.3); border-bottom:none;
+    padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    position:relative;
+  }
+  .coach-bar::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .cb-left { display:flex; align-items:center; gap:16px; }
+  .cb-icon { width:44px; height:44px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; background:rgba(201,168,76,.07); }
+  .cb-name { font-family:'Cinzel',serif; font-size:17px; color:var(--cream); margin-bottom:2px; }
+  .cb-role { font-size:11.5px; color:var(--gold); font-style:italic; opacity:.8; }
+  .cb-right { font-size:12px; color:var(--text-dim); font-style:italic; text-align:right; max-width:260px; line-height:1.5; }
+
+  .players-row {
+    display:grid; grid-template-columns:repeat(5,1fr);
+    border:1px solid rgba(201,168,76,.18); border-top:none;
+  }
+
+  .pc {
+    padding:20px 14px;
+    border-right:1px solid rgba(201,168,76,.08);
+    background:rgba(13,27,42,.5);
+    transition:background .3s;
+    position:relative;
+  }
+  .pc:last-child { border-right:none; }
+  .pc:hover { background:rgba(21,34,54,.8); }
+
+  .pc-nil { position:absolute; top:10px; right:10px; font-family:'Cinzel',serif; font-size:7px; letter-spacing:.18em; color:var(--gold); opacity:.35; }
+  .pc-icon { font-size:22px; margin-bottom:10px; display:block; }
+  .pc-name { font-family:'Cinzel',serif; font-size:10.5px; color:var(--cream); margin-bottom:5px; font-weight:500; }
+  .pc-nil-tag { font-size:10px; color:var(--gold); font-style:italic; margin-bottom:7px; opacity:.65; }
+  .pc-desc { font-size:10.5px; color:var(--text-dim); line-height:1.5; }
+
+  /* ── GOVERNESS LOOP ──────────────────────────── */
+  .gov-section { margin-bottom: 40px; animation: fadeUp 0.8s ease 0.8s both; }
+
+  .gov-band {
+    background:linear-gradient(135deg,rgba(21,34,54,.8),rgba(13,27,42,.97));
+    border:1px solid rgba(201,168,76,.18);
+    padding:28px 36px;
+    display:grid; grid-template-columns:1fr auto 1fr;
+    gap:28px; align-items:center;
+    position:relative; overflow:hidden;
+  }
+  .gov-band::before {
+    content:'"THE GOVERNESS SIGNAL"';
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    font-family:'Cinzel',serif; font-size:70px;
+    color:rgba(201,168,76,.025); white-space:nowrap; pointer-events:none;
+  }
+
+  .gc h3 { font-family:'Cinzel',serif; font-size:12.5px; color:var(--gold); margin-bottom:7px; }
+  .gc p { font-size:12.5px; color:var(--text-light); line-height:1.6; }
+
+  .g-center { display:flex; flex-direction:column; align-items:center; gap:7px; }
+  .g-loop { width:60px; height:60px; border:1.5px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; animation:spin-slow 12s linear infinite; box-shadow:0 0 20px rgba(201,168,76,.18); }
+  .g-lbl { font-family:'Cinzel',serif; font-size:7.5px; letter-spacing:.28em; color:var(--gold); opacity:.55; }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  .footer { text-align:center; padding-top:36px; border-top:1px solid rgba(201,168,76,.08); animation:fadeUp 0.8s ease 1s both; }
+  .footer-motto { font-size:14.5px; font-style:italic; color:var(--text-dim); letter-spacing:.08em; }
+  .footer-id { margin-top:16px; font-family:'Cinzel',serif; font-size:8px; letter-spacing:.4em; color:rgba(201,168,76,.28); }
+
+  /* ── ANIMATIONS ──────────────────────────────── */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(18px)}  to{opacity:1;transform:translateY(0)} }
+  @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="eyebrow">Meridia Holdings · IAMP Intelligence Framework v2</div>
+    <h1>The Governed System<br>& The Practice Court</h1>
+    <div class="rule"><div class="rl l"></div><div class="dia"></div><div class="rl r"></div></div>
+    <div class="sub">Structured Guardrails · Recess Court · Differentiated Presentment</div>
+  </div>
+
+  <!-- ENTRY: WHO COMES -->
+  <div class="entry-section">
+    <div class="sl">Entry — Scenario, Not Product Request</div>
+    <div class="entry-grid">
+      <div class="ec"><span class="tb">WayPoint Core</span><div class="tn">Individual</div><div class="td">Building stability from wherever they stand</div></div>
+      <div class="ec"><span class="tb">WayPoint Core</span><div class="tn">Family</div><div class="td">Household alignment across competing needs</div></div>
+      <div class="ec"><span class="tb">WayPoint Edge</span><div class="tn">Entrepreneur</div><div class="td">Liquidity, credit, and infrastructure for the builder</div></div>
+      <div class="ec"><span class="tb">Edge / Crown</span><div class="tn">Corporate Entity</div><div class="td">Multi-entity governance, capital structure, compliance</div></div>
+      <div class="ec"><span class="tb">WayPoint Crown</span><div class="tn">UHNW Family</div><div class="td">Generational architecture, Trust Index, entity mapping</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- ══════════════════════════════════════════════
+       GUARDRAIL OUTER BOUNDARY
+       Everything inside here is governed
+  ═══════════════════════════════════════════════ -->
+  <div class="guardrail-outer">
+    <div class="guardrail-label-top">STRUCTURED GUARDRAILS — GOVERNED BOUNDARY</div>
+    <div class="guardrail-label-bottom">Compliance · CRA · Regulatory Alignment · Auditable Processes · Baked In From The Beginning</div>
+
+    <div class="guardrail-inner">
+
+      <!-- THREE GUARDRAIL PILLARS -->
+      <div class="sl">The Three Pillars — Not Participation Reasons. Governance Boundaries.</div>
+      <div class="pillars">
+        <div class="pillar p1">
+          <div class="p-num">Guardrail One</div>
+          <div class="p-name">Trust</div>
+          <div class="p-guardrail-tag">Client Boundary</div>
+          <div class="p-serves">The floor the client stands on</div>
+          <div class="p-desc">Every action inside the system is taken in the client's interest. This is not a soft promise — it is an architectural constraint. The system cannot present a match that serves the institution at the client's expense. Governed disclosure. Depth by development. Never extractive.</div>
+        </div>
+        <div class="pillar p2">
+          <div class="p-num">Guardrail Two</div>
+          <div class="p-name">Assurance</div>
+          <div class="p-guardrail-tag">Institutional Boundary</div>
+          <div class="p-serves">The wall the institution operates inside</div>
+          <div class="p-desc">Every institution enters a scenario with complete confidence the data is accurate, the analysis is governed, and their exposure is bounded by contract. Bilateral risk reading happens before any institution sees a client scenario. Their NIL — name, image, likeness — is never at risk.</div>
+        </div>
+        <div class="pillar p3">
+          <div class="p-num">Guardrail Three</div>
+          <div class="p-name">Reinsurance</div>
+          <div class="p-guardrail-tag">System Boundary</div>
+          <div class="p-serves">The ceiling that holds when outcomes shift</div>
+          <div class="p-desc">When circumstances change after deployment — market moves, client conditions shift, product terms change — the reinsurance layer is the governed backstop. The operation stays coherent and auditable even when the outcome diverges from the plan. The system absorbs the drift without breaking.</div>
+        </div>
+      </div>
+
+      <!-- IAMP FLOW -->
+      <div class="sl">IAMP Engine — Running Inside The Guardrails</div>
+      <div class="iamp-flow">
+        <div class="is">
+          <div class="il">I</div><div class="iw">Ingestion</div>
+          <div class="in">⬇</div>
+          <div class="id">Full landscape continuously ingested — products, rates, risk tiers, MSA, CRA signals, FFIEC, HMDA, institution capacity</div>
+        </div>
+        <div class="is">
+          <div class="il">A</div><div class="iw">Analysis</div>
+          <div class="in">⚖</div>
+          <div class="id">Bilateral risk — client position AND institution exposure simultaneously. FPS, DSCR, runway, liquidity</div>
+        </div>
+        <div class="is">
+          <div class="il">M</div><div class="iw">Matching</div>
+          <div class="in">◎</div>
+          <div class="id">Scenario-to-institution by need, not function. MSA alignment. Product combinations under governed contract</div>
+        </div>
+        <div class="is">
+          <div class="il">P</div><div class="iw">Presentment</div>
+          <div class="in">◈</div>
+          <div class="id">Differentiated by audience and tier. Same governed data. Board, regulator, family, technical — each in their form</div>
+        </div>
+      </div>
+
+      <div class="arrow" style="margin:20px 0 12px;">↓</div>
+
+      <!-- RECESS COURT -->
+      <div class="sl">The Recess Court — State-of-the-Art Practice Facility (Inside the Guardrails)</div>
+      <div class="recess-court">
+        <div class="court-header">
+          <div class="court-badge">Practice Court</div>
+          <div class="court-title">Recess</div>
+          <div class="court-sub">Where plays are designed before they go live</div>
+        </div>
+        <div class="court-grid">
+          <div class="play-card">
+            <span class="play-icon">🎯</span>
+            <div class="play-name">Scenario Development</div>
+            <div class="play-desc">New financial scenarios run inside the guardrails before they touch a real client or real institution. The court is the safe environment. The guardrails make it safe.</div>
+          </div>
+          <div class="play-card">
+            <span class="play-icon">🏗</span>
+            <div class="play-name">Institutional Integration</div>
+            <div class="play-desc">New players are evaluated and onboarded here. Capability testing, contract design, bilateral risk calibration — all before live deployment in a real scenario.</div>
+          </div>
+          <div class="play-card">
+            <span class="play-icon">📋</span>
+            <div class="play-name">Play Design</div>
+            <div class="play-desc">New product combinations, new MSA alignments, new cross-institutional sequences are choreographed here. The coach draws the play. The court is where it's run. The game is where it's deployed.</div>
+          </div>
+          <div class="play-card">
+            <span class="play-icon">🔄</span>
+            <div class="play-name">No-Fit Intelligence</div>
+            <div class="play-desc">When no perfect fit exists, the court captures it — honest, auditable, CRA-reportable. The gap becomes the specification for what gets drafted next. Recess turns no-fit into market intelligence.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /guardrail-inner -->
+  </div><!-- /guardrail-outer -->
+
+  <!-- OUTCOME BRANCHES (outside guardrails — output) -->
+  <div class="outcomes-section">
+    <div class="sl">Outcomes — What Leaves The Guardrails, Governed and Validated</div>
+    <div class="outcomes-grid">
+      <div class="oc perfect">
+        <div class="os"><div class="oi"></div><div class="ot">Perfect Fit</div></div>
+        <div class="osub">The operation executes as designed</div>
+        <div class="od">Scenario maps cleanly to institution or combination. Product deployed. All parties have governed clarity. The client receives exactly the instrument their scenario requires.</div>
+        <div class="otag">Transaction Complete</div>
+      </div>
+      <div class="oc partial">
+        <div class="os"><div class="oi"></div><div class="ot">Partial Fit</div></div>
+        <div class="osub">The play adapts — as the court prepared it to</div>
+        <div class="od">Available options presented with honest explanation of what they cover and where the gap remains. The client is a pipeline position. The system carries the scenario forward. The court has already begun designing the next play.</div>
+        <div class="otag">Pipeline Activated</div>
+      </div>
+      <div class="oc none">
+        <div class="os"><div class="oi"></div><div class="ot">No Current Fit</div></div>
+        <div class="osub">The most valuable output the court produces</div>
+        <div class="od">Collaborative honesty: no product exists today. The gap is documented inside the guardrails — honest, auditable, CRA-reportable. The institution's good-faith participation is regulatory value. The Governess Signal activates to scout the next emerging player. No-fit is never wasted on a practice court with this infrastructure.</div>
+        <div class="otag">CRA Signal · Regulatory Buzz · Research Pipeline</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTITUTIONS -->
+  <div class="players-section">
+    <div class="sl">The Players — Each With Their NIL, Each Under Contract</div>
+    <div class="coach-bar">
+      <div class="cb-left">
+        <div class="cb-icon">🏛</div>
+        <div>
+          <div class="cb-name">Meridia · Integra Core</div>
+          <div class="cb-role">The Coach — Orchestrates players, holds the client relationship, calls the play</div>
+        </div>
+      </div>
+      <div class="cb-right">None will willingly team with each other. The contract defines reciprocating responsibilities. Each plays their position, retains their NIL, serves the scenario without competitive exposure.</div>
+    </div>
+    <div class="players-row">
+      <div class="pc"><span class="pc-nil">NIL ◈</span><span class="pc-icon">🏦</span><div class="pc-name">Community Banks</div><div class="pc-nil-tag">Relationship capital</div><div class="pc-desc">CRA obligations, community development, SBA lending, local deposit relationships</div></div>
+      <div class="pc"><span class="pc-nil">NIL ◈</span><span class="pc-icon">🤝</span><div class="pc-name">Credit Unions</div><div class="pc-nil-tag">Member-first structure</div><div class="pc-desc">Consumer lending, alternative underwriting, prepaid, financial inclusion mandates</div></div>
+      <div class="pc"><span class="pc-nil">NIL ◈</span><span class="pc-icon">🌱</span><div class="pc-name">CDFIs</div><div class="pc-nil-tag">Mission-driven capital</div><div class="pc-desc">Underserved markets, small business, affordable housing, NMTC, federal subsidy</div></div>
+      <div class="pc"><span class="pc-nil">NIL ◈</span><span class="pc-icon">⚡</span><div class="pc-name">Fintech Partners</div><div class="pc-nil-tag">Speed · edge verticals</div><div class="pc-desc">Creator economy, cannabis, seasonal trades, non-QM, embedded finance rails</div></div>
+      <div class="pc"><span class="pc-nil">NIL ◈</span><span class="pc-icon">🏗</span><div class="pc-name">Institutional Capital</div><div class="pc-nil-tag">Scale · anchor capacity</div><div class="pc-desc">Regional banks, insurance capital, SPVs, family office vehicles, private credit</div></div>
+    </div>
+  </div>
+
+  <!-- GOVERNESS SIGNAL -->
+  <div class="gov-section">
+    <div class="sl">The Governess Signal — The Court Scouts Its Own Landscape</div>
+    <div class="gov-band">
+      <div class="gc">
+        <h3>Continuous Landscape Evaluation</h3>
+        <p>A good system constantly evaluates whether new talent or capability has emerged. The Governess Signal is the scouting department as a governed function. Every new model, every new institution, every new product that enters a verified, proven system gets better — immediately — because the guardrails were already in place before they arrived.</p>
+      </div>
+      <div class="g-center">
+        <div class="g-loop">⟳</div>
+        <div class="g-lbl">Quarterly Cycle</div>
+      </div>
+      <div class="gc" style="text-align:right;">
+        <h3>Drafting New Players</h3>
+        <p>The race doesn't threaten the system. Every winner of the AI model race, every new institution entering the ecosystem, every new regulatory tool — they all enter through the practice court, run plays inside the guardrails, and if they perform, join the team. The system captures the value of every improvement in the landscape, regardless of who built the improvement.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="rule"><div class="rl l"></div><div class="dia"></div><div class="rl r"></div></div>
+    <div class="footer-motto">"The court makes the game possible. The guardrails make the court safe. The system demonstrates itself."</div>
+    <div class="footer-id">Meridia Holdings · Governance as Infrastructure · IAMP v2 · The Scotsman at Scale</div>
+  </div>
+
+</div>
+</body>
+</html>

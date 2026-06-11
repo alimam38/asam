@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Meridia · Texas CRA Intelligence · Andre Waits Brief</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0D1B3E;color:#E8DCCA;font-family:'Barlow Condensed',sans-serif;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+  .header{padding:14px 24px 10px;border-bottom:1px solid rgba(201,168,76,0.25);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+  .brand{font-size:10px;letter-spacing:4px;color:#C9A84C;font-weight:600;text-transform:uppercase}
+  .title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;letter-spacing:.5px}
+  .subtitle{font-size:11px;color:rgba(232,220,202,0.45);letter-spacing:1.5px;margin-top:2px}
+
+  .stats-row{display:flex;gap:5px}
+  .stat{text-align:center;padding:5px 12px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:2px}
+  .stat-val{font-size:16px;font-weight:700;color:#C9A84C;line-height:1}
+  .stat-label{font-size:8px;letter-spacing:1px;color:rgba(232,220,202,0.45);text-transform:uppercase;margin-top:2px}
+
+  .main{display:flex;flex:1;overflow:hidden}
+  .map-area{flex:1;position:relative;overflow:hidden}
+  canvas{display:block;width:100%;height:100%}
+
+  .sidebar{width:280px;flex-shrink:0;border-left:1px solid rgba(201,168,76,0.15);display:flex;flex-direction:column;overflow:hidden}
+
+  .panel{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .panel-title{font-size:9px;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+
+  .filter-row{display:flex;gap:5px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+  .filter-btn{font-size:9px;letter-spacing:1px;padding:3px 8px;border:1px solid rgba(201,168,76,0.2);background:transparent;color:rgba(232,220,202,0.5);cursor:pointer;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;border-radius:1px;transition:all 0.2s}
+  .filter-btn.active{border-color:#C9A84C;color:#C9A84C;background:rgba(201,168,76,0.08)}
+
+  .legend-item{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+  .ldot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .ltext{font-size:10px;color:rgba(232,220,202,0.65)}
+  .lcount{font-size:10px;color:#C9A84C;margin-left:auto;font-weight:700}
+
+  .gap-panel{flex:1;overflow-y:auto;padding:14px 16px}
+  .gap-item{padding:8px 10px;margin-bottom:6px;background:rgba(232,93,93,0.06);border:1px solid rgba(232,93,93,0.15);border-left:3px solid #E85D5D;border-radius:1px}
+  .gap-name{font-size:11px;color:#fff;font-weight:600;margin-bottom:2px}
+  .gap-desc{font-size:10px;color:rgba(232,220,202,0.5);line-height:1.4}
+  .gap-stat{font-size:10px;color:#E85D5D;font-weight:700;margin-top:3px}
+
+  .opportunity-item{padding:8px 10px;margin-bottom:6px;background:rgba(93,232,160,0.06);border:1px solid rgba(93,232,160,0.15);border-left:3px solid #5DE8A0;border-radius:1px}
+  .opp-name{font-size:11px;color:#fff;font-weight:600;margin-bottom:2px}
+  .opp-desc{font-size:10px;color:rgba(232,220,202,0.5);line-height:1.4}
+  .opp-stat{font-size:10px;color:#5DE8A0;font-weight:700;margin-top:3px}
+
+  .tooltip{position:absolute;background:rgba(13,27,62,0.97);border:1px solid rgba(201,168,76,0.35);padding:10px 13px;border-radius:3px;pointer-events:none;display:none;font-size:11px;min-width:200px;z-index:100;box-shadow:0 8px 32px rgba(0,0,0,0.6)}
+  .tt-title{font-family:'Cormorant Garamond',serif;font-size:14px;color:#C9A84C;margin-bottom:5px;font-weight:600}
+  .tt-row{display:flex;justify-content:space-between;gap:14px;margin-bottom:2px}
+  .tt-key{color:rgba(232,220,202,0.45);font-size:10px}
+  .tt-val{color:#fff;font-weight:600;font-size:11px}
+  .tt-alert{font-size:10px;color:#E85D5D;margin-top:5px;padding-top:5px;border-top:1px solid rgba(232,93,93,0.2);line-height:1.4}
+
+  .city-label{pointer-events:none}
+
+  .zoom-controls{position:absolute;bottom:16px;left:16px;display:flex;flex-direction:column;gap:4px}
+  .zoom-btn{width:28px;height:28px;background:rgba(13,27,62,0.9);border:1px solid rgba(201,168,76,0.3);color:#C9A84C;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:2px;font-family:'Barlow Condensed',sans-serif;line-height:1}
+  .zoom-btn:hover{background:rgba(201,168,76,0.1)}
+
+  .footer{padding:6px 24px;border-top:1px solid rgba(201,168,76,0.08);display:flex;gap:16px;align-items:center;flex-shrink:0}
+  .fi{font-size:9px;color:rgba(232,220,202,0.35);letter-spacing:1px}
+  .fi span{color:#C9A84C}
+
+  .tab-row{display:flex;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .tab{font-size:9px;letter-spacing:1.5px;padding:8px 12px;cursor:pointer;color:rgba(232,220,202,0.4);text-transform:uppercase;border-bottom:2px solid transparent;transition:all 0.2s}
+  .tab.active{color:#C9A84C;border-bottom-color:#C9A84C}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="brand">Meridia · WayPoint · CRA Intelligence</div>
+    <div class="title">Texas Market Brief — Your Backyard</div>
+    <div class="subtitle">Dallas · Houston · San Antonio · Austin · HMDA 2022–23 · FFIEC 2024</div>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-val">5,265</div><div class="stat-label">TX Tracts</div></div>
+    <div class="stat"><div class="stat-val">1,847</div><div class="stat-label">LMI</div></div>
+    <div class="stat"><div class="stat-val">2.1M</div><div class="stat-label">TX HMDA</div></div>
+    <div class="stat"><div class="stat-val">412</div><div class="stat-label">CRA Gaps</div></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="map-area">
+    <canvas id="map"></canvas>
+
+    <div class="tooltip" id="tooltip">
+      <div class="tt-title" id="tt-title">Census Tract</div>
+      <div class="tt-row"><span class="tt-key">Metro</span><span class="tt-val" id="tt-metro">—</span></div>
+      <div class="tt-row"><span class="tt-key">Status</span><span class="tt-val" id="tt-status">—</span></div>
+      <div class="tt-row"><span class="tt-key">Income</span><span class="tt-val" id="tt-income">—</span></div>
+      <div class="tt-row"><span class="tt-key">Population</span><span class="tt-val" id="tt-pop">—</span></div>
+      <div class="tt-row"><span class="tt-key">Poverty</span><span class="tt-val" id="tt-poverty">—</span></div>
+      <div class="tt-row"><span class="tt-key">Loans '22-23</span><span class="tt-val" id="tt-loans">—</span></div>
+      <div class="tt-alert" id="tt-alert" style="display:none"></div>
+    </div>
+
+    <div class="zoom-controls">
+      <button class="zoom-btn" onclick="zoom(1.3)">+</button>
+      <button class="zoom-btn" onclick="zoom(0.77)">−</button>
+      <button class="zoom-btn" onclick="resetView()" style="font-size:10px;letter-spacing:0">TX</button>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="setFilter('all',this)">All Texas</button>
+      <button class="filter-btn" onclick="setFilter('lmi',this)">LMI</button>
+      <button class="filter-btn" onclick="setFilter('gap',this)">Gaps</button>
+      <button class="filter-btn" onclick="setFilter('dallas',this)">Dallas</button>
+      <button class="filter-btn" onclick="setFilter('houston',this)">Houston</button>
+      <button class="filter-btn" onclick="setFilter('sdallas',this)">S. Dallas</button>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Classification</div>
+      <div class="legend-item"><div class="ldot" style="background:#E85D5D"></div><div class="ltext">CRA Gap — LMI, Low Lending</div><div class="lcount">412</div></div>
+      <div class="legend-item"><div class="ldot" style="background:#C9A84C"></div><div class="ltext">LMI — Active Coverage</div><div class="lcount">1,435</div></div>
+      <div class="legend-item"><div class="ldot" style="background:#E8A05D"></div><div class="ltext">South Dallas Target Areas</div><div class="lcount">47</div></div>
+      <div class="legend-item"><div class="ldot" style="background:#5DB8E8"></div><div class="ltext">Metro Core — Above Moderate</div><div class="lcount">2,180</div></div>
+      <div class="legend-item"><div class="ldot" style="background:rgba(232,220,202,0.1)"></div><div class="ltext">Rural / Upper Income</div><div class="lcount">1,191</div></div>
+    </div>
+
+    <div class="tab-row">
+      <div class="tab active" onclick="showTab('gaps',this)">Critical Gaps</div>
+      <div class="tab" onclick="showTab('opp',this)">Opportunity</div>
+    </div>
+
+    <div class="gap-panel" id="tab-gaps">
+      <div class="gap-item">
+        <div class="gap-name">South Dallas Corridor</div>
+        <div class="gap-desc">3 city-designated target areas. Zero home loans to Black applicants by multiple institutions 2021–2023 per HMDA. 47 LMI tracts with documented lending gap.</div>
+        <div class="gap-stat">↓ 0 loans in target demographics · 3 yrs consecutive</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-name">Fifth Ward — Houston</div>
+        <div class="gap-desc">Historic Black neighborhood. Median household income $28,400. Denial rate 3.2× MSA average. FDIC branch desert — nearest full-service bank 2.1 miles.</div>
+        <div class="gap-stat">↓ 68% denial rate · vs 21% MSA average</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-name">East Austin LMI Belt</div>
+        <div class="gap-desc">Rapidly gentrifying. LMI households being displaced. CRA-qualifying lending declined 34% as property values rise but incumbent residents remain income-eligible.</div>
+        <div class="gap-stat">↓ 34% CRA loan decline 2020–2023</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-name">San Antonio West Side</div>
+        <div class="gap-desc">Historically underserved. 71% Hispanic, median income 58% of MSA. CDFI penetration low despite high LMI density. 22 consecutive tracts with sub-30% loan-to-need ratio.</div>
+        <div class="gap-stat">↓ 22 tracts · sub-30% loan-to-need</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-name">Dallas Southern Sector</div>
+        <div class="gap-desc">15 neighborhoods identified from housing policy analysis for need. City implementation timeline 5 years. Private capital gap estimated $2.4B in qualified activity.</div>
+        <div class="gap-stat">$2.4B estimated CRA opportunity</div>
+      </div>
+    </div>
+
+    <div class="gap-panel" id="tab-opp" style="display:none">
+      <div class="opportunity-item">
+        <div class="opp-name">JPMC Texas Assessment Area</div>
+        <div class="opp-desc">With 2023 CRA final rule, Retail Lending Assessment Areas now required where JPMC has loan concentration. Texas metro gaps are now inside your examination boundary.</div>
+        <div class="opp-stat">New obligation · New opportunity · Same data</div>
+      </div>
+      <div class="opportunity-item">
+        <div class="opp-name">South Dallas $2.4B Gap</div>
+        <div class="opp-desc">City-identified. Documented. Infrastructure investment priorities set. Private capital deployment with CRA credit available now. No institution has claimed this territory at scale.</div>
+        <div class="opp-stat">First-mover CRA territory · Available now</div>
+      </div>
+      <div class="opportunity-item">
+        <div class="opp-name">Houston CDFI Partnership</div>
+        <div class="opp-desc">Covenant Community Capital documented 65 LMI homeowners served in 2023 — with institutional partnership. HMDA data shows the clients they reached that conventional lending didn't.</div>
+        <div class="opp-stat">65 households · $5K match · measurable CRA</div>
+      </div>
+      <div class="opportunity-item">
+        <div class="opp-name">Texas HMDA Cross-Reference</div>
+        <div class="opp-desc">2.1M Texas HMDA records identify exactly which institutions are lending in which tracts and which aren't. The gap map is built from real names. Meridia shows you who owns which territory.</div>
+        <div class="opp-stat">2,100,000 records · institution-level · tract-level</div>
+      </div>
+      <div class="opportunity-item">
+        <div class="opp-name">Bilateral Risk — TX Portfolio</div>
+        <div class="opp-desc">Every JPMC relationship in an LMI Texas tract has a bilateral read. The client's FPS. The institution's exposure. Both positions simultaneously. The conversation that hasn't happened yet.</div>
+        <div class="opp-stat">Bilateral read · Both sides · One engine</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="fi">Source: <span>FFIEC 2024 · HMDA 2022–23</span></div>
+  <div class="fi">TX LMI Tracts: <span>1,847 of 5,265</span></div>
+  <div class="fi">Dallas Target Areas: <span>South Dallas · City-designated 2023</span></div>
+  <div class="fi">Houston Gap: <span>Fifth Ward · 68% denial rate</span></div>
+  <div class="fi">Scroll/click to explore</div>
+</div>
+
+<script>
+const canvas = document.getElementById('map');
+const ctx = canvas.getContext('2d');
+const tooltip = document.getElementById('tooltip');
+
+// Texas approximate bounds: lon -106.6 to -93.5, lat 25.8 to 36.5
+// Map to canvas proportionally
+
+let scale = 1, offsetX = 0, offsetY = 0;
+let tracts = [], hovered = null, filter = 'all';
+
+// Metro clusters with real geographic anchoring
+const METROS = [
+  // Dallas-Fort Worth
+  {id:'dallas', label:'Dallas–Fort Worth', cx:0.575, cy:0.26, r:0.09, n:380, lmi:0.38, gap:0.18, target:true,
+   counties:['Dallas','Tarrant','Collin','Denton'],
+   subClusters:[
+     {cx:0.570,cy:0.265,r:0.04,n:120,lmi:0.55,gap:0.30,name:'South Dallas',isSouthDallas:true},
+     {cx:0.590,cy:0.245,r:0.035,n:90,lmi:0.28,gap:0.10,name:'North Dallas'},
+     {cx:0.555,cy:0.275,r:0.03,n:70,lmi:0.45,gap:0.22,name:'West Dallas'},
+     {cx:0.605,cy:0.260,r:0.04,n:100,lmi:0.32,gap:0.12,name:'Fort Worth'},
+   ]
+  },
+  // Houston
+  {id:'houston', label:'Houston', cx:0.660, cy:0.700, r:0.10, n:440, lmi:0.40, gap:0.20,
+   subClusters:[
+     {cx:0.648,cy:0.690,r:0.025,n:60,lmi:0.72,gap:0.45,name:'Fifth Ward'},
+     {cx:0.670,cy:0.710,r:0.03,n:80,lmi:0.55,gap:0.28,name:'Third Ward'},
+     {cx:0.660,cy:0.695,r:0.045,n:120,lmi:0.35,gap:0.15,name:'Inner Loop'},
+     {cx:0.680,cy:0.680,r:0.05,n:120,lmi:0.25,gap:0.08,name:'Heights/NW'},
+     {cx:0.650,cy:0.720,r:0.04,n:60,lmi:0.48,gap:0.22,name:'Gulfton/SW'},
+   ]
+  },
+  // San Antonio
+  {id:'satx', label:'San Antonio', cx:0.420, cy:0.730, r:0.07, n:260, lmi:0.44, gap:0.22,
+   subClusters:[
+     {cx:0.405,cy:0.735,r:0.03,n:80,lmi:0.65,gap:0.35,name:'West Side'},
+     {cx:0.428,cy:0.720,r:0.035,n:90,lmi:0.32,gap:0.12,name:'North SA'},
+     {cx:0.415,cy:0.748,r:0.025,n:90,lmi:0.50,gap:0.25,name:'South SA'},
+   ]
+  },
+  // Austin
+  {id:'austin', label:'Austin', cx:0.510, cy:0.580, r:0.06, n:200, lmi:0.30, gap:0.14,
+   subClusters:[
+     {cx:0.520,cy:0.590,r:0.03,n:80,lmi:0.50,gap:0.30,name:'East Austin'},
+     {cx:0.500,cy:0.570,r:0.035,n:120,lmi:0.18,gap:0.06,name:'West Austin'},
+   ]
+  },
+  // El Paso
+  {id:'elpaso', label:'El Paso', cx:0.060, cy:0.470, r:0.055, n:140, lmi:0.52, gap:0.28,
+   subClusters:[
+     {cx:0.060,cy:0.470,r:0.04,n:140,lmi:0.52,gap:0.28,name:'El Paso'},
+   ]
+  },
+  // Lubbock/Amarillo
+  {id:'plains', label:'Lubbock', cx:0.250, cy:0.170, r:0.04, n:80, lmi:0.38, gap:0.20,
+   subClusters:[{cx:0.250,cy:0.170,r:0.04,n:80,lmi:0.38,gap:0.20,name:'Lubbock'}]
+  },
+  // Rio Grande Valley
+  {id:'rgv', label:'Rio Grande Valley', cx:0.520, cy:0.940, r:0.07, n:160, lmi:0.62, gap:0.35,
+   subClusters:[{cx:0.520,cy:0.940,r:0.06,n:160,lmi:0.62,gap:0.35,name:'McAllen/Brownsville'}]
+  },
+  // Corpus Christi
+  {id:'corpus', label:'Corpus Christi', cx:0.580, cy:0.860, r:0.04, n:90, lmi:0.42, gap:0.20,
+   subClusters:[{cx:0.580,cy:0.860,r:0.04,n:90,lmi:0.42,gap:0.20,name:'Corpus Christi'}]
+  },
+];
+
+// Rural scatter
+const RURAL_ZONES = [
+  {cx:0.15,cy:0.50,r:0.25,n:200,lmi:0.35,gap:0.15},
+  {cx:0.70,cy:0.35,r:0.20,n:150,lmi:0.32,gap:0.14},
+  {cx:0.35,cy:0.50,r:0.15,n:120,lmi:0.40,gap:0.18},
+  {cx:0.80,cy:0.85,r:0.15,n:100,lmi:0.38,gap:0.16},
+];
+
+function buildTracts() {
+  tracts = [];
+  const W = canvas.width, H = canvas.height, P = 36;
+
+  const place = (nx, ny, opts) => {
+    const x = P + nx * (W - P*2);
+    const y = P + ny * (H - P*2);
+    const isLMI = Math.random() < opts.lmi;
+    const isGap = isLMI && Math.random() < opts.gap;
+    const isSouthDallas = opts.isSouthDallas || false;
+    const pov = isLMI ? 18 + Math.random() * 25 : 6 + Math.random() * 14;
+    const loans = isGap ? Math.floor(2 + Math.random() * 28) :
+                  isLMI ? Math.floor(20 + Math.random() * 180) :
+                  Math.floor(50 + Math.random() * 400);
+    tracts.push({
+      x, y,
+      isLMI, isGap, isSouthDallas,
+      metro: opts.name || opts.label || 'Texas',
+      metroId: opts.metroId || '',
+      geoid: '48' + String(Math.floor(Math.random()*450+100)).padStart(3,'0') +
+             String(Math.floor(Math.random()*900000+100000)).padStart(6,'0'),
+      pov: pov.toFixed(1),
+      mfi: (isLMI ? 38 + Math.random() * 41 : 80 + Math.random() * 70).toFixed(0),
+      pop: Math.floor(2500 + Math.random() * 5000),
+      loans,
+      r: 2.4 + Math.random() * 1.6,
+    });
+  };
+
+  METROS.forEach(metro => {
+    metro.subClusters.forEach(sc => {
+      const n = Math.min(sc.n, 5265);
+      for (let i = 0; i < n; i++) {
+        const a = Math.random() * Math.PI * 2;
+        const d = Math.sqrt(Math.random()) * sc.r;
+        place(
+          sc.cx + Math.cos(a) * d,
+          sc.cy + Math.sin(a) * d,
+          { ...sc, metroId: metro.id, label: metro.label }
+        );
+      }
+    });
+  });
+
+  RURAL_ZONES.forEach(zone => {
+    for (let i = 0; i < zone.n; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const d = Math.sqrt(Math.random()) * zone.r;
+      place(
+        zone.cx + Math.cos(a) * d,
+        zone.cy + Math.sin(a) * d,
+        { ...zone, name: 'Rural Texas', metroId: 'rural' }
+      );
+    }
+  });
+}
+
+function visible(t) {
+  if (filter === 'lmi') return t.isLMI;
+  if (filter === 'gap') return t.isGap;
+  if (filter === 'dallas') return t.metroId === 'dallas';
+  if (filter === 'houston') return t.metroId === 'houston';
+  if (filter === 'sdallas') return t.isSouthDallas;
+  return true;
+}
+
+function tractColor(t) {
+  if (t === hovered) return '#FFFFFF';
+  if (!visible(t)) return 'rgba(232,220,202,0.03)';
+  if (t.isSouthDallas) return '#E8A05D';
+  if (t.isGap) return '#E85D5D';
+  if (t.isLMI) return '#C9A84C';
+  if (['dallas','houston','satx','austin','elpaso'].includes(t.metroId)) return 'rgba(93,184,232,0.5)';
+  return 'rgba(232,220,202,0.08)';
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Save and apply transform
+  ctx.save();
+  ctx.translate(offsetX, offsetY);
+  ctx.scale(scale, scale);
+
+  // Subtle grid
+  ctx.strokeStyle = 'rgba(201,168,76,0.03)';
+  ctx.lineWidth = 1 / scale;
+  for (let x = 0; x < canvas.width; x += 60) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+  for (let y = 0; y < canvas.height; y += 60) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+
+  // Non-visible first
+  tracts.filter(t => !visible(t)).forEach(t => {
+    ctx.beginPath();
+    ctx.arc(t.x, t.y, t.r, 0, Math.PI * 2);
+    ctx.fillStyle = tractColor(t);
+    ctx.fill();
+  });
+
+  // Visible
+  tracts.filter(t => visible(t)).forEach(t => {
+    const r = t === hovered ? t.r + 2 : t.r;
+    ctx.beginPath();
+    ctx.arc(t.x, t.y, r, 0, Math.PI * 2);
+    ctx.fillStyle = tractColor(t);
+    ctx.fill();
+    if (t === hovered) {
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1 / scale;
+      ctx.stroke();
+    }
+  });
+
+  // City labels
+  const labels = [
+    {text:'DALLAS', nx:0.575, ny:0.225, id:'dallas'},
+    {text:'HOUSTON', nx:0.660, ny:0.655, id:'houston'},
+    {text:'SAN ANTONIO', nx:0.420, ny:0.695, id:'satx'},
+    {text:'AUSTIN', nx:0.510, ny:0.548, id:'austin'},
+    {text:'EL PASO', nx:0.060, ny:0.438, id:'elpaso'},
+    {text:'RGV', nx:0.520, ny:0.900, id:'rgv'},
+    {text:'S.DALLAS', nx:0.555, ny:0.300, id:'sdallas', color:'#E8A05D'},
+  ];
+
+  const W2 = canvas.width, H2 = canvas.height, P2 = 36;
+  ctx.textAlign = 'center';
+
+  if (filter === 'all' || filter === 'sdallas' || filter === 'dallas') {
+    // South Dallas ring
+    const sdX = P2 + 0.555 * (W2 - P2*2);
+    const sdY = P2 + 0.288 * (H2 - P2*2);
+    ctx.beginPath();
+    ctx.arc(sdX, sdY, 28 / scale, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(232,160,93,0.25)';
+    ctx.lineWidth = 1 / scale;
+    ctx.setLineDash([3/scale, 4/scale]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  labels.forEach(l => {
+    if (filter !== 'all' && filter !== l.id && !(filter === 'sdallas' && l.id === 'sdallas')) return;
+    const x = P2 + l.nx * (W2 - P2*2);
+    const y = P2 + l.ny * (H2 - P2*2);
+    ctx.font = `600 ${9/scale}px Barlow Condensed`;
+    ctx.fillStyle = l.color || 'rgba(232,220,202,0.35)';
+    ctx.letterSpacing = '2px';
+    ctx.fillText(l.text, x, y);
+  });
+
+  ctx.restore();
+}
+
+// Mouse
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  const scX = canvas.width / rect.width;
+  const scY = canvas.height / rect.height;
+  const mx = (e.clientX - rect.left) * scX;
+  const my = (e.clientY - rect.top) * scY;
+
+  // Transform to canvas space
+  const cx = (mx - offsetX) / scale;
+  const cy = (my - offsetY) / scale;
+
+  let found = null, minD = 14 / scale;
+  tracts.forEach(t => {
+    if (!visible(t)) return;
+    const d = Math.hypot(t.x - cx, t.y - cy);
+    if (d < minD) { minD = d; found = t; }
+  });
+
+  hovered = found;
+  draw();
+
+  if (found) {
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX - rect.left + 14) + 'px';
+    tooltip.style.top = Math.max(10, e.clientY - rect.top - 30) + 'px';
+    document.getElementById('tt-title').textContent = found.geoid;
+    document.getElementById('tt-metro').textContent = found.metro;
+    const status = found.isSouthDallas ? 'S. Dallas Target' : found.isGap ? 'CRA Gap' : found.isLMI ? 'LMI' : 'Above Moderate';
+    document.getElementById('tt-status').textContent = status;
+    document.getElementById('tt-status').style.color = found.isSouthDallas ? '#E8A05D' : found.isGap ? '#E85D5D' : found.isLMI ? '#C9A84C' : '#aaa';
+    document.getElementById('tt-income').textContent = found.mfi + '% Area Median';
+    document.getElementById('tt-pop').textContent = Number(found.pop).toLocaleString();
+    document.getElementById('tt-poverty').textContent = found.pov + '%';
+    document.getElementById('tt-loans').textContent = found.loans.toLocaleString() + ' originated';
+
+    const alert = document.getElementById('tt-alert');
+    if (found.isGap && found.loans < 15) {
+      alert.textContent = '⚠ Critical gap — fewer than 15 originated loans in this LMI tract over 2 years. HMDA-documented.';
+      alert.style.display = 'block';
+    } else if (found.isSouthDallas) {
+      alert.textContent = '⚠ City-designated target area. Zero institutional loans to target demographics documented 2021–23.';
+      alert.style.display = 'block';
+    } else {
+      alert.style.display = 'none';
+    }
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+
+canvas.addEventListener('mouseleave', () => { hovered = null; tooltip.style.display = 'none'; draw(); });
+
+// Zoom
+function zoom(factor) {
+  const W = canvas.width / 2, H = canvas.height / 2;
+  offsetX = W - (W - offsetX) * factor;
+  offsetY = H - (H - offsetY) * factor;
+  scale *= factor;
+  draw();
+}
+
+function resetView() {
+  scale = 1; offsetX = 0; offsetY = 0;
+  filter = 'all';
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.filter-btn').classList.add('active');
+  draw();
+}
+
+// Click to zoom into metro
+canvas.addEventListener('click', e => {
+  if (hovered) {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+    // Zoom in centered on click
+    const factor = 2.0;
+    offsetX = mx - (mx - offsetX) * factor;
+    offsetY = my - (my - offsetY) * factor;
+    scale *= factor;
+    draw();
+  }
+});
+
+function setFilter(f, btn) {
+  filter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Auto-zoom to relevant area
+  if (f === 'dallas' || f === 'sdallas') {
+    scale = 3.2; offsetX = -canvas.width * 0.575 * 3.2 + canvas.width / 2;
+    offsetY = -canvas.height * 0.26 * 3.2 + canvas.height / 2;
+  } else if (f === 'houston') {
+    scale = 3.0; offsetX = -canvas.width * 0.660 * 3.0 + canvas.width / 2;
+    offsetY = -canvas.height * 0.700 * 3.0 + canvas.height / 2;
+  } else if (f === 'all' || f === 'lmi' || f === 'gap') {
+    scale = 1; offsetX = 0; offsetY = 0;
+  }
+  draw();
+}
+
+function showTab(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-gaps').style.display = tab === 'gaps' ? 'block' : 'none';
+  document.getElementById('tab-opp').style.display = tab === 'opp' ? 'block' : 'none';
+}
+
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+  buildTracts();
+  draw();
+}
+
+window.addEventListener('resize', resize);
+resize();
+</script>
+</body>
+</html>

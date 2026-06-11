@@ -1,0 +1,342 @@
+{
+  "pipeline": "meridiem_stage_1_full",
+  "generated_at": "2026-03-22T23:45:29.937274",
+  "sections": {
+    "fred": {
+      "GAUR": {
+        "name": "Georgia Unemployment Rate",
+        "frequency": "monthly",
+        "category": "labor",
+        "use": "CRA distressed tract criteria, FPS scenario engine",
+        "status": "success",
+        "file": "data\\fred\\GAUR.csv",
+        "records": 71,
+        "date_range": "2020-01-01 to 2025-12-01",
+        "latest_value": 3.6,
+        "latest_date": "2025-12-01"
+      },
+      "ATLA013URN": {
+        "name": "Atlanta MSA Unemployment Rate",
+        "frequency": "monthly",
+        "category": "labor",
+        "use": "CRA heat map metro-level overlay",
+        "status": "success",
+        "file": "data\\fred\\ATLA013URN.csv",
+        "records": 71,
+        "date_range": "2020-01-01 to 2025-12-01",
+        "latest_value": 3.3,
+        "latest_date": "2025-12-01"
+      },
+      "LAUCN131210000000003": {
+        "name": "Fulton County Unemployment Rate",
+        "frequency": "monthly",
+        "category": "labor",
+        "use": "CRA heat map county-level granularity",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=LAUCN131210000000003&api_key=f0b8d36d1bf405c35820e2ec3e93379f&file_type=json&observation_start=2020-01-01&sort_order=desc"
+      },
+      "LAUCN130890000000003": {
+        "name": "DeKalb County Unemployment Rate",
+        "frequency": "monthly",
+        "category": "labor",
+        "use": "CRA heat map county-level granularity",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=LAUCN130890000000003&api_key=f0b8d36d1bf405c35820e2ec3e93379f&file_type=json&observation_start=2020-01-01&sort_order=desc"
+      },
+      "MEHOINUSGA672N": {
+        "name": "Georgia Median Household Income",
+        "frequency": "annual",
+        "category": "income",
+        "use": "FPS position engine income benchmarking",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=MEHOINUSGA672N&api_key=f0b8d36d1bf405c35820e2ec3e93379f&file_type=json&observation_start=2020-01-01&sort_order=desc"
+      },
+      "2020RATIO012060": {
+        "name": "Atlanta MSA Income Inequality Ratio",
+        "frequency": "annual",
+        "category": "income",
+        "use": "CRA underserved area analysis",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=2020RATIO012060&api_key=f0b8d36d1bf405c35820e2ec3e93379f&file_type=json&observation_start=2020-01-01&sort_order=desc"
+      },
+      "ATNHPIUS12060Q": {
+        "name": "Atlanta MSA House Price Index",
+        "frequency": "quarterly",
+        "category": "housing",
+        "use": "FPS scenario engine real estate position",
+        "status": "success",
+        "file": "data\\fred\\ATNHPIUS12060Q.csv",
+        "records": 20,
+        "date_range": "2020-01-01 to 2024-10-01",
+        "latest_value": 376.3,
+        "latest_date": "2024-10-01"
+      },
+      "GANSAHOSMEDLISTPRI": {
+        "name": "Georgia Median Listing Price (Housing)",
+        "frequency": "monthly",
+        "category": "housing",
+        "use": "CRA heat map housing affordability layer",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=GANSAHOSMEDLISTPRI&api_key=f0b8d36d1bf405c35820e2ec3e93379f&file_type=json&observation_start=2020-01-01&sort_order=desc"
+      },
+      "MORTGAGE30US": {
+        "name": "30-Year Fixed Rate Mortgage Average",
+        "frequency": "weekly",
+        "category": "housing",
+        "use": "FPS debt service capacity calculation",
+        "status": "success",
+        "file": "data\\fred\\MORTGAGE30US.csv",
+        "records": 325,
+        "date_range": "2020-01-02 to 2026-03-19",
+        "latest_value": 6.22,
+        "latest_date": "2026-03-19"
+      },
+      "FEDFUNDS": {
+        "name": "Federal Funds Effective Rate",
+        "frequency": "monthly",
+        "category": "rates",
+        "use": "FPS scenario engine rate shock projection",
+        "status": "success",
+        "file": "data\\fred\\FEDFUNDS.csv",
+        "records": 74,
+        "date_range": "2020-01-01 to 2026-02-01",
+        "latest_value": 3.64,
+        "latest_date": "2026-02-01"
+      },
+      "DGS10": {
+        "name": "10-Year Treasury Constant Maturity Rate",
+        "frequency": "daily",
+        "category": "rates",
+        "use": "FPS trust corpus yield benchmarking",
+        "status": "success",
+        "file": "data\\fred\\DGS10.csv",
+        "records": 1553,
+        "date_range": "2020-01-02 to 2026-03-19",
+        "latest_value": 4.25,
+        "latest_date": "2026-03-19"
+      },
+      "DPRIME": {
+        "name": "Bank Prime Loan Rate",
+        "frequency": "monthly",
+        "category": "rates",
+        "use": "FPS debt service capacity, Edge lending cost",
+        "status": "success",
+        "file": "data\\fred\\DPRIME.csv",
+        "records": 1578,
+        "date_range": "2020-01-02 to 2026-03-19",
+        "latest_value": 6.75,
+        "latest_date": "2026-03-19"
+      },
+      "CPIAUCSL": {
+        "name": "Consumer Price Index (All Urban Consumers)",
+        "frequency": "monthly",
+        "category": "inflation",
+        "use": "FPS runway sustainability real-dollar adjustment",
+        "status": "success",
+        "file": "data\\fred\\CPIAUCSL.csv",
+        "records": 73,
+        "date_range": "2020-01-01 to 2026-02-01",
+        "latest_value": 327.46,
+        "latest_date": "2026-02-01"
+      },
+      "GABPPRIVSA": {
+        "name": "Georgia All Employees: Financial Activities",
+        "frequency": "monthly",
+        "category": "banking",
+        "use": "CRA heat map financial services employment density",
+        "status": "success",
+        "file": "data\\fred\\GABPPRIVSA.csv",
+        "records": 72,
+        "date_range": "2020-01-01 to 2025-12-01",
+        "latest_value": 4920.45592056412,
+        "latest_date": "2025-12-01"
+      },
+      "GAPOVRTY": {
+        "name": "Georgia Estimated Percent in Poverty",
+        "frequency": "annual",
+        "category": "poverty",
+        "use": "CRA distressed tract criteria",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=GAPOVRTY&api_key=f0b8d36d1bf405c35820e2ec3e93379f&file_type=json&observation_start=2020-01-01&sort_order=desc"
+      },
+      "GANGSP": {
+        "name": "Georgia Total Gross Domestic Product",
+        "frequency": "annual",
+        "category": "economy",
+        "use": "Institutional demo macro context",
+        "status": "success",
+        "file": "data\\fred\\GANGSP.csv",
+        "records": 5,
+        "date_range": "2020-01-01 to 2024-01-01",
+        "latest_value": 881508.2,
+        "latest_date": "2024-01-01"
+      },
+      "GAPOP": {
+        "name": "Georgia Resident Population",
+        "frequency": "annual",
+        "category": "demographics",
+        "use": "CRA assessment area sizing",
+        "status": "success",
+        "file": "data\\fred\\GAPOP.csv",
+        "records": 6,
+        "date_range": "2020-01-01 to 2025-01-01",
+        "latest_value": 11302.748,
+        "latest_date": "2025-01-01"
+      }
+    },
+    "geofred": {
+      "county_shapes": {
+        "description": "GeoJSON county boundary shapes for US map rendering",
+        "use": "CRA heat map geographic rendering \u2014 draw actual county boundaries",
+        "status": "success",
+        "file": "data\\geofred\\county_shapes.geojson",
+        "size_mb": 1.64,
+        "format": "GeoJSON"
+      },
+      "state_shapes": {
+        "description": "GeoJSON state boundary shapes",
+        "use": "State-level map rendering for institutional view",
+        "status": "success",
+        "file": "data\\geofred\\state_shapes.geojson",
+        "format": "GeoJSON"
+      },
+      "msa_shapes": {
+        "description": "GeoJSON MSA boundary shapes",
+        "use": "Metro area map rendering for CRA assessment areas",
+        "status": "success",
+        "file": "data\\geofred\\msa_shapes.geojson",
+        "format": "GeoJSON"
+      },
+      "regional_unemployment_rate": {
+        "description": "Unemployment Rate by County",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/geofred/regional/data?api_key=f0b8d36d1bf405c35820e2ec3e93379f&series_group=882&region_type=county&units=Percent&frequency=a&season=NSA&file_type=json"
+      },
+      "regional_per_capita_income": {
+        "description": "Per Capita Personal Income by County",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/geofred/regional/data?api_key=f0b8d36d1bf405c35820e2ec3e93379f&series_group=882&region_type=county&units=Dollars&frequency=a&season=NSA&file_type=json"
+      },
+      "regional_resident_population": {
+        "description": "Resident Population by County",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/geofred/regional/data?api_key=f0b8d36d1bf405c35820e2ec3e93379f&series_group=1223&region_type=county&units=Thousands+of+Persons&frequency=a&season=NSA&file_type=json"
+      }
+    },
+    "alfred": {
+      "alfred_GAUR": {
+        "series_id": "GAUR",
+        "description": "ALFRED vintage data for GAUR \u2014 what was known when",
+        "use": "Audit-grade historical positioning: reproduce the data available on any past date",
+        "status": "success",
+        "file": "data\\alfred\\alfred_GAUR.csv",
+        "records": 356,
+        "vintages": 12,
+        "vintage_range": "2025-03-05 to 2026-01-27"
+      },
+      "alfred_CPIAUCSL": {
+        "series_id": "CPIAUCSL",
+        "description": "ALFRED vintage data for CPIAUCSL \u2014 what was known when",
+        "use": "Audit-grade historical positioning: reproduce the data available on any past date",
+        "status": "success",
+        "file": "data\\alfred\\alfred_CPIAUCSL.csv",
+        "records": 382,
+        "vintages": 12,
+        "vintage_range": "2025-03-12 to 2026-03-11"
+      },
+      "alfred_FEDFUNDS": {
+        "series_id": "FEDFUNDS",
+        "description": "ALFRED vintage data for FEDFUNDS \u2014 what was known when",
+        "use": "Audit-grade historical positioning: reproduce the data available on any past date",
+        "status": "success",
+        "file": "data\\alfred\\alfred_FEDFUNDS.csv",
+        "records": 390,
+        "vintages": 12,
+        "vintage_range": "2025-04-01 to 2026-03-02"
+      },
+      "alfred_GANGSP": {
+        "series_id": "GANGSP",
+        "description": "ALFRED vintage data for GANGSP \u2014 what was known when",
+        "use": "Audit-grade historical positioning: reproduce the data available on any past date",
+        "status": "success",
+        "file": "data\\alfred\\alfred_GANGSP.csv",
+        "records": 7,
+        "vintages": 12,
+        "vintage_range": "2020-10-02 to 2025-09-26"
+      }
+    },
+    "ffiec": {
+      "ffiec_census_2024": {
+        "url": "https://www.ffiec.gov/census/csv/ffiec_census_file_2024.csv",
+        "description": "FFIEC Census Flat File 2024 \u2014 1000+ fields per census tract",
+        "use": "CRA heat map foundation: income levels, demographics, distressed/underserved flags",
+        "status": "manual_download_required",
+        "save_to": "data\\ffiec\\ffiec_census_2024.csv",
+        "instructions": "Open https://www.ffiec.gov/census/csv/ffiec_census_file_2024.csv in browser, save as data\\ffiec\\ffiec_census_2024.csv"
+      },
+      "ffiec_distressed_underserved_2024": {
+        "url": "https://www.ffiec.gov/census/csv/distressed_underserved_tracts_2024.csv",
+        "description": "CRA Distressed and Underserved Tracts 2024",
+        "use": "Direct CRA heat map input: which tracts qualify as distressed or underserved",
+        "status": "manual_download_required",
+        "save_to": "data\\ffiec\\ffiec_distressed_underserved_2024.csv",
+        "instructions": "Open https://www.ffiec.gov/census/csv/distressed_underserved_tracts_2024.csv in browser, save as data\\ffiec\\ffiec_distressed_underserved_2024.csv"
+      }
+    },
+    "georgia_ffiec": {},
+    "fdic": {
+      "georgia_institutions": {
+        "description": "Georgia FDIC-insured institution financial data",
+        "use": "Institution financial profiles for CRA heat map overlay",
+        "status": "no_data",
+        "records": 0
+      },
+      "georgia_branches": {
+        "description": "Georgia bank branch locations",
+        "use": "Physical branch access mapping for CRA heat map",
+        "status": "error",
+        "error": "400 Client Error: Bad Request for url: https://api.fdic.gov/banks/locations?filters=STALP%3AGA&fields=CERT%2CBRNUM%2CUNINUMBR%2CINSTNAME%2CBRSERTYP%2CSTNAME%2CCITY%2CSTALPBR%2CZIPBR%2CADDRESBR%2CCNTYNAMB%2CBKCLASS%2CASSET%2CDEPSUM%2CSTCNTYBR&sort_by=DEPSUM&sort_order=DESC&limit=10000"
+      },
+      "georgia_sod": {
+        "description": "FDIC Summary of Deposits \u2014 Georgia branches",
+        "use": "Branch-level deposit data for CRA heat map banking access layer",
+        "status": "success",
+        "file": "data\\fdic\\georgia_sod.csv",
+        "records": 10000
+      }
+    },
+    "cfpb": {
+      "georgia_complaints": {
+        "description": "CFPB Complaints \u2014 Georgia",
+        "status": "no_data"
+      }
+    },
+    "census_acs": {
+      "atlanta_msa_tracts": {
+        "description": "ACS 5-Year (2022) \u2014 Atlanta MSA census tracts",
+        "use": "Tract-level demographics: income, poverty, education, employment, housing, race, internet access",
+        "status": "success",
+        "file": "data\\census\\atlanta_msa_census_tracts.csv",
+        "records": 958,
+        "counties": [
+          "Fulton",
+          "DeKalb",
+          "Gwinnett",
+          "Cobb",
+          "Clayton",
+          "Douglas",
+          "Fayette",
+          "Henry",
+          "Rockdale"
+        ],
+        "variables": 22,
+        "computed_fields": [
+          "poverty_rate",
+          "unemployment_rate",
+          "homeownership_rate",
+          "internet_access_rate"
+        ]
+      }
+    }
+  }
+}

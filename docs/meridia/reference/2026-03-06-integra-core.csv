@@ -1,0 +1,48 @@
+integra-core
+date,stream,content
+2026/02/22 19:22:04,stdout,INFO:     172.18.0.1:51206 - "GET /api/v1/reports/regulator HTTP/1.1" 200 OK
+
+2026/02/22 19:21:44,stdout,INFO:     172.18.0.1:51202 - "GET /api/v1/reports/family HTTP/1.1" 200 OK
+
+2026/02/22 19:19:02,stdout,INFO:     172.18.0.1:51198 - "GET /api/v1/reports/board HTTP/1.1" 200 OK
+
+2026/02/22 19:18:48,stdout,INFO:     172.18.0.1:51194 - "GET /api/v1/position-grid HTTP/1.1" 200 OK
+
+2026/02/22 19:18:03,stdout,INFO:     172.18.0.1:51190 - "GET /api/v1/health HTTP/1.1" 200 OK
+
+2026/02/22 19:18:03,stdout,========================================================================
+
+2026/02/22 19:18:03,stdout,  Manifest: http://localhost:8000/manifest
+
+2026/02/22 19:18:03,stdout,  Docs:     http://localhost:8000/docs
+
+2026/02/22 19:18:03,stdout,
+
+2026/02/22 19:18:03,stdout,  ✓ CORS configured
+
+2026/02/22 19:18:03,stdout,  ✓ Voice synthesis ready
+
+2026/02/22 19:18:03,stdout,  ✓ Report generator ready
+
+2026/02/22 19:18:03,stdout,  ✓ Aletheia AI service ready
+
+2026/02/22 19:18:03,stdout,  ✓ API v1 loaded
+
+2026/02/22 19:18:03,stdout,========================================================================
+
+2026/02/22 19:18:03,stdout,  Governance as a Service • Stewardship over Extraction
+
+2026/02/22 19:18:03,stdout,  WayPoint Financial Positioning System
+
+2026/02/22 19:18:03,stdout,  INTEGRA CORE — Meridia's Technical Spine
+
+2026/02/22 19:18:03,stdout,========================================================================
+
+2026/02/22 19:16:44,stderr,INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+
+2026/02/22 19:16:44,stderr,INFO:     Application startup complete.
+
+2026/02/22 19:16:44,stderr,INFO:     Waiting for application startup.
+
+2026/02/22 19:16:44,stderr,INFO:     Started server process [1]
+

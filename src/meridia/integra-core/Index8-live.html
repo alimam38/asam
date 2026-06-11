@@ -1,0 +1,3754 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meridia | Financial Positioning System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0b0d;
+      --bg-secondary: #12141a;
+      --bg-tertiary: #1a1d26;
+      --bg-card: #181b24;
+      --accent-gold: #c9a962;
+      --accent-gold-dim: #8a7343;
+      --accent-gold-light: #e8d5a3;
+      --accent-emerald: #34d399;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-blue: #3b82f6;
+      --accent-purple: #a855f7;
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-accent: rgba(201,169,98,0.3);
+      --gradient-gold: linear-gradient(135deg, #c9a962 0%, #e8d5a3 50%, #c9a962 100%);
+      --gradient-emerald: linear-gradient(135deg, #34d399 0%, #6ee7b7 100%);
+      --gradient-renaissance: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #d946ef 100%);
+      --shadow-glow: 0 0 60px rgba(201,169,98,0.15);
+    }
+
+    .light {
+      --bg-primary: #fafaf9;
+      --bg-secondary: #f5f5f4;
+      --bg-tertiary: #e7e5e4;
+      --bg-card: #ffffff;
+      --accent-gold: #92700c;
+      --accent-gold-dim: #b8960f;
+      --text-primary: #1c1917;
+      --text-secondary: #57534e;
+      --text-muted: #78716c;
+      --border-subtle: rgba(0,0,0,0.08);
+      --border-accent: rgba(146,112,12,0.3);
+      --shadow-glow: 0 0 60px rgba(146,112,12,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .ambient-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,169,98,0.15) 0%, transparent 70%);
+      top: -200px; right: -200px;
+    }
+
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      animation-delay: -7s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    /* Cinematic Intro */
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .intro-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-content {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    .intro-icon {
+      width: 120px; height: 120px;
+      margin: 0 auto 2rem;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--bg-primary);
+      box-shadow: var(--shadow-glow), 0 0 100px rgba(201,169,98,0.3);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: var(--shadow-glow), 0 0 100px rgba(201,169,98,0.3); }
+      50% { transform: scale(1.05); box-shadow: var(--shadow-glow), 0 0 150px rgba(201,169,98,0.4); }
+    }
+
+    .intro-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .intro-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .intro-enter {
+      background: transparent;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 1rem 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .intro-enter:hover {
+      background: var(--accent-gold);
+      color: var(--bg-primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Layout */
+    .app-container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 240px 1fr 340px;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+      gap: 1px;
+      background: var(--border-subtle);
+    }
+
+    @media (max-width: 1200px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+      }
+    }
+
+    /* Header */
+    .header {
+      grid-column: 1 / -1;
+      background: var(--bg-secondary);
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--gradient-gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--bg-primary);
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--bg-tertiary);
+      padding: 4px;
+      border-radius: 8px;
+    }
+
+    .header-nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .header-nav-btn:hover { color: var(--text-primary); }
+
+    .header-nav-btn.active {
+      background: var(--bg-card);
+      color: var(--accent-gold);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mode-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: rgba(52,211,153,0.1);
+      border: 1px solid rgba(52,211,153,0.3);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .mode-badge.institutional {
+      background: rgba(59,130,246,0.1);
+      border-color: rgba(59,130,246,0.3);
+      color: var(--accent-blue);
+    }
+
+    .mode-badge.renaissance {
+      background: rgba(168,85,247,0.1);
+      border-color: rgba(168,85,247,0.3);
+      color: var(--accent-purple);
+    }
+
+    .user-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--accent-gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      cursor: pointer;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--bg-secondary);
+      padding: 1.25rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 1200px) {
+      .sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.75rem;
+      }
+      .nav-section { margin-bottom: 0; }
+      .nav-section-title { display: none; }
+    }
+
+    .nav-section { margin-bottom: 1.25rem; }
+
+    .nav-section-title {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      padding: 0 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .nav-item:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .nav-item.active {
+      background: rgba(201,169,98,0.1);
+      color: var(--accent-gold);
+    }
+
+    .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; }
+
+    .nav-item .badge {
+      margin-left: auto;
+      padding: 2px 6px;
+      background: var(--accent-amber);
+      color: var(--bg-primary);
+      border-radius: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--bg-primary);
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { padding: 1rem; }
+    }
+
+    .view-container {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .view-container.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header { margin-bottom: 1.5rem; }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .card-badge {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-badge.live {
+      background: rgba(52,211,153,0.15);
+      color: var(--accent-emerald);
+    }
+
+    /* Position Grid */
+    .position-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .position-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .position-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .position-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .position-card.healthy::before { background: var(--accent-emerald); }
+    .position-card.watch::before { background: var(--accent-amber); }
+    .position-card.alert::before { background: var(--accent-rose); }
+
+    .position-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .position-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .position-change {
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .position-change.positive { color: var(--accent-emerald); }
+    .position-change.negative { color: var(--accent-rose); }
+
+    /* Trust Index */
+    .trust-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .trust-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .trust-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    .trust-score {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .trust-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    .trust-max {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .trust-dimensions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .trust-dimensions { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .trust-dimension { text-align: center; }
+
+    .dimension-ring {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 0.5rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dimension-ring svg {
+      position: absolute;
+      top: 0; left: 0;
+      transform: rotate(-90deg);
+    }
+
+    .dimension-ring circle {
+      fill: none;
+      stroke-width: 5;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+
+    .dimension-ring .bg { stroke: var(--bg-tertiary); }
+    .dimension-ring .progress { stroke-linecap: round; }
+
+    .dimension-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .dimension-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    /* Entity Grid */
+    .entity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .entity-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .entity-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .entity-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .entity-type {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .entity-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .entity-status {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .entity-status.healthy { background: var(--accent-emerald); box-shadow: 0 0 8px rgba(52,211,153,0.5); }
+    .entity-status.watch { background: var(--accent-amber); box-shadow: 0 0 8px rgba(245,158,11,0.5); }
+    .entity-status.alert { background: var(--accent-rose); box-shadow: 0 0 8px rgba(244,63,94,0.5); }
+
+    .entity-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .entity-metric {
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      padding: 0.5rem;
+    }
+
+    .entity-metric-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .entity-metric-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Metrics Dashboard Specific */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .metric-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .metric-icon.gold { background: rgba(201,169,98,0.15); color: var(--accent-gold); }
+    .metric-icon.emerald { background: rgba(52,211,153,0.15); color: var(--accent-emerald); }
+    .metric-icon.blue { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+    .metric-icon.purple { background: rgba(168,85,247,0.15); color: var(--accent-purple); }
+
+    .metric-trend {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .metric-trend.up { background: rgba(52,211,153,0.15); color: var(--accent-emerald); }
+    .metric-trend.down { background: rgba(244,63,94,0.15); color: var(--accent-rose); }
+    .metric-trend.neutral { background: var(--bg-tertiary); color: var(--text-muted); }
+
+    .metric-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .metric-chart {
+      height: 60px;
+      margin-top: 1rem;
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .chart-bar {
+      flex: 1;
+      background: var(--accent-gold);
+      border-radius: 2px 2px 0 0;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .chart-bar:hover { opacity: 1; }
+    .chart-bar.current { opacity: 1; background: var(--gradient-gold); }
+
+    /* Signal Feed */
+    .signal-feed {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .signal-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .signal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    .signal-list { max-height: 300px; overflow-y: auto; }
+
+    .signal-item {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: background 0.2s ease;
+    }
+
+    .signal-item:hover { background: var(--bg-tertiary); }
+    .signal-item:last-child { border-bottom: none; }
+
+    .signal-indicator {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .signal-indicator.high { background: var(--accent-rose); }
+    .signal-indicator.medium { background: var(--accent-amber); }
+    .signal-indicator.low { background: var(--accent-emerald); }
+
+    .signal-content { flex: 1; }
+
+    .signal-text {
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .signal-meta {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Institutional Sandbox */
+    .sandbox-header {
+      background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.05) 100%);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sandbox-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .sandbox-info p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .sandbox-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--bg-card);
+      border-radius: 8px;
+    }
+
+    .sandbox-status-dot {
+      width: 10px; height: 10px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      animation: statusPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .partner-stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .partner-stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 0.25rem;
+    }
+
+    .partner-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .pilot-timeline {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    .timeline-track {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timeline-step {
+      flex: 1;
+      text-align: center;
+    }
+
+    .step-dot {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-subtle);
+      margin: 0 auto 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-step.complete .step-dot {
+      background: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      color: var(--bg-primary);
+    }
+
+    .timeline-step.active .step-dot {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      color: white;
+      box-shadow: 0 0 20px rgba(59,130,246,0.4);
+    }
+
+    .step-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-step.active .step-label { color: var(--accent-blue); }
+    .timeline-step.complete .step-label { color: var(--accent-emerald); }
+
+    .timeline-connector {
+      height: 2px;
+      flex: 0.5;
+      background: var(--border-subtle);
+    }
+
+    .timeline-connector.complete { background: var(--accent-emerald); }
+
+    /* Renaissance Onboarding */
+    .renaissance-hero {
+      background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(168,85,247,0.1) 50%, rgba(217,70,239,0.1) 100%);
+      border: 1px solid rgba(168,85,247,0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .renaissance-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-renaissance);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      box-shadow: 0 0 40px rgba(168,85,247,0.3);
+    }
+
+    .renaissance-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      background: var(--gradient-renaissance);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .renaissance-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .renaissance-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      padding: 1rem 2rem;
+      border-left: 3px solid var(--accent-purple);
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .journey-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .journey-step:hover {
+      border-color: rgba(168,85,247,0.3);
+      transform: translateY(-4px);
+    }
+
+    .journey-step.current {
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 30px rgba(168,85,247,0.2);
+    }
+
+    .journey-step-number {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      width: 24px; height: 24px;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-subtle);
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .journey-step.complete .journey-step-number {
+      background: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      color: var(--bg-primary);
+    }
+
+    .journey-step.current .journey-step-number {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: white;
+    }
+
+    .journey-step-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .journey-step.current .journey-step-icon { color: var(--accent-purple); }
+    .journey-step.complete .journey-step-icon { color: var(--accent-emerald); }
+
+    .journey-step-title {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .journey-step-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .pathway-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pathway-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .pathway-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    .pathway-progress {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .progress-bar {
+      width: 120px; height: 6px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--gradient-renaissance);
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    .progress-text {
+      font-size: 0.75rem;
+      color: var(--accent-purple);
+    }
+
+    .pathway-items {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .pathway-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+    }
+
+    .pathway-item-check {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: transparent;
+    }
+
+    .pathway-item.complete .pathway-item-check {
+      background: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      color: var(--bg-primary);
+    }
+
+    .pathway-item-text {
+      flex: 1;
+      font-size: 0.85rem;
+    }
+
+    .pathway-item.complete .pathway-item-text {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    /* Scenario Engine */
+    .scenario-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .scenario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .scenario-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    .scenario-reset {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .scenario-reset:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .scenario-controls {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .scenario-control {
+      display: grid;
+      grid-template-columns: 1fr 70px;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .control-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.35rem;
+    }
+
+    .control-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 5px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .control-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px; height: 16px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .control-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: right;
+      color: var(--accent-gold);
+    }
+
+    .scenario-impact {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .impact-title {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .impact-item {
+      text-align: center;
+      padding: 0.75rem;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+    }
+
+    .impact-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .impact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .impact-value.positive { color: var(--accent-emerald); }
+    .impact-value.negative { color: var(--accent-rose); }
+    .impact-value.neutral { color: var(--accent-amber); }
+
+    /* Flow Diagram */
+    .flow-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .flow-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-width: 550px;
+      padding: 1rem 0;
+    }
+
+    .flow-node {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.875rem;
+      text-align: center;
+      min-width: 100px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .flow-node:hover {
+      border-color: var(--accent-gold);
+      transform: scale(1.05);
+    }
+
+    .flow-node.primary {
+      border-color: var(--accent-gold);
+      background: rgba(201,169,98,0.1);
+    }
+
+    .flow-node-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+      color: var(--accent-gold);
+    }
+
+    .flow-node-name {
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .flow-node-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    .flow-arrow {
+      color: var(--accent-gold-dim);
+      font-size: 1rem;
+      animation: flowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes flowPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .flow-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Aletheia Panel */
+    .aegis-panel {
+      background: var(--bg-secondary);
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    @media (max-width: 1200px) {
+      .aegis-panel {
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+        max-height: 400px;
+      }
+    }
+
+    .aegis-header {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .aegis-icon {
+      width: 40px; height: 40px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--bg-primary);
+      box-shadow: 0 0 20px rgba(201,169,98,0.3);
+    }
+
+    .aegis-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .aegis-subtitle {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .aegis-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .aegis-message {
+      max-width: 95%;
+      animation: messageIn 0.3s ease;
+    }
+
+    @keyframes messageIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .aegis-message.ai { align-self: flex-start; }
+    .aegis-message.user { align-self: flex-end; }
+
+    .message-content {
+      padding: 0.875rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .aegis-message.ai .message-content {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-top-left-radius: 4px;
+    }
+
+    .aegis-message.user .message-content {
+      background: rgba(201,169,98,0.15);
+      border: 1px solid var(--border-accent);
+      border-top-right-radius: 4px;
+    }
+
+    .message-time {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+      padding: 0 0.35rem;
+    }
+
+    .aegis-message.user .message-time { text-align: right; }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 0.875rem;
+    }
+
+    .typing-indicator span {
+      width: 6px; height: 6px;
+      background: var(--accent-gold-dim);
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding: 0 0.75rem 0.75rem;
+    }
+
+    .quick-action {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quick-action:hover {
+      border-color: var(--border-accent);
+      color: var(--accent-gold);
+    }
+
+    .aegis-input-area {
+      padding: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .aegis-input-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+
+    .aegis-input {
+      flex: 1;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.75rem;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-family: inherit;
+      resize: none;
+      min-height: 44px;
+      max-height: 100px;
+      transition: border-color 0.2s ease;
+    }
+
+    .aegis-input:focus {
+      outline: none;
+      border-color: var(--accent-gold-dim);
+    }
+
+    .aegis-input::placeholder { color: var(--text-muted); }
+
+    .aegis-send {
+      width: 44px; height: 44px;
+      background: var(--gradient-gold);
+      border: none;
+      border-radius: 10px;
+      color: var(--bg-primary);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aegis-send:hover { transform: scale(1.05); }
+    .aegis-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* Governance Alert */
+    .governance-alert {
+      background: linear-gradient(135deg, rgba(201,169,98,0.1) 0%, rgba(201,169,98,0.05) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: none;
+      animation: alertIn 0.5s ease;
+    }
+
+    .governance-alert.active { display: block; }
+
+    @keyframes alertIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .alert-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .alert-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-size: 1.1rem;
+      animation: alertPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes alertPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(245,158,11,0); }
+    }
+
+    .alert-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    .alert-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .alert-body {
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .alert-message {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .alert-recipients {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .recipient {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-tertiary);
+      padding: 0.35rem 0.75rem;
+      border-radius: 16px;
+      font-size: 0.75rem;
+    }
+
+    .recipient-icon { color: var(--accent-emerald); }
+
+    .alert-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .alert-btn {
+      flex: 1;
+      padding: 0.625rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .alert-btn.approve {
+      background: var(--accent-emerald);
+      color: var(--bg-primary);
+    }
+
+    .alert-btn.review {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* Tour Styles */
+    .tour-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .tour-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tour-modal-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      animation: modalSlideIn 0.4s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tour-modal-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .tour-modal-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--bg-primary);
+      margin: 0 auto 1rem;
+      box-shadow: 0 0 40px rgba(201,169,98,0.3);
+    }
+
+    .tour-modal-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tour-modal-header p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .tour-modal-body {
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .tour-modal-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .tour-btn {
+      flex: 1;
+      padding: 0.875rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.05em;
+    }
+
+    .tour-btn.primary {
+      background: var(--gradient-gold);
+      color: var(--bg-primary);
+    }
+
+    .tour-btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,169,98,0.3);
+    }
+
+    .tour-btn.secondary {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .tour-btn.secondary:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* Tour Overlay */
+    .tour-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1999;
+      display: none;
+      pointer-events: none;
+    }
+
+    .tour-overlay.active {
+      display: block;
+      pointer-events: auto;
+    }
+
+    .tour-overlay::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+      transition: background 0.3s ease;
+    }
+
+    .tour-overlay.bright::before {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .tour-spotlight {
+      position: fixed;
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(201,169,98,0.4), inset 0 0 40px rgba(201,169,98,0.1);
+      z-index: 2;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+
+    .tour-controls {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 0.75rem;
+      z-index: 3;
+    }
+
+    .tour-control-btn {
+      width: 44px;
+      height: 44px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 50%;
+      color: var(--accent-gold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .tour-control-btn:hover {
+      background: var(--bg-secondary);
+      transform: scale(1.1);
+    }
+
+    .tour-control-btn.active {
+      background: var(--accent-gold);
+      color: var(--bg-primary);
+    }
+
+    .tour-narration {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      max-width: 600px;
+      width: 90%;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .tour-narration.top {
+      bottom: auto;
+      top: 6rem;
+    }
+
+    .tour-narration-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 60px rgba(201,169,98,0.2);
+      animation: narrationSlideUp 0.4s ease;
+    }
+
+    @keyframes narrationSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tour-narration-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 60px;
+    }
+
+    .tour-narration-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .tour-progress {
+      flex: 1;
+      height: 4px;
+      background: var(--bg-tertiary);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .tour-progress-bar {
+      height: 100%;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .tour-next-btn {
+      padding: 0.625rem 1.25rem;
+      background: var(--gradient-gold);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .tour-next-btn:hover {
+      transform: translateX(2px);
+    }
+
+    .tour-next-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    @media (max-width: 768px) {
+      .tour-controls {
+        top: 1rem;
+        right: 1rem;
+        gap: 0.5rem;
+      }
+
+      .tour-control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+
+      .tour-narration {
+        bottom: 1rem;
+      }
+
+      .tour-narration-content {
+        padding: 1rem;
+      }
+
+      .tour-narration-text {
+        font-size: 0.95rem;
+        min-height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cinematic Intro -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-content">
+      <div class="intro-icon"><i class="fas fa-shield-halved"></i></div>
+      <h1 class="intro-title">ALETHEIA</h1>
+      <p class="intro-subtitle">Truth • Stewardship • Elevation</p>
+      <p class="intro-text">
+        "Rise above the darkness that surrounds you. Rise above the memory of the fallen.
+        Rise above the mistakes you could not foresee."
+      </p>
+      <button class="intro-enter" id="introEnter">Enter the Sanctuary</button>
+    </div>
+  </div>
+
+  <!-- Tour Welcome Modal -->
+  <div class="tour-modal" id="tourWelcomeModal">
+    <div class="tour-modal-content">
+      <div class="tour-modal-header">
+        <div class="tour-modal-icon"><i class="fas fa-compass"></i></div>
+        <h2>Welcome to Aegis</h2>
+        <p>Let Aletheia guide you through the financial positioning system</p>
+      </div>
+      <div class="tour-modal-body">
+        <p>This guided experience will walk you through how families and institutions achieve clarity across complex financial structures.</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Duration: ~5 minutes • Aletheia will narrate • You can pause or exit anytime</p>
+      </div>
+      <div class="tour-modal-actions">
+        <button class="tour-btn secondary" id="tourSkip">Explore Freely</button>
+        <button class="tour-btn primary" id="tourStart">Start Guided Tour</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tour Overlay -->
+  <div class="tour-overlay" id="tourOverlay">
+    <div class="tour-spotlight"></div>
+    <div class="tour-controls">
+      <button class="tour-control-btn" id="tourBright" title="Brighten" style="display:none;"><i class="fas fa-sun"></i></button>
+      <button class="tour-control-btn" id="tourPause" title="Pause"><i class="fas fa-pause"></i></button>
+      <button class="tour-control-btn" id="tourSkipStep" title="Skip"><i class="fas fa-forward"></i></button>
+      <button class="tour-control-btn" id="tourExit" title="Exit Tour"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="tour-narration">
+      <div class="tour-narration-content">
+        <div class="tour-narration-text" id="tourNarrationText"></div>
+        <div class="tour-narration-controls">
+          <div class="tour-progress" id="tourProgress"></div>
+          <button class="tour-next-btn" id="tourNext">Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-shield-halved"></i></div>
+        <span class="logo-text">AEGIS</span>
+      </div>
+      <div class="header-nav">
+        <button class="header-nav-btn active" data-view="dashboard">Dashboard</button>
+        <button class="header-nav-btn" data-view="metrics">Metrics</button>
+        <button class="header-nav-btn" data-view="scenarios">Scenarios</button>
+        <button class="header-nav-btn" data-view="institutional">Institutional</button>
+        <button class="header-nav-btn" data-view="renaissance">Renaissance</button>
+      </div>
+      <div class="header-actions">
+        <div class="mode-badge" id="modeBadge"><i class="fas fa-circle" style="font-size:6px"></i> WayPoint Core</div>
+        <div class="user-avatar"><i class="fas fa-user"></i></div>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="nav-section">
+        <div class="nav-section-title">Overview</div>
+        <div class="nav-item active" data-view="dashboard"><i class="fas fa-compass"></i><span>Position</span></div>
+        <div class="nav-item" data-view="entities"><i class="fas fa-sitemap"></i><span>Entities</span></div>
+        <div class="nav-item" data-view="flows"><i class="fas fa-arrows-turn-to-dots"></i><span>Flows</span></div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Intelligence</div>
+        <div class="nav-item" data-view="metrics"><i class="fas fa-chart-line"></i><span>Metrics</span><span class="badge">Live</span></div>
+        <div class="nav-item" data-view="scenarios"><i class="fas fa-sliders"></i><span>Scenarios</span></div>
+        <div class="nav-item" data-view="signals"><i class="fas fa-radar"></i><span>Signals</span></div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Programs</div>
+        <div class="nav-item" data-view="institutional"><i class="fas fa-building-columns"></i><span>Sandbox</span></div>
+        <div class="nav-item" data-view="renaissance"><i class="fas fa-sun-bright"></i><span>Renaissance</span></div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Governance</div>
+        <div class="nav-item" data-view="trust-index"><i class="fas fa-heart-pulse"></i><span>Trust Index</span></div>
+        <div class="nav-item" data-view="governance"><i class="fas fa-gavel"></i><span>Oversight</span></div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+      <!-- Dashboard View -->
+      <div class="view-container active" id="dashboardView">
+        <div class="section-header">
+          <h1 class="section-title">Financial Position</h1>
+          <p class="section-subtitle">Your consolidated view as of today</p>
+        </div>
+
+        <div class="governance-alert" id="governanceAlert">
+          <div class="alert-header">
+            <div class="alert-icon"><i class="fas fa-shield-exclamation"></i></div>
+            <div>
+              <div class="alert-title">Governance Review Required</div>
+              <div class="alert-subtitle">Insight locked pending multi-party approval</div>
+            </div>
+          </div>
+          <div class="alert-body">
+            <div class="alert-message">Aletheia has detected a sensitive pattern in the Foundation's grant commitments that exceeds projected inflows by 18 months. This insight requires approval before being surfaced to beneficiaries.</div>
+            <div class="alert-recipients">
+              <div class="recipient"><i class="fas fa-check-circle recipient-icon"></i><span>CEO notified</span></div>
+              <div class="recipient"><i class="fas fa-check-circle recipient-icon"></i><span>Trustee notified</span></div>
+              <div class="recipient"><i class="fas fa-check-circle recipient-icon"></i><span>Architect notified</span></div>
+            </div>
+          </div>
+          <div class="alert-actions">
+            <button class="alert-btn review" id="alertReview">Review Details</button>
+            <button class="alert-btn approve" id="alertApprove">Approve Release</button>
+          </div>
+        </div>
+
+        <div class="position-grid">
+          <div class="position-card healthy">
+            <div class="position-label">Liquidity</div>
+            <div class="position-value">$2.4M</div>
+            <div class="position-change positive"><i class="fas fa-arrow-up"></i><span>12% from Q3</span></div>
+          </div>
+          <div class="position-card healthy">
+            <div class="position-label">Net Worth</div>
+            <div class="position-value">$18.7M</div>
+            <div class="position-change positive"><i class="fas fa-arrow-up"></i><span>4.2% YTD</span></div>
+          </div>
+          <div class="position-card watch">
+            <div class="position-label">Obligations</div>
+            <div class="position-value">$340K</div>
+            <div class="position-change negative"><i class="fas fa-clock"></i><span>Next 90 days</span></div>
+          </div>
+          <div class="position-card healthy">
+            <div class="position-label">Resilience</div>
+            <div class="position-value">94</div>
+            <div class="position-change positive"><i class="fas fa-shield-check"></i><span>Strong buffer</span></div>
+          </div>
+        </div>
+
+        <div class="trust-section">
+          <div class="trust-header">
+            <div class="trust-title">Trust Index</div>
+            <div class="trust-score">
+              <span class="trust-number" id="trustIndexScore">87</span>
+              <span class="trust-max">/ 100</span>
+            </div>
+          </div>
+          <div class="trust-dimensions">
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="70" height="70"><circle class="bg" cx="35" cy="35" r="30"></circle><circle class="progress" cx="35" cy="35" r="30" stroke-dasharray="188.5" stroke-dashoffset="18.85" style="stroke: var(--accent-emerald)"></circle></svg>
+                <span class="dimension-value">90</span>
+              </div>
+              <div class="dimension-label">Financial</div>
+            </div>
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="70" height="70"><circle class="bg" cx="35" cy="35" r="30"></circle><circle class="progress" cx="35" cy="35" r="30" stroke-dasharray="188.5" stroke-dashoffset="37.7" style="stroke: var(--accent-gold)"></circle></svg>
+                <span class="dimension-value">80</span>
+              </div>
+              <div class="dimension-label">Stewardship</div>
+            </div>
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="70" height="70"><circle class="bg" cx="35" cy="35" r="30"></circle><circle class="progress" cx="35" cy="35" r="30" stroke-dasharray="188.5" stroke-dashoffset="24.5" style="stroke: var(--accent-emerald)"></circle></svg>
+                <span class="dimension-value">87</span>
+              </div>
+              <div class="dimension-label">Mission</div>
+            </div>
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="70" height="70"><circle class="bg" cx="35" cy="35" r="30"></circle><circle class="progress" cx="35" cy="35" r="30" stroke-dasharray="188.5" stroke-dashoffset="18.85" style="stroke: var(--accent-emerald)"></circle></svg>
+                <span class="dimension-value">90</span>
+              </div>
+              <div class="dimension-label">Governance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entity-grid">
+          <div class="entity-card" data-entity="dynasty-trust">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Dynasty Trust</div>
+                <div class="entity-name">Crown Legacy Trust</div>
+              </div>
+              <div class="entity-status healthy"></div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric"><div class="entity-metric-label">Corpus</div><div class="entity-metric-value">$12.4M</div></div>
+              <div class="entity-metric"><div class="entity-metric-label">Payout</div><div class="entity-metric-value">3.2%</div></div>
+            </div>
+          </div>
+          <div class="entity-card" data-entity="foundation">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Foundation</div>
+                <div class="entity-name">Family Impact Foundation</div>
+              </div>
+              <div class="entity-status watch"></div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric"><div class="entity-metric-label">Assets</div><div class="entity-metric-value">$3.8M</div></div>
+              <div class="entity-metric"><div class="entity-metric-label">Grant Rate</div><div class="entity-metric-value">7.1%</div></div>
+            </div>
+          </div>
+          <div class="entity-card" data-entity="holdco">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Holding Company</div>
+                <div class="entity-name">Crown Holdings LLC</div>
+              </div>
+              <div class="entity-status healthy"></div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric"><div class="entity-metric-label">Equity</div><div class="entity-metric-value">$8.2M</div></div>
+              <div class="entity-metric"><div class="entity-metric-label">Leverage</div><div class="entity-metric-value">0.4x</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrics Dashboard -->
+      <div class="view-container" id="metricsView">
+        <div class="section-header">
+          <h1 class="section-title">Metrics &amp; Analytics</h1>
+          <p class="section-subtitle">Real-time FPS signals and institutional KPIs</p>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon gold"><i class="fas fa-shield-halved"></i></div>
+              <div class="metric-trend up"><i class="fas fa-arrow-up"></i> +3.2%</div>
+            </div>
+            <div class="metric-value">87</div>
+            <div class="metric-label">Trust Index Score</div>
+            <div class="metric-chart">
+              <div class="chart-bar" style="height:45%"></div>
+              <div class="chart-bar" style="height:52%"></div>
+              <div class="chart-bar" style="height:48%"></div>
+              <div class="chart-bar" style="height:60%"></div>
+              <div class="chart-bar" style="height:55%"></div>
+              <div class="chart-bar" style="height:70%"></div>
+              <div class="chart-bar" style="height:75%"></div>
+              <div class="chart-bar" style="height:82%"></div>
+              <div class="chart-bar current" style="height:87%"></div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon emerald"><i class="fas fa-chart-line"></i></div>
+              <div class="metric-trend up"><i class="fas fa-arrow-up"></i> +$1.2M</div>
+            </div>
+            <div class="metric-value">$18.7M</div>
+            <div class="metric-label">Total Net Worth</div>
+            <div class="metric-chart">
+              <div class="chart-bar" style="height:65%"></div>
+              <div class="chart-bar" style="height:68%"></div>
+              <div class="chart-bar" style="height:72%"></div>
+              <div class="chart-bar" style="height:70%"></div>
+              <div class="chart-bar" style="height:78%"></div>
+              <div class="chart-bar" style="height:82%"></div>
+              <div class="chart-bar" style="height:85%"></div>
+              <div class="chart-bar" style="height:90%"></div>
+              <div class="chart-bar current" style="height:95%"></div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon blue"><i class="fas fa-droplet"></i></div>
+              <div class="metric-trend up"><i class="fas fa-arrow-up"></i> +12%</div>
+            </div>
+            <div class="metric-value">$2.4M</div>
+            <div class="metric-label">Liquid Reserves</div>
+            <div class="metric-chart">
+              <div class="chart-bar" style="height:40%"></div>
+              <div class="chart-bar" style="height:45%"></div>
+              <div class="chart-bar" style="height:50%"></div>
+              <div class="chart-bar" style="height:55%"></div>
+              <div class="chart-bar" style="height:60%"></div>
+              <div class="chart-bar" style="height:70%"></div>
+              <div class="chart-bar" style="height:80%"></div>
+              <div class="chart-bar" style="height:85%"></div>
+              <div class="chart-bar current" style="height:92%"></div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon purple"><i class="fas fa-hand-holding-heart"></i></div>
+              <div class="metric-trend down"><i class="fas fa-arrow-up"></i> +1.9%</div>
+            </div>
+            <div class="metric-value">7.1%</div>
+            <div class="metric-label">Foundation Grant Rate</div>
+            <div class="metric-chart">
+              <div class="chart-bar" style="height:35%"></div>
+              <div class="chart-bar" style="height:38%"></div>
+              <div class="chart-bar" style="height:42%"></div>
+              <div class="chart-bar" style="height:48%"></div>
+              <div class="chart-bar" style="height:55%"></div>
+              <div class="chart-bar" style="height:62%"></div>
+              <div class="chart-bar" style="height:68%"></div>
+              <div class="chart-bar" style="height:75%"></div>
+              <div class="chart-bar current" style="height:85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="signal-feed">
+          <div class="signal-header">
+            <div class="signal-title">Signal Feed</div>
+            <div class="card-badge live"><i class="fas fa-circle" style="font-size:6px;margin-right:4px"></i> Live</div>
+          </div>
+          <div class="signal-list">
+            <div class="signal-item">
+              <div class="signal-indicator high"></div>
+              <div class="signal-content">
+                <div class="signal-text">Foundation grant rate exceeds sustainable threshold (7.1% vs 5% target)</div>
+                <div class="signal-meta">High Priority • 2 hours ago • Family Impact Foundation</div>
+              </div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-indicator medium"></div>
+              <div class="signal-content">
+                <div class="signal-text">Quarterly liquidity ratio improved to 7.2x coverage — exceeds policy minimum</div>
+                <div class="signal-meta">Medium Priority • 1 day ago • Crown Holdings LLC</div>
+              </div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-indicator low"></div>
+              <div class="signal-content">
+                <div class="signal-text">Dynasty Trust annual review completed — all governance requirements met</div>
+                <div class="signal-meta">Low Priority • 3 days ago • Crown Legacy Trust</div>
+              </div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-indicator low"></div>
+              <div class="signal-content">
+                <div class="signal-text">Net worth milestone reached: $18M threshold crossed for first time</div>
+                <div class="signal-meta">Low Priority • 1 week ago • Portfolio-wide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenarios View -->
+      <div class="view-container" id="scenariosView">
+        <div class="section-header">
+          <h1 class="section-title">Scenario Engine</h1>
+          <p class="section-subtitle">Model "what if" scenarios and see real-time impact</p>
+        </div>
+
+        <div class="scenario-section">
+          <div class="scenario-header">
+            <div class="scenario-title">Adjust Variables</div>
+            <button class="scenario-reset" id="scenarioReset">Reset All</button>
+          </div>
+          <div class="scenario-controls">
+            <div class="scenario-control">
+              <div>
+                <div class="control-label">Distribution Rate Change</div>
+                <input type="range" class="control-slider" id="distSlider" min="-50" max="50" value="0">
+              </div>
+              <div class="control-value" id="distValue">0%</div>
+            </div>
+            <div class="scenario-control">
+              <div>
+                <div class="control-label">Market Shock</div>
+                <input type="range" class="control-slider" id="marketSlider" min="-40" max="20" value="0">
+              </div>
+              <div class="control-value" id="marketValue">0%</div>
+            </div>
+            <div class="scenario-control">
+              <div>
+                <div class="control-label">Foundation Corpus Addition</div>
+                <input type="range" class="control-slider" id="corpusSlider" min="0" max="2000" value="0" step="100">
+              </div>
+              <div class="control-value" id="corpusValue">$0K</div>
+            </div>
+          </div>
+          <div class="scenario-impact">
+            <div class="impact-title">Projected Impact (24 months)</div>
+            <div class="impact-grid">
+              <div class="impact-item">
+                <div class="impact-label">Trust Index</div>
+                <div class="impact-value neutral" id="impactTrust">87 â†’ 87</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-label">Resilience</div>
+                <div class="impact-value neutral" id="impactResilience">94 â†’ 94</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-label">Foundation</div>
+                <div class="impact-value neutral" id="impactFoundation">Watch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-container">
+          <div class="flow-diagram">
+            <div class="flow-node primary">
+              <div class="flow-node-icon"><i class="fas fa-building-columns"></i></div>
+              <div class="flow-node-name">Holdings</div>
+              <div class="flow-node-value">$8.2M</div>
+            </div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-branch">
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-scroll"></i></div>
+                <div class="flow-node-name">Trust</div>
+                <div class="flow-node-value">$12.4M</div>
+              </div>
+              <i class="fas fa-arrow-down flow-arrow"></i>
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-users"></i></div>
+                <div class="flow-node-name">Beneficiaries</div>
+                <div class="flow-node-value">4 Active</div>
+              </div>
+            </div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-branch">
+              <div class="flow-node" style="border-color: var(--accent-amber);">
+                <div class="flow-node-icon" style="color: var(--accent-amber);"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="flow-node-name">Foundation</div>
+                <div class="flow-node-value">$3.8M</div>
+              </div>
+              <i class="fas fa-arrow-down flow-arrow"></i>
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-seedling"></i></div>
+                <div class="flow-node-name">Grants</div>
+                <div class="flow-node-value">$270K/yr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Institutional Sandbox -->
+      <div class="view-container" id="institutionalView">
+        <div class="section-header">
+          <h1 class="section-title">Institutional Sandbox</h1>
+          <p class="section-subtitle">Partner pilot monitoring and integration status</p>
+        </div>
+
+        <div class="sandbox-header">
+          <div class="sandbox-info">
+            <h2><i class="fas fa-building-columns" style="margin-right:8px;color:var(--accent-blue)"></i>JPMC Partnership Sandbox</h2>
+            <p>Phase 2 Pilot • BaaS Integration Layer • WayPoint Core + Edge</p>
+          </div>
+          <div class="sandbox-status">
+            <div class="sandbox-status-dot"></div>
+            <span style="font-size:0.8rem;color:var(--accent-emerald)">Environment Active</span>
+          </div>
+        </div>
+
+        <div class="partner-grid">
+          <div class="partner-stat">
+            <div class="partner-stat-value">247</div>
+            <div class="partner-stat-label">Pilot Households</div>
+          </div>
+          <div class="partner-stat">
+            <div class="partner-stat-value">$4.2M</div>
+            <div class="partner-stat-label">AUM in Sandbox</div>
+          </div>
+          <div class="partner-stat">
+            <div class="partner-stat-value">94.2%</div>
+            <div class="partner-stat-label">API Uptime</div>
+          </div>
+          <div class="partner-stat">
+            <div class="partner-stat-value">12ms</div>
+            <div class="partner-stat-label">Avg Response Time</div>
+          </div>
+        </div>
+
+        <div class="pilot-timeline">
+          <div class="timeline-header">
+            <div class="timeline-title">Pilot Timeline</div>
+            <div class="card-badge live">On Track</div>
+          </div>
+          <div class="timeline-track">
+            <div class="timeline-step complete">
+              <div class="step-dot"><i class="fas fa-check"></i></div>
+              <div class="step-label">Discovery</div>
+            </div>
+            <div class="timeline-connector complete"></div>
+            <div class="timeline-step complete">
+              <div class="step-dot"><i class="fas fa-check"></i></div>
+              <div class="step-label">Integration</div>
+            </div>
+            <div class="timeline-connector complete"></div>
+            <div class="timeline-step active">
+              <div class="step-dot">3</div>
+              <div class="step-label">Pilot</div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-step">
+              <div class="step-dot">4</div>
+              <div class="step-label">Validation</div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-step">
+              <div class="step-dot">5</div>
+              <div class="step-label">Production</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="card-header">
+              <div class="card-title">Data Feeds Active</div>
+            </div>
+            <div style="display:grid;gap:0.5rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">Account Aggregation</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-circle" style="font-size:6px;margin-right:4px"></i>Connected</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">Transaction Stream</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-circle" style="font-size:6px;margin-right:4px"></i>Connected</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">Market Data</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-circle" style="font-size:6px;margin-right:4px"></i>Connected</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">Credit Bureau</span>
+                <span style="color:var(--accent-amber);font-size:0.75rem"><i class="fas fa-clock" style="margin-right:4px"></i>Pending</span>
+              </div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="card-header">
+              <div class="card-title">Governance Compliance</div>
+            </div>
+            <div style="display:grid;gap:0.5rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">Data Residency</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-check"></i> Compliant</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">Encryption (AES-256)</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-check"></i> Compliant</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">SOC 2 Type II</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-check"></i> Certified</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:var(--bg-tertiary);border-radius:6px">
+                <span style="font-size:0.8rem">PCI DSS</span>
+                <span style="color:var(--accent-emerald);font-size:0.75rem"><i class="fas fa-check"></i> Certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Renaissance Onboarding -->
+      <div class="view-container" id="renaissanceView">
+        <div class="renaissance-hero">
+          <div class="renaissance-icon"><i class="fas fa-sun"></i></div>
+          <h1 class="renaissance-title">WayPoint Renaissance</h1>
+          <p class="renaissance-subtitle">A dignity-first pathway back to financial citizenship. No shame. No walls. Just a door held open.</p>
+          <div class="renaissance-quote">"Every setback is a setup for a comeback. We see you. We believe in your return."</div>
+        </div>
+
+        <div class="journey-steps">
+          <div class="journey-step complete">
+            <div class="journey-step-number"><i class="fas fa-check"></i></div>
+            <div class="journey-step-icon"><i class="fas fa-handshake"></i></div>
+            <div class="journey-step-title">Welcome</div>
+            <div class="journey-step-desc">Identity verified, no judgment</div>
+          </div>
+          <div class="journey-step complete">
+            <div class="journey-step-number"><i class="fas fa-check"></i></div>
+            <div class="journey-step-icon"><i class="fas fa-compass"></i></div>
+            <div class="journey-step-title">Assessment</div>
+            <div class="journey-step-desc">Understand your position</div>
+          </div>
+          <div class="journey-step current">
+            <div class="journey-step-number">3</div>
+            <div class="journey-step-icon"><i class="fas fa-road"></i></div>
+            <div class="journey-step-title">Pathway</div>
+            <div class="journey-step-desc">Your personalized plan</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-number">4</div>
+            <div class="journey-step-icon"><i class="fas fa-seedling"></i></div>
+            <div class="journey-step-title">Build</div>
+            <div class="journey-step-desc">Credit &amp; savings growth</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-number">5</div>
+            <div class="journey-step-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="journey-step-title">Graduate</div>
+            <div class="journey-step-desc">Full WayPoint access</div>
+          </div>
+        </div>
+
+        <div class="pathway-card">
+          <div class="pathway-header">
+            <div class="pathway-title">Your Renaissance Pathway</div>
+            <div class="pathway-progress">
+              <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+              <div class="progress-text">45% Complete</div>
+            </div>
+          </div>
+          <div class="pathway-items">
+            <div class="pathway-item complete">
+              <div class="pathway-item-check"><i class="fas fa-check"></i></div>
+              <div class="pathway-item-text">Open secured savings account</div>
+            </div>
+            <div class="pathway-item complete">
+              <div class="pathway-item-check"><i class="fas fa-check"></i></div>
+              <div class="pathway-item-text">Set up direct deposit</div>
+            </div>
+            <div class="pathway-item complete">
+              <div class="pathway-item-check"><i class="fas fa-check"></i></div>
+              <div class="pathway-item-text">Complete financial literacy module 1</div>
+            </div>
+            <div class="pathway-item">
+              <div class="pathway-item-check"></div>
+              <div class="pathway-item-text">Maintain positive balance for 30 days</div>
+            </div>
+            <div class="pathway-item">
+              <div class="pathway-item-check"></div>
+              <div class="pathway-item-text">Apply for credit-builder loan</div>
+            </div>
+            <div class="pathway-item">
+              <div class="pathway-item-check"></div>
+              <div class="pathway-item-text">Complete financial literacy module 2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon purple"><i class="fas fa-chart-simple"></i></div>
+              <div class="metric-trend up"><i class="fas fa-arrow-up"></i> +47 pts</div>
+            </div>
+            <div class="metric-value">612</div>
+            <div class="metric-label">Credit Score (started at 565)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon emerald"><i class="fas fa-piggy-bank"></i></div>
+              <div class="metric-trend up"><i class="fas fa-arrow-up"></i> +$340</div>
+            </div>
+            <div class="metric-value">$1,240</div>
+            <div class="metric-label">Emergency Fund Built</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flows View -->
+      <div class="view-container" id="flowsView">
+        <div class="section-header">
+          <h1 class="section-title">Entity Flows</h1>
+          <p class="section-subtitle">How capital and decisions move through your system</p>
+        </div>
+
+        <div class="flow-container">
+          <div class="flow-diagram">
+            <div class="flow-node primary">
+              <div class="flow-node-icon"><i class="fas fa-building-columns"></i></div>
+              <div class="flow-node-name">Crown Holdings</div>
+              <div class="flow-node-value">$8.2M</div>
+            </div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-branch">
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-scroll"></i></div>
+                <div class="flow-node-name">Legacy Trust</div>
+                <div class="flow-node-value">$12.4M</div>
+              </div>
+              <i class="fas fa-arrow-down flow-arrow"></i>
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-users"></i></div>
+                <div class="flow-node-name">Beneficiaries</div>
+                <div class="flow-node-value">4 Active</div>
+              </div>
+            </div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-branch">
+              <div class="flow-node" style="border-color: var(--accent-amber);">
+                <div class="flow-node-icon" style="color: var(--accent-amber);"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="flow-node-name">Foundation</div>
+                <div class="flow-node-value">$3.8M</div>
+              </div>
+              <i class="fas fa-arrow-down flow-arrow"></i>
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-seedling"></i></div>
+                <div class="flow-node-name">Grants</div>
+                <div class="flow-node-value">$270K/yr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Annual Flow Summary</div>
+                <div class="entity-name">Inflows &amp; Outflows</div>
+              </div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric"><div class="entity-metric-label">Total Inflows</div><div class="entity-metric-value" style="color: var(--accent-emerald);">+$1.2M</div></div>
+              <div class="entity-metric"><div class="entity-metric-label">Total Outflows</div><div class="entity-metric-value" style="color: var(--accent-rose);">-$680K</div></div>
+            </div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Inter-Entity Transfers</div>
+                <div class="entity-name">Last 12 Months</div>
+              </div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric"><div class="entity-metric-label">Holdings â†’ Trust</div><div class="entity-metric-value">$450K</div></div>
+              <div class="entity-metric"><div class="entity-metric-label">Trust â†’ Foundation</div><div class="entity-metric-value">$120K</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Aletheia Panel -->
+    <aside class="aegis-panel">
+      <div class="aegis-header">
+        <div class="aegis-icon"><i class="fas fa-sun"></i></div>
+        <div>
+          <div class="aegis-title">Aletheia</div>
+          <div class="aegis-subtitle">STEWARD GUIDE • GOVERNED</div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <button class="quick-action" data-prompt="What's my current financial position?">My Position</button>
+        <button class="quick-action" data-prompt="What if we increase distributions by 20%?">Run Scenario</button>
+        <button class="quick-action" data-prompt="Explain the Foundation's watch status">Explain Alert</button>
+        <button class="quick-action" data-prompt="Trigger governance alert demo">Show Governance</button>
+        <button class="quick-action" data-prompt="Generate board report">Board Report</button>
+        <button class="quick-action" data-prompt="Generate family report">Family Report</button>
+      </div>
+
+      <div class="aegis-messages" id="aegisMessages">
+        <div class="aegis-message ai">
+          <div class="message-content">
+            I am Aletheia — your steward guide within the Meridia WayPoint system. I am reading the current position. Ask me anything.
+            <br><br>
+            The Family Impact Foundation requires attention — its grant rate of 7.1% exceeds sustainable levels.
+            <br><br>
+            <em>Shall I surface the full analysis?</em>
+          </div>
+          <div class="message-time">Just now</div>
+        </div>
+      </div>
+
+      <div class="aegis-input-area">
+        <div class="aegis-input-wrapper">
+          <textarea class="aegis-input" id="aegisInput" placeholder="Ask Aletheia..." rows="1"></textarea>
+          <button class="aegis-send" id="aegisSend"><i class="fas fa-arrow-up"></i></button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    // Theme detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      document.documentElement.classList.add('light');
+    }
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+      document.documentElement.classList.toggle('light', e.matches);
+    });
+
+    // DOM Elements
+    const introOverlay = document.getElementById('introOverlay');
+    const introEnter = document.getElementById('introEnter');
+    const aegisMessages = document.getElementById('aegisMessages');
+    const aegisInput = document.getElementById('aegisInput');
+    const aegisSend = document.getElementById('aegisSend');
+    const quickActions = document.querySelectorAll('.quick-action');
+    const navItems = document.querySelectorAll('.nav-item');
+    const headerNavBtns = document.querySelectorAll('.header-nav-btn');
+    const governanceAlert = document.getElementById('governanceAlert');
+    const alertApprove = document.getElementById('alertApprove');
+    const alertReview = document.getElementById('alertReview');
+    const modeBadge = document.getElementById('modeBadge');
+
+    // Scenario controls
+    const distSlider = document.getElementById('distSlider');
+    const marketSlider = document.getElementById('marketSlider');
+    const corpusSlider = document.getElementById('corpusSlider');
+    const scenarioReset = document.getElementById('scenarioReset');
+
+    const baseValues = { trustIndex: 87, resilience: 94 };
+
+    // Intro handling
+    introEnter.addEventListener('click', () => introOverlay.classList.add('hidden'));
+
+    // View switching
+    function switchView(viewId) {
+      document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelectorAll('.header-nav-btn').forEach(b => b.classList.remove('active'));
+
+      const targetView = document.getElementById(viewId + 'View');
+      if (targetView) targetView.classList.add('active');
+
+      document.querySelectorAll(`[data-view="${viewId}"]`).forEach(el => el.classList.add('active'));
+
+      // Update mode badge
+      if (viewId === 'institutional') {
+        modeBadge.className = 'mode-badge institutional';
+        modeBadge.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> Sandbox Mode';
+      } else if (viewId === 'renaissance') {
+        modeBadge.className = 'mode-badge renaissance';
+        modeBadge.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> Renaissance';
+      } else {
+        modeBadge.className = 'mode-badge';
+        modeBadge.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> WayPoint Core';
+      }
+    }
+
+    navItems.forEach(item => item.addEventListener('click', () => switchView(item.dataset.view)));
+    headerNavBtns.forEach(btn => btn.addEventListener('click', () => switchView(btn.dataset.view)));
+
+    // Scenario engine
+    function updateScenario() {
+      const dist = parseInt(distSlider.value);
+      const market = parseInt(marketSlider.value);
+      const corpus = parseInt(corpusSlider.value);
+
+      document.getElementById('distValue').textContent = (dist >= 0 ? '+' : '') + dist + '%';
+      document.getElementById('marketValue').textContent = (market >= 0 ? '+' : '') + market + '%';
+      document.getElementById('corpusValue').textContent = '$' + corpus + 'K';
+
+      let trustImpact = baseValues.trustIndex;
+      let resilienceImpact = baseValues.resilience;
+
+      if (dist > 0) { trustImpact -= Math.floor(dist * 0.3); resilienceImpact -= Math.floor(dist * 0.2); }
+      else if (dist < 0) { trustImpact += Math.floor(Math.abs(dist) * 0.1); resilienceImpact += Math.floor(Math.abs(dist) * 0.15); }
+
+      if (market < 0) { trustImpact += Math.floor(market * 0.4); resilienceImpact += Math.floor(market * 0.5); }
+      else { trustImpact += Math.floor(market * 0.1); resilienceImpact += Math.floor(market * 0.1); }
+
+      if (corpus > 0) trustImpact += Math.floor(corpus / 200);
+
+      trustImpact = Math.max(0, Math.min(100, trustImpact));
+      resilienceImpact = Math.max(0, Math.min(100, resilienceImpact));
+
+      let foundationStatus = 'Watch';
+      if (corpus >= 500 || dist <= -20) foundationStatus = 'Healthy';
+      else if (dist >= 30 || market <= -30) foundationStatus = 'Alert';
+
+      const trustEl = document.getElementById('impactTrust');
+      const resEl = document.getElementById('impactResilience');
+      const foundEl = document.getElementById('impactFoundation');
+
+      trustEl.textContent = `${baseValues.trustIndex} â†’ ${trustImpact}`;
+      trustEl.className = 'impact-value ' + (trustImpact > baseValues.trustIndex ? 'positive' : trustImpact < baseValues.trustIndex ? 'negative' : 'neutral');
+
+      resEl.textContent = `${baseValues.resilience} â†’ ${resilienceImpact}`;
+      resEl.className = 'impact-value ' + (resilienceImpact > baseValues.resilience ? 'positive' : resilienceImpact < baseValues.resilience ? 'negative' : 'neutral');
+
+      foundEl.textContent = foundationStatus;
+      foundEl.className = 'impact-value ' + (foundationStatus === 'Healthy' ? 'positive' : foundationStatus === 'Alert' ? 'negative' : 'neutral');
+    }
+
+    distSlider.addEventListener('input', updateScenario);
+    marketSlider.addEventListener('input', updateScenario);
+    corpusSlider.addEventListener('input', updateScenario);
+
+    scenarioReset.addEventListener('click', () => {
+      distSlider.value = 0;
+      marketSlider.value = 0;
+      corpusSlider.value = 0;
+      updateScenario();
+    });
+
+    // Governance alert
+    alertApprove.addEventListener('click', () => {
+      governanceAlert.classList.remove('active');
+      addMessage('Governance approval recorded. The insight has been released to authorized beneficiaries.', false);
+    });
+
+    alertReview.addEventListener('click', () => {
+      addMessage('Opening detailed review of the Foundation grant rate analysis.', false);
+    });
+
+    // Chat functionality
+    aegisInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+    });
+
+    aegisInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    aegisSend.addEventListener('click', sendMessage);
+
+    quickActions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prompt = btn.dataset.prompt;
+        if (prompt === 'Trigger governance alert demo') {
+          governanceAlert.classList.add('active');
+          addMessage('I have triggered a governance review demonstration showing the multi-party permission cascade.', false);
+        } else {
+          aegisInput.value = prompt;
+          sendMessage();
+        }
+      });
+    });
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `aegis-message ${isUser ? 'user' : 'ai'}`;
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      messageDiv.innerHTML = `<div class="message-content">${content}</div><div class="message-time">${timeStr}</div>`;
+      aegisMessages.appendChild(messageDiv);
+      aegisMessages.scrollTop = aegisMessages.scrollHeight;
+      return messageDiv;
+    }
+
+    function addTypingIndicator() {
+      const indicator = document.createElement('div');
+      indicator.className = 'aegis-message ai';
+      indicator.id = 'typingIndicator';
+      indicator.innerHTML = `<div class="message-content"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+      aegisMessages.appendChild(indicator);
+      aegisMessages.scrollTop = aegisMessages.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+      const indicator = document.getElementById('typingIndicator');
+      if (indicator) indicator.remove();
+    }
+
+    // Conversation history for multi-turn Aletheia context
+    window._aletheiaHistory = window._aletheiaHistory || [];
+
+    async function sendMessage() {
+      const message = aegisInput.value.trim();
+      if (!message) return;
+
+      addMessage(message, true);
+      aegisInput.value = "";
+      aegisInput.style.height = "auto";
+      aegisSend.disabled = true;
+      addTypingIndicator();
+
+      const base = window.INTEGRA_API_BASE || "https://integra.meridiahq.com";
+      const entityId = window._activeEntityId || "ent-001";
+      const lower = message.toLowerCase();
+
+      // Detect report requests
+      let audience = null;
+      if (lower.includes("report") || lower.includes("generate")) {
+        if (lower.includes("board")) audience = "board";
+        else if (lower.includes("technical") || lower.includes("tech")) audience = "technical";
+        else if (lower.includes("regulator") || lower.includes("compliance")) audience = "regulator";
+        else if (lower.includes("family") || lower.includes("client")) audience = "family";
+        else if (lower.includes("governance")) audience = "governance";
+      }
+
+      try {
+        let responseText = "";
+        if (audience) {
+          const resp = await fetch(`${base}/api/v1/aletheia/${entityId}/report`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ audience })
+          });
+          const data = await resp.json();
+          responseText = data.report || data.detail || "Report generation unavailable.";
+        } else {
+          const resp = await fetch(`${base}/api/v1/aletheia/${entityId}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message, audience: "general", conversation_history: (window._aletheiaHistory || []).slice(-10) })
+          });
+          const data = await resp.json();
+          responseText = data.response || data.detail || "Aletheia is unavailable.";
+          window._aletheiaHistory = window._aletheiaHistory || [];
+          window._aletheiaHistory.push({ role: "user", content: message });
+          window._aletheiaHistory.push({ role: "assistant", content: responseText });
+        }
+        removeTypingIndicator();
+        addMessage(responseText.replace(/\n/g, "<br>").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"));
+      } catch (err) {
+        removeTypingIndicator();
+        addMessage("I am unable to connect to the intelligence layer. Please check the system status.");
+        console.error("[Aletheia] Error:", err);
+      }
+      aegisSend.disabled = false;
+    }
+
+    updateScenario();
+
+    // ===== GUIDED TOUR MODE =====
+    const tourWelcomeModal = document.getElementById('tourWelcomeModal');
+    const tourOverlay = document.getElementById('tourOverlay');
+    const tourSpotlight = document.querySelector('.tour-spotlight');
+    const tourNarrationText = document.getElementById('tourNarrationText');
+    const tourProgress = document.getElementById('tourProgress');
+    const tourStart = document.getElementById('tourStart');
+    const tourSkip = document.getElementById('tourSkip');
+    const tourNext = document.getElementById('tourNext');
+    const tourPause = document.getElementById('tourPause');
+    const tourSkipStep = document.getElementById('tourSkipStep');
+    const tourExit = document.getElementById('tourExit');
+    const tourBright = document.getElementById('tourBright');
+
+    let currentTourStep = 0;
+    let tourActive = false;
+    let tourPaused = false;
+    let tourBrightMode = false;
+    let currentAudioElement = null;
+
+    const tourSteps = [
+      {
+        view: 'dashboard',
+        target: '.position-grid',
+        title: 'Your Financial Position',
+        narration: "Welcome to Aegis. This is your Financial Positioning Score. At a glance, you see four key metrics: liquidity, net worth, obligations, and resilience. These real-time signals tell you exactly where you stand.",
+        duration: 6
+      },
+      {
+        view: 'dashboard',
+        target: '.trust-section',
+        title: 'The Trust Index',
+        narration: "Your Trust Index is 87 out of 100. This composite score measures four dimensions: Financial Resilience, Stewardship, Mission Impact, and Governance Hygiene. It's not just about money — it's about alignment.",
+        duration: 6
+      },
+      {
+        view: 'dashboard',
+        target: '.entity-grid',
+        title: 'Your Entity Structure',
+        narration: "Here are your key entities: the Crown Legacy Trust holding 12.4 million in generational assets, the Family Impact Foundation requiring attention with a watch status, and Crown Holdings managing your operating capital.",
+        duration: 6
+      },
+      {
+        view: 'metrics',
+        target: '.metrics-grid',
+        title: 'Metrics & Analytics',
+        narration: "The Metrics Dashboard surfaces real-time signals across your entire portfolio. This signal feed alerts you to what matters: when grant rates exceed sustainable thresholds, when liquidity milestones are hit, and when governance requirements are met.",
+        duration: 6
+      },
+      {
+        view: 'scenarios',
+        target: '.scenario-section',
+        title: 'Scenario Modeling',
+        narration: "The Scenario Engine lets you model 'what if' moments before they happen. Adjust distribution rates, test market shocks, or add foundation corpus. See the 24-month impact on your Trust Index and resilience instantly.",
+        duration: 6
+      },
+      {
+        view: 'scenarios',
+        target: '.flow-container',
+        title: 'Capital Flows',
+        narration: "This flow diagram shows how capital moves through your system. From holdings into trusts, down to beneficiaries, and across to the foundation for grant distribution. Clarity in motion.",
+        duration: 5
+      },
+      {
+        view: 'institutional',
+        target: '.sandbox-header',
+        title: 'Institutional Partnerships',
+        narration: "For partners like JPMC, this is the Institutional Sandbox view. You see pilot metrics, data feed status, compliance certification, and timeline progress. This is how institutions see into complex family structures.",
+        duration: 6
+      },
+      {
+        view: 'renaissance',
+        target: '.renaissance-hero',
+        title: 'Renaissance Pathways',
+        narration: "WayPoint Renaissance is dignity-first re-entry. No judgment, no walls. Just a structured pathway back to financial citizenship for those who've experienced exclusion. Credit building, savings growth, and restored opportunity.",
+        duration: 6
+      },
+      {
+        view: null,
+        target: null,
+        title: 'Tour Complete',
+        narration: "You've now seen the full Aegis architecture: position clarity, governance structure, scenario intelligence, institutional integration, and dignity-first pathways. This is the operating system for families seeking stewardship over extraction.",
+        duration: 5,
+        isClosing: true
+      }
+    ];
+
+    // Show welcome modal on intro completion
+    introEnter.addEventListener('click', () => {
+      setTimeout(() => {
+        tourWelcomeModal.classList.add('active');
+      }, 800);
+    });
+
+    tourStart.addEventListener('click', () => {
+      tourWelcomeModal.classList.remove('active');
+      startTour();
+    });
+
+    tourSkip.addEventListener('click', () => {
+      tourWelcomeModal.classList.remove('active');
+    });
+
+    function startTour() {
+      tourActive = true;
+      currentTourStep = 0;
+      tourBrightMode = false;
+      tourOverlay.classList.add('active');
+      tourBright.style.display = 'flex';
+      tourBright.classList.remove('active');
+      showTourStep(0);
+    }
+
+    function showTourStep(stepIndex) {
+      if (stepIndex >= tourSteps.length) {
+        endTour();
+        return;
+      }
+
+      const step = tourSteps[stepIndex];
+      currentTourStep = stepIndex;
+      tourPaused = false;
+
+      // Update progress bar
+      const progress = ((stepIndex + 1) / tourSteps.length) * 100;
+      tourProgress.innerHTML = `<div class="tour-progress-bar" style="width: ${progress}%"></div>`;
+
+      // Update narration
+      tourNarrationText.innerHTML = `<strong>${step.title}</strong><br><br>${step.narration}`;
+
+      // Move narration to top for Renaissance step to avoid covering pathway items
+      if (step.view === 'renaissance') {
+        document.querySelector('.tour-narration').classList.add('top');
+      } else {
+        document.querySelector('.tour-narration').classList.remove('top');
+      }
+
+      // Generate narration audio
+      playNarration(step.narration);
+
+      // Highlight target element
+      if (step.target) {
+        const targetElement = document.querySelector(step.target);
+        if (targetElement) {
+          switchView(step.view);
+          setTimeout(() => {
+            highlightElement(targetElement);
+          }, 300);
+        }
+      } else {
+        tourSpotlight.style.display = 'none';
+      }
+
+      // Update next button
+      if (step.isClosing) {
+        tourNext.textContent = 'Close Tour';
+      } else {
+        tourNext.textContent = 'Next â†’';
+      }
+
+      tourNext.disabled = false;
+    }
+
+    function highlightElement(element) {
+      const rect = element.getBoundingClientRect();
+      const padding = 16;
+
+      tourSpotlight.style.display = 'block';
+      tourSpotlight.style.left = (rect.left - padding) + 'px';
+      tourSpotlight.style.top = (rect.top - padding) + 'px';
+      tourSpotlight.style.width = (rect.width + padding * 2) + 'px';
+      tourSpotlight.style.height = (rect.height + padding * 2) + 'px';
+
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function playNarration(text) {
+      // Stop previous audio
+      if (currentAudioElement) {
+        currentAudioElement.pause();
+        currentAudioElement = null;
+      }
+
+      // Use Web Speech API for narration (Poe/ElevenLabs not available outside Poe)
+      try {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 0.9;
+          utterance.pitch = 1.0;
+          // Try to find a female voice for Aletheia
+          const voices = window.speechSynthesis.getVoices();
+          const preferred = voices.find(v => v.name.includes('Samantha') || v.name.includes('Google US English') || v.name.includes('Female'));
+          if (preferred) utterance.voice = preferred;
+          window.speechSynthesis.speak(utterance);
+        }
+      } catch(e) {
+        // Speech not available, continue tour silently
+      }
+    }
+
+    tourNext.addEventListener('click', () => {
+      if (tourSteps[currentTourStep].isClosing) {
+        endTour();
+      } else {
+        showTourStep(currentTourStep + 1);
+      }
+    });
+
+    tourPause.addEventListener('click', () => {
+      tourPaused = !tourPaused;
+      if (currentAudioElement) {
+        if (tourPaused) {
+          currentAudioElement.pause();
+          tourPause.innerHTML = '<i class="fas fa-play"></i>';
+        } else {
+          currentAudioElement.play();
+          tourPause.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+      }
+    });
+
+    tourSkipStep.addEventListener('click', () => {
+      if (currentTourStep < tourSteps.length - 1) {
+        showTourStep(currentTourStep + 1);
+      } else {
+        endTour();
+      }
+    });
+
+    tourExit.addEventListener('click', endTour);
+
+    tourBright.addEventListener('click', () => {
+      tourBrightMode = !tourBrightMode;
+      if (tourBrightMode) {
+        tourOverlay.classList.add('bright');
+        tourBright.classList.add('active');
+      } else {
+        tourOverlay.classList.remove('bright');
+        tourBright.classList.remove('active');
+      }
+    });
+
+    function endTour() {
+      tourActive = false;
+      tourOverlay.classList.remove('active');
+      tourSpotlight.style.display = 'none';
+
+      if (currentAudioElement) {
+        currentAudioElement.pause();
+        currentAudioElement = null;
+      }
+
+      // Show closing message
+      const closingModal = document.createElement('div');
+      closingModal.className = 'tour-modal active';
+      closingModal.innerHTML = `
+        <div class="tour-modal-content">
+          <div class="tour-modal-header">
+            <div class="tour-modal-icon"><i class="fas fa-check-circle"></i></div>
+            <h2>Tour Complete</h2>
+            <p>You now understand the Aegis architecture</p>
+          </div>
+          <div class="tour-modal-body">
+            <p>You've explored the Financial Positioning System, governance structures, scenario modeling, institutional integration, and dignity-first pathways.</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">Ready to experience the full system? Explore freely or schedule a live conversation with our team.</p>
+          </div>
+          <div class="tour-modal-actions">
+            <button class="tour-btn secondary" onclick="this.closest('.tour-modal').remove()">Explore More</button>
+            <button class="tour-btn primary" onclick="alert('Schedule a conversation with the Aegis team'); this.closest('.tour-modal').remove()">Schedule Demo</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(closingModal);
+    }
+
+    // Show welcome modal after intro
+    setTimeout(() => {
+      if (!tourWelcomeModal.classList.contains('active') && !tourActive) {
+        // Tour welcome will show after intro enters
+      }
+    }, 2000);
+  </script>
+
+
+
+<!-- Integra Core API Wiring -->
+<script>
+window.INTEGRA_API_BASE = 'http://localhost:8002'; // production backend — switch to https://integra.meridiahq.com when NAS deployed
+</script>
+<script>
+
+/**
+ * integra-wiring.js
+ * Meridia WayPoint Crown — Live API Integration
+ * 
+ * Wires Index8-live.html to the Integra Core production backend.
+ * Replaces all static/mock data with live DB-powered responses.
+ * 
+ * API Base: window.INTEGRA_API_BASE (set in Index8-live.html)
+ * Production: https://integra.meridiahq.com
+ * Local dev:  http://localhost:8002
+ */
+
+(function() {
+  'use strict';
+
+  const BASE = window.INTEGRA_API_BASE || 'https://integra.meridiahq.com';
+
+  // Demo entity IDs (seeded in meridia_core)
+  const ENTITIES = {
+    CROWN_CLIENT:   'a1b2c3d4-0002-0002-0002-000000000002', // Hargrove Family Office
+    INSTITUTION:    'a1b2c3d4-0001-0001-0001-000000000001', // Vantage Financial Partners
+    CORE_CLIENT:    'a1b2c3d4-0003-0003-0003-000000000003', // Cornerstone AME
+    EDGE_CLIENT:    'a1b2c3d4-0004-0004-0004-000000000004', // Gulf South Properties
+    RENAISSANCE:    'a1b2c3d4-0005-0005-0005-000000000005', // Marcus Thompson
+  };
+
+  // Active entity for this demo session
+  let activeEntityId = ENTITIES.CROWN_CLIENT;
+
+  // ── API HELPERS ──────────────────────────────────────────
+
+  async function apiFetch(path, opts = {}) {
+    try {
+      const url = BASE + path;
+      const r = await fetch(url, {
+        method: opts.method || 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: opts.body ? JSON.stringify(opts.body) : undefined,
+      });
+      if (!r.ok) return null;
+      return await r.json();
+    } catch (e) {
+      console.warn(`[Integra] ${path} failed:`, e.message);
+      return null;
+    }
+  }
+
+  // ── FORMATTERS ───────────────────────────────────────────
+
+  function fmt$(n) {
+    if (!n && n !== 0) return '—';
+    if (n >= 1_000_000) return '$' + (n/1_000_000).toFixed(1) + 'M';
+    if (n >= 1_000)     return '$' + (n/1_000).toFixed(0) + 'K';
+    return '$' + n.toFixed(0);
+  }
+
+  function fmtPct(n) {
+    if (!n && n !== 0) return '—';
+    return n.toFixed(1) + '%';
+  }
+
+  function scoreColor(s) {
+    if (s >= 75) return 'var(--accent-emerald)';
+    if (s >= 55) return 'var(--accent-amber)';
+    return 'var(--accent-rose)';
+  }
+
+  function directionArrow(d) {
+    if (!d) return '';
+    if (d === 'improving' || d === 'strong') return ' ↑';
+    if (d === 'declining' || d === 'critical') return ' ↓';
+    return ' →';
+  }
+
+  // ── DOM HELPERS ──────────────────────────────────────────
+
+  function setText(sel, val) {
+    const el = document.querySelector(sel);
+    if (el && val !== null && val !== undefined) el.textContent = val;
+  }
+
+  function setHTML(sel, val) {
+    const el = document.querySelector(sel);
+    if (el && val !== null && val !== undefined) el.innerHTML = val;
+  }
+
+  function setStyle(sel, prop, val) {
+    const el = document.querySelector(sel);
+    if (el && val) el.style[prop] = val;
+  }
+
+  function setAll(sel, val) {
+    document.querySelectorAll(sel).forEach(el => {
+      if (val !== null && val !== undefined) el.textContent = val;
+    });
+  }
+
+  // ── POSITION / FPS ───────────────────────────────────────
+
+  async function loadPosition() {
+    const data = await apiFetch(`/api/v1/position/${activeEntityId}`);
+    if (!data) return;
+
+    const fps = data.fps_score;
+    const dir = directionArrow(data.fps_direction);
+
+    // FPS score display
+    setText('.fps-score', fps?.toFixed(1) + dir);
+    setText('.fps-score-value', fps?.toFixed(1));
+    setText('#fpsScore', fps?.toFixed(1));
+    setStyle('.fps-score', 'color', scoreColor(fps));
+
+    // FPS ring / gauge
+    const ring = document.querySelector('.fps-ring circle:last-child, .progress-ring circle:last-child');
+    if (ring) {
+      const r = parseFloat(ring.getAttribute('r') || 45);
+      const circ = 2 * Math.PI * r;
+      ring.style.strokeDashoffset = circ - (fps / 100) * circ;
+      ring.style.stroke = scoreColor(fps);
+    }
+
+    // Entity name
+    setText('.entity-name', data.entity_name);
+    setText('.client-name', data.entity_name);
+    setText('[data-field="entity_name"]', data.entity_name);
+
+    // Narrative
+    setText('.fps-narrative', data.fps_narrative);
+    setText('.aletheia-narrative', data.fps_narrative);
+    setText('[data-field="narrative"]', data.fps_narrative);
+
+    // Components
+    if (data.components) {
+      const c = data.components;
+      const fields = {
+        'net_position':       ['[data-component="net_position"]', '.net-position-score'],
+        'liquidity_coverage': ['[data-component="liquidity"]', '.liquidity-score'],
+        'dscr':               ['[data-component="dscr"]', '.dscr-score'],
+        'runway':             ['[data-component="runway"]', '.runway-score'],
+        'distribution_alignment': ['[data-component="distribution"]', '.distribution-score'],
+      };
+      for (const [key, selectors] of Object.entries(fields)) {
+        const val = c[key];
+        if (val !== undefined) {
+          selectors.forEach(s => setText(s, val?.toFixed(1)));
+        }
+      }
+    }
+
+    // Period
+    setText('.position-period', data.period);
+
+    // Store for Aletheia responses
+    window._integraResponses = window._integraResponses || {};
+    window._integraResponses.position = data.fps_narrative;
+
+    console.log(`[Integra] FPS loaded: ${fps} (${data.fps_direction})`);
+  }
+
+  // ── TRUST INDEX ──────────────────────────────────────────
+
+  async function loadTrustIndex() {
+    const data = await apiFetch(`/api/v1/trust-index/${activeEntityId}`);
+    if (!data) return;
+
+    const score = data.trust_index;
+    setText('.trust-score', score?.toFixed(0));
+    setText('.trust-index-score', score?.toFixed(0));
+    setText('#trustScore', score?.toFixed(0));
+    setText('[data-field="trust_index"]', score?.toFixed(0));
+    setStyle('.trust-score', 'color', scoreColor(score));
+
+    // Four dimensions
+    const dims = {
+      behavioral_consistency:    '[data-trust="behavioral"], .trust-behavioral',
+      governance_adherence:      '[data-trust="governance"], .trust-governance',
+      communication_reliability: '[data-trust="communication"], .trust-communication',
+      commitment_fulfillment:    '[data-trust="commitment"], .trust-commitment',
+    };
+    for (const [key, sel] of Object.entries(dims)) {
+      const val = data[key];
+      if (val !== undefined) {
+        sel.split(',').forEach(s => {
+          document.querySelectorAll(s.trim()).forEach(el => {
+            el.textContent = val?.toFixed(0);
+          });
+        });
+      }
+    }
+
+    // Direction
+    setText('.trust-direction', data.direction ? data.direction + directionArrow(data.direction) : '');
+    console.log(`[Integra] Trust Index loaded: ${score}`);
+  }
+
+  // ── ENTITIES ─────────────────────────────────────────────
+
+  async function loadEntities() {
+    const data = await apiFetch('/api/v1/entities');
+    if (!data || !data.entities) return;
+
+    const entities = data.entities;
+    // Update entity count
+    setText('.entity-count', entities.length);
+
+    // Try to find entity grid and populate
+    const grid = document.querySelector('.entity-grid, #entityGrid, .entities-container');
+    if (grid && entities.length) {
+      // Only inject if grid looks empty or has placeholder data
+      const existingCards = grid.querySelectorAll('[data-entity-id]');
+      if (existingCards.length === 0) {
+        grid.innerHTML = entities.map(e => `
+          <div class="entity-card ${e.status === 'healthy' ? 'healthy' : e.status === 'watch' ? 'watch' : ''}"
+               data-entity-id="${e.id}"
+               onclick="window._integraSetEntity && window._integraSetEntity('${e.id}')">
+            <div class="entity-type">${e.type || e.tier}</div>
+            <div class="entity-name-card">${e.name}</div>
+            <div class="entity-metrics">
+              <span class="entity-metric">${e.metrics?.fps_score ? 'FPS ' + e.metrics.fps_score : ''}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    console.log(`[Integra] Entities loaded: ${entities.length}`);
+  }
+
+  // ── MX LIVE CONNECTION ───────────────────────────────────
+
+  async function connectMX(entityId) {
+    console.log(`[Integra] Connecting MX for ${entityId}...`);
+    setText('.connection-status', 'Connecting...');
+
+    const data = await apiFetch(`/api/v1/connect/mx/${entityId}`, { method: 'POST' });
+    if (!data) {
+      setText('.connection-status', 'Connection failed');
+      return null;
+    }
+
+    setText('.connection-status', `Connected — ${data.accounts_connected} accounts`);
+    setText('.data-source', data.source);
+
+    // Reload position with fresh MX data
+    await loadPosition();
+    await loadTrustIndex();
+
+    console.log(`[Integra] MX connected: FPS ${data.fps_score} from ${data.source}`);
+    return data;
+  }
+
+  // ── SIGNALS ──────────────────────────────────────────────
+
+  async function loadSignals() {
+    const data = await apiFetch('/api/v1/signal-feed');
+    if (!data || !data.signals) return;
+
+    const feed = document.querySelector('.signal-feed, #signalFeed, .signals-list');
+    if (!feed) return;
+
+    const signals = data.signals.slice(0, 8);
+    if (signals.length === 0) return;
+
+    // Only inject if feed has no live content
+    const existing = feed.querySelectorAll('[data-signal-id]');
+    if (existing.length > 0) return;
+
+    feed.innerHTML = signals.map(s => `
+      <div class="signal-item ${s.severity || 'info'}" data-signal-id="${s.id}">
+        <div class="signal-severity">${s.severity?.toUpperCase() || 'INFO'}</div>
+        <div class="signal-message">${s.message || s.title || ''}</div>
+        <div class="signal-time">${s.timestamp ? new Date(s.timestamp).toLocaleTimeString() : ''}</div>
+      </div>
+    `).join('');
+
+    console.log(`[Integra] ${signals.length} signals loaded`);
+  }
+
+  // ── GOVERNANCE ALERTS ────────────────────────────────────
+
+  async function loadGovernance() {
+    const data = await apiFetch('/api/v1/governance-alerts');
+    if (!data || !data.alerts) return;
+
+    const alerts = data.alerts;
+    setText('.governance-count', alerts.length);
+    setText('.governance-badge', alerts.length > 0 ? alerts.length : '');
+
+    // Update any open governance items visible
+    const openAlerts = alerts.filter(a => a.action_required);
+    if (openAlerts.length > 0) {
+      window._integraResponses = window._integraResponses || {};
+      window._integraResponses.governance = `${openAlerts.length} governance items require your approval. The most urgent: ${openAlerts[0]?.title || 'Review pending'}.`;
+    }
+
+    console.log(`[Integra] ${alerts.length} governance alerts`);
+  }
+
+  // ── MACRO CONTEXT ────────────────────────────────────────
+
+  async function loadMacro() {
+    const data = await apiFetch('/api/v1/macro');
+    if (!data) return;
+
+    // Fed Funds Rate
+    const ff = data.FEDFUNDS;
+    if (ff) {
+      setText('.fed-funds-rate', ff.value?.toFixed(2) + '%');
+      setText('[data-macro="FEDFUNDS"]', ff.value?.toFixed(2) + '%');
+    }
+
+    // Mortgage Rate
+    const mort = data.MORTGAGE30US;
+    if (mort) {
+      setText('.mortgage-rate', mort.value?.toFixed(2) + '%');
+      setText('[data-macro="MORTGAGE30US"]', mort.value?.toFixed(2) + '%');
+    }
+
+    // CPI
+    const cpi = data.CPIAUCSL;
+    if (cpi) {
+      setText('[data-macro="CPIAUCSL"]', cpi.value?.toFixed(1));
+    }
+
+    console.log(`[Integra] Macro: FF=${ff?.value}%, Mortgage=${mort?.value}%`);
+  }
+
+  // ── REPORTS ──────────────────────────────────────────────
+
+  async function loadReport(audience) {
+    audience = audience || 'board';
+    const data = await apiFetch(`/api/v1/reports/${audience}`);
+    if (!data) return null;
+
+    const container = document.querySelector('#reportContent, .report-content');
+    if (container) {
+      let html = `<h3>${data.title || ''}</h3>`;
+      if (data.executive_summary) {
+        html += `<p class="report-summary">${data.executive_summary}</p>`;
+      }
+      if (data.sections) {
+        const sections = Array.isArray(data.sections)
+          ? data.sections
+          : Object.entries(data.sections).map(([k, v]) => ({
+              heading: k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+              content: typeof v === 'string' ? v : JSON.stringify(v, null, 2)
+            }));
+        sections.forEach(s => {
+          html += `<div class="report-section">
+            <h4>${s.heading || ''}</h4>
+            <p>${s.content || ''}</p>
+          </div>`;
+        });
+      }
+      container.innerHTML = html;
+    }
+
+    return data;
+  }
+
+  // ── SCENARIO ENGINE ──────────────────────────────────────
+
+  async function runScenario(adjustments, scenarioName) {
+    const body = {
+      entity_id:     activeEntityId,
+      scenario_name: scenarioName || 'Custom Scenario',
+      adjustments:   adjustments || {},
+    };
+
+    const data = await apiFetch('/api/v1/scenario', { method: 'POST', body });
+    if (!data) return null;
+
+    setText('.scenario-fps', data.projected_fps?.toFixed(1));
+    setText('.scenario-delta', (data.fps_delta >= 0 ? '+' : '') + data.fps_delta?.toFixed(1));
+    setText('.scenario-narrative', data.impact_narrative);
+    setStyle('.scenario-delta', 'color',
+      data.fps_delta >= 0 ? 'var(--accent-emerald)' : 'var(--accent-rose)');
+
+    window._integraResponses = window._integraResponses || {};
+    window._integraResponses.scenario = data.impact_narrative;
+
+    console.log(`[Integra] Scenario: ${data.baseline_fps} → ${data.projected_fps}`);
+    return data;
+  }
+
+  // ── ENTITY SWITCHER ──────────────────────────────────────
+
+  function setActiveEntity(entityId) {
+    activeEntityId = entityId;
+    loadAll();
+    console.log(`[Integra] Switched to entity: ${entityId}`);
+  }
+
+  window._integraSetEntity = setActiveEntity;
+  window._integraEntities  = ENTITIES;
+  window._integraConnect   = connectMX;
+  window._integraReport    = loadReport;
+  window._integraScenario  = runScenario;
+
+  // ── LOAD ALL ─────────────────────────────────────────────
+
+  async function loadAll() {
+    console.log(`[Integra] Loading from ${BASE}...`);
+    await Promise.all([
+      loadPosition(),
+      loadTrustIndex(),
+      loadEntities(),
+      loadSignals(),
+      loadGovernance(),
+      loadMacro(),
+    ]);
+    console.log('[Integra] All data loaded.');
+  }
+
+  // ── INIT ─────────────────────────────────────────────────
+
+  function init() {
+    // Override report fetch in Index8 Aletheia panel
+    window.INTEGRA_API_BASE = BASE;
+
+    // Load all data
+    loadAll();
+
+    // Refresh every 5 minutes
+    setInterval(loadAll, 5 * 60 * 1000);
+
+    // Expose connection button handler
+    const connectBtn = document.querySelector('#connectMX, .connect-mx-btn, [data-action="connect-mx"]');
+    if (connectBtn) {
+      connectBtn.addEventListener('click', () => connectMX(activeEntityId));
+    }
+
+    console.log(`[Integra] Wired to ${BASE} — entity: ${activeEntityId}`);
+  }
+
+  // Run after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+
+</script>
+</body></html>
+

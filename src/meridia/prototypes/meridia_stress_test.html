@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridia — Thesis Stress Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --gold: #C9A22B;
+  --cream: #F5F0E8;
+  --muted: rgba(245,240,232,0.4);
+  --border: rgba(201,162,43,0.2);
+  --red: #E53E3E;
+  --green: #38A169;
+  --amber: #D97706;
+}
+body {
+  background: var(--navy);
+  font-family: 'Cormorant Garamond', serif;
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 40% at 15% 20%, rgba(201,162,43,0.06) 0%, transparent 60%);
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: rgba(10,22,40,0.95);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 32px 28px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.logo-mark {
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.brand { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); }
+.brand-sub { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; color: var(--muted); text-transform: uppercase; }
+
+.thesis-panel {
+  padding: 24px 28px;
+  flex: 1;
+  overflow-y: auto;
+}
+.panel-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.28em;
+  color: rgba(201,162,43,0.5);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.thesis-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(245,240,232,0.45);
+  white-space: pre-wrap;
+}
+.thesis-section {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(201,162,43,0.06);
+}
+.thesis-section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.thesis-section-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; line-height: 1.7;
+  color: rgba(245,240,232,0.5);
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10,22,40,0.8);
+  backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; color: var(--cream);
+}
+.topbar-title em { font-style: italic; color: var(--gold); }
+
+.api-row {
+  display: flex; gap: 10px; align-items: center;
+}
+.api-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,162,43,0.18);
+  padding: 9px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--cream);
+  outline: none;
+  width: 280px;
+  border-radius: 1px;
+  letter-spacing: 0.05em;
+}
+.api-input::placeholder { color: rgba(245,240,232,0.2); }
+.api-input:focus { border-color: var(--gold); }
+
+.btn-run {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--navy);
+  background: var(--gold);
+  border: none; cursor: pointer;
+  padding: 10px 24px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  border-radius: 1px;
+  white-space: nowrap;
+}
+.btn-run:hover { background: #E2BA3A; }
+.btn-run:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* RESULTS AREA */
+.results {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.idle-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px;
+}
+.idle-state h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; color: var(--cream);
+  margin-bottom: 12px; line-height: 1.3;
+}
+.idle-state h2 em { font-style: italic; color: var(--gold); }
+.idle-state p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: var(--muted);
+  line-height: 1.7; max-width: 420px;
+}
+
+/* RESULT CARDS */
+.result-card {
+  border: 1px solid rgba(201,162,43,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  animation: slideIn 0.4s ease both;
+}
+@keyframes slideIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+.result-card-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 22px;
+}
+.result-card-header.sound  { background: rgba(56,161,105,0.08); border-bottom: 1px solid rgba(56,161,105,0.15); }
+.result-card-header.missing { background: rgba(217,119,6,0.08); border-bottom: 1px solid rgba(217,119,6,0.15); }
+.result-card-header.wrong  { background: rgba(229,62,62,0.08); border-bottom: 1px solid rgba(229,62,62,0.15); }
+.result-card-header.acquisition { background: rgba(201,162,43,0.06); border-bottom: 1px solid rgba(201,162,43,0.15); }
+.result-card-header.verdict { background: rgba(26,47,74,0.8); border-bottom: 1px solid var(--border); }
+
+.card-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; flex-shrink: 0;
+}
+.sound .card-icon { background: rgba(56,161,105,0.15); color: var(--green); }
+.missing .card-icon { background: rgba(217,119,6,0.15); color: var(--amber); }
+.wrong .card-icon { background: rgba(229,62,62,0.15); color: var(--red); }
+.acquisition .card-icon { background: rgba(201,162,43,0.1); color: var(--gold); }
+.verdict .card-icon { background: rgba(201,162,43,0.08); color: var(--gold); }
+
+.card-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  flex: 1;
+}
+.sound .card-title { color: var(--green); }
+.missing .card-title { color: var(--amber); }
+.wrong .card-title { color: var(--red); }
+.acquisition .card-title { color: var(--gold); }
+.verdict .card-title { color: var(--cream); }
+
+.result-body {
+  padding: 22px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; line-height: 1.8;
+  color: rgba(245,240,232,0.72);
+  white-space: pre-wrap;
+}
+
+/* STREAMING */
+.streaming-card {
+  border: 1px solid rgba(201,162,43,0.15);
+  border-radius: 2px;
+  padding: 24px;
+  background: rgba(18,32,64,0.4);
+}
+.streaming-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(201,162,43,0.2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.streaming-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.streaming-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; line-height: 1.8;
+  color: rgba(245,240,232,0.65);
+  white-space: pre-wrap;
+  min-height: 80px;
+}
+.streaming-text::after {
+  content: '▊';
+  color: var(--gold);
+  animation: blink 0.8s step-end infinite;
+  font-size: 14px;
+}
+.streaming-text.done::after { display: none; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ERROR */
+.error-card {
+  border: 1px solid rgba(229,62,62,0.3);
+  border-radius: 2px;
+  padding: 20px 24px;
+  background: rgba(229,62,62,0.05);
+}
+.error-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
+.error-body { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: rgba(229,62,62,0.7); }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201,162,43,0.2); border-radius: 2px; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; max-height: 320px; }
+  .topbar { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- SIDEBAR: THE THESIS -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A22B" stroke-width="1.2" stroke-linecap="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand">Meridia</div>
+          <div class="brand-sub">Core Thesis</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="thesis-panel">
+      <div class="panel-label">Thesis for Stress Testing</div>
+
+      <div class="thesis-section">
+        <div class="thesis-section-title">What Meridia Is</div>
+        <div class="thesis-section-body">A FinTech intelligence layer built on a BaaS model — like Relay on Thread Bank, Mercury on Evolve. No charter required. Meridia owns the intelligence and experience layer between consumers and chartered institutions.</div>
+      </div>
+
+      <div class="thesis-section">
+        <div class="thesis-section-title">The Bilateral Model</div>
+        <div class="thesis-section-body">Every platform reads one direction. Meridia reads both — producing a guided roadmap for the individual AND a qualified pipeline signal for the institution simultaneously from the same intake.</div>
+      </div>
+
+      <div class="thesis-section">
+        <div class="thesis-section-title">The JPMC Angle</div>
+        <div class="thesis-section-body">Chase (retail/CRA) and JP Morgan (institutional) have no designed bridge. Chase gets CRA-documented customers. JP Morgan gets visible pipeline approaching qualification. Neither changes its positioning.</div>
+      </div>
+
+      <div class="thesis-section">
+        <div class="thesis-section-title">The Structural Position</div>
+        <div class="thesis-section-body">The Rockefeller refinery — not owning the oil, owning the layer everything passes through. Meridia becomes infrastructure that banks depend on, not a product they compete with.</div>
+      </div>
+
+      <div class="thesis-section">
+        <div class="thesis-section-title">The Moat</div>
+        <div class="thesis-section-body">The corpus. Behavioral + financial intelligence from both sides, accumulating simultaneously. Cannot be purchased or replicated. Only exists because Meridia builds intake, guidance, and institutional translation from the same infrastructure.</div>
+      </div>
+
+      <div class="thesis-section">
+        <div class="thesis-section-title">Current State — Honest</div>
+        <div class="thesis-section-body">Sophisticated referral engine. Working consumer intake. FastAPI backend on home NAS. No chartered bank partner. No signed institutional agreements. No BaaS integration yet. BaaS layer transforms this from referral engine to infrastructure position.</div>
+      </div>
+
+      <div class="thesis-section" style="border-bottom:none">
+        <div class="thesis-section-title">The Question This Must Survive</div>
+        <div class="thesis-section-body">Why can't Chase build this internally? Why can't a well-capitalized FinTech replicate it? What prevents JPMC from acquiring the referral engine before BaaS is established?</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN: STRESS TEST RESULTS -->
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-title">Thesis Stress Test — <em>Cold Read</em></div>
+      <div class="api-row">
+        <input class="api-input" id="api-key" type="password" placeholder="sk-ant-api03-… (session only, not stored)">
+        <button class="btn-run" id="btn-run">Run Stress Test</button>
+      </div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="idle-state" id="idle">
+        <h2>No mercy.<br><em>Find what's wrong.</em></h2>
+        <p>Enter your API key and run the stress test. A fresh model with no session context will evaluate the thesis as a skeptical institutional investor — finding the holes, the gaps, and what cannot be built without something not yet named.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const THESIS = `MERIDIA HOLDINGS — CORE THESIS
+
+WHAT MERIDIA IS
+Meridia is a FinTech intelligence layer built on a Banking-as-a-Service (BaaS) infrastructure model — structurally similar to how Relay operates on Thread Bank and Mercury on Evolve Bank & Trust. Meridia does not hold deposits or require a bank charter. It owns the intelligence and experience layer that sits between consumers and chartered financial institutions.
+
+THE BILATERAL MODEL
+Every existing financial platform reads in one direction. Credit scoring reads the consumer for the institution. CRA reporting reads the institution for the regulator. No platform reads both simultaneously and produces differentiated outputs for both in real time. Meridia does. The same intake produces two simultaneous outputs: a guided roadmap for the individual and a qualified pipeline signal for the institution. This is the bilateral model. It is the core differentiation.
+
+THE JPMC ANGLE
+Chase Bank (retail) and JP Morgan (institutional) are two expressions of the same parent company with no designed bridge between them. Chase customers do not graduate to JP Morgan through a system — they either accumulate assets accidentally or never cross. Meridia builds that bridge. Chase receives CRA-documented, assessment-validated customers. JP Morgan receives a visible pipeline of customers approaching qualification thresholds. Neither sibling has to change its positioning. Meridia operates in the intelligence layer between them.
+
+THE STRUCTURAL POSITION
+Meridia's goal is not to compete with banks. It is to become the infrastructure layer that banks depend on to identify, qualify, and serve markets they cannot currently read with the precision the compliance environment and business opportunity simultaneously require. This is the Rockefeller refinery position — not owning the oil, owning the layer everything has to pass through.
+
+THE MOAT
+The corpus. Every consumer who completes a Meridia intake produces behavioral and financial intelligence in a natural, guided state. Every institutional routing decision produces market intelligence. The corpus that accumulates from both sides simultaneously cannot be purchased, reverse-engineered, or replicated. It only exists because Meridia builds the intake, the guidance, and the institutional translation layer from the same infrastructure.
+
+CURRENT STATE — HONEST
+Today Meridia is a sophisticated referral engine with a working consumer intake, a real-time generation experience, and a FastAPI backend running on a home NAS with a Cloudflare tunnel. No chartered bank partner. No signed institutional agreements. No BaaS integration. The bilateral intelligence model is architecturally sound and partially built. The BaaS layer requires a chartered partner agreement with Unit, Synctera, Column Bank, or a direct institutional relationship.
+
+THE REVENUE MODEL
+Three streams: (1) Institutional licensing — institutions pay for intelligence layer and CRA documentation access. (2) Consumer guidance — embedded in product margin or direct fee. (3) Data licensing — anonymized aggregate market intelligence, increasing in value as corpus grows.
+
+THE QUESTION THIS THESIS MUST SURVIVE
+Why can't Chase build this internally? Why can't a well-capitalized FinTech replicate it? What prevents JPMC from acquiring the referral engine before the BaaS layer is established, eliminating the infrastructure position permanently?`;
+
+const SYSTEM = `You are a skeptical institutional investor and financial services veteran with 30 years of experience evaluating FinTech companies. You have sat across from hundreds of founders with compelling visions. You are not hostile — but you are precise, and you have no patience for narrative that cannot survive contact with market reality.
+
+Your job is to stress test the thesis in front of you. Find what is wrong, what is missing, what cannot be built without something not yet named, and where the founder may be confusing a compelling story with a defensible market position.
+
+Be specific. Reference real market dynamics, real regulatory constraints, real competitive threats. Name the actual risks by name. Do not validate what does not deserve validation. Do not dismiss what is genuinely sound.
+
+Structure your response EXACTLY as follows, using these exact headers:
+
+WHAT IS SOUND
+[What actually holds up under scrutiny — be specific and honest, not generous]
+
+WHAT IS MISSING
+[Critical gaps the thesis does not address — things that must exist for the model to work that are not named]
+
+WHAT IS LIKELY WRONG
+[Assumptions that are probably incorrect — be direct]
+
+THE ACQUISITION QUESTION
+[Direct, specific answer to the thesis's own final question: why can't Chase build it, why can't a FinTech replicate it, what prevents forced acquisition before BaaS is established]
+
+THE HONEST VERDICT
+[One paragraph. No hedging. What this thesis actually is at this moment and what it needs to become to be fundable at the institutional level]`;
+
+const CARD_CONFIG = {
+  'WHAT IS SOUND': { cls: 'sound', icon: '✓', delay: 0 },
+  'WHAT IS MISSING': { cls: 'missing', icon: '?', delay: 0.05 },
+  'WHAT IS LIKELY WRONG': { cls: 'wrong', icon: '✗', delay: 0.1 },
+  'THE ACQUISITION QUESTION': { cls: 'acquisition', icon: '⬡', delay: 0.15 },
+  'THE HONEST VERDICT': { cls: 'verdict', icon: '◆', delay: 0.2 },
+};
+
+let isRunning = false;
+
+document.getElementById('btn-run').addEventListener('click', runStressTest);
+document.getElementById('api-key').addEventListener('keydown', e => {
+  if (e.key === 'Enter') runStressTest();
+});
+
+async function runStressTest() {
+  if (isRunning) return;
+  const key = document.getElementById('api-key').value.trim();
+  if (!key) {
+    document.getElementById('api-key').style.borderColor = '#E53E3E';
+    setTimeout(() => document.getElementById('api-key').style.borderColor = '', 2000);
+    return;
+  }
+
+  isRunning = true;
+  const btn = document.getElementById('btn-run');
+  btn.disabled = true;
+  btn.textContent = 'Running…';
+
+  const results = document.getElementById('results');
+  results.innerHTML = '';
+
+  // Streaming card
+  const streamCard = document.createElement('div');
+  streamCard.className = 'streaming-card';
+  streamCard.innerHTML = `
+    <div class="streaming-header">
+      <div class="spinner"></div>
+      <div class="streaming-label">Reading Thesis — Cold Analysis In Progress</div>
+    </div>
+    <div class="streaming-text" id="stream-text"></div>
+  `;
+  results.appendChild(streamCard);
+
+  const streamText = document.getElementById('stream-text');
+  let fullText = '';
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+        'x-api-key': key,
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2000,
+        stream: true,
+        system: SYSTEM,
+        messages: [{ role: 'user', content: `Stress test this thesis. Find the holes.\n\n${THESIS}` }]
+      })
+    });
+
+    if (!response.ok) {
+      const err = await response.text();
+      throw new Error(`API error ${response.status}: ${err}`);
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
+
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          const data = line.slice(6).trim();
+          if (data === '[DONE]') continue;
+          try {
+            const parsed = JSON.parse(data);
+            const delta = parsed.delta?.text || '';
+            if (delta) {
+              fullText += delta;
+              streamText.textContent = fullText;
+              streamCard.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+          } catch {}
+        }
+      }
+    }
+
+    streamText.classList.add('done');
+
+    // Parse and render cards
+    setTimeout(() => {
+      results.innerHTML = '';
+      renderCards(fullText, results);
+    }, 600);
+
+  } catch (err) {
+    results.innerHTML = '';
+    const errCard = document.createElement('div');
+    errCard.className = 'error-card';
+    errCard.innerHTML = `
+      <div class="error-title">Analysis Error</div>
+      <div class="error-body">${err.message}</div>
+    `;
+    results.appendChild(errCard);
+  }
+
+  isRunning = false;
+  btn.disabled = false;
+  btn.textContent = 'Run Again';
+}
+
+function renderCards(text, container) {
+  const sections = {};
+  let currentSection = null;
+  let currentLines = [];
+
+  const lines = text.split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    let matched = false;
+    for (const header of Object.keys(CARD_CONFIG)) {
+      if (trimmed.toUpperCase().startsWith(header)) {
+        if (currentSection) {
+          sections[currentSection] = currentLines.join('\n').trim();
+        }
+        currentSection = header;
+        currentLines = [];
+        matched = true;
+        break;
+      }
+    }
+    if (!matched && currentSection) {
+      currentLines.push(line);
+    }
+  }
+  if (currentSection) {
+    sections[currentSection] = currentLines.join('\n').trim();
+  }
+
+  // If parsing failed, show full text in a single card
+  if (Object.keys(sections).length === 0) {
+    const card = document.createElement('div');
+    card.className = 'result-card';
+    card.innerHTML = `
+      <div class="result-card-header verdict">
+        <div class="card-icon">◆</div>
+        <div class="card-title">Full Analysis</div>
+      </div>
+      <div class="result-body">${text}</div>
+    `;
+    container.appendChild(card);
+    return;
+  }
+
+  let delay = 0;
+  for (const [header, config] of Object.entries(CARD_CONFIG)) {
+    if (!sections[header]) continue;
+    const card = document.createElement('div');
+    card.className = `result-card`;
+    card.style.animationDelay = `${delay}s`;
+    card.innerHTML = `
+      <div class="result-card-header ${config.cls}">
+        <div class="card-icon">${config.icon}</div>
+        <div class="card-title">${header}</div>
+      </div>
+      <div class="result-body">${sections[header]}</div>
+    `;
+    container.appendChild(card);
+    delay += 0.08;
+  }
+}
+</script>
+</body>
+</html>

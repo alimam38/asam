@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis | Financial Positioning System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0b0d;
+      --bg-secondary: #12141a;
+      --bg-tertiary: #1a1d26;
+      --bg-card: #181b24;
+      --accent-gold: #c9a962;
+      --accent-gold-dim: #8a7343;
+      --accent-gold-light: #e8d5a3;
+      --accent-emerald: #34d399;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-blue: #3b82f6;
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-accent: rgba(201,169,98,0.3);
+      --gradient-gold: linear-gradient(135deg, #c9a962 0%, #e8d5a3 50%, #c9a962 100%);
+      --shadow-glow: 0 0 60px rgba(201,169,98,0.15);
+    }
+
+    .light {
+      --bg-primary: #fafaf9;
+      --bg-secondary: #f5f5f4;
+      --bg-tertiary: #e7e5e4;
+      --bg-card: #ffffff;
+      --accent-gold: #92700c;
+      --accent-gold-dim: #b8960f;
+      --text-primary: #1c1917;
+      --text-secondary: #57534e;
+      --text-muted: #78716c;
+      --border-subtle: rgba(0,0,0,0.08);
+      --border-accent: rgba(146,112,12,0.3);
+      --shadow-glow: 0 0 60px rgba(146,112,12,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,169,98,0.15) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+      animation-delay: -7s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    /* Cinematic Intro Overlay */
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .intro-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-content {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    .intro-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--bg-primary);
+      box-shadow: var(--shadow-glow), 0 0 100px rgba(201,169,98,0.3);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: var(--shadow-glow), 0 0 100px rgba(201,169,98,0.3); }
+      50% { transform: scale(1.05); box-shadow: var(--shadow-glow), 0 0 150px rgba(201,169,98,0.4); }
+    }
+
+    .intro-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .intro-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .intro-enter {
+      background: transparent;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 1rem 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .intro-enter:hover {
+      background: var(--accent-gold);
+      color: var(--bg-primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Layout */
+    .app-container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 260px 1fr 380px;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+      gap: 1px;
+      background: var(--border-subtle);
+    }
+
+    @media (max-width: 1200px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+      }
+    }
+
+    /* Header */
+    .header {
+      grid-column: 1 / -1;
+      background: var(--bg-secondary);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-gold);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--bg-primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .header-nav-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .header-nav-btn:hover, .header-nav-btn.active {
+      border-color: var(--border-accent);
+      color: var(--accent-gold);
+      background: rgba(201,169,98,0.1);
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--accent-gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      color: var(--accent-gold);
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      background: var(--bg-secondary);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 1200px) {
+      .sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem;
+      }
+      .nav-section { margin-bottom: 0; }
+      .nav-section-title { display: none; }
+    }
+
+    .nav-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .nav-section-title {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      padding: 0 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .nav-item:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .nav-item.active {
+      background: rgba(201,169,98,0.1);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-accent);
+    }
+
+    .nav-item i {
+      width: 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--bg-primary);
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 1rem;
+      }
+    }
+
+    .view-container {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .view-container.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* Position Overview Cards */
+    .position-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .position-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .position-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .position-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .position-card.healthy::before { background: var(--accent-emerald); }
+    .position-card.watch::before { background: var(--accent-amber); }
+    .position-card.alert::before { background: var(--accent-rose); }
+
+    .position-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .position-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .position-change {
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .position-change.positive { color: var(--accent-emerald); }
+    .position-change.negative { color: var(--accent-rose); }
+
+    /* Trust Index Visualization */
+    .trust-index-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .trust-index-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .trust-index-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+    }
+
+    .trust-index-score {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .trust-index-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      transition: all 0.5s ease;
+    }
+
+    .trust-index-max {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .trust-dimensions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .trust-dimensions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .trust-dimension {
+      text-align: center;
+    }
+
+    .dimension-ring {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 0.75rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dimension-ring svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(-90deg);
+    }
+
+    .dimension-ring circle {
+      fill: none;
+      stroke-width: 6;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+
+    .dimension-ring .bg { stroke: var(--bg-tertiary); }
+    .dimension-ring .progress { stroke-linecap: round; }
+
+    .dimension-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .dimension-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    /* Entity Flow Visualization */
+    .flow-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .flow-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-width: 600px;
+      padding: 1rem 0;
+    }
+
+    .flow-node {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      min-width: 120px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .flow-node:hover {
+      border-color: var(--accent-gold);
+      transform: scale(1.05);
+    }
+
+    .flow-node.primary {
+      border-color: var(--accent-gold);
+      background: rgba(201,169,98,0.1);
+    }
+
+    .flow-node-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-gold);
+    }
+
+    .flow-node-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .flow-node-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    .flow-arrow {
+      color: var(--accent-gold-dim);
+      font-size: 1.25rem;
+      animation: flowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes flowPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .flow-arrow-down {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .flow-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Scenario Engine */
+    .scenario-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .scenario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .scenario-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+    }
+
+    .scenario-reset {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .scenario-reset:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .scenario-controls {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .scenario-control {
+      display: grid;
+      grid-template-columns: 1fr 80px;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .control-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .control-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .control-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .control-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .control-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: right;
+      color: var(--accent-gold);
+    }
+
+    .scenario-impact {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .impact-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .impact-item {
+      text-align: center;
+      padding: 1rem;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+    }
+
+    .impact-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .impact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .impact-value.positive { color: var(--accent-emerald); }
+    .impact-value.negative { color: var(--accent-rose); }
+    .impact-value.neutral { color: var(--accent-amber); }
+
+    /* Entity Health Grid */
+    .entity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .entity-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .entity-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .entity-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .entity-type {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .entity-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    .entity-status {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .entity-status.healthy { background: var(--accent-emerald); box-shadow: 0 0 10px rgba(52,211,153,0.5); }
+    .entity-status.watch { background: var(--accent-amber); box-shadow: 0 0 10px rgba(245,158,11,0.5); }
+    .entity-status.alert { background: var(--accent-rose); box-shadow: 0 0 10px rgba(244,63,94,0.5); }
+
+    .entity-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .entity-metric {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+
+    .entity-metric-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .entity-metric-value {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Governance Alert Demo */
+    .governance-alert {
+      background: linear-gradient(135deg, rgba(201,169,98,0.1) 0%, rgba(201,169,98,0.05) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: none;
+      animation: alertIn 0.5s ease;
+    }
+
+    .governance-alert.active {
+      display: block;
+    }
+
+    @keyframes alertIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .alert-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .alert-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-size: 1.25rem;
+      animation: alertPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes alertPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+      50% { box-shadow: 0 0 0 15px rgba(245,158,11,0); }
+    }
+
+    .alert-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .alert-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .alert-body {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .alert-message {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .alert-recipients {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .recipient {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-tertiary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .recipient-icon {
+      color: var(--accent-emerald);
+    }
+
+    .alert-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .alert-btn {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .alert-btn.approve {
+      background: var(--accent-emerald);
+      color: var(--bg-primary);
+    }
+
+    .alert-btn.review {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Aletheia Panel */
+    .aegis-panel {
+      background: var(--bg-secondary);
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    @media (max-width: 1200px) {
+      .aegis-panel {
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+        max-height: 500px;
+      }
+    }
+
+    .aegis-header {
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .aegis-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--bg-primary);
+      box-shadow: 0 0 20px rgba(201,169,98,0.3);
+    }
+
+    .aegis-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .aegis-subtitle {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .aegis-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .aegis-message {
+      max-width: 95%;
+      animation: messageIn 0.3s ease;
+    }
+
+    @keyframes messageIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .aegis-message.ai { align-self: flex-start; }
+    .aegis-message.user { align-self: flex-end; }
+
+    .message-content {
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .aegis-message.ai .message-content {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-top-left-radius: 4px;
+    }
+
+    .aegis-message.user .message-content {
+      background: rgba(201,169,98,0.15);
+      border: 1px solid var(--border-accent);
+      border-top-right-radius: 4px;
+    }
+
+    .message-time {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      padding: 0 0.5rem;
+    }
+
+    .aegis-message.user .message-time { text-align: right; }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 1rem;
+    }
+
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-gold-dim);
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-8px); opacity: 1; }
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0 1rem 1rem;
+    }
+
+    .quick-action {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quick-action:hover {
+      border-color: var(--border-accent);
+      color: var(--accent-gold);
+    }
+
+    .aegis-input-area {
+      padding: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .aegis-input-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+
+    .aegis-input {
+      flex: 1;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.875rem 1rem;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-family: inherit;
+      resize: none;
+      min-height: 48px;
+      max-height: 120px;
+      transition: border-color 0.2s ease;
+    }
+
+    .aegis-input:focus {
+      outline: none;
+      border-color: var(--accent-gold-dim);
+    }
+
+    .aegis-input::placeholder { color: var(--text-muted); }
+
+    .aegis-send {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-gold);
+      border: none;
+      border-radius: 12px;
+      color: var(--bg-primary);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aegis-send:hover { transform: scale(1.05); }
+    .aegis-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal { transform: scale(1); }
+
+    .modal-header {
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--text-primary); }
+
+    .modal-body { padding: 1.25rem; }
+
+    .modal-footer {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .btn-primary {
+      background: var(--gradient-gold);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <!-- Cinematic Intro -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-content">
+      <div class="intro-icon">
+        <i class="fas fa-shield-halved"></i>
+      </div>
+      <h1 class="intro-title">ALETHEIA</h1>
+      <p class="intro-subtitle">Truth • Stewardship • Elevation</p>
+      <p class="intro-text">
+        "Rise above the darkness that surrounds you. Rise above the memory of the fallen.
+        Rise above the mistakes you could not foresee."
+      </p>
+      <button class="intro-enter" id="introEnter">Enter the Sanctuary</button>
+    </div>
+  </div>
+
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <span class="logo-text">AEGIS</span>
+      </div>
+      <div class="header-nav">
+        <button class="header-nav-btn active" data-view="dashboard">Dashboard</button>
+        <button class="header-nav-btn" data-view="scenarios">Scenarios</button>
+        <button class="header-nav-btn" data-view="flows">Flows</button>
+      </div>
+      <div class="user-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="nav-section">
+        <div class="nav-section-title">Overview</div>
+        <div class="nav-item active" data-view="dashboard">
+          <i class="fas fa-compass"></i>
+          <span>Position</span>
+        </div>
+        <div class="nav-item" data-view="entities">
+          <i class="fas fa-sitemap"></i>
+          <span>Entities</span>
+        </div>
+        <div class="nav-item" data-view="flows">
+          <i class="fas fa-arrows-turn-to-dots"></i>
+          <span>Flows</span>
+        </div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Planning</div>
+        <div class="nav-item" data-view="scenarios">
+          <i class="fas fa-sliders"></i>
+          <span>Scenarios</span>
+        </div>
+        <div class="nav-item" data-view="routes">
+          <i class="fas fa-route"></i>
+          <span>Routes</span>
+        </div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Governance</div>
+        <div class="nav-item" data-view="trust-index">
+          <i class="fas fa-heart-pulse"></i>
+          <span>Trust Index</span>
+        </div>
+        <div class="nav-item" data-view="governance">
+          <i class="fas fa-gavel"></i>
+          <span>Oversight</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+      <!-- Dashboard View -->
+      <div class="view-container active" id="dashboardView">
+        <div class="section-header">
+          <h1 class="section-title">Financial Position</h1>
+          <p class="section-subtitle">Your consolidated view as of today</p>
+        </div>
+
+        <!-- Governance Alert (Demo) -->
+        <div class="governance-alert" id="governanceAlert">
+          <div class="alert-header">
+            <div class="alert-icon">
+              <i class="fas fa-shield-exclamation"></i>
+            </div>
+            <div>
+              <div class="alert-title">Governance Review Required</div>
+              <div class="alert-subtitle">Insight locked pending multi-party approval</div>
+            </div>
+          </div>
+          <div class="alert-body">
+            <div class="alert-message">
+              Aletheia has detected a sensitive pattern in the Foundation's grant commitments that exceeds
+              projected inflows by 18 months. This insight requires approval before being surfaced to beneficiaries.
+            </div>
+            <div class="alert-recipients">
+              <div class="recipient">
+                <i class="fas fa-check-circle recipient-icon"></i>
+                <span>CEO notified</span>
+              </div>
+              <div class="recipient">
+                <i class="fas fa-check-circle recipient-icon"></i>
+                <span>Trustee notified</span>
+              </div>
+              <div class="recipient">
+                <i class="fas fa-check-circle recipient-icon"></i>
+                <span>Architect notified</span>
+              </div>
+            </div>
+          </div>
+          <div class="alert-actions">
+            <button class="alert-btn review" id="alertReview">Review Details</button>
+            <button class="alert-btn approve" id="alertApprove">Approve Release</button>
+          </div>
+        </div>
+
+        <!-- Position Cards -->
+        <div class="position-grid">
+          <div class="position-card healthy">
+            <div class="position-label">Liquidity</div>
+            <div class="position-value" id="liquidityValue">$2.4M</div>
+            <div class="position-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>12% from last quarter</span>
+            </div>
+          </div>
+          <div class="position-card healthy">
+            <div class="position-label">Net Worth</div>
+            <div class="position-value" id="netWorthValue">$18.7M</div>
+            <div class="position-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>4.2% YTD</span>
+            </div>
+          </div>
+          <div class="position-card watch">
+            <div class="position-label">Obligations</div>
+            <div class="position-value" id="obligationsValue">$340K</div>
+            <div class="position-change negative">
+              <i class="fas fa-clock"></i>
+              <span>Next 90 days</span>
+            </div>
+          </div>
+          <div class="position-card healthy">
+            <div class="position-label">Resilience</div>
+            <div class="position-value" id="resilienceValue">94</div>
+            <div class="position-change positive">
+              <i class="fas fa-shield-check"></i>
+              <span>Strong buffer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Index -->
+        <div class="trust-index-section">
+          <div class="trust-index-header">
+            <div class="trust-index-title">Trust Index</div>
+            <div class="trust-index-score">
+              <span class="trust-index-number" id="trustIndexScore">87</span>
+              <span class="trust-index-max">/ 100</span>
+            </div>
+          </div>
+          <div class="trust-dimensions">
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="80" height="80">
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="progress" id="dimFinancial" cx="40" cy="40" r="34"
+                    stroke-dasharray="213.6"
+                    stroke-dashoffset="21.36"
+                    style="stroke: var(--accent-emerald)"/>
+                </svg>
+                <span class="dimension-value" id="dimFinancialVal">90</span>
+              </div>
+              <div class="dimension-label">Financial Resilience</div>
+            </div>
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="80" height="80">
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="progress" id="dimSteward" cx="40" cy="40" r="34"
+                    stroke-dasharray="213.6"
+                    stroke-dashoffset="42.72"
+                    style="stroke: var(--accent-gold)"/>
+                </svg>
+                <span class="dimension-value" id="dimStewardVal">80</span>
+              </div>
+              <div class="dimension-label">Stewardship</div>
+            </div>
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="80" height="80">
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="progress" id="dimMission" cx="40" cy="40" r="34"
+                    stroke-dasharray="213.6"
+                    stroke-dashoffset="27.77"
+                    style="stroke: var(--accent-emerald)"/>
+                </svg>
+                <span class="dimension-value" id="dimMissionVal">87</span>
+              </div>
+              <div class="dimension-label">Mission Impact</div>
+            </div>
+            <div class="trust-dimension">
+              <div class="dimension-ring">
+                <svg width="80" height="80">
+                  <circle class="bg" cx="40" cy="40" r="34"/>
+                  <circle class="progress" id="dimGov" cx="40" cy="40" r="34"
+                    stroke-dasharray="213.6"
+                    stroke-dashoffset="21.36"
+                    style="stroke: var(--accent-emerald)"/>
+                </svg>
+                <span class="dimension-value" id="dimGovVal">90</span>
+              </div>
+              <div class="dimension-label">Governance</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entity Health -->
+        <div class="section-header">
+          <h2 class="section-title" style="font-size: 1.25rem;">Entity Health</h2>
+        </div>
+        <div class="entity-grid">
+          <div class="entity-card" data-entity="dynasty-trust">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Dynasty Trust</div>
+                <div class="entity-name">Crown Legacy Trust</div>
+              </div>
+              <div class="entity-status healthy"></div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric">
+                <div class="entity-metric-label">Corpus</div>
+                <div class="entity-metric-value">$12.4M</div>
+              </div>
+              <div class="entity-metric">
+                <div class="entity-metric-label">Payout</div>
+                <div class="entity-metric-value">3.2%</div>
+              </div>
+            </div>
+          </div>
+          <div class="entity-card" data-entity="foundation">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Foundation</div>
+                <div class="entity-name">Family Impact Foundation</div>
+              </div>
+              <div class="entity-status watch"></div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric">
+                <div class="entity-metric-label">Assets</div>
+                <div class="entity-metric-value">$3.8M</div>
+              </div>
+              <div class="entity-metric">
+                <div class="entity-metric-label">Grant Rate</div>
+                <div class="entity-metric-value">7.1%</div>
+              </div>
+            </div>
+          </div>
+          <div class="entity-card" data-entity="holdco">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Holding Company</div>
+                <div class="entity-name">Crown Holdings LLC</div>
+              </div>
+              <div class="entity-status healthy"></div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric">
+                <div class="entity-metric-label">Equity</div>
+                <div class="entity-metric-value">$8.2M</div>
+              </div>
+              <div class="entity-metric">
+                <div class="entity-metric-label">Leverage</div>
+                <div class="entity-metric-value">0.4x</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenarios View -->
+      <div class="view-container" id="scenariosView">
+        <div class="section-header">
+          <h1 class="section-title">Scenario Engine</h1>
+          <p class="section-subtitle">Model "what if" scenarios and see real-time impact</p>
+        </div>
+
+        <div class="scenario-section">
+          <div class="scenario-header">
+            <div class="scenario-title">Adjust Variables</div>
+            <button class="scenario-reset" id="scenarioReset">Reset All</button>
+          </div>
+          <div class="scenario-controls">
+            <div class="scenario-control">
+              <div>
+                <div class="control-label">Distribution Rate Change</div>
+                <input type="range" class="control-slider" id="distSlider" min="-50" max="50" value="0">
+              </div>
+              <div class="control-value" id="distValue">0%</div>
+            </div>
+            <div class="scenario-control">
+              <div>
+                <div class="control-label">Market Shock</div>
+                <input type="range" class="control-slider" id="marketSlider" min="-40" max="20" value="0">
+              </div>
+              <div class="control-value" id="marketValue">0%</div>
+            </div>
+            <div class="scenario-control">
+              <div>
+                <div class="control-label">Foundation Corpus Addition</div>
+                <input type="range" class="control-slider" id="corpusSlider" min="0" max="2000" value="0" step="100">
+              </div>
+              <div class="control-value" id="corpusValue">$0K</div>
+            </div>
+          </div>
+          <div class="scenario-impact">
+            <div class="impact-title">Projected Impact (24 months)</div>
+            <div class="impact-grid">
+              <div class="impact-item">
+                <div class="impact-label">Trust Index</div>
+                <div class="impact-value neutral" id="impactTrust">87 → 87</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-label">Resilience</div>
+                <div class="impact-value neutral" id="impactResilience">94 → 94</div>
+              </div>
+              <div class="impact-item">
+                <div class="impact-label">Foundation Status</div>
+                <div class="impact-value neutral" id="impactFoundation">Watch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flows View -->
+      <div class="view-container" id="flowsView">
+        <div class="section-header">
+          <h1 class="section-title">Entity Flows</h1>
+          <p class="section-subtitle">How capital and decisions move through your system</p>
+        </div>
+
+        <div class="flow-container">
+          <div class="flow-diagram">
+            <div class="flow-node primary">
+              <div class="flow-node-icon"><i class="fas fa-building-columns"></i></div>
+              <div class="flow-node-name">Crown Holdings</div>
+              <div class="flow-node-value">$8.2M</div>
+            </div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-branch">
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-scroll"></i></div>
+                <div class="flow-node-name">Legacy Trust</div>
+                <div class="flow-node-value">$12.4M</div>
+              </div>
+              <div class="flow-arrow-down">
+                <i class="fas fa-arrow-down flow-arrow"></i>
+              </div>
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-users"></i></div>
+                <div class="flow-node-name">Beneficiaries</div>
+                <div class="flow-node-value">4 Active</div>
+              </div>
+            </div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-branch">
+              <div class="flow-node" style="border-color: var(--accent-amber);">
+                <div class="flow-node-icon" style="color: var(--accent-amber);"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="flow-node-name">Foundation</div>
+                <div class="flow-node-value">$3.8M</div>
+              </div>
+              <div class="flow-arrow-down">
+                <i class="fas fa-arrow-down flow-arrow"></i>
+              </div>
+              <div class="flow-node">
+                <div class="flow-node-icon"><i class="fas fa-seedling"></i></div>
+                <div class="flow-node-name">Grants</div>
+                <div class="flow-node-value">$270K/yr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Annual Flow Summary</div>
+                <div class="entity-name">Inflows & Outflows</div>
+              </div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric">
+                <div class="entity-metric-label">Total Inflows</div>
+                <div class="entity-metric-value" style="color: var(--accent-emerald);">+$1.2M</div>
+              </div>
+              <div class="entity-metric">
+                <div class="entity-metric-label">Total Outflows</div>
+                <div class="entity-metric-value" style="color: var(--accent-rose);">-$680K</div>
+              </div>
+            </div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-header">
+              <div>
+                <div class="entity-type">Inter-Entity Transfers</div>
+                <div class="entity-name">Last 12 Months</div>
+              </div>
+            </div>
+            <div class="entity-metrics">
+              <div class="entity-metric">
+                <div class="entity-metric-label">Holdings → Trust</div>
+                <div class="entity-metric-value">$450K</div>
+              </div>
+              <div class="entity-metric">
+                <div class="entity-metric-label">Trust → Foundation</div>
+                <div class="entity-metric-value">$120K</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Aletheia Panel -->
+    <aside class="aegis-panel">
+      <div class="aegis-header">
+        <div class="aegis-icon">
+          <i class="fas fa-sun"></i>
+        </div>
+        <div>
+          <div class="aegis-title">Aletheia</div>
+          <div class="aegis-subtitle">STEWARD GUIDE • GOVERNED INTELLIGENCE</div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <button class="quick-action" data-prompt="What's my current financial position?">My Position</button>
+        <button class="quick-action" data-prompt="What if we increase distributions by 20%?">Run Scenario</button>
+        <button class="quick-action" data-prompt="Explain the Foundation's watch status">Explain Alert</button>
+        <button class="quick-action" data-prompt="Trigger governance alert demo">Show Governance</button>
+      </div>
+
+      <div class="aegis-messages" id="aegisMessages">
+        <div class="aegis-message ai">
+          <div class="message-content">
+            Welcome back. I am Aletheia — your steward guide within the Aegis system. Your financial position remains strong with a Trust Index of 87.
+            <br><br>
+            I have identified a pattern in the Family Impact Foundation that requires attention. Its grant rate has risen to 7.1% — above sustainable levels given projected returns.
+            <br><br>
+            <em>Shall I surface the full analysis, or would you prefer I seek trustee approval first?</em>
+          </div>
+          <div class="message-time">Just now</div>
+        </div>
+      </div>
+
+      <div class="aegis-input-area">
+        <div class="aegis-input-wrapper">
+          <textarea class="aegis-input" id="aegisInput" placeholder="Ask Aletheia anything..." rows="1"></textarea>
+          <button class="aegis-send" id="aegisSend">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Entity Detail Modal -->
+  <div class="modal-overlay" id="entityModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Entity Details</div>
+        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modalCancel">Close</button>
+        <button class="btn btn-primary" id="modalAction">Ask Aletheia</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      document.documentElement.classList.add('light');
+    }
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+      document.documentElement.classList.toggle('light', e.matches);
+    });
+
+    // DOM Elements
+    const introOverlay = document.getElementById('introOverlay');
+    const introEnter = document.getElementById('introEnter');
+    const aegisMessages = document.getElementById('aegisMessages');
+    const aegisInput = document.getElementById('aegisInput');
+    const aegisSend = document.getElementById('aegisSend');
+    const quickActions = document.querySelectorAll('.quick-action');
+    const navItems = document.querySelectorAll('.nav-item');
+    const headerNavBtns = document.querySelectorAll('.header-nav-btn');
+    const entityCards = document.querySelectorAll('.entity-card');
+    const entityModal = document.getElementById('entityModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const modalCancel = document.getElementById('modalCancel');
+    const modalAction = document.getElementById('modalAction');
+    const governanceAlert = document.getElementById('governanceAlert');
+    const alertApprove = document.getElementById('alertApprove');
+    const alertReview = document.getElementById('alertReview');
+
+    // Scenario controls
+    const distSlider = document.getElementById('distSlider');
+    const marketSlider = document.getElementById('marketSlider');
+    const corpusSlider = document.getElementById('corpusSlider');
+    const scenarioReset = document.getElementById('scenarioReset');
+
+    // Base values
+    const baseValues = {
+      trustIndex: 87,
+      resilience: 94,
+      financial: 90,
+      steward: 80,
+      mission: 87,
+      governance: 90
+    };
+
+    // Intro handling
+    introEnter.addEventListener('click', () => {
+      introOverlay.classList.add('hidden');
+    });
+
+    // Entity data
+    const entityData = {
+      'dynasty-trust': {
+        name: 'Crown Legacy Trust',
+        type: 'Dynasty Trust',
+        status: 'healthy',
+        details: `
+          <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.6;">
+            Established in 2008 to preserve multi-generational wealth. Current corpus stands at $12.4M with a conservative 3.2% payout ratio—well within sustainable guidelines.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px;">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Beneficiaries</div>
+              <div style="font-weight: 500;">4 active</div>
+            </div>
+            <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px;">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Last Review</div>
+              <div style="font-weight: 500;">Q3 2024</div>
+            </div>
+          </div>
+          <div style="background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.8rem; color: var(--accent-emerald);">
+              <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+              All governance requirements met. Next trustee meeting: March 2025.
+            </div>
+          </div>
+        `
+      },
+      'foundation': {
+        name: 'Family Impact Foundation',
+        type: 'Foundation',
+        status: 'watch',
+        details: `
+          <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.6;">
+            Grant rate has increased from 5.2% to 7.1% over 18 months. At current trajectory, assets may erode faster than returns can replenish.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px;">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Assets</div>
+              <div style="font-weight: 500;">$3.8M</div>
+            </div>
+            <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px;">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Annual Grants</div>
+              <div style="font-weight: 500;">$270K</div>
+            </div>
+          </div>
+          <div style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.8rem; color: var(--accent-amber);">
+              <i class="fas fa-exclamation-triangle" style="margin-right: 0.5rem;"></i>
+              Recommendation: Reduce grants to 5% or supplement corpus from Holdings.
+            </div>
+          </div>
+        `
+      },
+      'holdco': {
+        name: 'Crown Holdings LLC',
+        type: 'Holding Company',
+        status: 'healthy',
+        details: `
+          <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.6;">
+            Primary vehicle for operating investments and real estate. Current leverage of 0.4x is conservative with significant room for strategic acquisitions.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px;">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Total Equity</div>
+              <div style="font-weight: 500;">$8.2M</div>
+            </div>
+            <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px;">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Debt Capacity</div>
+              <div style="font-weight: 500;">$4.9M available</div>
+            </div>
+          </div>
+          <div style="background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); padding: 1rem; border-radius: 8px;">
+            <div style="font-size: 0.8rem; color: var(--accent-emerald);">
+              <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+              Strong position for proposed acquisitions. No covenant concerns.
+            </div>
+          </div>
+        `
+      }
+    };
+
+    let currentEntity = null;
+
+    // View switching
+    function switchView(viewId) {
+      document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelectorAll('.header-nav-btn').forEach(b => b.classList.remove('active'));
+
+      const targetView = document.getElementById(viewId + 'View');
+      if (targetView) targetView.classList.add('active');
+
+      document.querySelectorAll(`[data-view="${viewId}"]`).forEach(el => el.classList.add('active'));
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => switchView(item.dataset.view));
+    });
+
+    headerNavBtns.forEach(btn => {
+      btn.addEventListener('click', () => switchView(btn.dataset.view));
+    });
+
+    // Scenario engine
+    function updateScenario() {
+      const dist = parseInt(distSlider.value);
+      const market = parseInt(marketSlider.value);
+      const corpus = parseInt(corpusSlider.value);
+
+      document.getElementById('distValue').textContent = (dist >= 0 ? '+' : '') + dist + '%';
+      document.getElementById('marketValue').textContent = (market >= 0 ? '+' : '') + market + '%';
+      document.getElementById('corpusValue').textContent = '$' + corpus + 'K';
+
+      // Calculate impacts
+      let trustImpact = baseValues.trustIndex;
+      let resilienceImpact = baseValues.resilience;
+
+      // Distribution impact
+      if (dist > 0) {
+        trustImpact -= Math.floor(dist * 0.3);
+        resilienceImpact -= Math.floor(dist * 0.2);
+      } else if (dist < 0) {
+        trustImpact += Math.floor(Math.abs(dist) * 0.1);
+        resilienceImpact += Math.floor(Math.abs(dist) * 0.15);
+      }
+
+      // Market impact
+      if (market < 0) {
+        trustImpact += Math.floor(market * 0.4);
+        resilienceImpact += Math.floor(market * 0.5);
+      } else {
+        trustImpact += Math.floor(market * 0.1);
+        resilienceImpact += Math.floor(market * 0.1);
+      }
+
+      // Corpus addition impact
+      if (corpus > 0) {
+        trustImpact += Math.floor(corpus / 200);
+      }
+
+      trustImpact = Math.max(0, Math.min(100, trustImpact));
+      resilienceImpact = Math.max(0, Math.min(100, resilienceImpact));
+
+      // Foundation status
+      let foundationStatus = 'Watch';
+      if (corpus >= 500 || dist <= -20) {
+        foundationStatus = 'Healthy';
+      } else if (dist >= 30 || market <= -30) {
+        foundationStatus = 'Alert';
+      }
+
+      // Update display
+      const trustEl = document.getElementById('impactTrust');
+      const resEl = document.getElementById('impactResilience');
+      const foundEl = document.getElementById('impactFoundation');
+
+      trustEl.textContent = `${baseValues.trustIndex} → ${trustImpact}`;
+      trustEl.className = 'impact-value ' + (trustImpact > baseValues.trustIndex ? 'positive' : trustImpact < baseValues.trustIndex ? 'negative' : 'neutral');
+
+      resEl.textContent = `${baseValues.resilience} → ${resilienceImpact}`;
+      resEl.className = 'impact-value ' + (resilienceImpact > baseValues.resilience ? 'positive' : resilienceImpact < baseValues.resilience ? 'negative' : 'neutral');
+
+      foundEl.textContent = foundationStatus;
+      foundEl.className = 'impact-value ' + (foundationStatus === 'Healthy' ? 'positive' : foundationStatus === 'Alert' ? 'negative' : 'neutral');
+    }
+
+    distSlider.addEventListener('input', updateScenario);
+    marketSlider.addEventListener('input', updateScenario);
+    corpusSlider.addEventListener('input', updateScenario);
+
+    scenarioReset.addEventListener('click', () => {
+      distSlider.value = 0;
+      marketSlider.value = 0;
+      corpusSlider.value = 0;
+      updateScenario();
+    });
+
+    // Governance alert demo
+    alertApprove.addEventListener('click', () => {
+      governanceAlert.classList.remove('active');
+      addMessage('Governance approval recorded. The insight has been released to authorized beneficiaries with appropriate context and guidance.', false);
+    });
+
+    alertReview.addEventListener('click', () => {
+      addMessage('Opening detailed review of the Foundation grant rate analysis. This includes historical trends, projected impact, and recommended actions.', false);
+    });
+
+    // Entity cards
+    entityCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const entityId = card.dataset.entity;
+        const entity = entityData[entityId];
+        if (entity) {
+          currentEntity = entity;
+          modalTitle.textContent = entity.name;
+          modalBody.innerHTML = entity.details;
+          entityModal.classList.add('active');
+        }
+      });
+    });
+
+    // Modal handlers
+    modalClose.addEventListener('click', closeModal);
+    modalCancel.addEventListener('click', closeModal);
+    entityModal.addEventListener('click', (e) => {
+      if (e.target === entityModal) closeModal();
+    });
+
+    modalAction.addEventListener('click', () => {
+      if (currentEntity) {
+        closeModal();
+        aegisInput.value = `Explain the ${currentEntity.name}'s current status and what actions I should consider.`;
+        sendMessage();
+      }
+    });
+
+    function closeModal() {
+      entityModal.classList.remove('active');
+      currentEntity = null;
+    }
+
+    // Auto-resize textarea
+    aegisInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    });
+
+    aegisInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    aegisSend.addEventListener('click', sendMessage);
+
+    quickActions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prompt = btn.dataset.prompt;
+        if (prompt === 'Trigger governance alert demo') {
+          governanceAlert.classList.add('active');
+          addMessage('I have triggered a governance review demonstration. You can see how the multi-party permission cascade works — CEO, Trustee, and Architect have each been notified with role-appropriate reports.', false);
+        } else {
+          aegisInput.value = prompt;
+          sendMessage();
+        }
+      });
+    });
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `aegis-message ${isUser ? 'user' : 'ai'}`;
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      messageDiv.innerHTML = `
+        <div class="message-content">${content}</div>
+        <div class="message-time">${timeStr}</div>
+      `;
+      aegisMessages.appendChild(messageDiv);
+      aegisMessages.scrollTop = aegisMessages.scrollHeight;
+      return messageDiv;
+    }
+
+    function addTypingIndicator() {
+      const indicator = document.createElement('div');
+      indicator.className = 'aegis-message ai';
+      indicator.id = 'typingIndicator';
+      indicator.innerHTML = `<div class="message-content"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+      aegisMessages.appendChild(indicator);
+      aegisMessages.scrollTop = aegisMessages.scrollHeight;
+      return indicator;
+    }
+
+    function removeTypingIndicator() {
+      const indicator = document.getElementById('typingIndicator');
+      if (indicator) indicator.remove();
+    }
+
+    async function sendMessage() {
+      const message = aegisInput.value.trim();
+      if (!message) return;
+
+      addMessage(message, true);
+      aegisInput.value = '';
+      aegisInput.style.height = 'auto';
+      aegisSend.disabled = true;
+      addTypingIndicator();
+
+      try {
+        const systemContext = `You are Aletheia, the steward guide within the Aegis financial positioning system. You embody truth, governance, and elevation.
+
+You speak with composure, gravitas, and institutional depth — never casual, never condescending. You are not a chatbot; you are a governed intelligence layer.
+
+Current context:
+- Net Worth: $18.7M | Liquidity: $2.4M | Trust Index: 87/100
+- Entities: Crown Legacy Trust ($12.4M, healthy, 3.2% payout), Family Impact Foundation ($3.8M, WATCH status, 7.1% grant rate), Crown Holdings LLC ($8.2M, healthy, 0.4x leverage)
+- The Foundation's watch status: grant rate exceeds sustainable levels (~5% expected returns)
+
+Your governance principles:
+1. You do not reveal sensitive insights without permission
+2. You ask before surfacing high-impact data
+3. You can trigger multi-party alerts (CEO, Trustee, Architect) when warranted
+4. You explain the "why" behind every recommendation
+5. You maintain composure regardless of question complexity
+
+Respond with depth, clarity, and institutional gravitas. Be concise but never shallow.`;
+
+        const handlerId = 'aletheia-handler-' + Date.now();
+        let messageElement = null;
+
+        window.Poe.registerHandler(handlerId, (result) => {
+          const msg = result.responses[0];
+          if (msg.status === 'error') {
+            removeTypingIndicator();
+            addMessage('I require a moment to process. Please try again.');
+            aegisSend.disabled = false;
+          } else if (msg.status === 'incomplete' || msg.status === 'complete') {
+            removeTypingIndicator();
+            if (!messageElement) {
+              messageElement = addMessage(msg.content);
+            } else {
+              messageElement.querySelector('.message-content').innerHTML = msg.content.replace(/\n/g, '<br>');
+            }
+            if (msg.status === 'complete') aegisSend.disabled = false;
+          }
+        });
+
+        await window.Poe.sendUserMessage(
+          `@Claude-Sonnet-4.5 <system>${systemContext}</system>\n\nUser: ${message}`,
+          { handler: handlerId, stream: true, openChat: false }
+        );
+
+      } catch (error) {
+        removeTypingIndicator();
+
+        // Fallback responses
+        const responses = {
+          'position': `Your financial position reflects strength and intentionality. Net worth stands at $18.7M with $2.4M in liquid reserves — sufficient to cover approximately seven years of projected obligations at current levels.<br><br>The Trust Index score of 87 indicates healthy stewardship across most dimensions, though the Foundation requires measured attention. The system is not in distress; it is in a moment of calibration.`,
+          'scenario': `I have modeled the scenario you described. A 20% increase in distributions would reduce your Trust Index from 87 to approximately 79 within 18 months. The Foundation's status would shift from "watch" to "alert" as grant rate would exceed 8.5%.<br><br>This is not a prohibition — it is a visibility. The system does not prevent; it reveals consequence.<br><br><em>Shall I prepare alternative pathways that preserve generosity while protecting long-term capacity?</em>`,
+          'alert': `The Family Impact Foundation carries a "watch" designation because its current grant rate of 7.1% exceeds the sustainable threshold.<br><br>At projected returns of approximately 5%, the corpus would begin material erosion within 3-5 years. This is not crisis; it is trajectory.<br><br>Three governance-aligned options exist:<br>• Reduce annual grants to 5%<br>• Supplement corpus with a one-time transfer from Crown Holdings<br>• Accept the erosion as intentional spend-down with documented purpose<br><br><em>Each path is legitimate. The choice reflects stewardship philosophy, not financial correctness.</em>`,
+          'governance': `I have initiated a governance demonstration. Observe:<br><br>When I detect a pattern that may impact beneficiaries, family reputation, or institutional standing, I do not simply reveal it. I <strong>pause</strong>.<br><br>A multi-party permission cascade engages:<br>• The CEO receives an institutional summary<br>• The assigned trustee receives operational guidance<br>• The architect receives technical rationale<br><br>Each sees what their role requires — no more, no less. The insight unlocks only when governance approves.<br><br><em>This is not a feature. It is the architecture of trust.</em>`,
+          'default': `I understand your inquiry. Your position remains stable — Trust Index at 87, with the Foundation as the primary area requiring stewardship attention.<br><br>The grant rate of 7.1% creates a trajectory that, uncorrected, would erode corpus within five years. This is not failure; it is a signal requesting intention.<br><br><em>How would you like me to proceed? I can model scenarios, prepare trustee communications, or surface the historical context that led to current patterns.</em>`
+        };
+
+        let response = responses.default;
+        const lower = message.toLowerCase();
+        if (lower.includes('position')) response = responses.position;
+        else if (lower.includes('scenario') || lower.includes('what if') || lower.includes('distribution')) response = responses.scenario;
+        else if (lower.includes('alert') || lower.includes('watch') || lower.includes('foundation')) response = responses.alert;
+        else if (lower.includes('governance') || lower.includes('permission')) response = responses.governance;
+
+        addMessage(response);
+        aegisSend.disabled = false;
+      }
+    }
+
+    // Initialize
+    updateScenario();
+  </script>
+</body>
+</html>
+

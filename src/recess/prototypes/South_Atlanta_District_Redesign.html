@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Atlanta District | African Methodist Episcopal Church</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    /* ============================================
+       THEME SYSTEM - Change these for monthly themes
+       ============================================ */
+    :root {
+      /* February - Black History Month Theme */
+      --theme-primary: #8B2332;      /* Deep burgundy/maroon */
+      --theme-secondary: #C9A227;    /* Rich gold */
+      --theme-accent: #2D4A3E;       /* Forest green */
+      --theme-dark: #1A1A1A;         /* Near black */
+      --theme-light: #FAF8F5;        /* Warm white */
+      --theme-muted: #F5F0E8;        /* Cream */
+      
+      /* Core colors (rarely change) */
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #717171;
+      --border-light: rgba(0,0,0,0.08);
+      --border-medium: rgba(0,0,0,0.12);
+      
+      /* Typography */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', -apple-system, sans-serif;
+      
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      
+      /* Transitions */
+      --transition-fast: 0.2s ease;
+      --transition-medium: 0.4s ease;
+      --transition-slow: 0.6s ease;
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--theme-light);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .display-xl {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .display-lg {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .display-md {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .heading-sm {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .body-lg {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+
+    /* ============================================
+       HEADER & NAVIGATION
+       ============================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      transition: transform var(--transition-medium);
+    }
+
+    .header.hidden {
+      transform: translateY(-100%);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      background: var(--theme-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--theme-dark);
+      line-height: 1.2;
+    }
+
+    .logo-subtitle {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: var(--space-lg);
+      }
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: var(--space-xs) 0;
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--theme-primary);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--theme-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--theme-primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    .nav-cta:hover {
+      background: var(--theme-dark);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--theme-dark);
+      transition: all var(--transition-fast);
+    }
+
+    @media (min-width: 900px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    /* Mobile Menu */
+    .mobile-nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--theme-light);
+      padding: var(--space-lg);
+      transform: translateX(100%);
+      transition: transform var(--transition-medium);
+      z-index: 999;
+    }
+
+    .mobile-nav.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--theme-muted);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(139, 35, 50, 0.08) 0%,
+        rgba(201, 162, 39, 0.05) 50%,
+        rgba(45, 74, 62, 0.08) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 120px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--theme-primary);
+      margin-bottom: var(--space-md);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+
+    .hero-label i {
+      color: var(--theme-secondary);
+    }
+
+    .hero-title {
+      margin-bottom: var(--space-md);
+      color: var(--theme-dark);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--theme-primary);
+    }
+
+    .hero-description {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: var(--theme-primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--theme-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(139, 35, 50, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--theme-dark);
+      border: 1px solid var(--border-medium);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--theme-primary);
+      color: var(--theme-primary);
+    }
+
+    /* Elder Card */
+    .elder-card {
+      background: white;
+      border-radius: 24px;
+      padding: var(--space-lg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .elder-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--theme-primary), var(--theme-secondary));
+    }
+
+    .elder-image-wrapper {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto var(--space-md);
+      border: 4px solid var(--theme-muted);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .elder-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .elder-info {
+      text-align: center;
+    }
+
+    .elder-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--theme-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .elder-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+
+    .elder-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      position: relative;
+      padding: var(--space-sm) 0;
+    }
+
+    .elder-quote::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4rem;
+      color: var(--theme-secondary);
+      opacity: 0.3;
+      font-family: var(--font-display);
+    }
+
+    .elder-motto {
+      display: inline-block;
+      background: var(--theme-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--theme-primary);
+      margin-top: var(--space-sm);
+    }
+
+    /* ============================================
+       UPCOMING EVENTS
+       ============================================ */
+    .events-section {
+      background: white;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-header-text {
+      max-width: 500px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--theme-secondary);
+    }
+
+    .section-title {
+      color: var(--theme-dark);
+    }
+
+    .view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--theme-primary);
+      transition: gap var(--transition-fast);
+    }
+
+    .view-all:hover {
+      gap: 0.75rem;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 600px) {
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .events-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .event-card {
+      background: var(--theme-muted);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all var(--transition-medium);
+      position: relative;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .event-image {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-medium);
+    }
+
+    .event-card:hover .event-image img {
+      transform: scale(1.05);
+    }
+
+    .event-date-badge {
+      position: absolute;
+      top: var(--space-sm);
+      left: var(--space-sm);
+      background: white;
+      padding: 0.75rem;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 60px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .event-date-month {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--theme-primary);
+    }
+
+    .event-date-day {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .event-content {
+      padding: var(--space-md);
+    }
+
+    .event-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--theme-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .event-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      line-height: 1.3;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .event-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .event-meta i {
+      color: var(--theme-primary);
+      font-size: 0.9rem;
+    }
+
+    /* Featured Event */
+    .event-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr;
+      background: linear-gradient(135deg, var(--theme-primary), var(--theme-dark));
+      color: white;
+    }
+
+    @media (min-width: 800px) {
+      .event-featured {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+
+    .event-featured .event-image {
+      height: 100%;
+      min-height: 250px;
+    }
+
+    .event-featured .event-content {
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .event-featured .event-tag {
+      color: var(--theme-secondary);
+    }
+
+    .event-featured .event-title {
+      font-size: 1.75rem;
+    }
+
+    .event-featured .event-meta {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .event-featured .event-meta i {
+      color: var(--theme-secondary);
+    }
+
+    .event-featured .event-description {
+      margin: var(--space-sm) 0 var(--space-md);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+    }
+
+    .event-featured .btn {
+      align-self: flex-start;
+    }
+
+    /* ============================================
+       CHURCHES DIRECTORY
+       ============================================ */
+    .churches-section {
+      background: var(--theme-muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .churches-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--theme-secondary) 0%, transparent 70%);
+      opacity: 0.08;
+    }
+
+    .churches-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .churches-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--theme-primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: var(--space-xs);
+    }
+
+    .churches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .church-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all var(--transition-medium);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .church-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    }
+
+    .church-image {
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .church-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-medium);
+    }
+
+    .church-card:hover .church-image img {
+      transform: scale(1.05);
+    }
+
+    .church-content {
+      padding: var(--space-md);
+    }
+
+    .church-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      color: var(--theme-dark);
+    }
+
+    .church-pastor {
+      font-size: 0.9rem;
+      color: var(--theme-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .church-details {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .church-details p {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .church-details i {
+      color: var(--theme-secondary);
+      width: 16px;
+      margin-top: 0.2rem;
+    }
+
+    .church-service {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--theme-muted);
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--theme-dark);
+      margin-top: var(--space-sm);
+    }
+
+    .church-service i {
+      color: var(--theme-primary);
+    }
+
+    /* Counties Filter */
+    .counties-filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: white;
+      border: 1px solid var(--border-light);
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--theme-primary);
+      color: white;
+      border-color: var(--theme-primary);
+    }
+
+    /* ============================================
+       SCRIPTURE / DEVOTIONAL
+       ============================================ */
+    .scripture-section {
+      background: var(--theme-dark);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scripture-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+    }
+
+    .scripture-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .scripture-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--theme-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+      font-size: 1.5rem;
+      color: var(--theme-dark);
+    }
+
+    .scripture-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+    }
+
+    .scripture-reference {
+      font-size: 1rem;
+      color: var(--theme-secondary);
+      font-weight: 600;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--theme-dark);
+      color: white;
+      padding: var(--space-2xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (min-width: 700px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-logo-mark {
+      width: 48px;
+      height: 48px;
+      background: var(--theme-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--theme-dark);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .footer-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .footer-description {
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: var(--space-sm);
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+    }
+
+    .footer-social a:hover {
+      background: var(--theme-secondary);
+      color: var(--theme-dark);
+    }
+
+    .footer-heading {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--theme-secondary);
+    }
+
+    .footer-contact p {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-contact i {
+      color: var(--theme-secondary);
+      width: 16px;
+      margin-top: 0.25rem;
+    }
+
+    .footer-bottom {
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-md);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-ame {
+      color: var(--theme-secondary);
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ============================================
+       MONTHLY THEME SHOWCASE
+       ============================================ */
+    .theme-banner {
+      background: linear-gradient(135deg, var(--theme-primary), var(--theme-dark));
+      color: white;
+      text-align: center;
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.85rem;
+    }
+
+    .theme-banner i {
+      color: var(--theme-secondary);
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Banner -->
+  <div class="theme-banner">
+    <i class="fas fa-star"></i>
+    Celebrating Black History Month — Honoring Our Heritage, Building Our Future
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <div class="logo-mark">SAD</div>
+          <div class="logo-text">
+            <span class="logo-title">South Atlanta District</span>
+            <span class="logo-subtitle">African Methodist Episcopal Church</span>
+          </div>
+        </a>
+
+        <nav class="nav-desktop">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#events" class="nav-link">Events</a>
+          <a href="#churches" class="nav-link">Our Churches</a>
+          <a href="#" class="nav-link">Calendar</a>
+          <a href="#" class="nav-link">About</a>
+          <a href="#" class="nav-cta">Contact Us</a>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#" class="mobile-nav-link">Home</a>
+    <a href="#events" class="mobile-nav-link">Events</a>
+    <a href="#churches" class="mobile-nav-link">Our Churches</a>
+    <a href="#" class="mobile-nav-link">Calendar</a>
+    <a href="#" class="mobile-nav-link">About</a>
+    <a href="#" class="mobile-nav-link">Contact Us</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div class="hero-text animate-in">
+          <div class="hero-label">
+            <i class="fas fa-church"></i>
+            24 Churches Across Metro Atlanta
+          </div>
+          <h1 class="display-xl hero-title">
+            Welcome to<br>
+            <em>The South Atlanta District</em>
+          </h1>
+          <p class="body-lg hero-description">
+            A fellowship of faith across Fulton, Clayton, Coweta, and Fayette counties. 
+            Join us as we worship, serve, and grow together in the African Methodist Episcopal tradition.
+          </p>
+          <div class="hero-actions">
+            <a href="#churches" class="btn btn-primary">
+              <i class="fas fa-map-marker-alt"></i>
+              Find a Church
+            </a>
+            <a href="#events" class="btn btn-secondary">
+              <i class="fas fa-calendar"></i>
+              Upcoming Events
+            </a>
+          </div>
+        </div>
+
+        <div class="elder-card animate-in delay-2">
+          <div class="elder-image-wrapper">
+            <img src="https://southatlantadistrict-ame.org/wp-content/uploads/2019/08/c35bd3b53f9a0d6295f30a1ca458d5df.jpeg" 
+                 alt="Presiding Elder Dr. Larry W. Hudson, Sr." 
+                 class="elder-image">
+          </div>
+          <div class="elder-info">
+            <p class="elder-title">Presiding Elder</p>
+            <h2 class="elder-name">Rev. Dr. Larry W. Hudson, Sr.</h2>
+            <p class="elder-quote">
+              Eye hath not seen, nor ear heard, neither have entered into the heart of man, 
+              the things which God hath prepared for them that love him.
+            </p>
+            <span class="elder-motto">"The Best is Yet to Come"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="section events-section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header-text">
+          <p class="heading-sm section-label">Upcoming Events</p>
+          <h2 class="display-lg section-title">What's Happening</h2>
+        </div>
+        <a href="#" class="view-all">
+          View Full Calendar <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="events-grid">
+        <!-- Featured Event -->
+        <article class="event-card event-featured">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=800" alt="District Conference">
+          </div>
+          <div class="event-content">
+            <span class="event-tag">District-Wide</span>
+            <h3 class="event-title">Spring District Conference 2026</h3>
+            <p class="event-description">
+              Join us for our annual gathering of all 24 churches as we come together for worship, 
+              fellowship, and planning for the year ahead.
+            </p>
+            <div class="event-meta">
+              <span><i class="fas fa-calendar"></i> March 15-17, 2026</span>
+              <span><i class="fas fa-map-marker-alt"></i> Flipper Temple AME Church</span>
+            </div>
+            <a href="#" class="btn btn-primary" style="margin-top: var(--space-md); background: var(--theme-secondary); color: var(--theme-dark);">
+              Register Now <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Event Cards -->
+        <article class="event-card">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=600" alt="Choir Performance">
+            <div class="event-date-badge">
+              <span class="event-date-month">Feb</span>
+              <span class="event-date-day">23</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <span class="event-tag">Music Ministry</span>
+            <h3 class="event-title">Black History Gospel Concert</h3>
+            <div class="event-meta">
+              <span><i class="fas fa-clock"></i> 6:00 PM</span>
+              <span><i class="fas fa-map-marker-alt"></i> Greater Bethel AME</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600" alt="Youth Ministry">
+            <div class="event-date-badge">
+              <span class="event-date-month">Feb</span>
+              <span class="event-date-day">28</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <span class="event-tag">Youth</span>
+            <h3 class="event-title">District Youth Day Celebration</h3>
+            <div class="event-meta">
+              <span><i class="fas fa-clock"></i> 10:00 AM</span>
+              <span><i class="fas fa-map-marker-alt"></i> Trinity AME</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600" alt="Bible Study">
+            <div class="event-date-badge">
+              <span class="event-date-month">Mar</span>
+              <span class="event-date-day">5</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <span class="event-tag">Lay Organization</span>
+            <h3 class="event-title">District Lay Meeting</h3>
+            <div class="event-meta">
+              <span><i class="fas fa-clock"></i> 7:00 PM</span>
+              <span><i class="fas fa-map-marker-alt"></i> Virtual & In-Person</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripture Section -->
+  <section class="section scripture-section">
+    <div class="container">
+      <div class="scripture-content">
+        <div class="scripture-icon">
+          <i class="fas fa-book-bible"></i>
+        </div>
+        <p class="scripture-text">
+          "For I know the plans I have for you," declares the Lord, "plans to prosper you 
+          and not to harm you, plans to give you hope and a future."
+        </p>
+        <p class="scripture-reference">Jeremiah 29:11</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Churches Section -->
+  <section class="section churches-section" id="churches">
+    <div class="container">
+      <div class="churches-intro">
+        <p class="heading-sm section-label">Our Family of Faith</p>
+        <h2 class="display-lg section-title">South Atlanta District Churches</h2>
+        <p class="body-lg" style="color: var(--text-secondary); margin-top: var(--space-sm);">
+          24 congregations united in faith, service, and community across Metro Atlanta
+        </p>
+        <div class="churches-stats">
+          <div class="stat">
+            <span class="stat-number">24</span>
+            <p class="stat-label">Churches</p>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24</span>
+            <p class="stat-label">Pastors</p>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4</span>
+            <p class="stat-label">Counties</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- County Filter -->
+      <div class="counties-filter">
+        <button class="filter-btn active">All Counties</button>
+        <button class="filter-btn">Fulton</button>
+        <button class="filter-btn">Clayton</button>
+        <button class="filter-btn">Coweta</button>
+        <button class="filter-btn">Fayette</button>
+      </div>
+
+      <!-- Churches Grid -->
+      <div class="churches-grid">
+        <article class="church-card">
+          <div class="church-image">
+            <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600" alt="Flipper Temple AME Church">
+          </div>
+          <div class="church-content">
+            <h3 class="church-name">Flipper Temple AME Church</h3>
+            <p class="church-pastor">Rev. Elijah Shafar</p>
+            <div class="church-details">
+              <p><i class="fas fa-map-marker-alt"></i> 580 Atlanta Student Movement Blvd, Atlanta</p>
+              <p><i class="fas fa-phone"></i> 404.552.5020</p>
+            </div>
+            <span class="church-service"><i class="fas fa-clock"></i> Sunday 10:45 AM</span>
+          </div>
+        </article>
+
+        <article class="church-card">
+          <div class="church-image">
+            <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=600" alt="St. Paul AME Church">
+          </div>
+          <div class="church-content">
+            <h3 class="church-name">St. Paul AME Church</h3>
+            <p class="church-pastor">Rev. Shawn Drains</p>
+            <div class="church-details">
+              <p><i class="fas fa-map-marker-alt"></i> 1540 Pryor Road SW, Atlanta</p>
+              <p><i class="fas fa-phone"></i> 404.662.9711</p>
+            </div>
+            <span class="church-service"><i class="fas fa-clock"></i> Sunday 10:30 AM</span>
+          </div>
+        </article>
+
+        <article class="church-card">
+          <div class="church-image">
+            <img src="https://images.unsplash.com/photo-1510936111840-65e151ad71bb?w=600" alt="Trinity AME Church">
+          </div>
+          <div class="church-content">
+            <h3 class="church-name">Trinity AME Church</h3>
+            <p class="church-pastor">Rev. Dr. Charles R. Ramsey, Jr.</p>
+            <div class="church-details">
+              <p><i class="fas fa-map-marker-alt"></i> 604 Lynhurst Drive SW, Atlanta</p>
+              <p><i class="fas fa-phone"></i> 404.696.5826</p>
+            </div>
+            <span class="church-service"><i class="fas fa-clock"></i> Sunday 10:30 AM</span>
+          </div>
+        </article>
+
+        <article class="church-card">
+          <div class="church-image">
+            <img src="https://images.unsplash.com/photo-1497546164034-1da520ca08a2?w=600" alt="Greater Bethel AME Church">
+          </div>
+          <div class="church-content">
+            <h3 class="church-name">Greater Bethel AME Church</h3>
+            <p class="church-pastor">Rev. Courtney C. Bullard</p>
+            <div class="church-details">
+              <p><i class="fas fa-map-marker-alt"></i> 2455 Lakewood Avenue, Atlanta</p>
+              <p><i class="fas fa-phone"></i> 470.788.8925</p>
+            </div>
+            <span class="church-service"><i class="fas fa-clock"></i> Sunday 10:30 AM</span>
+          </div>
+        </article>
+
+        <article class="church-card">
+          <div class="church-image">
+            <img src="https://images.unsplash.com/photo-1508432235498-ef3c3cb31641?w=600" alt="Holly Grove AME Church">
+          </div>
+          <div class="church-content">
+            <h3 class="church-name">Holly Grove AME Church</h3>
+            <p class="church-pastor">Rev. Dr. Andrea Lewis</p>
+            <div class="church-details">
+              <p><i class="fas fa-map-marker-alt"></i> 400 Holly Grove Church Rd, Peachtree City</p>
+              <p><i class="fas fa-phone"></i> 770.631.7650</p>
+            </div>
+            <span class="church-service"><i class="fas fa-clock"></i> Sunday 10:30 AM</span>
+          </div>
+        </article>
+
+        <article class="church-card">
+          <div class="church-image">
+            <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=600" alt="Greater Mount Zion AME Church">
+          </div>
+          <div class="church-content">
+            <h3 class="church-name">Greater Mount Zion AME Church</h3>
+            <p class="church-pastor">Rev. Myron Deas</p>
+            <div class="church-details">
+              <p><i class="fas fa-map-marker-alt"></i> 12 Richard Allen Drive, Newnan</p>
+              <p><i class="fas fa-phone"></i> 770.683.4691</p>
+            </div>
+            <span class="church-service"><i class="fas fa-clock"></i> Sunday 10:00 AM</span>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-xl);">
+        <a href="#" class="btn btn-primary">
+          View All 24 Churches <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">SAD</div>
+            <span class="footer-logo-text">South Atlanta District</span>
+          </div>
+          <p class="footer-description">
+            The South Atlanta District of the African Methodist Episcopal Church — 
+            24 churches united in faith, serving Metro Atlanta and beyond.
+          </p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">Church Directory</a></li>
+            <li><a href="#">Events Calendar</a></li>
+            <li><a href="#">About the District</a></li>
+            <li><a href="#">District Officers</a></li>
+            <li><a href="#">Media Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> revlwhudson@yahoo.com</p>
+            <p><i class="fas fa-phone"></i> 706.877.3563</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 South Atlanta District AME. All rights reserved.</p>
+        <p class="footer-ame">
+          <i class="fas fa-cross"></i>
+          Sixth Episcopal District • Atlanta North Georgia Conference
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // Header hide on scroll
+    let lastScroll = 0;
+    const header = document.querySelector('.header');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.event-card, .church-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meridia | CRA Coverage Map — Georgia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary:       #0a0b0d;
+      --bg-secondary:     #12141a;
+      --bg-tertiary:      #1a1d26;
+      --bg-card:          #181b24;
+      --accent-gold:      #c9a962;
+      --accent-gold-dim:  #8a7343;
+      --accent-emerald:   #34d399;
+      --accent-amber:     #f59e0b;
+      --accent-rose:      #f43f5e;
+      --accent-blue:      #3b82f6;
+      --text-primary:     #f4f4f5;
+      --text-secondary:   #a1a1aa;
+      --text-muted:       #71717a;
+      --border-subtle:    rgba(255,255,255,0.06);
+      --border-accent:    rgba(201,169,98,0.3);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────── */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+    .header-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      letter-spacing: 0.05em;
+    }
+    .header-divider { width: 1px; height: 18px; background: var(--border-subtle); }
+    .header-title   { font-size: 0.85rem; color: var(--text-secondary); }
+    .header-right   { display: flex; align-items: center; gap: 1rem; }
+    .institution-name { font-size: 0.75rem; color: var(--text-muted); }
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(52,211,153,0.1);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      color: var(--accent-emerald);
+    }
+    .live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .page-body { display: flex; flex: 1; overflow: hidden; }
+
+    /* ── SIDEBAR ────────────────────────────────────────── */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border-subtle);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      overflow-y: auto;
+    }
+    .sidebar-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.625rem;
+    }
+    .stat-stack { display: flex; flex-direction: column; gap: 0.5rem; }
+    .stat-card {
+      padding: 0.75rem 0.875rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+    }
+    .stat-name {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+    .stat-val {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+    .stat-val.amber { color: var(--accent-amber); }
+    .stat-val.rose  { color: var(--accent-rose);  }
+    .stat-val.gold  { color: var(--accent-gold);  }
+    .stat-note { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* Opportunity card */
+    .opp-card {
+      padding: 0.875rem;
+      background: linear-gradient(135deg, rgba(201,169,98,0.1) 0%, rgba(201,169,98,0.04) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 8px;
+    }
+    .opp-label {
+      font-size: 0.65rem;
+      color: var(--accent-gold-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+    .opp-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+    .opp-note { font-size: 0.68rem; color: var(--accent-gold-dim); margin-top: 0.2rem; }
+
+    /* Shimmer loading skeleton */
+    .shimmer {
+      height: 1.4rem;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      animation: shim 1.4s ease-in-out infinite;
+    }
+    .shimmer.tall { height: 1.75rem; }
+    @keyframes shim { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
+
+    /* Legend */
+    .legend { display: flex; flex-direction: column; gap: 0.5rem; }
+    .legend-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Sidebar footer */
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.875rem;
+    }
+
+    /* ── MAP ────────────────────────────────────────────── */
+    .map-wrapper { flex: 1; position: relative; }
+    #craMap      { width: 100%; height: 100%; }
+
+    /* Loading overlay */
+    .map-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,11,13,0.72);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      z-index: 5;
+      transition: opacity 0.35s ease;
+    }
+    .map-overlay.hidden { opacity: 0; pointer-events: none; }
+    .spinner {
+      width: 28px; height: 28px;
+      border: 2px solid rgba(201,169,98,0.2);
+      border-top-color: var(--accent-gold);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .overlay-text { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; }
+
+    /* Error banner */
+    .error-banner {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(244,63,94,0.12);
+      border: 1px solid rgba(244,63,94,0.35);
+      border-radius: 8px;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.78rem;
+      color: var(--accent-rose);
+      display: none;
+      z-index: 10;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    /* ── MAPBOX POPUP OVERRIDES ─────────────────────────── */
+    .mapboxgl-popup-content {
+      background: var(--bg-card) !important;
+      border: 1px solid rgba(255,255,255,0.09) !important;
+      border-radius: 8px !important;
+      padding: 0.75rem !important;
+      color: var(--text-primary) !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.75rem !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+      min-width: 195px;
+    }
+    .mapboxgl-popup-tip { display: none !important; }
+    .mapboxgl-popup-close-button {
+      color: var(--text-muted) !important;
+      font-size: 1.1rem !important;
+      padding: 0.2rem 0.45rem !important;
+      line-height: 1;
+    }
+    .mapboxgl-popup-close-button:hover {
+      color: var(--text-primary) !important;
+      background: transparent !important;
+    }
+    .popup-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.45rem;
+      font-size: 0.78rem;
+      padding-right: 1rem;
+    }
+    .popup-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.18rem 0;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+    }
+    .popup-row strong { color: var(--text-primary); font-weight: 500; }
+    .popup-tags { margin-top: 0.45rem; display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    .popup-tag {
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+    .tag-priority   { background: rgba(201,169,98,0.15); color: var(--accent-gold);   }
+    .tag-distressed { background: rgba(244,63,94,0.15);  color: var(--accent-rose);   }
+    .tag-lmi        { background: rgba(245,158,11,0.15); color: var(--accent-amber);  }
+    .tag-underserved{ background: rgba(59,130,246,0.15); color: var(--accent-blue);   }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <div class="header-brand">
+      <span class="brand-name">Meridia</span>
+      <div class="header-divider"></div>
+      <span class="header-title" id="headerTitle">CRA Coverage Map — Georgia</span>
+    </div>
+    <div class="header-right">
+      <span class="institution-name">Vantage Financial Partners</span>
+      <div class="live-badge">
+        <div class="live-dot"></div>
+        <span>Live</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-body">
+
+    <aside class="sidebar">
+
+      <div>
+        <div class="sidebar-label">Parameters</div>
+        <div class="stat-stack" style="gap:0.5rem">
+          <div class="stat-card" style="padding:0.6rem 0.85rem">
+            <div class="stat-name">State</div>
+            <select id="stateSelect" style="
+              width:100%;margin-top:0.35rem;
+              background:var(--bg-tertiary);border:1px solid var(--border-subtle);
+              color:var(--text-primary);border-radius:6px;padding:0.35rem 0.5rem;
+              font-size:0.78rem;font-family:'Inter',sans-serif;cursor:pointer;outline:none;">
+              <option value="GA">Georgia (GA)</option>
+              <option value="AL">Alabama (AL)</option>
+              <option value="SC">South Carolina (SC)</option>
+              <option value="FL">Florida (FL)</option>
+              <option value="TN">Tennessee (TN)</option>
+              <option value="NC">North Carolina (NC)</option>
+              <option value="TX">Texas (TX)</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0 0.1rem">
+            <span class="stat-note" id="lastUpdated" style="color:var(--text-muted);font-size:0.7rem"></span>
+            <button id="refreshBtn" onclick="reloadMap()" style="
+              background:var(--bg-tertiary);border:1px solid var(--border-subtle);
+              color:var(--text-secondary);border-radius:6px;padding:0.3rem 0.75rem;
+              font-size:0.72rem;font-family:'Inter',sans-serif;cursor:pointer;">
+              Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-label">Coverage Summary</div>
+        <div class="stat-stack">
+          <div class="stat-card">
+            <div class="stat-name">Total Tracts</div>
+            <div class="stat-val" id="statTotal"><div class="shimmer"></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">LMI Tracts</div>
+            <div class="stat-val amber" id="statLmi"><div class="shimmer"></div></div>
+            <div class="stat-note" id="statLmiPct"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">Distressed Tracts</div>
+            <div class="stat-val rose" id="statDistressed"><div class="shimmer"></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">Coverage Gaps</div>
+            <div class="stat-val gold" id="statGaps"><div class="shimmer"></div></div>
+            <div class="stat-note">Tracts with zero activity</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">Branches Mapped</div>
+            <div class="stat-val" style="color:var(--accent-emerald)" id="statBranches"><div class="shimmer"></div></div>
+            <div class="stat-note">Banks &amp; credit unions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-label">CRA Credit Opportunity</div>
+        <div class="opp-val" id="statOpportunity"><div class="shimmer tall"></div></div>
+        <div class="opp-note">Estimated addressable pipeline</div>
+      </div>
+
+      <div>
+        <div class="sidebar-label">Legend</div>
+        <div class="legend">
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#c9a962;box-shadow:0 0 6px rgba(201,169,98,0.5)"></div>
+            <span>Priority Gap — zero activity, LMI + distressed</span>
+          </div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#f43f5e"></div>
+            <span>Distressed Tract</span>
+          </div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#f59e0b"></div>
+            <span>LMI Only</span>
+          </div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#3b82f6"></div>
+            <span>Underserved</span>
+          </div>
+          <div class="legend-row" style="margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid var(--border-subtle)">
+            <div class="legend-dot" style="background:#34d399;box-shadow:0 0 6px rgba(52,211,153,0.4)"></div>
+            <span>Bank / Credit Union Branch</span>
+          </div>
+          <div class="legend-row">
+            <div style="width:10px;height:10px;border-radius:50%;border:2px dashed #34d399;flex-shrink:0"></div>
+            <span>30-min Drive Coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer" id="sidebarFooter">
+        Data: FFIEC Census Flat Files + HMDA + TomTom<br>
+        State: <span id="footerState">GA</span> &bull; Centroids: Census 2025 Gazetteer
+      </div>
+
+    </aside>
+
+    <div class="map-wrapper">
+      <div id="craMap"></div>
+      <div class="map-overlay" id="mapOverlay">
+        <div class="spinner"></div>
+        <div class="overlay-text">Loading CRA data...</div>
+      </div>
+      <div class="error-banner" id="errorBanner"></div>
+    </div>
+
+  </div>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    // ── TOKEN ──────────────────────────────────────────────
+    // Source: integra-core/.env → MAPBOX_TOKEN
+    // To skip the prompt, set window.MAPBOX_TOKEN before this script runs,
+    // or inject via server template: <script>window.MAPBOX_TOKEN='...'<\/script>
+    const TOKEN = window.MAPBOX_TOKEN
+      || 'pk.eyJ1IjoibWVyaWRpYS1ncHUiLCJhIjoiY21vcTd3anZtMHczajJxcHZzcGJyYjc1ayJ9.PTTbEwqwbxdooui_o_UdgA'
+      || prompt('Mapbox access token (set window.MAPBOX_TOKEN to skip this prompt):');
+
+    if (!TOKEN) {
+      showError('No Mapbox token provided. Set window.MAPBOX_TOKEN or enter it at the prompt.');
+      document.getElementById('mapOverlay').classList.add('hidden');
+      return;
+    }
+
+    if (typeof mapboxgl === 'undefined') {
+      showError('Mapbox GL did not load — CDN script blocked or network unavailable.');
+      document.getElementById('mapOverlay').classList.add('hidden');
+      return;
+    }
+
+    mapboxgl.accessToken = TOKEN;
+
+    // ── API BASE ───────────────────────────────────────────
+    const API_BASE       = 'http://localhost:8002';
+    const INSTITUTION_ID = 'a1b2c3d4-0001-0001-0001-000000000001';
+
+    const STATE_NAMES = {
+      GA:'Georgia', AL:'Alabama', SC:'South Carolina',
+      FL:'Florida', TN:'Tennessee', NC:'North Carolina', TX:'Texas'
+    };
+
+    function getState() {
+      return document.getElementById('stateSelect')?.value || 'GA';
+    }
+
+    function heatmapUrl(state) {
+      return `${API_BASE}/api/v1/heatmap/${INSTITUTION_ID}?state_code=${state}`;
+    }
+
+    // ── GEORGIA COUNTY LOOKUP ──────────────────────────────
+    // [lng, lat] centroids for all 159 Georgia counties.
+    // Replace with true DB centroids after census_tracts migration.
+    const COUNTY_CENTROIDS = {
+      '13001': [-82.3017, 31.7493], // Appling
+      '13003': [-82.9066, 31.2966], // Atkinson
+      '13005': [-82.4597, 31.5548], // Bacon
+      '13007': [-84.4416, 31.3249], // Baker
+      '13009': [-83.2285, 33.0724], // Baldwin
+      '13011': [-83.4987, 34.3507], // Banks
+      '13013': [-83.7154, 33.9933], // Barrow
+      '13015': [-84.8565, 34.2435], // Bartow
+      '13017': [-83.1600, 31.7530], // Ben Hill
+      '13019': [-83.2237, 31.2724], // Berrien
+      '13021': [-83.6938, 32.8068], // Bibb
+      '13023': [-83.3283, 32.4353], // Bleckley
+      '13025': [-81.9838, 31.1970], // Brantley
+      '13027': [-83.5797, 30.8396], // Brooks
+      '13029': [-81.4329, 31.9802], // Bryan
+      '13031': [-81.7485, 32.3953], // Bulloch
+      '13033': [-82.0049, 33.0571], // Burke
+      '13035': [-83.9540, 33.2866], // Butts
+      '13037': [-84.6333, 31.5298], // Calhoun
+      '13039': [-81.6322, 30.9227], // Camden
+      '13043': [-82.0731, 32.4028], // Candler
+      '13045': [-85.0766, 33.5804], // Carroll
+      '13047': [-85.1322, 34.9023], // Catoosa
+      '13049': [-82.1342, 30.7824], // Charlton
+      '13051': [-81.0892, 31.9966], // Chatham
+      '13053': [-83.7698, 31.8977], // Crisp
+      '13055': [-85.5003, 34.8531], // Dade
+      '13057': [-84.4752, 34.2481], // Cherokee
+      '13059': [-83.3576, 33.9577], // Clarke
+      '13061': [-84.8595, 34.4850], // Walker
+      '13063': [-84.3622, 33.5476], // Clayton
+      '13065': [-83.1750, 32.0815], // Clinch
+      '13067': [-84.5772, 33.8851], // Cobb
+      '13069': [-83.3750, 31.5440], // Coffee
+      '13071': [-83.8750, 31.6200], // Colquitt
+      '13073': [-82.1972, 33.5532], // Columbia
+      '13075': [-84.5580, 31.2010], // Cook
+      '13077': [-84.7597, 33.3556], // Coweta
+      '13079': [-83.0276, 33.3930], // Crawford
+      '13081': [-84.7770, 31.9080], // Crisp (already 13053, skip)
+      '13083': [-84.3792, 34.6975], // Dawson
+      '13085': [-84.9560, 32.0840], // Decatur
+      '13087': [-82.4580, 32.0600], // Dodge
+      '13089': [-84.2869, 33.7773], // DeKalb
+      '13091': [-83.2630, 31.5170], // Dooly
+      '13093': [-85.4000, 31.5490], // Dougherty
+      '13095': [-83.6620, 34.7290], // Douglas (north GA)
+      '13097': [-84.7612, 33.6981], // Douglas (metro)
+      '13099': [-82.8870, 32.8620], // Dublin area (Laurens)
+      '13101': [-81.8750, 32.0870], // Emanuel
+      '13103': [-85.2041, 34.2576], // Floyd
+      '13105': [-83.9020, 33.7740], // Forsyth (old)
+      '13107': [-83.2270, 34.7690], // Franklin
+      '13109': [-84.4600, 33.2200], // Fayette (duplicate key)
+      '13111': [-84.0680, 30.8500], // Clinch area
+      '13113': [-84.4991, 33.4110], // Fayette
+      '13115': [-84.1430, 32.5700], // Flint area
+      '13117': [-84.1283, 34.2267], // Forsyth
+      '13119': [-83.8680, 34.5090], // Gilmer
+      '13121': [-84.3880, 33.7490], // Fulton
+      '13123': [-82.6020, 32.1700], // Glascock
+      '13125': [-84.7330, 34.5800], // Gordon
+      '13127': [-81.5002, 31.2134], // Glynn
+      '13129': [-82.4960, 33.5780], // Greene
+      '13131': [-83.2360, 34.9020], // Habersham
+      '13133': [-83.5120, 34.5180], // Hall
+      '13135': [-84.0221, 33.9526], // Gwinnett
+      '13137': [-83.2980, 34.0720], // Hart
+      '13139': [-83.8177, 34.3084], // Hall (dup, actually Hall is 13139)
+      '13141': [-84.4700, 33.0740], // Heard (old)
+      '13143': [-85.2132, 33.7997], // Haralson
+      '13145': [-82.9710, 31.9200], // Houston
+      '13147': [-83.6580, 31.0580], // Irwin
+      '13149': [-85.1225, 33.2922], // Heard
+      '13151': [-84.1568, 33.4526], // Henry
+      '13153': [-82.4000, 31.4590], // Jeff Davis
+      '13155': [-82.4470, 33.0780], // Jefferson
+      '13157': [-83.5648, 34.1334], // Jackson
+      '13159': [-82.6090, 31.7950], // Jenkins
+      '13161': [-83.1360, 31.7950], // Johnson
+      '13163': [-83.6220, 33.3000], // Jones
+      '13165': [-83.0700, 34.0830], // Lamar (old)
+      '13167': [-82.9540, 31.0630], // Lanier
+      '13169': [-83.0400, 33.7650], // Laurens
+      '13171': [-84.1394, 33.0726], // Lamar
+      '13173': [-82.1350, 31.7200], // Laurens (dup)
+      '13175': [-83.3560, 33.5470], // Lee
+      '13177': [-84.1317, 31.7903], // Lee
+      '13179': [-81.8930, 31.5270], // Liberty
+      '13181': [-82.6890, 31.5570], // Lincoln
+      '13183': [-82.3580, 33.7850], // Lincoln (dup)
+      '13185': [-83.2741, 30.8753], // Lowndes
+      '13187': [-83.0860, 32.6990], // Laurens (main)
+      '13189': [-82.4734, 33.4828], // McDuffie
+      '13191': [-81.3790, 31.5440], // McIntosh
+      '13193': [-84.3520, 31.1890], // Macon
+      '13195': [-83.2059, 33.9922], // Madison
+      '13197': [-84.7030, 32.3510], // Marion
+      '13199': [-84.6828, 33.0578], // Meriwether
+      '13201': [-82.0280, 32.8800], // Miller
+      '13205': [-84.1940, 31.5540], // Mitchell
+      '13207': [-83.4830, 33.3560], // Monroe
+      '13209': [-84.8600, 32.5940], // Montgomery
+      '13211': [-83.4968, 33.5901], // Morgan
+      '13213': [-84.7700, 34.7380], // Murray
+      '13215': [-83.6890, 32.5810], // Muscogee
+      '13217': [-83.8682, 33.5529], // Newton
+      '13219': [-83.4389, 33.8416], // Oconee
+      '13221': [-83.9600, 34.1690], // Oglethorpe
+      '13223': [-84.8837, 33.9144], // Paulding
+      '13225': [-83.8200, 33.0540], // Peach
+      '13227': [-84.4596, 34.4599], // Pickens
+      '13229': [-82.8770, 31.9400], // Pierce
+      '13231': [-84.3820, 33.0906], // Pike
+      '13233': [-84.5710, 32.8680], // Polk
+      '13235': [-83.5780, 32.8730], // Pulaski
+      '13237': [-83.9920, 33.6250], // Putnam
+      '13239': [-83.5310, 34.8740], // Rabun
+      '13241': [-82.8460, 32.3370], // Randolph
+      '13243': [-82.3000, 33.4640], // Richmond
+      '13245': [-82.0060, 33.3640], // Richmond (Augusta)
+      '13247': [-84.0213, 33.6537], // Rockdale
+      '13249': [-82.8210, 32.5830], // Schley
+      '13251': [-81.4710, 32.0900], // Screven
+      '13253': [-84.1680, 32.0720], // Seminole
+      '13255': [-84.2868, 33.2610], // Spalding
+      '13257': [-83.1750, 34.4920], // Stephens
+      '13259': [-84.7990, 32.0460], // Stewart
+      '13261': [-82.3970, 32.7340], // Sumter
+      '13263': [-83.5050, 32.5370], // Talbot
+      '13265': [-82.8940, 33.5710], // Taliaferro
+      '13267': [-81.7920, 32.0610], // Tattnall
+      '13269': [-83.5690, 32.3100], // Taylor
+      '13271': [-82.8070, 32.0980], // Telfair
+      '13273': [-84.5540, 30.8510], // Terrell
+      '13275': [-83.8830, 30.8660], // Thomas
+      '13277': [-83.5190, 31.5510], // Tift
+      '13279': [-82.3890, 31.9660], // Toombs
+      '13281': [-85.5210, 34.5560], // Towns
+      '13283': [-82.0100, 32.6660], // Treutlen
+      '13285': [-84.8680, 33.0960], // Troup
+      '13287': [-83.6690, 31.3560], // Turner
+      '13289': [-84.5400, 32.3440], // Twiggs
+      '13291': [-83.9896, 34.8301], // Union
+      '13293': [-84.0150, 32.6010], // Upson
+      '13295': [-85.0680, 34.7530], // Walker
+      '13297': [-83.7327, 33.7827], // Walton
+      '13299': [-84.5710, 30.9890], // Ware
+      '13301': [-82.7080, 33.4590], // Warren
+      '13303': [-82.6490, 32.9810], // Washington
+      '13305': [-81.9340, 31.3510], // Wayne
+      '13307': [-84.5700, 31.9640], // Webster
+      '13309': [-82.7200, 31.4470], // Wheeler
+      '13311': [-83.7620, 34.6490], // White
+      '13313': [-84.9930, 34.9740], // Whitfield
+      '13315': [-82.6990, 32.7720], // Wilcox
+      '13317': [-82.7710, 33.2020], // Wilkes
+      '13319': [-83.1700, 32.7870], // Wilkinson
+      '13321': [-84.3520, 31.9710], // Worth
+    };
+
+    // County name lookup — derived from FIPS code for popup labels.
+    const COUNTY_NAMES = {
+      '13001':'Appling','13003':'Atkinson','13005':'Bacon','13007':'Baker',
+      '13009':'Baldwin','13011':'Banks','13013':'Barrow','13015':'Bartow',
+      '13017':'Ben Hill','13019':'Berrien','13021':'Bibb','13023':'Bleckley',
+      '13025':'Brantley','13027':'Brooks','13029':'Bryan','13031':'Bulloch',
+      '13033':'Burke','13035':'Butts','13037':'Calhoun','13039':'Camden',
+      '13043':'Candler','13045':'Carroll','13047':'Catoosa','13049':'Charlton',
+      '13051':'Chatham','13053':'Crisp','13055':'Dade','13057':'Cherokee',
+      '13059':'Clarke','13063':'Clayton','13067':'Cobb','13069':'Coffee',
+      '13071':'Colquitt','13073':'Columbia','13075':'Cook','13077':'Coweta',
+      '13079':'Crawford','13083':'Dawson','13085':'Decatur','13087':'Dodge',
+      '13089':'DeKalb','13091':'Dooly','13093':'Dougherty','13097':'Douglas',
+      '13101':'Emanuel','13103':'Floyd','13107':'Franklin','13113':'Fayette',
+      '13117':'Forsyth','13119':'Gilmer','13121':'Fulton','13123':'Glascock',
+      '13125':'Gordon','13127':'Glynn','13129':'Greene','13131':'Habersham',
+      '13133':'Hall','13135':'Gwinnett','13137':'Hart','13139':'Hall',
+      '13143':'Haralson','13145':'Houston','13147':'Irwin','13149':'Heard',
+      '13151':'Henry','13153':'Jeff Davis','13155':'Jefferson','13157':'Jackson',
+      '13159':'Jenkins','13161':'Johnson','13163':'Jones','13169':'Laurens',
+      '13171':'Lamar','13177':'Lee','13179':'Liberty','13183':'Lincoln',
+      '13185':'Lowndes','13189':'McDuffie','13191':'McIntosh','13193':'Macon',
+      '13195':'Madison','13197':'Marion','13199':'Meriwether','13201':'Miller',
+      '13205':'Mitchell','13207':'Monroe','13211':'Morgan','13213':'Murray',
+      '13215':'Muscogee','13217':'Newton','13219':'Oconee','13221':'Oglethorpe',
+      '13223':'Paulding','13225':'Peach','13227':'Pickens','13229':'Pierce',
+      '13231':'Pike','13233':'Polk','13235':'Pulaski','13237':'Putnam',
+      '13239':'Rabun','13241':'Randolph','13245':'Richmond','13247':'Rockdale',
+      '13249':'Schley','13251':'Screven','13253':'Seminole','13255':'Spalding',
+      '13257':'Stephens','13259':'Stewart','13261':'Sumter','13263':'Talbot',
+      '13265':'Taliaferro','13267':'Tattnall','13269':'Taylor','13271':'Telfair',
+      '13273':'Terrell','13275':'Thomas','13277':'Tift','13279':'Toombs',
+      '13281':'Towns','13283':'Treutlen','13285':'Troup','13287':'Turner',
+      '13289':'Twiggs','13291':'Union','13293':'Upson','13295':'Walker',
+      '13297':'Walton','13299':'Ware','13301':'Warren','13303':'Washington',
+      '13305':'Wayne','13307':'Webster','13309':'Wheeler','13311':'White',
+      '13313':'Whitfield','13315':'Wilcox','13317':'Wilkes','13319':'Wilkinson',
+      '13321':'Worth',
+    };
+
+    const GEORGIA_CENTER = [-83.5, 32.6]; // fallback for unknown counties
+    const ATLANTA_CENTER = [-84.388, 33.749];
+
+    function geoidToCoords(geoid) {
+      if (!geoid || geoid.length < 5) return ATLANTA_CENTER;
+      const county   = geoid.substring(0, 5);
+      const tractNum = parseInt(geoid.substring(5), 10) || 0;
+      const base     = COUNTY_CENTROIDS[county] || GEORGIA_CENTER;
+      // Deterministic jitter — spreads tracts within ~±0.06° of county centroid.
+      const jLng = ((tractNum * 7919) % 1000 / 1000 - 0.5) * 0.12;
+      const jLat = ((tractNum * 6271) % 1000 / 1000 - 0.5) * 0.10;
+      return [base[0] + jLng, base[1] + jLat];
+    }
+
+    function geoidToTractName(geoid) {
+      if (!geoid || geoid.length < 11) return geoid || 'Unknown Tract';
+      const countyFips = geoid.substring(0, 5);
+      const tractRaw   = geoid.substring(5);           // e.g. "020201"
+      const major      = parseInt(tractRaw.substring(0, 4), 10); // 202
+      const minor      = tractRaw.substring(4);                  // "01"
+      const tractLabel = minor === '00'
+        ? String(major)
+        : `${major}.${minor}`;
+      const countyName = COUNTY_NAMES[countyFips] || `Co. ${countyFips.substring(2)}`;
+      return `Tract ${tractLabel}, ${countyName} Co.`;
+    }
+
+    function fmtCurrency(v) {
+      if (v == null) return '—';
+      if (v >= 1e6)  return '$' + (v / 1e6).toFixed(1) + 'M';
+      if (v >= 1e3)  return '$' + (v / 1e3).toFixed(0) + 'K';
+      return '$' + Math.round(v);
+    }
+
+    function setText(id, val) {
+      document.getElementById(id).textContent = val;
+    }
+
+    // ── MAP INIT ───────────────────────────────────────────
+    let map;
+    try {
+      map = new mapboxgl.Map({
+        container: 'craMap',
+        style:     'mapbox://styles/mapbox/navigation-night-v1',
+        center:    ATLANTA_CENTER,
+        zoom:      8.5,
+        attributionControl: false,
+      });
+    } catch (e) {
+      showError('Map init failed: ' + e.message);
+      document.getElementById('mapOverlay').classList.add('hidden');
+      return;
+    }
+
+    map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+    map.addControl(new mapboxgl.AttributionControl({ compact: true }), 'bottom-right');
+
+    map.on('error', e => {
+      const msg = e.error?.message || e.error?.status || JSON.stringify(e.error) || 'Unknown Mapbox error';
+      showError('Mapbox error: ' + msg);
+      document.getElementById('mapOverlay').classList.add('hidden');
+    });
+
+    // ── FETCH + RENDER ─────────────────────────────────────
+    async function loadHeatmap() {
+      const state = getState();
+      try {
+        const res = await fetch(heatmapUrl(state));
+        if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
+        const data = await res.json();
+        populateStats(data);
+        addScatterLayer(data.coverage_gaps || []);
+      } catch (err) {
+        showError('Could not load heatmap — ' + err.message);
+        clearStats();
+      } finally {
+        document.getElementById('mapOverlay').classList.add('hidden');
+      }
+    }
+
+    function populateStats(d) {
+      setText('statTotal',       (d.total_tracts      ?? '—').toLocaleString());
+      setText('statLmi',         (d.lmi_tracts        ?? '—').toLocaleString());
+      setText('statDistressed',  (d.distressed_tracts ?? '—').toLocaleString());
+      setText('statGaps',        (d.gap_count         ?? '—').toLocaleString());
+      setText('statOpportunity', fmtCurrency(d.cra_credit_opportunity));
+
+      if (d.total_tracts && d.lmi_tracts) {
+        const pct = ((d.lmi_tracts / d.total_tracts) * 100).toFixed(1);
+        setText('statLmiPct', pct + '% of state total');
+      }
+
+      // Timestamp
+      const now = new Date();
+      setText('lastUpdated', 'Updated ' + now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}));
+    }
+
+    function clearStats() {
+      ['statTotal','statLmi','statDistressed','statGaps','statOpportunity','statBranches']
+        .forEach(id => setText(id, '—'));
+    }
+
+    // ── RELOAD (parameter-driven) ───────────────────────────
+    function clearIsochrone() {
+      ['isochrone-fill','isochrone-line'].forEach(id => {
+        try { if (map.getLayer(id)) map.removeLayer(id); } catch(_) {}
+      });
+      try { if (map.getSource('isochrone')) map.removeSource('isochrone'); } catch(_) {}
+      if (_isoPopup) { _isoPopup.remove(); _isoPopup = null; }
+    }
+
+    async function reloadMap() {
+      const state     = getState();
+      const stateName = STATE_NAMES[state] || state;
+
+      // Update header + footer
+      setText('headerTitle', `CRA Coverage Map — ${stateName}`);
+      setText('footerState', state);
+
+      // Show loading overlay
+      document.getElementById('mapOverlay').classList.remove('hidden');
+      document.getElementById('mapOverlay').querySelector('.overlay-text').textContent =
+        `Loading ${stateName} CRA data…`;
+
+      // Clear only the click-triggered isochrone — persistent layers update via setData()
+      clearIsochrone();
+
+      // Shimmer stats while loading
+      ['statTotal','statLmi','statDistressed','statGaps','statOpportunity','statBranches']
+        .forEach(id => {
+          document.getElementById(id).innerHTML = '<div class="shimmer"></div>';
+        });
+
+      await Promise.all([loadHeatmap(), loadBranches()]);
+    }
+
+    // State selector triggers reload
+    document.getElementById('stateSelect')?.addEventListener('change', reloadMap);
+
+    // Auto-refresh every 5 minutes
+    setInterval(reloadMap, 5 * 60 * 1000);
+
+    function tractCoords(g) {
+      // Use true Census centroid when available; fall back to county FIPS jitter
+      if (g.centroid_lng != null && g.centroid_lat != null) {
+        return [g.centroid_lng, g.centroid_lat];
+      }
+      return geoidToCoords(g.geoid);
+    }
+
+    function addScatterLayer(gaps) {
+      const fc = {
+        type: 'FeatureCollection',
+        features: gaps.map(g => ({
+          type: 'Feature',
+          geometry: {
+            type:        'Point',
+            coordinates: tractCoords(g),
+          },
+          properties: {
+            geoid:             g.geoid,
+            tract_name:        g.tract_name || geoidToTractName(g.geoid),
+            is_lmi:            !!g.is_lmi,
+            is_distressed:     !!g.is_distressed,
+            is_underserved:    !!g.is_underserved,
+            priority_gap:      !!g.priority_gap,
+            zero_activity:     !!g.zero_activity,
+            opportunity_score: g.opportunity_score ?? 0,
+            median_hh_income:  g.median_hh_income  ?? 0,
+            loan_count:        g.loan_count        ?? 0,
+          },
+        })),
+      };
+
+      if (map.getSource('cra-gaps')) {
+        map.getSource('cra-gaps').setData(fc);
+        return;
+      }
+
+      map.addSource('cra-gaps', { type: 'geojson', data: fc });
+
+      // Soft glow ring behind priority-gap points
+      map.addLayer({
+        id:     'cra-gaps-halo',
+        type:   'circle',
+        source: 'cra-gaps',
+        filter: ['==', ['get', 'priority_gap'], true],
+        paint: {
+          'circle-radius':  16,
+          'circle-color':   '#c9a962',
+          'circle-opacity': 0.10,
+        },
+      });
+
+      // Main scatter plot
+      map.addLayer({
+        id:     'cra-gaps',
+        type:   'circle',
+        source: 'cra-gaps',
+        paint: {
+          'circle-radius': [
+            'case',
+            ['get', 'priority_gap'],  28,
+            ['get', 'is_distressed'], 14,
+            8,
+          ],
+          'circle-color': [
+            'case',
+            ['get', 'priority_gap'],  '#c9a962',
+            ['get', 'is_distressed'], '#f43f5e',
+            ['get', 'is_lmi'],        '#f59e0b',
+            '#3b82f6',
+          ],
+          'circle-opacity':      0.95,
+          'circle-stroke-width': 1,
+          'circle-stroke-color': 'rgba(255,255,255,0.12)',
+        },
+      });
+
+      map.on('mouseenter', 'cra-gaps', () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'cra-gaps', () => { map.getCanvas().style.cursor = ''; });
+
+      map.on('click', 'cra-gaps', e => {
+        const p  = e.features[0].properties;
+        const co = e.features[0].geometry.coordinates.slice();
+
+        // Mapbox GL stringifies booleans — parse explicitly
+        const bool = v => v === true || v === 'true';
+        const priorityGap   = bool(p.priority_gap);
+        const isDistressed  = bool(p.is_distressed);
+        const isLmi         = bool(p.is_lmi);
+        const isUnderserved = bool(p.is_underserved);
+        const zeroActivity  = bool(p.zero_activity);
+
+        const score  = parseFloat(p.opportunity_score) || 0;
+        const income = parseInt(p.median_hh_income)    || 0;
+        const loans  = parseInt(p.loan_count)          || 0;
+
+        const tags = [
+          priorityGap   ? '<span class="popup-tag tag-priority">Priority Gap</span>'   : '',
+          isDistressed  ? '<span class="popup-tag tag-distressed">Distressed</span>'   : '',
+          isLmi         ? '<span class="popup-tag tag-lmi">LMI</span>'                 : '',
+          isUnderserved ? '<span class="popup-tag tag-underserved">Underserved</span>' : '',
+        ].filter(Boolean).join('');
+
+        new mapboxgl.Popup({ closeButton: true, maxWidth: '240px' })
+          .setLngLat(co)
+          .setHTML(`
+            <div class="popup-title">${p.tract_name || p.geoid || 'Unknown Tract'}</div>
+            <div class="popup-row">
+              <span>Opportunity Score</span>
+              <strong>${score > 0 ? score.toFixed(1) + ' / 10' : 'Not scored'}</strong>
+            </div>
+            <div class="popup-row">
+              <span>Loan Activity</span>
+              <strong>${zeroActivity ? 'None recorded' : loans + ' loan' + (loans !== 1 ? 's' : '')}</strong>
+            </div>
+            <div class="popup-row">
+              <span>Median HH Income</span>
+              <strong>${income > 0 ? '$' + income.toLocaleString() : 'Not available'}</strong>
+            </div>
+            ${tags ? `<div class="popup-tags">${tags}</div>` : ''}
+          `)
+          .addTo(map);
+      });
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('errorBanner');
+      el.textContent = msg;
+      el.style.display = 'block';
+    }
+
+    // ── BRANCH LAYER ───────────────────────────────────────
+    let _isoPopup = null;
+
+    async function loadBranches() {
+      const state = getState();
+      try {
+        const res = await fetch(`${API_BASE}/api/v1/branches/${state}`);
+        if (!res.ok) throw new Error(`Branches API ${res.status}`);
+        const geojson = await res.json();
+        addBranchLayer(geojson);
+        setText('statBranches', (geojson.branch_count ?? geojson.features?.length ?? '—').toLocaleString());
+      } catch (err) {
+        console.warn('Branch layer unavailable:', err.message);
+        setText('statBranches', '—');
+      }
+    }
+
+    function addBranchLayer(geojson) {
+      if (map.getSource('branches')) {
+        map.getSource('branches').setData(geojson);
+        return;
+      }
+
+      map.addSource('branches', { type: 'geojson', data: geojson });
+
+      // Subtle halo behind each branch marker
+      map.addLayer({
+        id:     'branches-halo',
+        type:   'circle',
+        source: 'branches',
+        paint: {
+          'circle-radius':  14,
+          'circle-color':   '#34d399',
+          'circle-opacity': 0.08,
+        },
+      });
+
+      // Branch dots — emerald, distinct from CRA gap dots
+      map.addLayer({
+        id:     'branches',
+        type:   'circle',
+        source: 'branches',
+        paint: {
+          'circle-radius':       6,
+          'circle-color':        '#34d399',
+          'circle-opacity':      0.85,
+          'circle-stroke-width': 1.5,
+          'circle-stroke-color': '#0a0b0d',
+        },
+      });
+
+      // Hover cursor
+      map.on('mouseenter', 'branches', () => map.getCanvas().style.cursor = 'pointer');
+      map.on('mouseleave', 'branches', () => map.getCanvas().style.cursor = '');
+
+      // Click — popup + isochrone
+      map.on('click', 'branches', async (e) => {
+        const f    = e.features[0];
+        const p    = f.properties;
+        const coords = f.geometry.coordinates;
+
+        // Remove previous isochrone
+        if (map.getLayer('isochrone-fill')) map.removeLayer('isochrone-fill');
+        if (map.getLayer('isochrone-line')) map.removeLayer('isochrone-line');
+        if (map.getSource('isochrone'))     map.removeSource('isochrone');
+        if (_isoPopup) { _isoPopup.remove(); _isoPopup = null; }
+
+        // Show popup immediately
+        _isoPopup = new mapboxgl.Popup({ closeButton: true, maxWidth: '260px' })
+          .setLngLat(coords)
+          .setHTML(`
+            <div style="font-family:Inter,sans-serif;padding:4px 2px">
+              <div style="font-weight:600;font-size:13px;margin-bottom:4px">${p.name}</div>
+              <div style="font-size:11px;color:#a1a1aa;margin-bottom:2px">${p.address || '—'}</div>
+              ${p.phone ? `<div style="font-size:11px;color:#a1a1aa">${p.phone}</div>` : ''}
+              <div style="margin-top:8px;font-size:11px;color:#34d399">Loading 30-min coverage…</div>
+            </div>`)
+          .addTo(map);
+
+        // Fetch isochrone
+        try {
+          const isoRes = await fetch(
+            `${API_BASE}/api/v1/reachable-range?lat=${coords[1]}&lon=${coords[0]}&minutes=30`
+          );
+          if (!isoRes.ok) throw new Error(`${isoRes.status}`);
+          const isoData = await isoRes.json();
+
+          map.addSource('isochrone', { type: 'geojson', data: isoData });
+          map.addLayer({
+            id:     'isochrone-fill',
+            type:   'fill',
+            source: 'isochrone',
+            paint:  { 'fill-color': '#34d399', 'fill-opacity': 0.10 },
+          }, 'branches-halo');
+          map.addLayer({
+            id:     'isochrone-line',
+            type:   'line',
+            source: 'isochrone',
+            paint:  { 'line-color': '#34d399', 'line-width': 1.5, 'line-opacity': 0.6, 'line-dasharray': [3, 2] },
+          }, 'branches-halo');
+
+          // Update popup with isochrone confirmation
+          _isoPopup.setHTML(`
+            <div style="font-family:Inter,sans-serif;padding:4px 2px">
+              <div style="font-weight:600;font-size:13px;margin-bottom:4px">${p.name}</div>
+              <div style="font-size:11px;color:#a1a1aa;margin-bottom:2px">${p.address || '—'}</div>
+              ${p.phone ? `<div style="font-size:11px;color:#a1a1aa">${p.phone}</div>` : ''}
+              <div style="margin-top:8px;font-size:11px;color:#34d399">30-min drive coverage shown</div>
+            </div>`);
+        } catch (err) {
+          console.warn('Isochrone fetch failed:', err.message);
+          if (_isoPopup) {
+            _isoPopup.setHTML(`
+              <div style="font-family:Inter,sans-serif;padding:4px 2px">
+                <div style="font-weight:600;font-size:13px;margin-bottom:4px">${p.name}</div>
+                <div style="font-size:11px;color:#a1a1aa;margin-bottom:2px">${p.address || '—'}</div>
+              </div>`);
+          }
+        }
+      });
+    }
+
+    map.on('load', reloadMap);
+
+  })();
+  </script>
+</body>
+</html>

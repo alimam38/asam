@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recess — Ethan's Word Neighborhood</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;font-family:'Nunito',sans-serif;background:#87CEEB;overflow:hidden;}
+
+:root{
+  --sky:#87CEEB; --grass:#5CB85C; --grass-dark:#4A9A4A;
+  --gold:#FFD700; --navy:#0D1018; --cream:#FFF8EE;
+  --mp:#E8834A; --mp-light:#FFF0E0; --mp-dark:#C4622A;
+  --nk:#7B68EE; --nk-light:#F0EEFF; --nk-dark:#5A4AC0;
+  --nd:#E84A8A; --nd-light:#FFF0F8; --nd-dark:#C42A6A;
+  --es:#3AB5A0; --es-light:#E8FFF8; --es-dark:#2A8A78;
+  --text:#2A1F0E; --mid:#5A4A2E;
+}
+
+/* SCREENS */
+.screen{position:absolute;inset:0;display:none;opacity:0;transition:opacity 0.4s;}
+.screen.active{display:flex;opacity:1;}
+
+/* ═══════════ NEIGHBORHOOD SCREEN ═══════════ */
+#s-home{
+  flex-direction:column;align-items:center;justify-content:flex-end;
+  background:linear-gradient(180deg,#87CEEB 0%,#B0E0FF 55%,#5CB85C 55%,#4A9A4A 100%);
+}
+.sun{position:absolute;top:6%;right:10%;width:72px;height:72px;
+  background:radial-gradient(circle,#FFE066,#FFD700 60%,#FFC200);
+  border-radius:50%;box-shadow:0 0 40px rgba(255,215,0,.6);
+  animation:pulse 3s ease-in-out infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 40px rgba(255,215,0,.6);}50%{box-shadow:0 0 70px rgba(255,215,0,.9);}}
+.cloud{position:absolute;background:white;border-radius:50px;opacity:.9;}
+.cloud::before,.cloud::after{content:'';position:absolute;background:white;border-radius:50%;}
+.c1{width:110px;height:36px;top:12%;left:6%;animation:drift 22s ease-in-out infinite;}
+.c1::before{width:52px;height:52px;top:-26px;left:12px;}
+.c1::after{width:40px;height:40px;top:-18px;left:46px;}
+.c2{width:85px;height:28px;top:7%;left:40%;animation:drift 30s ease-in-out infinite 8s;}
+.c2::before{width:42px;height:42px;top:-20px;left:10px;}
+.c2::after{width:32px;height:32px;top:-14px;left:34px;}
+.c3{width:95px;height:32px;top:18%;right:8%;animation:drift 25s ease-in-out infinite 4s;}
+.c3::before{width:46px;height:46px;top:-23px;left:14px;}
+.c3::after{width:36px;height:36px;top:-16px;left:42px;}
+@keyframes drift{0%,100%{transform:translateX(0);}50%{transform:translateX(25px);}}
+
+.home-title{position:absolute;top:4%;left:50%;transform:translateX(-50%);text-align:center;z-index:10;}
+.home-title h1{font-family:'Fredoka One',cursive;font-size:clamp(32px,7vw,60px);
+  color:white;text-shadow:3px 3px 0 rgba(0,100,200,.3);letter-spacing:2px;}
+.home-title .sub{font-size:clamp(13px,2.5vw,18px);font-weight:800;color:rgba(255,255,255,.9);margin-top:4px;}
+
+/* Aletheia welcome */
+.aletheia-bar{
+  position:absolute;top:28%;left:50%;transform:translateX(-50%);
+  z-index:20;text-align:center;animation:floatIn .8s ease .3s both;
+  white-space:nowrap;
+}
+@keyframes floatIn{from{opacity:0;transform:translateX(-50%) translateY(-16px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+.orb{width:50px;height:50px;background:radial-gradient(circle,#FFF8D0,#FFD700 60%,#FFC000);
+  border-radius:50%;margin:0 auto 8px;box-shadow:0 0 20px rgba(255,215,0,.8);
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+  animation:orbGlow 2s ease-in-out infinite;}
+@keyframes orbGlow{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.bubble{background:white;border-radius:18px;padding:12px 20px;
+  font-size:clamp(13px,2vw,16px);font-weight:800;color:var(--text);
+  box-shadow:0 4px 18px rgba(0,0,0,.15);max-width:320px;
+  font-family:'Patrick Hand',cursive;line-height:1.4;}
+.bubble::before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  border:9px solid transparent;border-bottom-color:white;border-top:0;}
+.bubble{position:relative;}
+
+/* GROUND */
+.ground{position:absolute;bottom:0;left:0;right:0;height:46%;
+  background:linear-gradient(180deg,#5CB85C,#4A9A4A);}
+.center-path{position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:120px;height:50%;
+  background:linear-gradient(180deg,#D4A96A,#C49050);
+  clip-path:polygon(18% 0%,82% 0%,100% 100%,0% 100%);}
+.center-path::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:7px;height:100%;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.4) 0,rgba(255,255,255,.4) 14px,transparent 14px,transparent 28px);}
+
+/* HOUSES */
+.houses{position:absolute;bottom:33%;left:0;right:0;
+  display:flex;justify-content:space-around;align-items:flex-end;padding:0 3%;z-index:5;}
+.house{display:flex;flex-direction:column;align-items:center;cursor:pointer;
+  width:23%;max-width:170px;transition:transform .25s;
+  animation:houseRise .6s ease both;}
+.house:hover{transform:translateY(-12px) scale(1.05);}
+.house:nth-child(1){animation-delay:.1s;}
+.house:nth-child(2){animation-delay:.2s;}
+.house:nth-child(3){animation-delay:.3s;}
+.house:nth-child(4){animation-delay:.4s;}
+@keyframes houseRise{from{opacity:0;transform:translateY(36px);}to{opacity:1;transform:translateY(0);}}
+.h-char{font-size:clamp(26px,5vw,40px);
+  animation:charBounce 2s ease-in-out infinite;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));}
+.house:nth-child(1) .h-char{animation-delay:0s;}
+.house:nth-child(2) .h-char{animation-delay:.5s;}
+.house:nth-child(3) .h-char{animation-delay:1s;}
+.house:nth-child(4) .h-char{animation-delay:1.5s;}
+@keyframes charBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.h-roof{width:100%;height:0;border-left:48px solid transparent;border-right:48px solid transparent;position:relative;}
+.h-body{width:78%;min-height:65px;border-radius:4px 4px 0 0;
+  display:flex;flex-direction:column;align-items:center;padding:8px 6px 0;
+  box-shadow:2px 2px 8px rgba(0,0,0,.15);}
+.h-window{width:28px;height:26px;background:rgba(255,255,200,.9);
+  border:3px solid rgba(0,0,0,.15);border-radius:4px;margin-bottom:3px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;}
+.h-door{width:22px;height:28px;border-radius:11px 11px 0 0;
+  border:3px solid rgba(0,0,0,.2);margin-top:2px;}
+.h-chimney{position:absolute;top:-44px;right:10px;width:12px;height:26px;border-radius:2px;}
+.h-label{font-family:'Fredoka One',cursive;font-size:clamp(10px,1.8vw,14px);
+  color:white;text-shadow:1px 1px 0 rgba(0,0,0,.3);margin-top:7px;
+  padding:4px 10px;border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,.2);
+  text-align:center;white-space:nowrap;}
+
+/* Trees */
+.tree{position:absolute;display:flex;flex-direction:column;align-items:center;pointer-events:none;}
+.t-top{width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:32px solid #2D8A2D;z-index:2;}
+.t-top2{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:26px solid #3A9A3A;margin-top:-10px;}
+.t-trunk{width:7px;height:16px;background:#8B6340;border-radius:2px;}
+.tr1{bottom:38%;left:5%}.tr2{bottom:37%;left:13%}.tr3{bottom:39%;right:6%}.tr4{bottom:38%;right:14%}
+
+/* Personal tag */
+.ethan-tag{position:absolute;top:12px;left:16px;
+  background:rgba(255,255,255,.92);border-radius:12px;padding:6px 14px;
+  font-weight:800;font-size:13px;color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:30;
+  display:flex;align-items:center;gap:6px;}
+
+/* ═══════════ ACTIVITY SCREEN ═══════════ */
+#s-activity{flex-direction:column;overflow:hidden;}
+.act-header{flex-shrink:0;padding:10px 18px;display:flex;align-items:center;gap:10px;
+  color:white;box-shadow:0 3px 12px rgba(0,0,0,.15);}
+.act-char{font-size:26px;}
+.act-title{font-family:'Fredoka One',cursive;font-size:clamp(15px,3vw,20px);}
+.progress-dots{margin-left:auto;display:flex;gap:5px;}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s;}
+.dot.done{background:rgba(255,255,255,.8);}
+.dot.now{background:white;box-shadow:0 0 8px rgba(255,255,255,.8);}
+.act-body{flex:1;overflow-y:auto;padding:clamp(14px,3vw,24px);
+  display:flex;flex-direction:column;align-items:center;gap:14px;}
+
+/* Aletheia whisper */
+.whisper{width:100%;max-width:580px;background:rgba(255,215,0,.12);
+  border:2px solid rgba(255,215,0,.4);border-radius:14px;padding:10px 14px;
+  display:flex;align-items:center;gap:8px;
+  font-size:clamp(13px,2vw,15px);font-weight:700;color:var(--text);
+  animation:wIn .4s ease;}
+@keyframes wIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.w-orb{font-size:20px;flex-shrink:0;}
+
+/* Activity card */
+.card{width:100%;max-width:580px;background:white;border-radius:22px;
+  padding:clamp(14px,3vw,24px);box-shadow:0 4px 22px rgba(0,0,0,.1);}
+
+/* Next btn */
+.next-btn{font-family:'Fredoka One',cursive;font-size:clamp(15px,2.5vw,19px);
+  padding:11px 32px;border:none;border-radius:50px;color:white;cursor:pointer;
+  box-shadow:0 4px 0 rgba(0,0,0,.25);transition:all .15s;display:none;}
+.next-btn:hover{transform:translateY(-2px);}
+.next-btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.25);}
+.next-btn.show{display:block;animation:pop .3s ease;}
+@keyframes pop{0%{transform:scale(.8);opacity:0;}60%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+.back-link{position:absolute;top:14px;left:18px;background:none;border:none;
+  font-size:13px;font-weight:800;color:rgba(255,255,255,.7);cursor:pointer;
+  font-family:'Nunito',sans-serif;padding:3px 8px;border-radius:8px;transition:background .2s;}
+.back-link:hover{background:rgba(255,255,255,.15);}
+
+/* ═══════════ SORT ACTIVITY ═══════════ */
+.sort-prompt{font-size:clamp(15px,2.5vw,18px);font-weight:800;color:var(--text);
+  text-align:center;line-height:1.4;margin-bottom:4px;}
+.sort-prompt span{color:var(--act-color);}
+.word-bank{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+  padding:14px;background:#F8F8F8;border-radius:14px;border:2px dashed #DDD;
+  min-height:60px;}
+.sort-word{font-family:'Fredoka One',cursive;font-size:clamp(14px,2.5vw,18px);
+  padding:7px 14px;border-radius:20px;border:3px solid var(--act-color);
+  background:white;color:var(--act-color);cursor:grab;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);transition:all .2s;user-select:none;
+  touch-action:none;}
+.sort-word:hover{background:var(--act-color);color:white;transform:scale(1.05);}
+.sort-word.dragging{opacity:.5;transform:scale(.95);}
+.sort-word.placed{opacity:.4;pointer-events:none;border-style:dashed;}
+.sort-bins{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.sort-bin{flex:1;min-width:120px;max-width:200px;
+  border:3px solid var(--bin-color);border-radius:16px;
+  background:var(--bin-bg);padding:10px;min-height:100px;
+  transition:background .2s;}
+.sort-bin.dragover{background:rgba(0,0,0,.06);}
+.sort-bin-label{font-family:'Fredoka One',cursive;font-size:clamp(16px,3vw,22px);
+  color:var(--bin-color);text-align:center;margin-bottom:8px;
+  padding-bottom:6px;border-bottom:2px dashed var(--bin-color);}
+.sort-bin-words{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;min-height:40px;}
+.placed-word{font-family:'Fredoka One',cursive;font-size:clamp(12px,2vw,15px);
+  padding:4px 10px;border-radius:12px;color:white;
+  animation:wPop .25s ease;}
+@keyframes wPop{from{transform:scale(0);}to{transform:scale(1);}}
+.sort-score{text-align:center;font-weight:800;font-size:15px;
+  color:var(--act-color);margin-top:8px;}
+
+/* ═══════════ STORY FILL ═══════════ */
+.story-text{font-family:'Patrick Hand',cursive;font-size:clamp(15px,2.5vw,19px);
+  line-height:1.8;color:var(--text);}
+.blank{display:inline-block;min-width:80px;height:28px;
+  border-bottom:3px solid var(--act-color);margin:0 4px;
+  vertical-align:bottom;text-align:center;cursor:pointer;
+  font-family:'Fredoka One',cursive;font-size:clamp(14px,2.5vw,18px);
+  color:var(--act-color);transition:background .2s;border-radius:4px 4px 0 0;
+  padding:0 6px;}
+.blank:hover{background:rgba(0,0,0,.04);}
+.blank.filled{background:rgba(0,100,200,.06);color:var(--act-color);}
+.blank.correct{background:rgba(58,181,160,.15);color:var(--es-dark);
+  border-bottom-color:var(--es);}
+.blank.wrong{background:rgba(255,80,80,.1);color:#CC4444;
+  border-bottom-color:#CC4444;animation:shake .3s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-4px);}75%{transform:translateX(4px);}}
+.word-choices{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+  padding:12px;background:#F5F5F5;border-radius:14px;}
+.word-chip{font-family:'Fredoka One',cursive;font-size:clamp(13px,2.3vw,17px);
+  padding:6px 14px;border-radius:18px;border:3px solid var(--act-color);
+  background:white;color:var(--act-color);cursor:pointer;transition:all .2s;}
+.word-chip:hover{background:var(--act-color);color:white;}
+.word-chip.used{opacity:.35;pointer-events:none;border-style:dashed;}
+.story-fb{text-align:center;font-weight:800;font-size:14px;min-height:22px;}
+
+/* ═══════════ SCRAMBLE ACTIVITY ═══════════ */
+.scramble-prompt{font-size:clamp(15px,2.5vw,18px);font-weight:800;
+  color:var(--text);text-align:center;margin-bottom:8px;}
+.scramble-zone{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.scrambled-word{font-family:'Fredoka One',cursive;font-size:clamp(28px,6vw,44px);
+  color:var(--act-color);letter-spacing:8px;text-shadow:2px 2px 0 rgba(0,0,0,.1);
+  background:var(--act-light);padding:12px 28px;border-radius:16px;}
+.hint-line{font-size:13px;color:var(--mid);font-style:italic;font-family:'Patrick Hand',cursive;}
+.letter-btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.letter-btn{font-family:'Fredoka One',cursive;font-size:clamp(18px,3.5vw,24px);
+  width:clamp(44px,7vw,56px);height:clamp(44px,7vw,56px);
+  border-radius:12px;border:3px solid var(--act-color);background:white;
+  color:var(--act-color);cursor:pointer;transition:all .2s;
+  box-shadow:0 3px 0 var(--act-dark);}
+.letter-btn:hover{background:var(--act-color);color:white;transform:translateY(-2px);}
+.letter-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--act-dark);}
+.letter-btn.used{opacity:.25;pointer-events:none;}
+.answer-display{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}
+.answer-slot{font-family:'Fredoka One',cursive;font-size:clamp(22px,4.5vw,32px);
+  width:clamp(40px,7vw,52px);height:clamp(48px,8vw,60px);
+  border-bottom:4px solid var(--act-color);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--act-color);cursor:pointer;transition:background .2s;border-radius:6px 6px 0 0;}
+.answer-slot.filled{background:rgba(0,0,0,.04);}
+.answer-slot:hover.filled{background:rgba(255,80,80,.08);}
+.scramble-btns{display:flex;gap:10px;}
+.s-btn{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;
+  padding:8px 18px;border-radius:18px;border:3px solid var(--act-color);
+  background:white;color:var(--act-color);cursor:pointer;transition:all .2s;}
+.s-btn:hover{background:var(--act-color);color:white;}
+.scramble-fb{text-align:center;font-weight:800;font-size:15px;min-height:24px;}
+.scramble-counter{font-size:13px;color:var(--mid);font-weight:700;}
+
+/* ═══════════ CELEBRATION ═══════════ */
+#s-celebration{flex-direction:column;align-items:center;justify-content:center;padding:20px;
+  background:linear-gradient(135deg,#87CEEB,#B0E0FF 50%,#87CEEB);}
+.celeb-card{background:white;border-radius:28px;padding:clamp(24px,5vw,44px);
+  max-width:520px;width:100%;text-align:center;
+  box-shadow:0 12px 48px rgba(0,0,0,.15);
+  animation:cIn .6s cubic-bezier(.34,1.56,.64,1);}
+@keyframes cIn{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
+.celeb-emojis{font-size:clamp(48px,10vw,72px);display:block;margin-bottom:10px;
+  animation:eBounce .6s ease .2s both;}
+@keyframes eBounce{0%{transform:scale(0);}50%{transform:scale(1.3);}100%{transform:scale(1);}}
+.celeb-title{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,38px);
+  color:var(--act-color);margin-bottom:10px;}
+.celeb-insight{background:#FFFBEF;border:2px solid rgba(255,215,0,.4);border-radius:14px;
+  padding:14px 18px;font-size:clamp(14px,2.2vw,17px);font-weight:700;
+  color:var(--text);line-height:1.5;margin-bottom:14px;}
+.celeb-aletheia{font-size:clamp(13px,1.8vw,16px);color:var(--mid);
+  font-style:italic;font-family:'Patrick Hand',cursive;margin-bottom:22px;}
+.celeb-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.c-btn{font-family:'Fredoka One',cursive;font-size:clamp(14px,2.3vw,18px);
+  padding:11px 26px;border-radius:50px;border:none;cursor:pointer;
+  box-shadow:0 4px 0 rgba(0,0,0,.2);transition:all .15s;}
+.c-btn:hover{transform:translateY(-2px);}
+.c-btn.primary{background:var(--act-color);color:white;}
+.c-btn.sec{background:#F0F0F0;color:var(--mid);}
+
+/* Confetti */
+.conf{position:fixed;width:8px;height:8px;border-radius:2px;
+  animation:confFall linear infinite;pointer-events:none;}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}
+  100%{transform:translateY(100vh) rotate(540deg);opacity:0;}}
+</style>
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+<div class="screen active" id="s-home">
+  <div class="sun"></div>
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+
+  <div class="home-title">
+    <h1>Recess</h1>
+    <div class="sub">Ethan's Word Neighborhood</div>
+  </div>
+
+  <div class="aletheia-bar">
+    <div class="orb">✨</div>
+    <div class="bubble">Hi Ethan! Your spelling words are waiting.<br>Pick how you want to learn them today!</div>
+  </div>
+
+  <div class="ethan-tag">⭐ Ethan's Words</div>
+
+  <div class="ground">
+    <div class="center-path"></div>
+
+    <div class="houses">
+      <!-- Word Sort House -->
+      <div class="house" onclick="startActivity('sort')">
+        <div class="h-char">🗂️</div>
+        <div class="h-roof" style="border-bottom-color:#C4622A;">
+          <div class="h-chimney" style="background:#C4622A;"></div>
+        </div>
+        <div class="h-body" style="background:#F5D5B8;">
+          <div class="h-window">📋</div>
+          <div class="h-door" style="background:#A04820;"></div>
+        </div>
+        <div class="h-label" style="background:var(--mp);">Sort by Sound</div>
+      </div>
+
+      <!-- Story Fill House -->
+      <div class="house" onclick="startActivity('story')">
+        <div class="h-char">📖</div>
+        <div class="h-roof" style="border-bottom-color:#5A4AC0;">
+          <div class="h-chimney" style="background:#5A4AC0;"></div>
+        </div>
+        <div class="h-body" style="background:#D8D0FF;">
+          <div class="h-window">🌟</div>
+          <div class="h-door" style="background:#4A3AAA;"></div>
+        </div>
+        <div class="h-label" style="background:var(--nk);">Fill the Story</div>
+      </div>
+
+      <!-- Scramble House -->
+      <div class="house" onclick="startActivity('scramble')">
+        <div class="h-char">🔤</div>
+        <div class="h-roof" style="border-bottom-color:#C42A6A;">
+          <div class="h-chimney" style="background:#C42A6A;"></div>
+        </div>
+        <div class="h-body" style="background:#FFD0E8;">
+          <div class="h-window">🔡</div>
+          <div class="h-door" style="background:#AA1858;"></div>
+        </div>
+        <div class="h-label" style="background:var(--nd);">Unscramble It</div>
+      </div>
+
+      <!-- Pattern House -->
+      <div class="house" onclick="startActivity('pattern')">
+        <div class="h-char">🧩</div>
+        <div class="h-roof" style="border-bottom-color:#2A8A78;">
+          <div class="h-chimney" style="background:#2A8A78;"></div>
+        </div>
+        <div class="h-body" style="background:#C8F0E8;">
+          <div class="h-window">💡</div>
+          <div class="h-door" style="background:#1A6A58;"></div>
+        </div>
+        <div class="h-label" style="background:var(--es);">Find the Pattern</div>
+      </div>
+    </div>
+
+    <div class="tree tr1"><div class="t-top"></div><div class="t-top2"></div><div class="t-trunk"></div></div>
+    <div class="tree tr2"><div class="t-top"></div><div class="t-trunk"></div></div>
+    <div class="tree tr3"><div class="t-top"></div><div class="t-top2"></div><div class="t-trunk"></div></div>
+    <div class="tree tr4"><div class="t-top"></div><div class="t-trunk"></div></div>
+  </div>
+</div>
+
+
+<!-- ACTIVITY SCREEN -->
+<div class="screen" id="s-activity">
+  <div class="act-header" id="act-header">
+    <button class="back-link" onclick="goHome()">← Back</button>
+    <span class="act-char" id="act-char">🗂️</span>
+    <span class="act-title" id="act-title">Sort by Sound</span>
+    <div class="progress-dots" id="prog-dots"></div>
+  </div>
+  <div class="act-body" id="act-body"></div>
+</div>
+
+
+<!-- CELEBRATION SCREEN -->
+<div class="screen" id="s-celebration">
+  <div class="celeb-card">
+    <span class="celeb-emojis" id="celeb-emojis">⭐🌟✨</span>
+    <div class="celeb-title" id="celeb-title">You got it, Ethan!</div>
+    <div class="celeb-insight" id="celeb-insight">Great work today!</div>
+    <div class="celeb-aletheia" id="celeb-aletheia">"You already knew these words. You just proved it."</div>
+    <div class="celeb-btns">
+      <button class="c-btn primary" id="celeb-try-another" onclick="goHome()">Try Another! 🏠</button>
+      <button class="c-btn sec" onclick="goHome()">Back to Neighborhood</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// ══════════════════════════════
+// DATA
+// ══════════════════════════════
+const WORDS = {
+  mp: ['lamp','champ','jump','hump','stamp','plump','camp'],
+  nk: ['bank','sink','tank','wink','pink','honk','junk'],
+  nd: ['grand','stand','wind','land'],
+  nt: ['bent','sent','dent','lent','hunt'],
+  es: ['dishes','boxes','benches','foxes','wishes','matches'],
+  st: ['dust','fast','past','just','must'],
+  other: ['kind','spend','because','found','around','together']
+};
+
+// Activity configs
+const ACTS = {
+  sort: {
+    color:'#E8834A', colorLight:'#FFF0E0', colorDark:'#C4622A',
+    char:'🗂️', title:'Sort by Sound',
+    header:'#E8834A',
+    whispers:[
+      "Look at the end of each word — what sound do you hear?",
+      "Nice! Keep sorting — you're building a pattern.",
+      "Last round! You've got this, Ethan."
+    ],
+    celebrate:{
+      emojis:'🗂️⭐🎉',
+      title:'Great sorting, Ethan!',
+      insight:'You noticed that words ending in -mp, -nk, and -nd are all consonant blends! That\'s a real spelling pattern that helps you read AND write faster.',
+      aletheia:'"When you see the pattern, you can spell the whole family. That\'s the real discovery."'
+    }
+  },
+  story: {
+    color:'#7B68EE', colorLight:'#F0EEFF', colorDark:'#5A4AC0',
+    char:'📖', title:'Fill the Story',
+    header:'#7B68EE',
+    whispers:[
+      "Read the sentence — which word fits best?",
+      "Use what the sentence tells you to pick the right word.",
+      "Almost there — you're writing a real story!"
+    ],
+    celebrate:{
+      emojis:'📖🌟✍️',
+      title:'You wrote the story, Ethan!',
+      insight:'Every word you picked made the story make sense. That means you understood what each word means — not just how to spell it.',
+      aletheia:'"Knowing a word means knowing when to use it. You do."'
+    }
+  },
+  scramble: {
+    color:'#E84A8A', colorLight:'#FFF0F8', colorDark:'#C42A6A',
+    char:'🔤', title:'Unscramble It',
+    header:'#E84A8A',
+    whispers:[
+      "The letters are all there — just in the wrong order!",
+      "Think about how the word sounds as you build it.",
+      "Last one — you've already proven you know these words."
+    ],
+    celebrate:{
+      emojis:'🔤🏆🎊',
+      title:'You unscrambled them all!',
+      insight:'Unscrambling a word means you already know what it looks like. Your brain recognized the pattern before you finished — that\'s spelling mastery.',
+      aletheia:'"You didn\'t just memorize these words. You own them."'
+    }
+  },
+  pattern: {
+    color:'#3AB5A0', colorLight:'#E8FFF8', colorDark:'#2A8A78',
+    char:'🧩', title:'Find the Pattern',
+    header:'#3AB5A0',
+    whispers:[
+      "Which of these words belong in the same family?",
+      "Look for what they have in common — not just the sound!",
+      "Last pattern — you're seeing what your teacher sees."
+    ],
+    celebrate:{
+      emojis:'🧩💡🌟',
+      title:'You found all the patterns!',
+      insight:'Noticing that "boxes," "dishes," and "matches" all follow the same rule (-es for plurals) means you can spell hundreds of new words — not just these ones.',
+      aletheia:'"One pattern unlocks a whole family of words. That\'s not just spelling — that\'s reading the code."'
+    }
+  }
+};
+
+// ══════════════════════════════
+// STATE
+// ══════════════════════════════
+let st = {
+  act: null, step: 0, totalSteps: 3,
+  signals: [], attempts: {}, startTime: null
+};
+
+// ══════════════════════════════
+// SCREEN MANAGEMENT
+// ══════════════════════════════
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');s.style.display='none';});
+  const el = document.getElementById('s-'+id);
+  el.style.display='flex';
+  requestAnimationFrame(()=>el.classList.add('active'));
+}
+function goHome() { show('home'); st.act=null; st.step=0; }
+
+// ══════════════════════════════
+// START ACTIVITY
+// ══════════════════════════════
+function startActivity(type) {
+  st.act = type;
+  st.step = 0;
+  st.startTime = Date.now();
+  st.signals = [{event:'started',type,time:Date.now()}];
+
+  const cfg = ACTS[type];
+  document.getElementById('act-header').style.background = cfg.header;
+  document.getElementById('act-char').textContent = cfg.char;
+  document.getElementById('act-title').textContent = cfg.title;
+  document.documentElement.style.setProperty('--act-color', cfg.color);
+  document.documentElement.style.setProperty('--act-light', cfg.colorLight);
+  document.documentElement.style.setProperty('--act-dark', cfg.colorDark);
+  document.getElementById('s-activity').style.background = cfg.colorLight;
+
+  buildDots();
+  renderStep();
+  show('activity');
+}
+
+function buildDots() {
+  const c = document.getElementById('prog-dots');
+  c.innerHTML = '';
+  for(let i=0;i<st.totalSteps;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i===0?' now':'');
+    d.id='dot'+i; c.appendChild(d);
+  }
+}
+function updateDots() {
+  for(let i=0;i<st.totalSteps;i++){
+    const d=document.getElementById('dot'+i);
+    d.className='dot'+(i<st.step?'done':i===st.step?'now':'');
+  }
+}
+
+function renderStep() {
+  updateDots();
+  const body = document.getElementById('act-body');
+  body.innerHTML = '';
+  st.attempts[st.step] = 0;
+
+  const cfg = ACTS[st.act];
+  // Whisper
+  const w=document.createElement('div');
+  w.className='whisper';
+  w.innerHTML=`<span class="w-orb">✨</span><span>${cfg.whispers[st.step]}</span>`;
+  body.appendChild(w);
+
+  // Activity
+  const renders = {
+    sort: [renderSort0, renderSort1, renderSort2],
+    story: [renderStory0, renderStory1, renderStory2],
+    scramble: [renderScramble0, renderScramble1, renderScramble2],
+    pattern: [renderPattern0, renderPattern1, renderPattern2]
+  };
+  renders[st.act][st.step]();
+
+  // Next btn
+  const nb=document.createElement('button');
+  nb.className='next-btn';
+  nb.id='next-btn';
+  nb.style.background=cfg.color;
+  nb.textContent = st.step < st.totalSteps-1 ? 'Keep Going! →' : 'See What I Learned! ⭐';
+  nb.onclick = advance;
+  body.appendChild(nb);
+}
+
+function showNext() {
+  const nb=document.getElementById('next-btn');
+  if(nb) nb.classList.add('show');
+}
+
+function advance() {
+  st.signals.push({event:'step_done',step:st.step,attempts:st.attempts[st.step]});
+  st.step++;
+  if(st.step >= st.totalSteps) celebrate();
+  else renderStep();
+}
+
+function celebrate() {
+  const cfg = ACTS[st.act].celebrate;
+  document.getElementById('celeb-emojis').textContent = cfg.emojis;
+  document.getElementById('celeb-title').textContent = cfg.title;
+  document.getElementById('celeb-insight').textContent = cfg.insight;
+  document.getElementById('celeb-aletheia').textContent = cfg.aletheia;
+  document.getElementById('celeb-title').style.color = ACTS[st.act].color;
+  document.documentElement.style.setProperty('--act-color', ACTS[st.act].color);
+  fireConfetti();
+  show('celebration');
+}
+
+function fireConfetti() {
+  const colors=['#E8834A','#7B68EE','#E84A8A','#3AB5A0','#FFD700','#5CB85C'];
+  for(let i=0;i<28;i++){
+    const c=document.createElement('div');
+    c.className='conf';
+    c.style.cssText=`left:${Math.random()*100}vw;background:${colors[~~(Math.random()*colors.length)]};
+      animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*.8}s;
+      width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;
+      border-radius:${Math.random()>.5?'50%':'2px'};`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(), 4000);
+  }
+}
+
+// ══════════════════════════════
+// SORT ACTIVITY
+// Word-family drag/tap sort
+// ══════════════════════════════
+
+const SORT_ROUNDS = [
+  {
+    words: ['lamp','jump','camp','bank','sink','tank','grand','land','stand','wind'],
+    bins: [
+      {label:'-mp words', key:'mp', words:['lamp','jump','camp'], color:'#E8834A', bg:'rgba(232,131,74,.1)'},
+      {label:'-nk words', key:'nk', words:['bank','sink','tank'], color:'#7B68EE', bg:'rgba(123,104,238,.1)'},
+      {label:'-nd words', key:'nd', words:['grand','land','stand','wind'], color:'#E84A8A', bg:'rgba(232,74,138,.1)'},
+    ]
+  },
+  {
+    words: ['champ','hump','stamp','plump','wink','pink','honk','junk','bent','sent'],
+    bins: [
+      {label:'-mp words', key:'mp', words:['champ','hump','stamp','plump'], color:'#E8834A', bg:'rgba(232,131,74,.1)'},
+      {label:'-nk words', key:'nk', words:['wink','pink','honk','junk'], color:'#7B68EE', bg:'rgba(123,104,238,.1)'},
+      {label:'-nt/-nd words', key:'nt', words:['bent','sent'], color:'#3AB5A0', bg:'rgba(58,181,160,.1)'},
+    ]
+  },
+  {
+    words: ['dishes','boxes','benches','foxes','dust','fast','past','just','must','kind'],
+    bins: [
+      {label:'-es plurals', key:'es', words:['dishes','boxes','benches','foxes'], color:'#3AB5A0', bg:'rgba(58,181,160,.1)'},
+      {label:'-st words', key:'st', words:['dust','fast','past','just','must'], color:'#E8834A', bg:'rgba(232,131,74,.1)'},
+      {label:'Bonus words', key:'other', words:['kind'], color:'#7B68EE', bg:'rgba(123,104,238,.1)'},
+    ]
+  }
+];
+
+let sortCorrect = 0;
+
+function renderSort(roundIdx) {
+  const round = SORT_ROUNDS[roundIdx];
+  const body = document.getElementById('act-body');
+  sortCorrect = 0;
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.style.setProperty('--act-color', ACTS.sort.color);
+
+  // Prompt
+  const p=document.createElement('div');
+  p.className='sort-prompt';
+  p.innerHTML=`Drag each word to the right group:<br><span>Listen for the ending sound!</span>`;
+  card.appendChild(p);
+
+  // Word bank
+  const bankLabel=document.createElement('div');
+  bankLabel.style.cssText='font-size:12px;font-weight:800;color:#888;text-align:center;margin:10px 0 4px;';
+  bankLabel.textContent='WORDS TO SORT';
+  card.appendChild(bankLabel);
+
+  const bank=document.createElement('div');
+  bank.className='word-bank';
+  bank.id='word-bank';
+  const shuffled=[...round.words].sort(()=>Math.random()-.5);
+  shuffled.forEach(w=>{
+    const el=document.createElement('div');
+    el.className='sort-word';
+    el.textContent=w;
+    el.dataset.word=w;
+    el.style.setProperty('--act-color', ACTS.sort.color);
+    el.style.borderColor=ACTS.sort.color;
+    el.style.color=ACTS.sort.color;
+    el.addEventListener('click',()=>handleWordClick(el, round));
+    bank.appendChild(el);
+  });
+  card.appendChild(bank);
+
+  // Bins
+  const binsRow=document.createElement('div');
+  binsRow.className='sort-bins';
+  binsRow.id='bins-row';
+  round.bins.forEach(bin=>{
+    const b=document.createElement('div');
+    b.className='sort-bin';
+    b.id='bin-'+bin.key;
+    b.style.setProperty('--bin-color',bin.color);
+    b.style.setProperty('--bin-bg',bin.bg);
+    b.style.borderColor=bin.color;
+    b.style.background=bin.bg;
+    b.innerHTML=`<div class="sort-bin-label" style="color:${bin.color}">${bin.label}</div><div class="sort-bin-words" id="bw-${bin.key}"></div>`;
+    binsRow.appendChild(b);
+  });
+  card.appendChild(binsRow);
+
+  const score=document.createElement('div');
+  score.className='sort-score';
+  score.id='sort-score';
+  score.style.color=ACTS.sort.color;
+  card.appendChild(score);
+
+  body.insertBefore(card, document.getElementById('next-btn'));
+}
+
+let selectedWord = null;
+function handleWordClick(el, round) {
+  if(el.classList.contains('placed')) return;
+  if(selectedWord) selectedWord.style.background='white', selectedWord.style.color=ACTS.sort.color, selectedWord.style.transform='';
+  if(selectedWord===el){selectedWord=null;return;}
+  selectedWord=el;
+  el.style.background=ACTS.sort.color;
+  el.style.color='white';
+  el.style.transform='scale(1.08)';
+
+  // Prompt bin selection
+  document.querySelectorAll('.sort-bin').forEach(bin=>{
+    bin.onclick=()=>dropWordInBin(el, bin.id.replace('bin-',''), round);
+  });
+}
+
+function dropWordInBin(wordEl, binKey, round) {
+  if(!selectedWord) return;
+  const word=wordEl.dataset.word;
+  const bin=round.bins.find(b=>b.key===binKey);
+  if(!bin) return;
+
+  const correct = bin.words.includes(word);
+  st.attempts[st.step]++;
+  st.signals.push({event:'sort_attempt',word,bin:binKey,correct});
+
+  if(correct){
+    wordEl.classList.add('placed');
+    wordEl.style.background='';
+    wordEl.style.color='';
+    wordEl.style.transform='';
+    const bw=document.getElementById('bw-'+binKey);
+    const pw=document.createElement('div');
+    pw.className='placed-word';
+    pw.style.background=bin.color;
+    pw.textContent=word;
+    bw.appendChild(pw);
+    sortCorrect++;
+    const total=round.words.length;
+    const sc=document.getElementById('sort-score');
+    if(sc) sc.textContent=`✓ ${sortCorrect} sorted correctly`;
+    if(sortCorrect===total) showNext();
+  } else {
+    wordEl.style.background='#FFE0E0';
+    wordEl.style.color='#CC4444';
+    wordEl.style.borderColor='#CC4444';
+    setTimeout(()=>{
+      wordEl.style.background='white';
+      wordEl.style.color=ACTS.sort.color;
+      wordEl.style.borderColor=ACTS.sort.color;
+      wordEl.style.transform='';
+    },500);
+  }
+  selectedWord=null;
+  document.querySelectorAll('.sort-bin').forEach(b=>b.onclick=null);
+}
+
+function renderSort0(){renderSort(0);}
+function renderSort1(){renderSort(1);}
+function renderSort2(){renderSort(2);}
+
+
+// ══════════════════════════════
+// STORY FILL ACTIVITY
+// ══════════════════════════════
+const STORIES = [
+  {
+    text: "Ethan went to [camp] and found a [pink] box near the [bank].",
+    words: ['camp','pink','bank','jump','wind'],
+    answers: ['camp','pink','bank']
+  },
+  {
+    text: "He could [stand] on the [land] and feel the [wind] blow.",
+    words: ['stand','land','wind','stamp','lamp'],
+    answers: ['stand','land','wind']
+  },
+  {
+    text: "Ethan felt happy [because] he could share the [dishes] and [glasses] [together].",
+    words: ['because','dishes','glasses','together','boxes','just'],
+    answers: ['because','dishes','glasses','together']
+  }
+];
+
+let storyState = {};
+
+function renderStory(idx) {
+  const s = STORIES[idx];
+  const body = document.getElementById('act-body');
+  storyState = {story:s, blanks:{}, filled:0};
+
+  const card=document.createElement('div');
+  card.className='card';
+
+  // Build story HTML with blanks
+  let html = '<div class="story-text">';
+  let blankIdx = 0;
+  let remaining = s.text;
+  s.answers.forEach(ans=>{
+    const pos=remaining.indexOf('['+ans+']');
+    if(pos>=0){
+      html+=remaining.substring(0,pos);
+      html+=`<span class="blank" id="blank-${blankIdx}" data-answer="${ans}" data-idx="${blankIdx}" onclick="blankClicked(${blankIdx})">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>`;
+      remaining=remaining.substring(pos+ans.length+2);
+      blankIdx++;
+    }
+  });
+  html+=remaining+'</div>';
+  card.innerHTML=html;
+
+  // Word choices
+  const choicesLabel=document.createElement('div');
+  choicesLabel.style.cssText='font-size:12px;font-weight:800;color:#888;text-align:center;margin:12px 0 4px;';
+  choicesLabel.textContent='WORD BANK — tap a word, then tap the blank';
+  card.appendChild(choicesLabel);
+
+  const choices=document.createElement('div');
+  choices.className='word-choices';
+  choices.id='story-choices';
+  s.words.forEach(w=>{
+    const c=document.createElement('div');
+    c.className='word-chip';
+    c.id='chip-'+w;
+    c.dataset.word=w;
+    c.textContent=w;
+    c.style.borderColor=ACTS.story.color;
+    c.style.color=ACTS.story.color;
+    c.onclick=()=>selectChip(c);
+    choices.appendChild(c);
+  });
+  card.appendChild(choices);
+
+  const fb=document.createElement('div');
+  fb.className='story-fb';fb.id='story-fb';
+  card.appendChild(fb);
+
+  body.insertBefore(card, document.getElementById('next-btn'));
+}
+
+let selectedChip = null;
+let selectedBlank = null;
+
+function selectChip(el){
+  if(selectedChip) selectedChip.style.background='white', selectedChip.style.color=ACTS.story.color;
+  selectedChip=el;
+  el.style.background=ACTS.story.color;
+  el.style.color='white';
+  if(selectedBlank!==null) tryFill();
+}
+
+function blankClicked(idx){
+  selectedBlank=idx;
+  document.querySelectorAll('.blank').forEach(b=>b.style.background='');
+  const blank=document.getElementById('blank-'+idx);
+  if(blank) blank.style.background='rgba(0,0,0,.06)';
+  if(selectedChip) tryFill();
+}
+
+function tryFill(){
+  if(selectedChip===null || selectedBlank===null) return;
+  const word=selectedChip.dataset.word;
+  const blank=document.getElementById('blank-'+selectedBlank);
+  const correct=blank.dataset.answer;
+  st.attempts[st.step]++;
+  st.signals.push({event:'story_fill',word,correct:word===correct});
+
+  if(word===correct){
+    blank.textContent=word;
+    blank.classList.add('correct');
+    blank.onclick=null;
+    blank.style.background='';
+    selectedChip.classList.add('used');
+    selectedChip=null; selectedBlank=null;
+    storyState.filled++;
+    const fb=document.getElementById('story-fb');
+    if(fb) fb.innerHTML=`<span style="color:${ACTS.story.color};font-weight:800;">✓ "${word}" fits perfectly!</span>`;
+    if(storyState.filled>=storyState.story.answers.length) showNext();
+  } else {
+    blank.classList.add('wrong');
+    setTimeout(()=>blank.classList.remove('wrong'),400);
+    selectedChip.style.background='white';selectedChip.style.color=ACTS.story.color;
+    selectedChip=null; selectedBlank=null;
+    const fb=document.getElementById('story-fb');
+    if(fb) fb.innerHTML=`<span style="color:#CC4444;">That word doesn't quite fit — try another!</span>`;
+  }
+}
+
+function renderStory0(){renderStory(0);}
+function renderStory1(){renderStory(1);}
+function renderStory2(){renderStory(2);}
+
+
+// ══════════════════════════════
+// SCRAMBLE ACTIVITY
+// ══════════════════════════════
+const SCRAMBLE_WORDS = [
+  [{word:'stamp',hint:'You put it on a letter 📮'},{word:'grand',hint:'Really big or amazing'},{word:'wink',hint:'One eye blinks fast 😉'}],
+  [{word:'plump',hint:'Soft and round'},{word:'benches',hint:'Seats without backs 🪑'},{word:'harvest',hint:'When farmers pick their crops 🌾'}],
+  [{word:'because',hint:'Gives the reason why'},{word:'together',hint:'Not alone — as a group'},{word:'around',hint:'Going in a circle'}]
+];
+
+let scrambleState = {};
+
+function scramble(word){
+  const arr=[...word];
+  do{for(let i=arr.length-1;i>0;i--){const j=~~(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}}
+  while(arr.join('')===word&&word.length>2);
+  return arr.join('');
+}
+
+function renderScrambleRound(roundIdx){
+  const words=SCRAMBLE_WORDS[roundIdx];
+  scrambleState={words,idx:0,score:0,roundIdx};
+  renderSingleScramble();
+}
+
+function renderSingleScramble(){
+  const body=document.getElementById('act-body');
+  // Remove old card
+  const old=document.getElementById('scramble-card');
+  if(old) old.remove();
+
+  const ws=scrambleState;
+  if(ws.idx>=ws.words.length){showNext();return;}
+
+  const {word,hint}=ws.words[ws.idx];
+  const sc=scramble(word);
+
+  const card=document.createElement('div');
+  card.className='card';card.id='scramble-card';
+
+  card.innerHTML=`
+    <div class="scramble-prompt">Unscramble this word: <span style="color:var(--act-color)">(${word.length} letters)</span></div>
+    <div class="scramble-zone">
+      <div class="scrambled-word" id="scrambled">${sc.toUpperCase()}</div>
+      <div class="hint-line">Hint: ${hint}</div>
+      <div class="answer-display" id="ans-display">
+        ${[...Array(word.length)].map((_,i)=>`<div class="answer-slot" id="slot-${i}" onclick="removeSlot(${i})"></div>`).join('')}
+      </div>
+      <div class="letter-btns" id="letter-btns">
+        ${[...sc].map((l,i)=>`<button class="letter-btn" id="lbtn-${i}" onclick="pickLetter('${l}',${i})">${l.toUpperCase()}</button>`).join('')}
+      </div>
+      <div class="scramble-btns">
+        <button class="s-btn" onclick="clearScramble()">Clear ↺</button>
+        <button class="s-btn" id="check-btn" onclick="checkScramble('${word}')">Check ✓</button>
+      </div>
+      <div class="scramble-fb" id="sc-fb"></div>
+      <div class="scramble-counter">${ws.idx+1} of ${ws.words.length}</div>
+    </div>`;
+
+  body.insertBefore(card, document.getElementById('next-btn'));
+  window.scrambleAnswer=[];
+  window.scrambleTarget=word;
+}
+
+function pickLetter(l, btnIdx){
+  const ans=window.scrambleAnswer;
+  const target=window.scrambleTarget;
+  if(ans.length>=target.length) return;
+  ans.push({l,btnIdx});
+  const slotIdx=ans.length-1;
+  const slot=document.getElementById('slot-'+slotIdx);
+  if(slot){slot.textContent=l.toUpperCase();slot.classList.add('filled');}
+  const btn=document.getElementById('lbtn-'+btnIdx);
+  if(btn) btn.classList.add('used');
+}
+
+function removeSlot(idx){
+  const ans=window.scrambleAnswer;
+  if(!ans[idx]) return;
+  const {btnIdx}=ans[idx];
+  ans[idx]=null;
+  // Remove trailing nulls
+  while(ans.length&&!ans[ans.length-1]) ans.pop();
+  const slot=document.getElementById('slot-'+idx);
+  if(slot){slot.textContent='';slot.classList.remove('filled');}
+  const btn=document.getElementById('lbtn-'+btnIdx);
+  if(btn) btn.classList.remove('used');
+}
+
+function clearScramble(){
+  window.scrambleAnswer=[];
+  document.querySelectorAll('.answer-slot').forEach(s=>{s.textContent='';s.classList.remove('filled');});
+  document.querySelectorAll('.letter-btn').forEach(b=>b.classList.remove('used'));
+  const fb=document.getElementById('sc-fb');if(fb) fb.innerHTML='';
+}
+
+function checkScramble(target){
+  const ans=window.scrambleAnswer.filter(Boolean).map(a=>a.l).join('');
+  st.attempts[st.step]++;
+  st.signals.push({event:'scramble_check',word:target,answer:ans,correct:ans.toLowerCase()===target.toLowerCase()});
+
+  if(ans.toLowerCase()===target.toLowerCase()){
+    const fb=document.getElementById('sc-fb');
+    if(fb) fb.innerHTML=`<span style="color:var(--es-dark);font-weight:800;">✓ "${target}" — you got it! 🎉</span>`;
+    document.querySelectorAll('.letter-btn').forEach(b=>b.disabled=true);
+    document.getElementById('check-btn').disabled=true;
+    scrambleState.score++;
+    setTimeout(()=>{
+      scrambleState.idx++;
+      renderSingleScramble();
+    },1000);
+  } else {
+    const fb=document.getElementById('sc-fb');
+    if(fb) fb.innerHTML=`<span style="color:#CC4444;">Not quite — clear it and try again!</span>`;
+    document.querySelectorAll('.answer-slot').forEach(s=>{
+      s.style.color='#CC4444';
+      setTimeout(()=>s.style.color='',600);
+    });
+  }
+}
+
+function renderScramble0(){renderScrambleRound(0);}
+function renderScramble1(){renderScrambleRound(1);}
+function renderScramble2(){renderScrambleRound(2);}
+
+
+// ══════════════════════════════
+// PATTERN ACTIVITY
+// Find the odd-one-out / same family
+// ══════════════════════════════
+const PATTERN_ROUNDS = [
+  {
+    prompt: "Three of these words are in the same family. Which one is different?",
+    words: ['lamp','camp','jump','land'],
+    odd: 'land',
+    family: '-mp words',
+    explain: '"land" ends in -nd, not -mp. The -mp family: lamp, camp, jump!'
+  },
+  {
+    prompt: "Which two words follow the same rule as 'dishes' and 'boxes'?",
+    words: ['benches','fast','matches','grand','dust'],
+    correct: ['benches','matches'],
+    type:'multi',
+    family: '-es plurals',
+    explain: '"benches" and "matches" both add -es to make plurals — same rule as dishes and boxes!'
+  },
+  {
+    prompt: "Ethan sees a pattern: bank → banks, dish → dishes, bench → benches. What rule is Ethan discovering?",
+    choices: [
+      {text:'Words that end in -nk always get -s', key:'wrong1'},
+      {text:'Some words need -es instead of just -s to become plural', key:'correct'},
+      {text:'All words get -es when there are many of them', key:'wrong2'}
+    ],
+    correct: 'correct',
+    explain: 'Words ending in -ch, -sh, -x, -s, and -ss add -es. That\'s the rule you just discovered!'
+  }
+];
+
+let patternState={};
+
+function renderPattern0(){renderPatternRound(0);}
+function renderPattern1(){renderPatternRound(1);}
+function renderPattern2(){renderPatternRound(2);}
+
+function renderPatternRound(idx){
+  const r=PATTERN_ROUNDS[idx];
+  const body=document.getElementById('act-body');
+  patternState={round:r,selected:[]};
+
+  const card=document.createElement('div');
+  card.className='card';
+
+  if(r.type==='multi'){
+    card.innerHTML=`
+      <div class="sort-prompt">${r.prompt}<br><span style="font-size:13px;font-weight:700;color:#888;">Tap the TWO that match!</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:14px 0;" id="pat-words">
+        ${r.words.map(w=>`<button class="pattern-word-btn" id="pw-${w}" onclick="patMultiSelect('${w}','${r.correct.join(',')}')"
+          style="font-family:'Fredoka One',cursive;font-size:clamp(15px,2.5vw,19px);padding:9px 18px;border-radius:22px;border:3px solid var(--es);background:white;color:var(--es);cursor:pointer;transition:all .2s;">${w}</button>`).join('')}
+      </div>
+      <div id="pat-fb" style="text-align:center;font-weight:800;font-size:14px;min-height:22px;"></div>`;
+  } else if(r.choices){
+    card.innerHTML=`
+      <div class="sort-prompt">${r.prompt}</div>
+      <div style="display:flex;flex-direction:column;gap:9px;margin:14px 0;">
+        ${r.choices.map(c=>`<button onclick="patChoice('${c.key}','${r.correct}')"
+          style="font-family:'Nunito',sans-serif;font-weight:700;font-size:clamp(14px,2vw,17px);padding:12px 18px;border-radius:14px;border:3px solid var(--es);background:white;color:#2A1F0E;cursor:pointer;text-align:left;transition:all .2s;line-height:1.4;">${c.text}</button>`).join('')}
+      </div>
+      <div id="pat-fb" style="text-align:center;font-weight:800;font-size:14px;min-height:22px;color:var(--es);"></div>`;
+  } else {
+    // odd-one-out
+    card.innerHTML=`
+      <div class="sort-prompt">${r.prompt}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:14px 0;">
+        ${r.words.map(w=>`<button id="pw-${w}" onclick="patOdd('${w}','${r.odd}','${r.explain}')"
+          style="font-family:'Fredoka One',cursive;font-size:clamp(16px,3vw,22px);padding:10px 20px;border-radius:22px;border:3px solid var(--mp);background:white;color:var(--mp);cursor:pointer;transition:all .2s;">${w}</button>`).join('')}
+      </div>
+      <div id="pat-fb" style="text-align:center;font-weight:800;font-size:14px;min-height:22px;"></div>`;
+  }
+
+  body.insertBefore(card, document.getElementById('next-btn'));
+}
+
+function patOdd(word,odd,explain){
+  st.attempts[st.step]++;
+  st.signals.push({event:'pattern_odd',word,correct:word===odd});
+  const fb=document.getElementById('pat-fb');
+  if(word===odd){
+    document.getElementById('pw-'+word).style.background='#FFE0E0';
+    document.getElementById('pw-'+word).style.color='#CC4444';
+    if(fb) fb.innerHTML=`<span style="color:var(--mp)">✓ "${word}" is different! ${explain}</span>`;
+    document.querySelectorAll('[id^="pw-"]').forEach(b=>{if(b.id!=='pw-'+word){b.style.background='var(--mp)';b.style.color='white';}});
+    showNext();
+  } else {
+    document.getElementById('pw-'+word).style.background='rgba(255,100,100,.1)';
+    document.getElementById('pw-'+word).style.color='#CC4444';
+    setTimeout(()=>{document.getElementById('pw-'+word).style.background='white';document.getElementById('pw-'+word).style.color='var(--mp)';},600);
+    if(fb) fb.innerHTML='<span style="color:#CC4444">Look at how each word ends — one is different!</span>';
+  }
+}
+
+function patMultiSelect(word,correctStr){
+  const correct=correctStr.split(',');
+  const ps=patternState;
+  if(ps.selected.includes(word)) return;
+  ps.selected.push(word);
+  const btn=document.getElementById('pw-'+word);
+  btn.style.background='var(--es)';btn.style.color='white';
+
+  if(ps.selected.length===2){
+    const allCorrect=correct.every(c=>ps.selected.includes(c))&&ps.selected.every(c=>correct.includes(c));
+    const fb=document.getElementById('pat-fb');
+    st.signals.push({event:'pattern_multi',selected:ps.selected,correct:allCorrect});
+    if(allCorrect){
+      if(fb) fb.innerHTML=`<span style="color:var(--es)">✓ "${correct.join('" and "')}" — same -es pattern! 🎉</span>`;
+      showNext();
+    } else {
+      if(fb) fb.innerHTML='<span style="color:#CC4444">Hmm — one or both don\'t fit. Let me reset...</span>';
+      setTimeout(()=>{
+        ps.selected=[];
+        document.querySelectorAll('[id^="pw-"]').forEach(b=>{b.style.background='white';b.style.color='var(--es)';});
+        if(fb) fb.innerHTML='';
+      },1000);
+    }
+  }
+}
+
+function patChoice(key,correct){
+  const fb=document.getElementById('pat-fb');
+  st.signals.push({event:'pattern_choice',key,correct:key===correct});
+  if(key===correct){
+    if(fb) fb.innerHTML='✓ '+PATTERN_ROUNDS[2].explain;
+    showNext();
+  } else {
+    if(fb) fb.innerHTML='<span style="color:#CC4444">Look again — think about "bank" vs "dish" vs "bench"...</span>';
+  }
+}
+</script>
+</body>
+</html>

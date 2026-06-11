@@ -4,7 +4,7 @@ ASAM (Hebrew: storehouse — divine provision and blessing) is the umbrella prod
 
 | Sub-system | What it is |
 |---|---|
-| Plumbline | Executive institutional-effectiveness dashboard for small accredited institutions: enrollment, student success, and strategic-goal KPIs from SIS data (Populi at Turner), refreshed bi-weekly, with accreditation evidence. Spec: `specs/plumbline/spec-v1.md`. **Lead sub-system.** |
+| Plumbline | Hosted executive intelligence layer for small accredited institutions on Populi — Admissions, Academics, Financials, Scholarships, and strategic-goal/accreditation evidence in one always-current President's view. Populi doesn't build dashboards; that gap is the product. Spec: `specs/plumbline/spec-v2.md`. **Lead sub-system.** |
 | Eden Crown | Not yet defined in this repo. Defining question: what does Eden Crown do, for whom, in one sentence? |
 | Meridia | Financial-data intelligence work; an ingestion/wiring prototype (`integra-wiring`, Python/FastAPI) exists. Defining question: what is Meridia's deliverable product, beyond the prototype? |
 | Waypoint | Not yet defined in this repo. Defining question: what does Waypoint do, for whom, in one sentence? |
@@ -16,7 +16,7 @@ ASAM (Hebrew: storehouse — divine provision and blessing) is the umbrella prod
 
 Nothing in this repository runs yet. The repository currently holds migrated specs, decision records, reports, and collateral from prior working sessions, plus prototype source under `src/`.
 
-The first gate is **Gate 1 — SPEC** (see GATES.md). Plumbline is the lead sub-system: `specs/plumbline/spec-v1.md` was drafted 2026-06-11 from the Turner dashboard planning deck; the gate closes when the spec's open-items table is resolved or signed off with defaults.
+The first gate is **Gate 1 — SPEC** (see GATES.md). Plumbline is the lead sub-system: `specs/plumbline/spec-v2.md` (full build, 2026-06-11) defines the product; v1 remains as the Turner planning baseline. The gate closes when v2's open-items table is resolved or signed off with defaults — most items close at the 2026-06-12 Turner meeting.
 
 ## How to run it
 

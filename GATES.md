@@ -54,4 +54,4 @@ Someone outside Aliman's ecosystem can use this without him in the room.
 | Recess | open | — | — | — | — | — |
 | KSW | open | — | — | — | — | — |
 
-No gate has been passed. First open gate: **Gate 1 — SPEC** for **Plumbline** (lead sub-system). `specs/plumbline/spec-v1.md` exists (drafted 2026-06-11); the gate closes when its open-items table — KPI definitions, cohort rules, FTE divisor, survey-to-goal mapping, saved Populi report set — is resolved or signed off with the stated defaults.
+No gate has been passed. First open gate: **Gate 1 — SPEC** for **Plumbline** (lead sub-system). `specs/plumbline/spec-v2.md` (full build) exists; the gate closes when its open-items table — Populi API access, QBO access, official definitions, aid/survey/payroll data locations, pilot hosting — is resolved or signed off with the stated defaults. Most items close at the 2026-06-12 Turner meeting.

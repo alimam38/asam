@@ -124,7 +124,7 @@ def call_api2(base: str, token: str, path: str):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--env", required=True)
-    ap.add_argument("--subdomain", default="turner")
+    ap.add_argument("--subdomain", default="turnerseminary")
     ap.add_argument("--out", default="populi-probe-report.md")
     args = ap.parse_args()
 

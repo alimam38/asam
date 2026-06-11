@@ -467,3 +467,9 @@ Turner Theological Seminary is a client engagement / proving ground for ASAM sys
 - **Downloads: duplicate Lilly RFP folder variants, Capital Campaign asset/upload duplicates, copier scans, chart of accounts (~95 files)** — Three duplicate copies of the same Revised Budget Package; logo/design dups of files migrated from canonical locations; raw client records.
 - **Dropbox\Meridia: Spring 2026 Gammon President's Report.pdf** — Gammon is a different seminary — not Turner, not ASAM. Question to close: is Gammon a second client engagement?
 
+
+## Third pass — 2026-06-11
+
+| Source | Destination | Classification | Note |
+|---|---|---|---|
+| (session upload) Turner_Dashboard_Populi_Meeting_Deck.pptx | specs/plumbline/2026-06-11-turner-dashboard-populi-meeting-deck.pptx | spec | source material for spec-v1 |

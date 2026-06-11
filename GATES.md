@@ -46,6 +46,7 @@ Someone outside Aliman's ecosystem can use this without him in the room.
 
 | Sub-system | Gate 1 | Gate 2 | Gate 3 | Gate 4 | Gate 5 | Gate 6 |
 |---|---|---|---|---|---|---|
+| Plumbline | in progress | — | — | — | — | — |
 | Eden Crown | open | — | — | — | — | — |
 | Meridia | open | — | — | — | — | — |
 | Waypoint | open | — | — | — | — | — |
@@ -53,4 +54,4 @@ Someone outside Aliman's ecosystem can use this without him in the room.
 | Recess | open | — | — | — | — | — |
 | KSW | open | — | — | — | — | — |
 
-No gate has been passed. First open gate: **Gate 1 — SPEC**, for whichever sub-system is chosen as the lead product.
+No gate has been passed. First open gate: **Gate 1 — SPEC** for **Plumbline** (lead sub-system). `specs/plumbline/spec-v1.md` exists (drafted 2026-06-11); the gate closes when its open-items table — KPI definitions, cohort rules, FTE divisor, survey-to-goal mapping, saved Populi report set — is resolved or signed off with the stated defaults.

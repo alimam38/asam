@@ -42,6 +42,8 @@ Position: cash position and trend, AR aging (student accounts), tuition billed v
 
 Aid awarded vs. aid budget by term and fund; scholarship utilization by fund (awarded vs. available, donor-funded vs. institutional); average award and net price by program; discount rate contribution; disbursement status; stacking and over-award flags; donor-fund reporting view (what each fund supported — feeds Advancement conversations).
 
+Scope ruling (2026-06-11): Turner's aid is institutional scholarships only — no DOE/Title IV participation. FAFSA/ISIR intake, R2T4, and SAP compliance machinery are out of scope for the pilot and remain a Phase 2+ product question for Title IV tenants.
+
 ### 3.5 Strategic goals and accreditation (carried from v1)
 
 Survey-score-by-goal, response rates, trends, targets and status; findings and actions linked to goals; evidence packets preserved per period with full source traceability. This module is what makes the dashboard SACSCOC evidence rather than just a screen.
@@ -59,7 +61,7 @@ Survey-score-by-goal, response rates, trends, targets and status; findings and a
 
 **End state: multi-tenant SaaS.** Pilot: single-tenant cloud instance for Turner. The Synology NAS is a development/staging environment only — it is explicitly not the product's home.
 
-- **Ingestion:** Populi REST API as primary (people, admissions, academics, student accounts), scheduled sync (nightly full reconciliation + intraday incremental) plus on-demand refresh. QuickBooks Online API for GL/budget data. CSV/XLS import lane as fallback and for sources without APIs (e.g., Gusto payroll summaries, survey exports). v1's manual export workflow survives only as the fallback lane.
+- **Ingestion:** three first-class API sources, all authorized and verified live (2026-06-11) — Populi REST API (people, admissions, academics, student accounts), QuickBooks Online API (GL, budget vs. actuals), and Gusto API (payroll cost, comp categories incl. housing allowance). Scheduled sync: nightly full reconciliation + intraday incremental, plus on-demand refresh. CSV/XLS import lane remains for API-less sources (survey exports) and as fallback. v1's manual export workflow survives only as the fallback lane.
 - **Storage:** PostgreSQL. Raw landing tables (immutable, per sync run) → conformed model → KPI snapshot marts. Snapshots immutable; recomputation = new run.
 - **Backend:** Python/FastAPI (consistent with integra-core patterns in src/meridia), background workers for sync and KPI computation.
 - **Frontend:** responsive web app (works on the President's phone/tablet without a native app); PDF export service for briefs and packets.
@@ -111,9 +113,9 @@ Each KPI ships with: formula, source mapping, definition-version reference, owne
 | 1 | Populi API access | **CLOSED 2026-06-11** — full-access API key already in hand. Key lives in the secrets store / deployment .env only, never in this repo. | Aliman | — |
 | 2 | QBO access | **CLOSED 2026-06-11** — QBO access in hand; live connector verified against "Turner Theological Seminary, Inc" (NAICS 611310). Credentials follow the same secrets-store rule as Populi. | Aliman | — |
 | 3 | Official definitions | active / enrolled / retained / withdrawn / graduated / FTE divisor / cohort rules | Registrar + liaison | Populi defaults; FTE divisor 12; fall-entry cohorts — flagged |
-| 4 | Aid data location | Are awards and funds fully in Populi Financial Aid, or partly in spreadsheets? | Business office | Populi-first; CSV lane for funds ledger |
+| 4 | Aid data location | **CLOSED 2026-06-11** — aid is institutional scholarships only; no DOE/Title IV. Scholarships module scope set accordingly (§3.4). | Aliman | — |
 | 5 | Survey tooling | Where do surveys live (Populi? Google Forms?) and can responses export with question IDs? | Turner IE | CSV import with question→goal mapping table |
-| 6 | Payroll feed | Gusto API or recurring summary export? | Aliman | Monthly summary CSV |
+| 6 | Payroll feed | **CLOSED 2026-06-11** — Gusto API; live connector verified against "Turner Theological Seminary" (Gusto Plus, non-profit, single pay schedule). Comp types include Minister Housing Allowance — the payroll model must carry it as its own category (seminary-relevant for the product, not just Turner). | Aliman | — |
 | 7 | Pilot hosting | Cloud target and budget for the pilot instance? | Aliman | Single small cloud VM, Docker Compose |
 | 8 | Turner-facing scope cut | Which v2 modules does Turner see first (their view will be tweaked post-meeting)? | Aliman | Phase 0 set |
 

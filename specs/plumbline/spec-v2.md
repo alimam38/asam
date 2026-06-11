@@ -10,6 +10,8 @@ Positioning in one sentence: Populi runs the institution's records; Plumbline te
 
 Proving-ground tenant: Turner Theological Seminary (Populi + QuickBooks + Gusto). Design constraint from day one: nothing Turner-specific in the core — Turner is tenant #1, not the product.
 
+Builder's standing at the tenant: Aliman served two years as Turner's Controller and now leads Operations, Facilities, and Student Support — full Populi API and QBO access are already authorized through that role. Data governance for the pilot rests on that standing; the multi-tenant product must replace it with the tenant-onboarding authorization flow (Phase 2).
+
 ## 2. Users and roles
 
 | Role | Example at Turner | Access |
@@ -107,7 +109,7 @@ Each KPI ships with: formula, source mapping, definition-version reference, owne
 | # | Item | Question that closes it | Owner | Default until closed |
 |---|---|---|---|---|
 | 1 | Populi API access | **CLOSED 2026-06-11** — full-access API key already in hand. Key lives in the secrets store / deployment .env only, never in this repo. | Aliman | — |
-| 2 | QBO access | Read-only QuickBooks Online API authorization for GL/budget? | Turner business office | Monthly QB export via fallback lane |
+| 2 | QBO access | **CLOSED 2026-06-11** — QBO access in hand; live connector verified against "Turner Theological Seminary, Inc" (NAICS 611310). Credentials follow the same secrets-store rule as Populi. | Aliman | — |
 | 3 | Official definitions | active / enrolled / retained / withdrawn / graduated / FTE divisor / cohort rules | Registrar + liaison | Populi defaults; FTE divisor 12; fall-entry cohorts — flagged |
 | 4 | Aid data location | Are awards and funds fully in Populi Financial Aid, or partly in spreadsheets? | Business office | Populi-first; CSV lane for funds ledger |
 | 5 | Survey tooling | Where do surveys live (Populi? Google Forms?) and can responses export with question IDs? | Turner IE | CSV import with question→goal mapping table |

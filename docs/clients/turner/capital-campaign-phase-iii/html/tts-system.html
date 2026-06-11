@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Turner Theological Seminary — Campaign Visual System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#1b1b1b; color:#fafafa; font-family:'Cormorant Garamond', serif; }
+  /* Type ramps */
+  .display { font-family:'Cinzel', 'Cochin', 'Cormorant Garamond', serif; font-weight:600; letter-spacing:0.04em; }
+  .serif   { font-family:'Cormorant Garamond', 'Cochin', serif; }
+  .sans    { font-family:'Inter', system-ui, sans-serif; }
+  .num     { font-feature-settings:"tnum","lnum"; }
+
+  /* Brand */
+  :root{
+    --purple:#5A2D91; --purple-deep:#3a1c64; --purple-ink:#22113a;
+    --gold:#C9A22B; --gold-bright:#E6C04A; --gold-deep:#8a6d18;
+    --lavender:#E4AAFF; --whitecap:#FAFAFA; --paper:#f6f1e7; --ink:#1c1422;
+    --rule:#d8d3c5;
+  }
+
+  /* Page chrome */
+  .page{
+    width: 850px; height: 1100px; background: var(--whitecap);
+    color: var(--ink); position:relative; overflow:hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.45);
+  }
+
+  /* Masthead lockup placeholder for the official TTS shield */
+  .crest-slot{
+    border:1.5px dashed var(--purple);
+    color:var(--purple); background:rgba(90,45,145,0.04);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:8px;
+  }
+
+  /* Swatch */
+  .swatch{ display:flex; flex-direction:column; gap:0; }
+  .swatch .chip{ height:96px; }
+  .swatch .meta{ padding:10px 12px; border:1px solid var(--rule); border-top:0; font-size:11px; line-height:1.4; }
+
+  /* Stat block */
+  .stat{
+    border-top: 2px solid var(--purple);
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0 14px;
+    text-align:left;
+  }
+  .stat .n{ font-family:'Cinzel', serif; font-weight:700; font-size: 56px; color:var(--purple); line-height:1; letter-spacing:-0.01em; }
+  .stat .l{ font-family:'Inter', sans-serif; text-transform:uppercase; letter-spacing:0.18em; font-size: 10px; color:var(--ink); margin-top:8px; }
+  .stat .s{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size: 13px; color:#5a4f3e; margin-top:4px; }
+
+  /* Pull quote */
+  .pq{
+    border-left: 3px solid var(--gold);
+    padding: 6px 0 6px 20px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic; font-size: 22px; color: var(--purple-ink); line-height:1.35;
+  }
+  .pq cite{ display:block; font-style:normal; font-family:'Inter', sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--purple); margin-top:10px; }
+
+  /* Table */
+  table.tts{ width:100%; border-collapse:collapse; font-family:'Inter', sans-serif; font-size:11.5px; }
+  table.tts thead th{
+    text-align:left; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+    font-size: 9.5px; color: var(--purple); padding: 8px 10px;
+    border-bottom: 1.5px solid var(--purple);
+  }
+  table.tts tbody td{ padding: 9px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  table.tts tbody tr:last-child td{ border-bottom:0; }
+  table.tts td.num{ font-feature-settings:"tnum","lnum"; text-align:right; white-space:nowrap; }
+  table.tts tfoot td{ padding:10px; font-weight:700; border-top: 1.5px solid var(--purple); }
+
+  /* Footer */
+  .footer{ font-family:'Inter', sans-serif; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--purple); }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<script type="text/babel">
+const { DesignCanvas, DCSection, DCArtboard } = window;
+
+// ─── Section header used inside system pages ─────────────────────
+function SectionH({ kicker, title }){
+  return (
+    <div style={{marginBottom: 14}}>
+      <div className="sans" style={{fontSize:9.5, letterSpacing:'0.32em', textTransform:'uppercase', color:'var(--gold-deep)'}}>{kicker}</div>
+      <div className="display" style={{fontSize:22, color:'var(--purple-ink)', marginTop:4}}>{title}</div>
+      <div style={{height:2, background:'var(--purple)', width:48, marginTop:8}}/>
+    </div>
+  );
+}
+
+// ─── Masthead lockup (official TTS crest + horizontal wordmark) ───
+function Masthead({ size = 'lg', dark = false }){
+  const big = size === 'lg';
+  const sz = big ? 92 : 64;
+  const src = dark ? 'assets/tts-white-crest.png' : 'assets/tts-full-color-crest.png';
+  return (
+    <div style={{display:'flex', alignItems:'center', gap: big?20:14}}>
+      <img src={src} alt="Turner Theological Seminary" style={{width: sz, height: sz, objectFit:'contain'}}/>
+      <div>
+        <div className="display" style={{fontSize: big?26:18, color:'var(--purple)', letterSpacing:'0.14em', lineHeight:1}}>
+          TURNER
+        </div>
+        <div className="display" style={{fontSize: big?14:11, color:'var(--purple)', letterSpacing:'0.36em', lineHeight:1.4, marginTop: big?2:1, fontWeight:500}}>
+          THEOLOGICAL · SEMINARY
+        </div>
+        <div className="sans" style={{fontSize:9, letterSpacing:'0.28em', color:'var(--gold-deep)', marginTop: big?6:4, fontWeight:600}}>
+          EST. 1894 &nbsp;·&nbsp; ATLANTA, GA
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ────────────────── PAGE 1 ──────────────────
+function Page1(){
+  return (
+    <div className="page">
+      {/* purple top stripe */}
+      <div style={{position:'absolute', top:0, left:0, right:0, height: 14, background:'var(--purple)'}}/>
+      <div style={{position:'absolute', top:14, left:0, right:0, height: 4, background:'var(--gold)'}}/>
+
+      {/* masthead */}
+      <div style={{padding:'40px 56px 0'}}>
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-start'}}>
+          <Masthead size="lg"/>
+          <div style={{textAlign:'right'}}>
+            <div className="sans" style={{fontSize:9.5, letterSpacing:'0.32em', textTransform:'uppercase', color:'var(--purple)'}}>Campaign Visual System</div>
+            <div className="display" style={{fontSize:14, color:'var(--purple-ink)', marginTop:4, letterSpacing:'0.16em'}}>Talbot Hall · Phase III</div>
+            <div className="sans" style={{fontSize:9, color:'#7a6e58', marginTop:2}}>v1.0 · May 2026 · Page 1 of 2</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Cover hero — the system as a poster */}
+      <div style={{padding:'18px 56px 0'}}>
+        <div className="display" style={{fontSize:54, color:'var(--purple)', lineHeight:0.95, letterSpacing:'-0.005em'}}>
+          A Century of<br/>Preparation.
+        </div>
+        <div className="serif" style={{fontStyle:'italic', fontSize:26, color:'var(--gold-deep)', marginTop:6, letterSpacing:'0.02em'}}>
+          A Future Worth Building.
+        </div>
+        <div className="sans" style={{fontSize:10.5, letterSpacing:'0.3em', textTransform:'uppercase', color:'var(--purple)', marginTop:14, fontWeight:600}}>
+          #ELEV8 with Turner &nbsp; · &nbsp; $20 Million Capital Campaign
+        </div>
+      </div>
+
+      {/* Two columns: Palette + Type */}
+      <div style={{padding:'22px 56px 0', display:'grid', gridTemplateColumns:'1.2fr 1fr', gap: 32}}>
+        {/* Palette */}
+        <div>
+          <SectionH kicker="01 · Palette" title="Color Hierarchy"/>
+          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap: 10}}>
+            <div className="swatch">
+              <div className="chip" style={{background:'var(--purple)'}}/>
+              <div className="meta">
+                <div className="sans" style={{fontWeight:700, fontSize:12, color:'var(--purple)'}}>Royal Purple</div>
+                <div className="num" style={{marginTop:2}}>HEX #5A2D91</div>
+                <div style={{fontStyle:'italic', color:'#7a6e58', marginTop:2}}>Primary · wisdom, royalty, spirituality</div>
+              </div>
+            </div>
+            <div className="swatch">
+              <div className="chip" style={{background:'var(--gold)'}}/>
+              <div className="meta">
+                <div className="sans" style={{fontWeight:700, fontSize:12, color:'var(--gold-deep)'}}>Heritage Gold</div>
+                <div className="num" style={{marginTop:2}}>HEX #C9A22B</div>
+                <div style={{fontStyle:'italic', color:'#7a6e58', marginTop:2}}>Ceremonial accent · prestige, divine light</div>
+              </div>
+            </div>
+            <div className="swatch">
+              <div className="chip" style={{background:'var(--lavender)'}}/>
+              <div className="meta">
+                <div className="sans" style={{fontWeight:700, fontSize:12, color:'var(--purple)'}}>Lavender</div>
+                <div className="num" style={{marginTop:2}}>HEX #E4AAFF</div>
+                <div style={{fontStyle:'italic', color:'#7a6e58', marginTop:2}}>Soft accent · highlight, sidebars</div>
+              </div>
+            </div>
+            <div className="swatch">
+              <div className="chip" style={{background:'var(--whitecap)', border:'1px solid var(--rule)'}}/>
+              <div className="meta">
+                <div className="sans" style={{fontWeight:700, fontSize:12, color:'var(--ink)'}}>White Cap</div>
+                <div className="num" style={{marginTop:2}}>HEX #FAFAFA</div>
+                <div style={{fontStyle:'italic', color:'#7a6e58', marginTop:2}}>Page · purity, breathing room</div>
+              </div>
+            </div>
+          </div>
+          <div className="sans" style={{fontSize:10, color:'#5a4f3e', marginTop:12, lineHeight:1.55}}>
+            <b style={{color:'var(--purple)'}}>USAGE.</b> Royal Purple is the primary at all scales. Heritage Gold is reserved for accent rules, drop caps, statistic numerals, and naming-opportunity highlights — never for body text. Lavender supports sidebars and pull-quote backgrounds at 40–60% tint. White Cap is the default page; Royal Purple may be used as a full-bleed cover or section-divider background, with type set in White Cap and Heritage Gold.
+          </div>
+        </div>
+
+        {/* Type */}
+        <div>
+          <SectionH kicker="02 · Typography" title="Type Pairing"/>
+          {/* Display */}
+          <div style={{borderTop:'2px solid var(--purple)', paddingTop:10}}>
+            <div className="sans" style={{fontSize:9, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--purple)'}}>Display · Cochin Bold</div>
+            <div className="display" style={{fontSize:36, color:'var(--purple-ink)', marginTop:4, lineHeight:1}}>Aa Bb Gg</div>
+            <div className="display" style={{fontSize:13, color:'var(--purple)', letterSpacing:'0.14em', marginTop:6}}>
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ
+            </div>
+            <div style={{fontSize:10, color:'#7a6e58', marginTop:4, fontStyle:'italic'}}>
+              Mastheads, page titles, large numerals. Web fallback: Cinzel.
+            </div>
+          </div>
+          {/* Serif */}
+          <div style={{borderTop:'1px solid var(--rule)', marginTop:14, paddingTop:10}}>
+            <div className="sans" style={{fontSize:9, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--purple)'}}>Serif · Cormorant Garamond</div>
+            <div className="serif" style={{fontSize:24, color:'var(--purple-ink)', marginTop:4}}>Aa Bb Gg <i>italic</i></div>
+            <div style={{fontSize:11, color:'#3a2f1e', marginTop:4, lineHeight:1.45}}>
+              Body copy, pull quotes, donor names, narrative voice. Set 11–13&nbsp;pt at 1.45 leading.
+            </div>
+          </div>
+          {/* Sans */}
+          <div style={{borderTop:'1px solid var(--rule)', marginTop:14, paddingTop:10}}>
+            <div className="sans" style={{fontSize:9, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--purple)'}}>Sans · Inter</div>
+            <div className="sans" style={{fontSize:20, color:'var(--purple-ink)', marginTop:4, fontWeight:600}}>Aa Bb Gg 1234</div>
+            <div className="sans" style={{fontSize:10, color:'#3a2f1e', marginTop:4, lineHeight:1.5}}>
+              Tables, captions, kicker labels, financial figures (tabular lining figures only).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Logo lockup row */}
+      <div style={{padding:'12px 56px 0'}}>
+        <SectionH kicker="03 · Logo Lockup" title="Three Sanctioned Forms"/>
+        <div style={{display:'grid', gridTemplateColumns:'1.1fr 1fr 0.7fr', gap: 12, alignItems:'center'}}>
+          <div style={{border:'1px solid var(--rule)', padding:'8px 12px', borderRadius:2}}>
+            <Masthead size="sm"/>
+            <div className="sans" style={{fontSize:8, color:'#7a6e58', marginTop:5}}>Primary horizontal</div>
+          </div>
+          <div style={{border:'1px solid var(--rule)', padding:'8px 12px', borderRadius:2}}>
+            <Masthead size="sm"/>
+            <div className="sans" style={{fontSize:8, color:'#7a6e58', marginTop:5}}>Compact · in-line use</div>
+          </div>
+          <div style={{border:'1px solid var(--rule)', padding:'8px 12px', borderRadius:2, textAlign:'center'}}>
+            <img src="assets/tts-full-color.png" alt="Turner Theological Seminary · Official Emblem" style={{width:64, height:64, objectFit:'contain', display:'block', margin:'0 auto'}}/>
+            <div className="sans" style={{fontSize:8, color:'#7a6e58', marginTop:5}}>Full circular emblem</div>
+          </div>
+        </div>
+      </div>
+
+      {/* footer */}
+      <div style={{position:'absolute', bottom:0, left:0, right:0, padding:'14px 56px', borderTop:'1px solid var(--rule)', display:'flex', justifyContent:'space-between'}}>
+        <div className="footer">Turner Theological Seminary · Campaign Visual System</div>
+        <div className="footer">v1.0 · 01</div>
+      </div>
+    </div>
+  );
+}
+
+// ────────────────── PAGE 2 ──────────────────
+function Page2(){
+  return (
+    <div className="page">
+      <div style={{position:'absolute', top:0, left:0, right:0, height: 14, background:'var(--purple)'}}/>
+      <div style={{position:'absolute', top:14, left:0, right:0, height: 4, background:'var(--gold)'}}/>
+
+      <div style={{padding:'48px 56px 0', display:'flex', justifyContent:'space-between', alignItems:'flex-start'}}>
+        <Masthead size="sm"/>
+        <div style={{textAlign:'right'}}>
+          <div className="sans" style={{fontSize:9.5, letterSpacing:'0.32em', textTransform:'uppercase', color:'var(--purple)'}}>Components &amp; Patterns</div>
+          <div className="sans" style={{fontSize:9, color:'#7a6e58', marginTop:2}}>v1.0 · Page 2 of 2</div>
+        </div>
+      </div>
+
+      {/* Statistic blocks */}
+      <div style={{padding:'14px 56px 0'}}>
+        <SectionH kicker="04 · Statistics" title="Proof Block"/>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr 1fr', gap: 18}}>
+          <div className="stat">
+            <div className="n num">$1.28<span style={{fontSize:28, color:'var(--gold-deep)'}}>M</span></div>
+            <div className="l">Housing Revenue · FY2025</div>
+            <div className="s">2× over prior year</div>
+          </div>
+          <div className="stat">
+            <div className="n num">$1.9<span style={{fontSize:28, color:'var(--gold-deep)'}}>M</span></div>
+            <div className="l">Phase I &amp; II Investment</div>
+            <div className="s">Project Upkeep · to date</div>
+          </div>
+          <div className="stat">
+            <div className="n num">+31</div>
+            <div className="l">Net New Housing Units</div>
+            <div className="s">From 43 to 74 total</div>
+          </div>
+          <div className="stat">
+            <div className="n num">130<span style={{fontSize:28, color:'var(--gold-deep)'}}>+</span></div>
+            <div className="l">Years of Service</div>
+            <div className="s">Founded 1894</div>
+          </div>
+        </div>
+        <div className="sans" style={{fontSize:10, color:'#5a4f3e', marginTop:10, lineHeight:1.55}}>
+          <b style={{color:'var(--purple)'}}>RULE.</b> Numerals are Cochin / Cinzel display, set in Royal Purple. Suffix letters (M, +, %) drop one weight and shift to Gold-Deep. Top rule is 2pt purple; bottom rule is hairline rule. Label is uppercase Inter at 0.18em tracking.
+        </div>
+      </div>
+
+      {/* Pull quote + Photo plan */}
+      <div style={{padding:'14px 56px 0', display:'grid', gridTemplateColumns:'1.2fr 1fr', gap: 28}}>
+        <div>
+          <SectionH kicker="05 · Pull Quote" title="Voice"/>
+          <div className="pq">
+            “It&rsquo;s a faith walk and we walk it together.”
+            <cite>Dr. Ammie L. Davis · President &amp; CEO</cite>
+          </div>
+          <div className="sans" style={{fontSize:10, color:'#5a4f3e', marginTop:14, lineHeight:1.55}}>
+            <b style={{color:'var(--purple)'}}>RULE.</b> Italic Cormorant Garamond at 22pt with 1.35 leading. Left rule is 3pt Heritage Gold. Citation in uppercase Inter at 10pt, 0.22em tracking, Royal Purple. Reserve for the President and senior leadership only.
+          </div>
+        </div>
+        <div>
+          <SectionH kicker="06 · Imagery" title="Photo Plan"/>
+          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap: 8}}>
+            {[
+              ['Leadership portrait','3:4 · purple duotone overlay'],
+              ['Talbot Hall rendering','16:9 · uncropped, full-bleed'],
+              ['Student life','3:2 · warm, candid'],
+              ['Architectural detail','1:1 · close crop'],
+            ].map(([t,s], i)=>(
+              <div key={i} style={{aspectRatio:'4/3', background:'repeating-linear-gradient(135deg, #efe7d6 0 8px, #f6f1e7 8px 16px)', border:'1px solid var(--rule)', position:'relative', overflow:'hidden'}}>
+                <div style={{position:'absolute', inset:0, padding:8, display:'flex', flexDirection:'column', justifyContent:'space-between', fontSize:10}}>
+                  <div className="sans" style={{color:'var(--purple)', fontWeight:600, letterSpacing:'0.1em', textTransform:'uppercase', fontSize:9}}>{t}</div>
+                  <div style={{fontStyle:'italic', color:'#7a6e58'}}>{s}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="sans" style={{fontSize:9.5, color:'#5a4f3e', marginTop:8, lineHeight:1.5}}>
+            All campaign photography is licensed or commissioned. No stock placeholders in final pieces.
+          </div>
+        </div>
+      </div>
+
+      {/* Table style */}
+      <div style={{padding:'14px 56px 115px'}}>
+        <SectionH kicker="07 · Tables" title="Investment Table"/>
+        <table className="tts">
+          <thead>
+            <tr><th>Investment Priority</th><th>Category</th><th style={{textAlign:'right'}}>Amount</th><th style={{textAlign:'right'}}>Naming</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Endowment Corpus Donation</td><td>Endowment</td><td className="num">$2,000,000</td><td className="num" style={{color:'var(--gold-deep)', fontWeight:600}}>at $3M</td></tr>
+            <tr><td>Technology Infrastructure Upgrade</td><td>Technology</td><td className="num">$1,500,000</td><td className="num">Yes</td></tr>
+            <tr><td>Capital Improvements (Courtyard, Chapel)</td><td>Facilities</td><td className="num">$1,500,000</td><td className="num">Yes</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colSpan="2" style={{textTransform:'uppercase', letterSpacing:'0.18em', fontSize:10, color:'var(--purple)'}}>Total Campaign Investment</td><td className="num" style={{color:'var(--purple)', fontSize:13}}>$20,000,000</td><td/></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div style={{position:'absolute', bottom:0, left:0, right:0, padding:'12px 56px', borderTop:'1px solid var(--rule)', background:'var(--whitecap)', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+        <Masthead size="sm"/>
+        <div style={{textAlign:'right'}} className="sans">
+          <div style={{fontSize:9.5, color:'var(--purple-ink)', fontWeight:600}}>702 Martin Luther King Jr. Drive SW &nbsp;·&nbsp; Atlanta, GA 30314</div>
+          <div style={{fontSize:9, color:'var(--purple)', letterSpacing:'0.06em', marginTop:2}}>(404) 527-0080 &nbsp;·&nbsp; turnerseminary.org &nbsp;·&nbsp; v1.0 · 02</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function App(){
+  return (
+    <DesignCanvas>
+      <DCSection id="tts-system"
+        title="Turner Theological Seminary · Campaign Visual System"
+        subtitle="v1.0 · May 2026 · Anchored to Turner Brand Guide · Extends to campaign documents">
+        <DCArtboard id="p1" label="01 · Foundation — Masthead, Palette, Type" width={850} height={1100}>
+          <Page1/>
+        </DCArtboard>
+        <DCArtboard id="p2" label="02 · Components — Stats, Quote, Imagery, Tables, Footer" width={850} height={1100}>
+          <Page2/>
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

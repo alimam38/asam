@@ -358,3 +358,112 @@ Naming: documents are kebab-case prefixed with their last-modified date (the bes
 - Secrets (.env, API key documents, .rkey) are never committed, anywhere, ever.
 - Originals were never moved or deleted; everything was copied.
 - Where multiple versions existed, the newest/most complete copy was migrated and earlier versions were left with their lineage noted.
+
+## Second pass — Turner (client engagement), 2026-06-11
+
+Turner Theological Seminary is a client engagement / proving ground for ASAM systems. Engagement **work products** (deliverables Aliman produced for Turner) were migrated to `docs/clients/turner/`; the seminary's **institutional records** were deliberately left in Dropbox.
+
+**Inventoried:** ~4,447 Turner-related files. **Migrated:** 86. **Left behind:** ~4,360.
+
+### Migrated
+
+| Source | Destination | Classification | Note |
+|---|---|---|---|
+| ~\Dropbox\Meridia\files\COWORK_TURNER_INSTRUCTIONS.md | docs/clients/turner/2026-03-01-cowork-turner-instructions.md | decision record |  |
+| ~\Dropbox\Meridia\files\TURNER_COWORK_INSTRUCTIONS.md | docs/clients/turner/2026-03-01-turner-cowork-instructions.md | decision record |  |
+| ~\Downloads\Capital Campaign - Phase III (1)\uploads\Turner Brand Guide.pdf | docs/clients/turner/brand/2026-05-16-turner-brand-guide.pdf | collateral | pptx source left in Dropbox |
+| ~\Dropbox\Turner\President Reports\Phase III\Prior Designs\TTS_Case_for_Support_Phase_III.docx | docs/clients/turner/capital-campaign-phase-iii/2026-05-07-tts-case-for-support-phase-iii.docx | collateral | source doc |
+| ~\Dropbox\Turner\President Reports\Phase III\Prior Designs\TTS_Gift_Opportunity_Summary.docx | docs/clients/turner/capital-campaign-phase-iii/2026-05-07-tts-gift-opportunity-summary.docx | collateral | source doc |
+| ~\Dropbox\Turner\President Reports\Phase III\Prior Designs\TTS_Phase_III_Capital_Campaign_Proforma (B).docx | docs/clients/turner/capital-campaign-phase-iii/2026-05-07-tts-phase-iii-capital-campaign-proforma-b.docx | collateral | source doc |
+| ~\Dropbox\Turner\President Reports\Phase III\Prior Designs\TTS_Phase_III_Capital_Campaign_Proforma.docx | docs/clients/turner/capital-campaign-phase-iii/2026-05-07-tts-phase-iii-capital-campaign-proforma.docx | collateral | source doc |
+| ~\Dropbox\Turner\President Reports\Phase III\Final Revisions\TTS Phase III — Capital Campaign (Full Detail) v4.pdf | docs/clients/turner/capital-campaign-phase-iii/2026-05-14-tts-phase-iii-capital-campaign-full-detail-v4.pdf | collateral | latest revision; v2/v3 left in Dropbox |
+| ~\Dropbox\Turner\President Reports\Phase III\Current Designs\TTS Phase III - Capital Campaign (Full Detail).pdf | docs/clients/turner/capital-campaign-phase-iii/2026-05-14-tts-phase-iii-capital-campaign-full-detail.pdf | collateral |  |
+| ~\Dropbox\Turner\President Reports\Phase III\Current Designs\TTS Phase III - Capital Campaign Proforma v3.pdf | docs/clients/turner/capital-campaign-phase-iii/2026-05-14-tts-phase-iii-capital-campaign-proforma-v3.pdf | collateral |  |
+| ~\Downloads\Capital Campaign - Phase III (1)\uploads\TTS_5Year_Budget_FY2026_2031 (Updated 2).xlsx | docs/clients/turner/capital-campaign-phase-iii/2026-05-16-tts-5year-budget-fy2026-2031-updated-2.xlsx | report |  |
+| ~\Dropbox\Turner\President Reports\Phase III\Html Designs\tts-redesign-print.html | docs/clients/turner/capital-campaign-phase-iii/html/tts-redesign-print.html | collateral |  |
+| ~\Dropbox\Turner\President Reports\Phase III\Html Designs\tts-redesign.html | docs/clients/turner/capital-campaign-phase-iii/html/tts-redesign.html | collateral |  |
+| ~\Dropbox\Turner\President Reports\Phase III\Html Designs\tts-system.html | docs/clients/turner/capital-campaign-phase-iii/html/tts-system.html | collateral |  |
+| ~\Downloads\2024 Turner FARF.xlsx | docs/clients/turner/financial-analysis/2025-12-18-2024-turner-farf.xlsx | report |  |
+| ~\Downloads\net asset rollforward Turner.xlsx | docs/clients/turner/financial-analysis/2026-01-25-net-asset-rollforward-turner.xlsx | report |  |
+| ~\Downloads\R-14 2025 Turner Composite Score - CLIENT.pdf | docs/clients/turner/financial-analysis/2026-03-17-r-14-2025-turner-composite-score-client.pdf | report |  |
+| ~\Downloads\R-14 2025 Turner Composite Score - CLIENT.xlsx | docs/clients/turner/financial-analysis/2026-03-17-r-14-2025-turner-composite-score-client.xlsx | report |  |
+| ~\Downloads\R-14 Composite Score Calculation - Turner 2024 Audit (F).xlsx | docs/clients/turner/financial-analysis/2026-03-17-r-14-composite-score-calculation-turner-2024-audit-f.xlsx | report |  |
+| ~\Downloads\'Turner Composite Financial Index calculator.xls | docs/clients/turner/financial-analysis/2026-04-20-turner-composite-financial-index-calculator.xls | report |  |
+| ~\Downloads\2025 Audit Report - Turner Theological Financials (F).pdf | docs/clients/turner/financial-analysis/2026-05-18-2025-audit-report-turner-theological-financials-f.pdf | report | final audited financials deliverable |
+| ~\Downloads\TTS 2025 - 2026 Operating Budget.pdf | docs/clients/turner/financial-analysis/2026-05-18-tts-2025-2026-operating-budget.pdf | report |  |
+| ~\Dropbox\Turner\Grants\GA EMS\GA FPC\Turner_FPC_Investment_Justification_2026.docx | docs/clients/turner/grants/ga-fpc-2026/2026-05-19-turner-fpc-investment-justification-2026.docx | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\GA FPC\Attachment-E-Certifications-Lobbying--Debarment--Suspension-(executed).pdf | docs/clients/turner/grants/ga-fpc-2026/2026-05-22-attachment-e-certifications-lobbying-debarment-suspension-executed.pdf | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\GA FPC\SCRFormVersion5 (Executed).pdf | docs/clients/turner/grants/ga-fpc-2026/2026-05-22-scrformversion5-executed.pdf | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\GA FPC\FY2026_Georgia_Funds_for_Protected_Communities_Grant_Program_Application.pdf | docs/clients/turner/grants/ga-fpc-2026/2026-05-26-fy2026-georgia-funds-for-protected-communities-grant-program-application.pdf | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\2025 NSGP\(CISA)_Houses_of_Worship_-_Turner_Seminary.pdf | docs/clients/turner/grants/nsgp-2025/2026-05-18-cisa-houses-of-worship-turner-seminary.pdf | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\2025 NSGP\FY2025-NSGP-Vulnerability_Assessment_-_Turner.pdf | docs/clients/turner/grants/nsgp-2025/2026-05-18-fy2025-nsgp-vulnerability-assessment-turner.pdf | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\2025 NSGP\FY_2025_NSGP_Investment-Justification-118451-48287.docx | docs/clients/turner/grants/nsgp-2025/2026-05-19-fy-2025-nsgp-investment-justification-118451-48287.docx | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\2025 NSGP\FY_2025_NSGP_Investment-Justification-118451-48287.pdf | docs/clients/turner/grants/nsgp-2025/2026-05-19-fy-2025-nsgp-investment-justification-118451-48287.pdf | collateral |  |
+| ~\Dropbox\Turner\Grants\GA EMS\2025 NSGP\FY2025 Nonprofit Security Grant - Turner's Supplemental Information for Application.pdf | docs/clients/turner/grants/nsgp-2025/2026-05-19-fy2025-nonprofit-security-grant-turners-supplemental-information-for-application.pdf | collateral |  |
+| ~\Dropbox\Meridia_Ingestion\Eden Crown Systems - Master Architecture\03_Systemic Review\Claude Project (Meridia)\TTS_Donation_Letter_Template.docx | docs/clients/turner/letters/2026-02-16-tts-donation-letter-template.docx | collateral |  |
+| ~\Dropbox\Meridia\files\TSF_Letter_of_Intent_Fillable.pdf | docs/clients/turner/letters/2026-03-01-tsf-letter-of-intent-fillable.pdf | collateral |  |
+| ~\Dropbox\Meridia\files\TTS_Student_Account_Letter.docx | docs/clients/turner/letters/2026-03-01-tts-student-account-letter.docx | collateral |  |
+| ~\Dropbox\Meridia_Ingestion\Eden Crown Systems - Master Architecture\03_Systemic Review\Claude Project (Meridia)\Education Templates.zip | docs/clients/turner/letters/Education Templates.zip | collateral | template bundle |
+| ~\Dropbox\Meridia_Ingestion\Eden Crown Systems - Master Architecture\03_Systemic Review\Claude Project (Meridia)\Letters.zip | docs/clients/turner/letters/Letters.zip | collateral | letter template bundle |
+| ~\Dropbox\Turner\Lilly\Lilly Endowment Team.docx | docs/clients/turner/lilly/2026-05-16-lilly-endowment-team.docx | collateral |  |
+| ~\Dropbox\Turner\Lilly\Lilly Endowment Team.pdf | docs/clients/turner/lilly/2026-05-16-lilly-endowment-team.pdf | collateral |  |
+| ~\Downloads\Lilly Foundation\Lilly Foundation\Narrative Draft\Lilly Grant Proposal - The Turner Model - Integrated Christian Practices Initiative.docx | docs/clients/turner/lilly/2026-05-16-lilly-grant-proposal-the-turner-model-integrated-christian-practices-initiative.docx | collateral |  |
+| ~\Dropbox\Turner\Lilly\The Budget Philosophy.docx | docs/clients/turner/lilly/2026-05-16-the-budget-philosophy.docx | collateral |  |
+| ~\Dropbox\Turner\Lilly\Turner_Lilly_Budget_2026.xlsx | docs/clients/turner/lilly/2026-05-16-turner-lilly-budget-2026.xlsx | collateral |  |
+| ~\Dropbox\Turner\Lilly\Turner_Lilly_Budget_Narrative_2026.docx | docs/clients/turner/lilly/2026-05-16-turner-lilly-budget-narrative-2026.docx | collateral |  |
+| ~\Dropbox\Turner\Lilly\Official Request Letter - Lilly Endowment Grant.docx | docs/clients/turner/lilly/2026-05-17-official-request-letter-lilly-endowment-grant.docx | collateral |  |
+| ~\Dropbox\Turner\Lilly\Official Request Letter - Lilly Endowment Grant.pdf | docs/clients/turner/lilly/2026-05-17-official-request-letter-lilly-endowment-grant.pdf | collateral |  |
+| ~\Downloads\Budget Narrative - The Turner Model.xlsx - Budget Narrative.pdf | docs/clients/turner/lilly/2026-05-18-budget-narrative-the-turner-model.xlsx-budget-narrative.pdf | collateral |  |
+| ~\Downloads\Information Form - Turner Theological Seminary (1).pdf | docs/clients/turner/lilly/2026-05-18-information-form-turner-theological-seminary-1.pdf | collateral |  |
+| ~\Downloads\Line Item Budget - The Turner Model.xlsx - Line-Item Budget.pdf | docs/clients/turner/lilly/2026-05-18-line-item-budget-the-turner-model.xlsx-line-item-budget.pdf | collateral |  |
+| ~\Downloads\Summary Budget - The Turner Model.xlsx - Summary Budget.pdf | docs/clients/turner/lilly/2026-05-18-summary-budget-the-turner-model.xlsx-summary-budget.pdf | collateral |  |
+| ~\Downloads\The Turner Model - Budget Summary.xlsx | docs/clients/turner/lilly/2026-05-18-the-turner-model-budget-summary.xlsx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_Budget_2026_OPTION1.xlsx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-budget-2026-option1.xlsx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_Budget_2026_REVISED.xlsx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-budget-2026-revised.xlsx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_Budget_Narrative_2026_REVISED.docx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-budget-narrative-2026-revised.docx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_Budget_Narrative_OPTION1.docx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-budget-narrative-option1.docx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_Submission_Index.html | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-submission-index.html | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_Summary_Budget_Onepage.html | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-summary-budget-onepage.html | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Lilly_What_Changed_OPTION1.docx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-lilly-what-changed-option1.docx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Turner_Proposal_Narrative_Outline.docx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-proposal-narrative-outline.docx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Budget Revisions Suggestions\Turner_Rebuilt_Budget_Formatted.xlsx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-rebuilt-budget-formatted.xlsx | collateral |  |
+| ~\Downloads\Lilly Endowment RFP - Exploring Christian Practices Initiative (1)\Revised Budget Package\Budget Revisions Suggestions\Turner_Revised_Budget_Narrative.docx | docs/clients/turner/lilly/revised-budget-package/2026-05-16-turner-revised-budget-narrative.docx | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 1\Option_1_Summary_Budget_standalone.html | docs/clients/turner/lilly/submission-package/option-1/2026-05-16-option-1-summary-budget-standalone.html | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 1\Option_1_What_Changed_standalone.html | docs/clients/turner/lilly/submission-package/option-1/2026-05-16-option-1-what-changed-standalone.html | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 1\Turner_Lilly_Budget_2026_OPTION1.xlsx | docs/clients/turner/lilly/submission-package/option-1/2026-05-16-turner-lilly-budget-2026-option1.xlsx | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 1\Turner_Lilly_Budget_Narrative_OPTION1.docx | docs/clients/turner/lilly/submission-package/option-1/2026-05-16-turner-lilly-budget-narrative-option1.docx | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 1\Turner_Lilly_What_Changed_OPTION1.docx | docs/clients/turner/lilly/submission-package/option-1/2026-05-16-turner-lilly-what-changed-option1.docx | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 2\Option_2_Strategy_Memo_standalone.html | docs/clients/turner/lilly/submission-package/option-2/2026-05-16-option-2-strategy-memo-standalone.html | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 2\Option_2_Summary_Budget_standalone.html | docs/clients/turner/lilly/submission-package/option-2/2026-05-16-option-2-summary-budget-standalone.html | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 2\Turner_Lilly_Budget_2026_OPTION2.xlsx | docs/clients/turner/lilly/submission-package/option-2/2026-05-16-turner-lilly-budget-2026-option2.xlsx | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 2\Turner_Lilly_Budget_Narrative_OPTION2.docx | docs/clients/turner/lilly/submission-package/option-2/2026-05-16-turner-lilly-budget-narrative-option2.docx | collateral |  |
+| ~\Downloads\Turner_Lilly_Submission_Package\Option 2\Turner_Lilly_Strategy_Memo_OPTION2.docx | docs/clients/turner/lilly/submission-package/option-2/2026-05-16-turner-lilly-strategy-memo-option2.docx | collateral |  |
+| ~\Dropbox\Turner\Institutional Manuals\Appraisal - Part 1.docx | docs/clients/turner/manuals/2026-04-21-appraisal-part-1.docx | report |  |
+| ~\Dropbox\Turner\Institutional Manuals\Appraisal - Part 2.docx | docs/clients/turner/manuals/2026-04-21-appraisal-part-2.docx | report |  |
+| ~\Dropbox\Turner\Institutional Manuals\Appraisal - Part 3.docx | docs/clients/turner/manuals/2026-04-21-appraisal-part-3.docx | report |  |
+| ~\Dropbox\Turner\Institutional Manuals\Facilities Manual.docx | docs/clients/turner/manuals/2026-04-21-facilities-manual.docx | report |  |
+| ~\Dropbox\Turner\Institutional Manuals\Operational Manual.docx | docs/clients/turner/manuals/2026-04-21-operational-manual.docx | report |  |
+| ~\Dropbox\Turner\Institutional Manuals\Financial Policy.docx | docs/clients/turner/manuals/2026-04-29-financial-policy.docx | report |  |
+| ~\Dropbox\Meridia\files\TTS_State_of_Institution_Financial_Report.pptx | docs/clients/turner/presentations/2026-03-01-tts-state-of-institution-financial-report.pptx | report |  |
+| ~\Dropbox\Meridia\Turner State of Institution FY2025 Audit.pptx | docs/clients/turner/presentations/2026-03-18-turner-state-of-institution-fy2025-audit.pptx | report |  |
+| ~\Dropbox\Turner\files\TTS_5Year_Budget_Overview.pptx | docs/clients/turner/presentations/2026-04-08-tts-5year-budget-overview.pptx | report |  |
+| ~\Dropbox\Turner\files\TTS_Audit_Summary_April_2026.pptx | docs/clients/turner/presentations/2026-04-08-tts-audit-summary-april-2026.pptx | report |  |
+| ~\Dropbox\Turner\files\TTS_Board_Report_April_2026.pptx | docs/clients/turner/presentations/2026-04-08-tts-board-report-april-2026.pptx | report |  |
+| ~\Dropbox\Turner\files\TTS_Housing_Transition_April_2026.pptx | docs/clients/turner/presentations/2026-04-08-tts-housing-transition-april-2026.pptx | report |  |
+| ~\Dropbox\Turner\files\TTS_State_of_Institution_April_2026.pptx | docs/clients/turner/presentations/2026-04-08-tts-state-of-institution-april-2026.pptx | report |  |
+| ~\Dropbox\Turner\President Reports\Board Meeting\President's April 2026 Board of Trustees Report.pdf | docs/clients/turner/presentations/2026-04-26-presidents-april-2026-board-of-trustees-report.pdf | report | large .docx source versions left in Dropbox |
+| ~\Dropbox\Turner\President Reports\Board Meeting\TTS FY2025 Audited Financial Presentation — Board of Trustees April 2026.pdf | docs/clients/turner/presentations/2026-04-26-tts-fy2025-audited-financial-presentation-board-of-trustees-april-2026.pdf | report |  |
+| ~\Dropbox\Turner\President Reports\Board Meeting\TTS_FY2025_Audit_Talking_Points.docx | docs/clients/turner/presentations/2026-04-27-tts-fy2025-audit-talking-points.docx | report |  |
+| ~\Dropbox\Claude\tts_authnet_reporting.py | docs/clients/turner/tools/tts_authnet_reporting.py | spec | Authorize.net reporting script for TTS |
+
+### Left behind (grouped)
+
+- **Meridia_Ingestion\Turner Theological Seminary\* (~2,950 files)** — The seminary's institutional records: Accounting, Gusto payroll, QuickBooks, Investment Statements, Audit workpapers, Accreditation (SACS/TRACS), Advancement, Facilities, CTB, WPG, Pinnacle, PayPal/CashApp/Amazon records, board minutes, weekly task sheets. Client operational data — does not belong in a product repo a collaborator may access.
+- **Dropbox\Turner\TTS Grant-It\* (557 files)** — Grant-search result dumps; data corpus, not work product.
+- **Dropbox\Turner\Facilities, Student Accounts, Branding Concepts (Clothing), G6 BOT Minutes, SACSCOC, Security Reports, Business & Finance, Financial Reports (~610 files)** — Client operational records, raw student account data, board minutes, merch concepts.
+- **Dropbox\Turner\President Reports remainder (~35 files)** — Working spreadsheets (budget v actuals), invoices, hotel proposal, SACSCOC budgets, superseded Phase III revisions (v2/v3, prior multi-file PDFs), and 27–31 MB .docx source versions of the migrated board-report PDF.
+- **Dropbox\Turner\Artifacts\* (16 files)** — Raw logo PNGs and presidential portraits — client brand assets; the Brand Guide PDF was migrated instead.
+- **Grants: W-9, duplicate/unexecuted form copies (~7 files)** — W-9 contains TIN (sensitive, never committed); earlier unexecuted versions superseded by executed copies.
+- **Downloads: duplicate Lilly RFP folder variants, Capital Campaign asset/upload duplicates, copier scans, chart of accounts (~95 files)** — Three duplicate copies of the same Revised Budget Package; logo/design dups of files migrated from canonical locations; raw client records.
+- **Dropbox\Meridia: Spring 2026 Gammon President's Report.pdf** — Gammon is a different seminary — not Turner, not ASAM. Question to close: is Gammon a second client engagement?
+

@@ -47,3 +47,23 @@ Largest line: 50000 Salaries & Wages $356,431.60 (~44%). NOTE: the saved P&L sna
 ## Phasing
 - Live now: cash, A/R (GL), working capital, current ratio; R-14/CFI trend (annual).
 - Phase 1: fiscal-year P&L pull → net tuition, discount rate, days-cash, expense ratios; A/R aging after reconciliation; budget feed; continuous CFI from mapped inputs; Gusto payroll.
+
+## 2026-06-21 — fiscal-year P&L update (FY26-to-date, 2025-07-01 → 2026-06-20)
+
+Re-pulled the P&L on Turner's fiscal year (ends June 30) to settle the calendar-YTD flags.
+
+**Net tuition & discount rate — the ~93% was REAL** (≈ **90%** on the fiscal year; it's the actual model, not an artifact).
+- Gross tuition & fees ≈ **$840,765** — Graduate/MDiv $708,380; Continuing Ed $82,307 (CIT $49,832, LLMV $14,175, CWJ $18,000); Comprehensive fees $50,028 (Technology $25,200, Admin $12,600, etc.).
+- Institutional aid (40007-01) = **−$753,800** — President's ELEV8 Scholarship (MDiv) −$597,400; Rufus Lee Memorial −$111,150; President's Global ELEV8 (CIT/Other) −$45,250.
+- **Net tuition & fees (40002-01) = $87,140 → discount rate ≈ 90%** (753,800 ÷ 840,765), driven by the President's ELEV8 Scholarship. Tuition is almost entirely scholarshipped — a real, headline institutional metric; belongs on the President's view, clearly labeled.
+
+**Auxiliary is the dominant revenue (~$1.90M fiscal-YTD); housing rentals (41064-01) = $1,246,954.** The $83,800 seen earlier was only the Jan–Jun slice. Total income (gross profit) = $2,538,561 fiscal-YTD. Auxiliary is inflated by pass-throughs (CORT furniture lease 41069 = $228,366 in/out).
+
+**Housing GL crosswalk — confirmed broken.** Populi room plans post to "40005-01 Auxiliary Enterprise Revenue", but in QBO **40005-01 = "Tuition – Special Programs"** (a tuition account; $50 fiscal-YTD). Housing belongs in **41064-01**. The Populi GL code must be corrected to 41064-01 or housing will mis-post to a tuition line.
+
+**Days-cash still needs the Controller's call.** Cash is genuinely tight ($12,804; working capital −$541K), but a clean "days cash on hand" needs operating expense NET of pass-throughs (CORT furniture, housing re-bills); on gross expense it would understate liquidity. Define the opex basis and it can be computed.
+
+**Open for the Controller:**
+1. Operating-expense basis for days-cash (net of CORT/housing pass-throughs?).
+2. 41066-01 "Housing Rentals – Noncompliance" $402,725 — real, or a posting to review?
+3. Fix the Populi housing GL: 40005-01 (a QBO *tuition* account) → 41064-01.

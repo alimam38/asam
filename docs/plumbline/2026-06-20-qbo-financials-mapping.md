@@ -67,3 +67,6 @@ Re-pulled the P&L on Turner's fiscal year (ends June 30) to settle the calendar-
 1. Operating-expense basis for days-cash (net of CORT/housing pass-throughs?).
 2. 41066-01 "Housing Rentals – Noncompliance" $402,725 — real, or a posting to review?
 3. Fix the Populi housing GL: 40005-01 (a QBO *tuition* account) → 41064-01.
+
+## 2026-06-21 — RESOLVED: housing GL crosswalk
+Populi account id 5 renamed in the UI to **"41064-01 Auxiliary Enterprise Revenue - Housing Rentals"** — now matches QBO 41064-01 on BOTH number and name (verified via the API). The 40005-01 collision with QBO "Tuition - Special Programs" is gone; housing reconciles cleanly. (Earlier references to "40005-01" in the FY26 revenue workbook and the populi-billing-extract README are now historical; the extract reads the live account name, so it auto-reflects the new label.)

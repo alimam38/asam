@@ -16,12 +16,14 @@ Revenue logic (verified against the live API 2026-06-21):
   - Scholarship/contra accounts (booked as liabilities in Populi) are included so
     you see gross vs. aid, mirroring the QBO workbook.
 
-Run where the Populi token lives (same env as the populi-connector):
+Setup: copy .env.example -> .env and put your key in POPULI_API_KEY (the script
+  auto-loads .env). Or pass it inline:
   POPULI_API_KEY=sk_xxx POPULI_SCHOOL=turnerseminary python extract.py
+  See README.md — the recommended path is to run this from Claude Code.
 Optional env: POPULI_BASE_URL, POPULI_FY_START (default 2025-07-01),
               POPULI_FY_END (default 2026-06-30), OUT (default populi-revenue-by-account.xlsx)
 
-Deps:  pip install httpx openpyxl
+Deps:  pip install -r requirements.txt   (httpx, openpyxl, python-dotenv)
 """
 import os, sys, time, datetime as dt
 from collections import defaultdict
@@ -29,6 +31,15 @@ import httpx
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 from openpyxl.utils import get_column_letter
+
+# Load a local .env (this script's own folder) if python-dotenv is installed, so the
+# Populi key never has to be typed at the prompt. Real environment variables still take
+# precedence, and the script still works if python-dotenv isn't present.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+except ImportError:
+    pass
 
 KEY = os.environ.get("POPULI_API_KEY", "").strip()
 BASE = os.environ.get("POPULI_BASE_URL", "").strip().rstrip("/")

@@ -1,6 +1,6 @@
 # STATUS — KSW
 
-**State:** ⚪ [?] Status unknown
+**State:** 🟡 Dormant — needs to be worked through and scoped (Ali, 2026-07-02)
 **Last reviewed:** 2026-07-02
 
 ## Where things live in this repo
@@ -8,7 +8,4 @@
 - Code: `src/ksw/circle_of_fifths.jsx`
 
 ## Open decisions
-- [?] What is KSW's current state and does it stay tracked?
-
-## Next action
-- One-line answer from Ali; then this file gets real content or an ARCHIVED mark.
+- Answered 2026-07-02: **dormant, stays tracked** — but it needs a scoping session to define what KSW is g

@@ -1,6 +1,6 @@
 # STATUS — Eden Crown / SentiArch
 
-**State:** 🟡 [?] Deep spec archive; live status unknown
+**State:** 🟡 Deep spec archive; disposition needs a review session (Ali, 2026-07-02)
 **Last reviewed:** 2026-07-02
 
 ## Where things live in this repo
@@ -8,7 +8,4 @@
 - Reviews: `docs/eden-crown/systemic-review/` (multi-model review rounds, human adjudication memorandum)
 
 ## Open decisions
-- [?] Live initiative, reference architecture feeding AIA, or archive?
-
-## Next action
-- Classify: ACTIVE / REFERENCE / ARCHIVED.
+- Reviewed with Ali 2026-07-02: classification (ACTIVE / REFERENCE / ARCHIVED) **needs a review sessi

@@ -16,7 +16,7 @@
 - Target: one source of truth before **August** for SACSCOC/TRACS/ATS.
 
 ## Open decisions
-- [?] How much of the president-view prototype carries into the real Next.js build vs. rebuild clean.
+- How much of the president-view prototype carries into the real Next.js build vs. rebuild clean — **decide at the first build session** (deferred 2026-07-02).
 
 ## Next action
-- [?] Confirm whether any TypeScript build code exists beyond the probes/prototypes; if not, first build session against `spec-v2.md`.
+- Confirmed 2026-07-02: **no TypeScript build code exists** beyond the prob

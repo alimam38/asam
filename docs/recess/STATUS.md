@@ -14,7 +14,4 @@
 - Live governance constraints: FERPA discipline; conflict-of-interest optics.
 
 ## Open decisions
-- [?] Current pilot status heading into the 2026–27 school year.
-
-## Next action
-- [?] Confirm summer/fall pilot plan.
+- Confirmed 2026-07-02: **no confirmed pilot plan** for 2026–27 yet — awaiting a dedicated working session to define 

@@ -13,7 +13,4 @@
 - Jan 2026 architecture work; Index8 lineage continued into `src/meridia/integra-core/`.
 
 ## Open decisions
-- [?] Is Aegis a live initiative or absorbed into Meridia/integra-core? If absorbed, mark ARCHIVED here and stop tracking.
-
-## Next action
-- Answer the one question above.
+- Reviewed with Ali 2026-07-02: the live-vs-absorbed question **needs a dedicated working session** — not answerable in one line; the outcome must be worked through and r

@@ -11,9 +11,9 @@
 ## Active items
 | Item | State | Note |
 |---|---|---|
-| FY-end QuickBooks review / 3-way reconciliation (QB vs bank vs Givelify/Authorize.net) | 🟢 [?] | Diagnosing unapplied-transaction pattern. Status as of July? |
-| Talbot Hall — Populi Campus Life build | 🔴 | Blocked on physical room list. Did the Cowork session run? [?] |
-| Talbot Hall — Excel housing tracker | ✅ [?] | Seven-sheet governed workbook delivered; confirm in use |
+| FY-end QuickBooks review / 3-way reconciliation (QB vs bank vs Givelify/Authorize.net) | 🟡 | **Paused** as of 2026-07-02 (unapplied-transaction diagnosis incomplete). Pick a resume date or hand off. |
+| Talbot Hall — Populi Campus Life build | 🟡 | Cowork session **ran partially** (2026-07-02). Next: audit Populi to establish which chain steps are done (rooms → terms → rates → invoices → cohort flag), then finish. |
+| Talbot Hall — Excel housing tracker | 🟡 | Delivered and in use, but **needs revision** (2026-07-02; scope TBD). |
 | Grant mgmt & proposal assembly system | 🟡 | Designed (Kindora + Granted connectors); not built |
 
 ## Decommission (sunset / transfer / keep)
@@ -24,7 +24,4 @@ Decision made: controlled decommission with written notice; some builds retained
 
 ## Open decisions
 1. Classify all delivered items with dates.
-2. Which builds are retained privately as proof cases (and confirm nothing confidential travels with them).
-
-## Next action
-- Draft the classification table; then the written notice.
+2. Which builds a

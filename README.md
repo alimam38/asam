@@ -9,7 +9,7 @@ ASAM (Hebrew: storehouse — divine provision and blessing) is the umbrella prod
 | Meridia | Financial-data intelligence work; an ingestion/wiring prototype (`integra-wiring`, Python/FastAPI) exists. Defining question: what is Meridia's deliverable product, beyond the prototype? |
 | Waypoint | Not yet defined in this repo. Defining question: what does Waypoint do, for whom, in one sentence? |
 | Aegis | Not yet defined in this repo. Defining question: what does Aegis do, for whom, in one sentence? |
-| Recess | Not yet defined in this repo. Defining question: what does Recess do, for whom, in one sentence? |
+| Recess | **Bilateral Governed Learning Framework** (Meridia Holdings LLC) — a governance architecture that develops a human learner *and* the AI system simultaneously, both assessed, corrected, and documented. Human side deploys to K-12 as Crown's Eye; the enterprise AI-governance side ("Recess for AI") is the licensable product. Spec: `specs/recess/2026-05-24-recess-framework-package-2026.docx`. Operative governance spine (Correction Ledger + Architectural State Graph) running at `src/recess/governance/`. |
 | Kingdom Soundworks (KSW) | Not yet defined in this repo. Defining question: what does KSW do, for whom, in one sentence? |
 
 ## Current status

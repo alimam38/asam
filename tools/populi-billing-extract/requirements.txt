@@ -1,0 +1,3 @@
+httpx
+openpyxl
+python-dotenv

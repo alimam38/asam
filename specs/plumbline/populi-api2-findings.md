@@ -46,3 +46,22 @@ The full admissions funnel — inquiry → lead → application → enrollment �
 - `courseofferings` with `academic_term_id` (course outcomes / DFW KPIs).
 - Custom fields route name (taxonomies for survey/goal tagging).
 - Aid/awards route name.
+
+## 2026-06-20 — additional verified routes (Campus Life + admissions lifecycle)
+
+Probed live against `turnerseminary.populiweb.com` through the production MCP connector
+(`Talbot Hall Management/populi-connector/populi_mcp.py`, bearer token in env). Read-only;
+structures and counts recorded, PII values never.
+
+| Route | HTTP | KPI-relevant fields observed |
+|---|---|---|
+| `campuslife/rooms` (needs `academic_term_id`) | 200 | 48 Talbot rooms; `report_data`: building_name, capacity_used, available, room_plan_name, occupants. Per-term occupancy — feeds Housing/Auxiliary. |
+| `campuslife/students` (needs `academic_term_id`) | 200 | term roster; list `results` = headcount; `report_data`: program_names, room_plan_name, room_name, num_violations, visible_student_id. Headcount + program mix per term, no PII required. |
+| `roomplans` | 200 | room-plan catalog (Private/Shared × Efficiency/Dorm) — housing revenue mapping. |
+| `applications` | 200 | lifecycle fields observed: submitted_at, pending_decision_on, decision_on, confirmed_on, withdrawn_on, plus `status`; `academic_term_id` present on each record (funnel filterable per term, confirmed client-side). |
+
+Notes:
+- `campuslife/rooms.report_data.occupants` carries student names ("id~|~Name"); the President's
+  view renders **aggregates only** and never displays occupant names (FERPA discipline, spec §5).
+- These are the routes behind the 2026-06-20 live President's View prototype
+  (`src/plumbline/prototypes/2026-06-20-president-view-live.html`).

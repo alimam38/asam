@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Charter — Hypomone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1b18; --paper:#faf7f1; --card:#fffdf8; --line:rgba(28,27,24,.14);
+    --muted:#6b6760; --gold:#9a6f2e; --goldsoft:#f0e6cf; --green:#0f6e56; --greensoft:#dcebe4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 20px 96px}
+  .brand{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:.02em;color:var(--gold);font-size:15px;text-transform:uppercase}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:40px;line-height:1.05;margin:8px 0 4px}
+  .lede{color:var(--muted);font-size:15px}
+  .intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:26px 0 8px}
+  .intro p{margin:0 0 12px}.intro p:last-child{margin:0}
+  .sec{margin-top:40px}
+  .sec-h{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:18px}
+  .q{margin:0 0 26px}
+  .q .label{font-size:16px;font-weight:500;margin-bottom:4px}
+  .q .hint{font-size:13px;color:var(--muted);margin-bottom:10px}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:var(--card);transition:border-color .12s,background .12s}
+  .opt:hover{border-color:var(--gold)}
+  .opt input{margin-top:3px;accent-color:var(--gold);width:17px;height:17px;flex:none}
+  .opt.sel{border-color:var(--gold);background:var(--goldsoft)}
+  textarea,input[type=text],input[type=email]{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+  textarea{min-height:90px;resize:vertical}
+  textarea:focus,input:focus,.opt:focus-within{outline:none;border-color:var(--gold)}
+  .grid-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+  .grid-row:last-child{border-bottom:none}
+  .grid-choices{display:flex;gap:6px;flex-wrap:wrap}
+  .pill{font-size:12.5px;padding:6px 11px;border:1px solid var(--line);border-radius:20px;cursor:pointer;white-space:nowrap;background:var(--card)}
+  .pill.sel{background:var(--green);color:#fff;border-color:var(--green)}
+  .consent{display:flex;gap:10px;align-items:flex-start;background:var(--greensoft);border:1px solid rgba(15,110,86,.3);border-radius:10px;padding:13px 15px;font-size:14px;margin-top:10px}
+  .consent input{margin-top:3px;accent-color:var(--green);width:17px;height:17px;flex:none}
+  .note{font-size:13px;color:var(--muted)}
+  .maxnote{font-size:12.5px;color:var(--gold);margin-top:4px}
+  .submit{width:100%;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:.02em;color:#fff;background:var(--ink);border:none;border-radius:12px;padding:16px;cursor:pointer;margin-top:12px}
+  .submit:hover{background:#000}
+  .share{display:flex;gap:8px;margin-top:8px}
+  .share input{flex:1}
+  .share button{font-family:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:0 14px;cursor:pointer}
+  .hidden{display:none}
+  .done{text-align:center;padding:48px 10px}
+  .done h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;margin-bottom:14px}
+  .done p{color:var(--muted);max-width:520px;margin:0 auto 14px}
+  .foot{margin-top:40px;font-size:12px;color:var(--muted);text-align:center}
+  @media(max-width:520px){h1{font-size:32px}.wrap{padding:28px 16px 80px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="form-view">
+    <div class="brand">Hypomone</div>
+    <h1>The Charter</h1>
+    <div class="lede">A founding document — not a pitch, and nothing to buy.</div>
+
+    <div class="intro">
+      <p>You've been invited to help charter something before it exists.</p>
+      <p>We are building a financial institution for operators the conventional system reads poorly — real estate investors, business owners, self-employed and non-traditional earners, and people whose financial lives are real and substantial but don't fit the boxes traditional banks were built around. The federal data names this segment the <em>misbanked</em>, and the data is unambiguous about its size and the structural denial it faces.</p>
+      <p>This is not a pitch and there is nothing to buy. It is a charter — a founding document. Your answers will directly shape what gets built. If, at the end, you would like to be among the charter members of the founding cohort, you will be invited to sign.</p>
+      <p class="note">About 5–7 minutes. Everything you share is held in confidence and reported only in aggregate.</p>
+    </div>
+
+    <form id="charter"><div id="questions"></div>
+      <button type="submit" class="submit">Sign &amp; submit The Charter</button>
+      <div class="note" style="text-align:center;margin-top:10px">Submitting does not create an application for any financial product, and nothing here is an offer of credit.</div>
+    </form>
+  </div>
+
+  <div id="done-view" class="hidden">
+    <div class="done">
+      <div class="brand">Hypomone</div>
+      <h2>Thank you.</h2>
+      <p>You've just helped charter something that doesn't exist yet — which is the point. This is being built with the people it's meant to serve, not for them.</p>
+      <p>If you indicated you'd like to be a charter member, you'll hear directly as the institution takes shape.</p>
+      <p>If you know other operators who belong in this room, The Charter is open to share:</p>
+      <div class="share" style="max-width:440px;margin:14px auto 0">
+        <input type="text" id="share2" readonly>
+        <button type="button" onclick="copyShare('share2')">Copy</button>
+      </div>
+      <p class="note" style="margin-top:28px">A copy of your responses was saved to this device. <a id="dl" href="#" style="color:var(--gold)">Download it</a>.</p>
+    </div>
+  </div>
+
+  <div class="foot">Hypomone · a Meridia institution · The Charter is held in confidence and reported only in aggregate.</div>
+</div>
+
+<script>
+// ── Data ownership: set this to your own collection endpoint (NAS API, Formspree,
+// Google Apps Script, etc.). Responses POST there as JSON. Leave "" to collect
+// locally only (each response is also downloadable). The data is yours either way.
+const SUBMIT_ENDPOINT = "";
+
+const Q = [
+ {s:"I · Recognition"},
+ {id:"q1",t:"multi",label:"Which of these describes you?",hint:"Select all that apply",
+  o:["I own or operate one or more businesses","I invest in real estate (rental, fix-and-flip, development, or hold)","I'm self-employed or independent (consultant, contractor, creative, practitioner)","I earn income through multiple or non-traditional streams","I'm employed traditionally (W-2) and building beyond it","None of these"]},
+ {id:"q2",t:"single",label:"Roughly how would you describe the complexity of your income?",
+  o:["Single, straightforward source","A few sources, manageable","Multiple sources across different structures","Genuinely complex — even my accountant earns their fee"]},
+ {id:"q3",t:"grid",label:"What's your relationship to the following?",cols:["Active","Exploring","Not for me"],
+  rows:["Real estate as an investment vehicle","Owning or growing a business","Building generational or long-term wealth structures"]},
+
+ {s:"II · Experience"},
+ {id:"q4",t:"multi",label:"Have you ever been turned down for, or discouraged from, a financial product you knew you could actually afford?",hint:"Select all that apply",
+  o:["A mortgage or home loan","A business loan or line of credit","A refinance","An investment-property loan","A credit increase","A bank account or relationship","No, never","Not sure — I didn't pursue it because I expected to be turned down"]},
+ {id:"q5",t:"text",optional:true,label:"If yes — what reason were you given, or what did you sense was the real reason?",hint:"Optional"},
+ {id:"q6",t:"single",label:"How well does your current bank actually understand how you make money?",
+  o:["They get it completely","They mostly get it","They don't really get it, but it works","They don't get it at all, and it costs me","I've stopped expecting them to"]},
+ {id:"q7",t:"single",label:"When you think about traditional banks, which comes closest?",
+  o:["They're built for me","They tolerate me","They're built for someone else and I work around them","They actively get in my way"]},
+
+ {s:"III · How you operate"},
+ {id:"q8",t:"single",label:"In a typical year, roughly how much do you move through business or investment-related accounts?",hint:"Ranges, not exact figures",
+  o:["Under $100K","$100K–$500K","$500K–$2M","$2M–$10M","Over $10M","Prefer not to say"]},
+ {id:"q9",t:"multi",label:"Which of these do you currently use or pay for?",hint:"Select all that apply",
+  o:["Business checking / operating accounts","Lines of credit","Credit cards as a primary working-capital tool","Real estate financing","Equipment or vehicle financing","Merchant services / payment processing","Treasury / cash management","Lending to others / private notes","Wealth or investment management"]},
+ {id:"q10",t:"single",label:"How consistently do you meet your financial obligations — loans, notes, accounts payable?",
+  o:["Always on time, often early","Reliably on time","Usually on time","It varies with cash flow"]},
+ {id:"q11",t:"single",label:"Do you believe the institutions you bank with understand the full value of your relationship to them?",
+  o:["Yes","Somewhat","No","I've never thought they did"]},
+
+ {s:"IV · Membership"},
+ {id:"q12",t:"text",optional:true,label:"Imagine an institution built specifically for operators like you. What would make you want to belong to it?"},
+ {id:"q13",t:"top3",label:"Which of these would matter most to you in a financial membership?",hint:"Choose up to 3",
+  o:["Underwriting that reads my actual financial reality","A community of operators at my level","A clear path to qualifying for products I've been shut out of","Education and guidance on building long-term","Transparency about how decisions get made","Access to capital and lending","Recognition that reflects who I actually am","Introductions and deal flow","Tools and technology that respect my time"]},
+ {id:"q14",t:"single",label:"A membership like this would carry a cost to belong. What feels right to you?",
+  o:["I'd want to understand the value before any cost","A modest annual membership makes sense","I'd pay meaningfully for real access and real outcomes","Cost isn't the issue — fit and quality are"]},
+ {id:"q15",t:"text",optional:true,label:"What would make you not trust an institution like this?"},
+
+ {s:"V · The Charter"},
+ {id:"q16",t:"single",label:"Would you like to be considered as a charter member of the founding cohort — the people whose names appear on the institution's founding line?",
+  o:["Yes — keep me close and involved","Yes — keep me informed","Maybe, later","No, I was just sharing my perspective"]},
+ {id:"q17",t:"multi",showIf:"q16:Yes",label:"How would you like to participate?",hint:"Select all that apply",
+  o:["Sign The Charter when it formally opens","Take part in design conversations and feedback sessions","Refer other operators who belong in this cohort","Explore a deeper role as the institution develops"]},
+ {id:"q18",t:"share",optional:true,label:"Who else belongs in this room?",hint:"Names, introductions, or share your link — whatever you're comfortable with"},
+ {id:"q19",t:"contact",label:"Stay connected",hint:"Clearly optional"}
+];
+
+const root=document.getElementById("questions");
+Q.forEach(item=>{
+  if(item.s){const h=document.createElement("div");h.className="sec";h.innerHTML='<div class="sec-h">'+item.s+'</div>';root.appendChild(h);return;}
+  const w=document.createElement("div");w.className="q";w.dataset.qid=item.id;if(item.showIf)w.classList.add("hidden"),w.dataset.showif=item.showIf;
+  let h='<div class="label">'+item.label+'</div>'+(item.hint?'<div class="hint">'+item.hint+'</div>':'');
+  if(item.t==="single"||item.t==="multi"||item.t==="top3"){
+    const inp=item.t==="single"?"radio":"checkbox";
+    item.o.forEach((o,i)=>{h+='<label class="opt"><input type="'+inp+'" name="'+item.id+'" value="'+o.replace(/"/g,'&quot;')+'"><span>'+o+'</span></label>';});
+    if(item.t==="top3")h+='<div class="maxnote" data-max="'+item.id+'">0 of 3 selected</div>';
+  } else if(item.t==="text"){
+    h+='<textarea name="'+item.id+'"></textarea>';
+  } else if(item.t==="grid"){
+    item.rows.forEach((r,ri)=>{h+='<div class="grid-row"><div>'+r+'</div><div class="grid-choices">'+item.cols.map(c=>'<span class="pill" data-grid="'+item.id+'" data-row="'+ri+'" data-val="'+c+'">'+c+'</span>').join("")+'</div></div>';});
+  } else if(item.t==="share"){
+    h+='<textarea name="'+item.id+'" placeholder="Names or introductions (optional)"></textarea><div class="share"><input type="text" id="share1" readonly><button type="button" onclick="copyShare(\'share1\')">Copy my link</button></div>';
+  } else if(item.t==="contact"){
+    h+='<input type="text" name="q19_name" placeholder="Name"><div style="height:8px"></div><input type="email" name="q19_email" placeholder="Email"><div style="height:8px"></div><input type="text" name="q19_work" placeholder="The kind of work you do (optional)">'+
+       '<label class="consent"><input type="checkbox" id="consent"><span>I\'d like to hear what gets built. I understand this is not an application for any financial product, and that nothing here is an offer of credit.</span></label>';
+  }
+  w.innerHTML=h;root.appendChild(w);
+});
+
+// selection styling + single/multi/top3 behavior
+root.addEventListener("change",e=>{
+  const t=e.target;
+  if(t.type==="radio"){document.getElementsByName(t.name).forEach(x=>x.closest(".opt").classList.toggle("sel",x.checked));evalShow();}
+  if(t.type==="checkbox"&&t.closest(".q")){
+    const q=t.closest(".q");
+    if(q.querySelector(".maxnote")){ // top3
+      const boxes=[...q.querySelectorAll("input[type=checkbox]")],sel=boxes.filter(b=>b.checked);
+      if(sel.length>3){t.checked=false;}
+      const n=q.querySelectorAll("input:checked").length;q.querySelector(".maxnote").textContent=n+" of 3 selected";
+    }
+    if(t.closest(".opt"))t.closest(".opt").classList.toggle("sel",t.checked);
+  }
+});
+document.getElementsByName=document.getElementsByName; // noop guard
+function evalShow(){
+  document.querySelectorAll("[data-showif]").forEach(w=>{
+    const [qid,val]=w.dataset.showif.split(":");
+    const checked=[...document.querySelectorAll('input[name="'+qid+'"]:checked')].some(x=>x.value.indexOf(val)===0);
+    w.classList.toggle("hidden",!checked);
+  });
+}
+// grid pills
+root.addEventListener("click",e=>{
+  const p=e.target.closest("[data-grid]");if(!p)return;
+  document.querySelectorAll('[data-grid="'+p.dataset.grid+'"][data-row="'+p.dataset.row+'"]').forEach(x=>x.classList.remove("sel"));
+  p.classList.add("sel");
+});
+
+// share links
+const RID = (crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()).slice(0,8);
+const base = location.origin+location.pathname;
+const myLink = base+"?ref="+RID;
+const s1=document.getElementById("share1"); if(s1)s1.value=myLink;
+function copyShare(id){const el=document.getElementById(id);el.select();try{navigator.clipboard.writeText(el.value)}catch(e){document.execCommand("copy")}el.nextElementSibling&&(el.nextElementSibling.textContent="Copied");}
+window.copyShare=copyShare;
+
+// submit
+document.getElementById("charter").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const ans={};
+  Q.forEach(it=>{if(!it.id)return;
+    if(it.t==="single"){const c=document.querySelector('input[name="'+it.id+'"]:checked');ans[it.id]=c?c.value:null;}
+    else if(it.t==="multi"||it.t==="top3"){ans[it.id]=[...document.querySelectorAll('input[name="'+it.id+'"]:checked')].map(x=>x.value);}
+    else if(it.t==="text"||it.t==="share"){const ta=document.querySelector('textarea[name="'+it.id+'"]');ans[it.id]=ta?ta.value.trim():"";}
+    else if(it.t==="grid"){ans[it.id]={};document.querySelectorAll('[data-grid="'+it.id+'"].sel').forEach(p=>{ans[it.id][it.rows[p.dataset.row]]=p.dataset.val;});}
+    else if(it.t==="contact"){ans.q19={name:val("q19_name"),email:val("q19_email"),work:val("q19_work"),consent:document.getElementById("consent").checked};}
+  });
+  const payload={id:RID,submitted_at:new Date().toISOString(),referred_by:new URLSearchParams(location.search).get("ref")||null,instrument:"The Charter v2",answers:ans};
+  if(SUBMIT_ENDPOINT){try{await fetch(SUBMIT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});}catch(err){console.warn("submit failed, kept local",err);}}
+  // local copy (data ownership)
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);const dl=document.getElementById("dl");dl.href=url;dl.download="charter-response-"+RID+".json";
+  try{localStorage.setItem("charter_"+RID,JSON.stringify(payload));}catch(e){}
+  document.getElementById("share2").value=myLink;
+  document.getElementById("form-view").classList.add("hidden");
+  document.getElementById("done-view").classList.remove("hidden");
+  try{window.scrollTo(0,0);}catch(e){}
+});
+function val(n){const el=document.querySelector('[name="'+n+'"]');return el?el.value.trim():"";}
+</script>
+</body>
+</html>

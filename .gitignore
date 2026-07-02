@@ -8,6 +8,8 @@ desktop.ini
 # Secrets and credentials
 .env
 .env.*
+!.env.example
+!**/.env.example
 *.pem
 *.key
 *credentials*
@@ -36,3 +38,12 @@ docker-compose.override.yml
 *.log
 *.tmp
 ~$*
+
+# Live client financials — keep in the Dropbox finance lane, never in git
+tools/populi-billing-extract/*.xlsx
+
+# Local working archive - client financials, student data, proprietary docs. Never in git.
+Open Items/*
+!Open Items/Claude Workspace/
+Open Items/Claude Workspace/*
+!Open Items/Claude Workspace/SWEEP.md

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plumbline — President's View</title>
+<style>
+  :root{
+    color-scheme: light;
+    --ink:#1d1b26; --muted:#6b6878; --line:#e7e5ee; --bg:#f6f5fa; --card:#ffffff;
+    --purple:#4b2e83; --purple-soft:#efe9f8; --gold:#b8902f; --gold-soft:#f6efda;
+    --green:#1f7a4d; --green-soft:#e4f3ea; --amber:#9a6b12; --amber-soft:#f8efd9;
+    --red:#a5342b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:22px 20px 60px;}
+  /* header */
+  .top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px;}
+  .brand{display:flex;align-items:center;gap:13px}
+  .mark{width:42px;height:42px;border-radius:10px;background:var(--purple);color:#fff;flex:none;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;
+    box-shadow:0 1px 0 rgba(0,0,0,.04)}
+  .mark span{display:block;width:3px;height:22px;background:var(--gold);border-radius:2px}
+  h1{margin:0;font-size:19px;letter-spacing:-.2px}
+  .sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .stamp{text-align:right;font-size:12px;color:var(--muted)}
+  .stamp .live{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-weight:600}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;
+    animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .pill{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;letter-spacing:.3px;
+    text-transform:uppercase;color:var(--purple);background:var(--purple-soft);
+    padding:3px 9px;border-radius:999px}
+  /* kpi row */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+  .kpi .lab{font-size:12px;color:var(--muted);font-weight:600}
+  .kpi .val{font-size:30px;font-weight:700;letter-spacing:-.5px;margin-top:6px;line-height:1}
+  .kpi .meta{font-size:12px;color:var(--muted);margin-top:7px;min-height:16px}
+  .up{color:var(--green);font-weight:600}.down{color:var(--red);font-weight:600}.flat{color:var(--muted)}
+  /* sections */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 17px}
+  .panel h2{margin:0 0 2px;font-size:15px}
+  .panel .note{font-size:12px;color:var(--muted);margin:0 0 14px}
+  /* funnel / bars */
+  .row{display:flex;align-items:center;gap:10px;margin:9px 0}
+  .row .name{width:118px;flex:none;font-size:13px;color:var(--ink)}
+  .track{flex:1;background:#f0eef6;border-radius:7px;height:22px;overflow:hidden;position:relative}
+  .fill{height:100%;border-radius:7px;background:var(--purple);min-width:2px;
+    transition:width .6s cubic-bezier(.2,.7,.2,1)}
+  .fill.gold{background:var(--gold)} .fill.green{background:var(--green)}
+  .row .num{width:42px;flex:none;text-align:right;font-variant-numeric:tabular-nums;
+    font-weight:600;font-size:13px}
+  .occ-big{display:flex;align-items:baseline;gap:10px;margin:2px 0 12px}
+  .occ-big b{font-size:34px;letter-spacing:-.5px}
+  .occ-big small{color:var(--muted);font-size:13px}
+  /* program mix chips */
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+  .chip{font-size:12px;background:var(--purple-soft);color:var(--purple);
+    border-radius:999px;padding:4px 10px;font-weight:600}
+  .chip b{font-weight:700}
+  /* pending modules */
+  .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  .mod{background:var(--card);border:1px dashed #d9d5e6;border-radius:14px;padding:14px 15px}
+  .mod h3{margin:0 0 4px;font-size:13.5px}
+  .mod p{margin:0;font-size:12px;color:var(--muted)}
+  .tag{display:inline-block;margin-top:9px;font-size:10.5px;font-weight:700;letter-spacing:.3px;
+    text-transform:uppercase;border-radius:999px;padding:3px 8px}
+  .tag.pend{color:var(--amber);background:var(--amber-soft)}
+  .tag.live{color:var(--green);background:var(--green-soft)}
+  .sectlab{font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+    color:var(--muted);margin:26px 2px 2px}
+  /* footer */
+  footer{margin-top:26px;border-top:1px solid var(--line);padding-top:14px;
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink)}
+  .err{color:var(--red);font-size:13px}
+  .loading{color:var(--muted);font-size:13px}
+  @media(max-width:760px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .grid{grid-template-columns:1fr}
+    .mods{grid-template-columns:1fr}
+    .stamp{text-align:left}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <div class="mark"><span></span></div>
+      <div>
+        <h1>Plumbline — President's View</h1>
+        <div class="sub">Turner Theological Seminary · executive intelligence over Populi</div>
+        <div class="pill">Phase 0 prototype</div>
+      </div>
+    </div>
+    <div class="stamp">
+      <div class="live"><span class="dot"></span> Live from Populi</div>
+      <div id="asof" style="margin-top:6px">loading…</div>
+      <div id="term" style="margin-top:3px"></div>
+    </div>
+  </div>
+
+  <div class="kpis" id="kpis">
+    <div class="kpi"><div class="lab">Headcount</div><div class="val" id="k-head">—</div><div class="meta" id="k-head-m">loading…</div></div>
+    <div class="kpi"><div class="lab">Applications</div><div class="val" id="k-app">—</div><div class="meta" id="k-app-m"></div></div>
+    <div class="kpi"><div class="lab">Housing occupancy</div><div class="val" id="k-occ">—</div><div class="meta" id="k-occ-m"></div></div>
+    <div class="kpi"><div class="lab">Housing revenue</div><div class="val" id="k-rev">—</div><div class="meta" id="k-rev-m"></div></div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h2>Admissions funnel</h2>
+      <p class="note" id="adm-note">Application lifecycle for the incoming term.</p>
+      <div id="adm-body"><div class="loading">loading…</div></div>
+    </div>
+    <div class="panel">
+      <h2>Academics — census</h2>
+      <p class="note" id="acad-note">Headcount and program mix for the current term.</p>
+      <div id="acad-body"><div class="loading">loading…</div></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h2>Housing &amp; auxiliary <span class="tag live" style="vertical-align:middle">Live</span></h2>
+      <p class="note" id="house-note">Talbot Hall — occupancy and auxiliary-enterprise revenue.</p>
+      <div id="house-body"><div class="loading">loading…</div></div>
+    </div>
+    <div class="panel">
+      <h2>Financial position <span class="tag pend" style="vertical-align:middle">Pending QBO</span></h2>
+      <p class="note">Cash days, AR aging, net tuition, discount rate, budget vs. actuals, CFI.</p>
+      <p style="font-size:13px;color:var(--muted);margin:0">
+        Wired to QuickBooks Online + Gusto in <b>Phase 1</b>. Housing revenue above is the
+        live auxiliary slice already flowing through Populi.</p>
+    </div>
+  </div>
+
+  <div class="sectlab">Full executive scope — coming online</div>
+  <div class="mods">
+    <div class="mod">
+      <h3>Scholarships &amp; aid</h3>
+      <p>Aid awarded vs. budget, utilization by fund, average award, net price, over-award flags.</p>
+      <span class="tag pend">Phase 1 · fund ledger</span>
+    </div>
+    <div class="mod">
+      <h3>Strategy &amp; accreditation</h3>
+      <p>Survey scores by goal, targets vs. status, findings → actions, SACSCOC evidence packets.</p>
+      <span class="tag pend">Phase 1 · survey feed</span>
+    </div>
+    <div class="mod">
+      <h3>Executive Brief (PDF)</h3>
+      <p>One-page, board-ready export of every domain — the "walk into the meeting" artifact.</p>
+      <span class="tag pend">Phase 1 · export service</span>
+    </div>
+  </div>
+
+  <footer id="foot">
+    <div><b>Plumbline</b> · Phase 0 prototype · live from <b>Populi API2</b> (turnerseminary).
+    Auxiliary housing revenue posts to GL <b>40005-01 Auxiliary Enterprise Revenue</b>.</div>
+    <div><b>FERPA / PII:</b> aggregates only — no student-level records shown; SSN / alien-registration /
+    social-insurance fields are never requested, displayed, or stored.</div>
+    <div id="foot-defs"></div>
+  </footer>
+</div>
+
+<script>
+const TOOL = 'mcp__populi__populi_request';
+
+function unwrap(r){
+  if(!r) return null;
+  if(r.isError){ throw new Error((r.content&&r.content[0]&&r.content[0].text)||'tool error'); }
+  let d = r.structuredContent;
+  if(d===undefined||d===null){
+    if(r.content&&r.content[0]&&r.content[0].text){ try{ d=JSON.parse(r.content[0].text);}catch(e){ d=r.content[0].text; } }
+    else d=r;
+  }
+  if(d && d.error) throw new Error(d.error);
+  return d;
+}
+async function call(method,path,body){
+  return unwrap(await window.cowork.callMcpTool(TOOL,{method,path,body}));
+}
+const fmtUSD = n => '$'+Math.round(n).toLocaleString('en-US');
+const esc = s => String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function rate(planName){
+  const p=(planName||'');
+  if(/Private Efficiency/i.test(p)) return 7500;
+  if(/Shared Efficiency/i.test(p))  return 6500;
+  if(/Private Dorm/i.test(p))       return 5500;
+  if(/Shared Dorm/i.test(p))        return 4500;
+  return 0;
+}
+function catOf(planName){ return (planName||'').replace(/^.*-\s*/,'').trim() || 'Other'; }
+
+function bar(name,value,max,cls){
+  const pct = max>0 ? Math.max(2, Math.round(value/max*100)) : 2;
+  return `<div class="row"><div class="name">${esc(name)}</div>
+    <div class="track"><div class="fill ${cls||''}" style="width:${pct}%"></div></div>
+    <div class="num">${value.toLocaleString('en-US')}</div></div>`;
+}
+
+function pickTerms(terms){
+  const today=new Date();
+  const std=terms.filter(t=>t.type==='standard');
+  const byStart=[...std].sort((a,b)=>new Date(a.start_date)-new Date(b.start_date));
+  let current=byStart.filter(t=>new Date(t.start_date)<=today && new Date(t.end_date)>=today).pop();
+  if(!current) current=byStart.filter(t=>new Date(t.start_date)<=today).pop()||byStart[byStart.length-1];
+  let focus=byStart.find(t=>new Date(t.start_date)>=today)||current;
+  const lastYear=std.find(t=>t.name===current.name && t.start_year===current.start_year-1)||null;
+  return {current,focus,lastYear};
+}
+
+async function load(){
+  document.getElementById('asof').textContent =
+    'as of '+new Date().toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+
+  let terms;
+  try{ terms=(await call('GET','academicterms',{limit:50})).data; }
+  catch(e){ fail(e); return; }
+  const {current,focus,lastYear}=pickTerms(terms);
+  document.getElementById('term').innerHTML =
+    `current term <b>${esc(current.display_name)}</b> · incoming <b>${esc(focus.display_name)}</b>`;
+
+  const tasks = await Promise.allSettled([
+    call('GET','campuslife/students',{academic_term_id:current.id,limit:200}),                 // 0 current roster
+    lastYear? call('GET','campuslife/students',{academic_term_id:lastYear.id,limit:1}) : Promise.resolve(null), // 1 YoY
+    call('GET','applications',{limit:200}),                                                    // 2 apps
+    call('GET','campuslife/rooms',{academic_term_id:focus.id,limit:200})                       // 3 housing
+  ]);
+  const val = i => tasks[i].status==='fulfilled' ? tasks[i].value : null;
+  const err = i => tasks[i].status==='rejected' ? tasks[i].reason : null;
+
+  renderAcademics(val(0), val(1), err(0), current, lastYear);
+  renderAdmissions(val(2), err(2), focus);
+  renderHousing(val(3), err(3), focus);
+  renderDefs(current, focus, lastYear);
+}
+
+function renderAcademics(roster, yoy, e, current, lastYear){
+  const head = document.getElementById('k-head'), headM=document.getElementById('k-head-m');
+  const body = document.getElementById('acad-body');
+  document.getElementById('acad-note').textContent =
+    'Headcount and program mix · '+current.display_name;
+  if(!roster){ head.textContent='—'; headM.textContent='unavailable';
+    body.innerHTML=`<div class="err">Could not load roster${e?': '+esc(e.message):''}</div>`; return; }
+  const n = roster.results;
+  head.textContent = n.toLocaleString('en-US');
+  // YoY
+  if(yoy && lastYear){
+    const prev=yoy.results, d=n-prev;
+    const cls = d>0?'up':d<0?'down':'flat', sign=d>0?'+':'';
+    const pct = prev>0? Math.round(d/prev*100):0;
+    headM.innerHTML = `<span class="${cls}">${sign}${d} (${sign}${pct}%)</span> vs ${esc(lastYear.display_name)}`;
+  } else { headM.textContent = current.name+' term, per Populi'; }
+  // program mix
+  const mix={};
+  (roster.data||[]).forEach(p=>{
+    const pr=(p.report_data&&p.report_data.program_names)||'—';
+    pr.split(',').map(s=>s.trim()).filter(Boolean).forEach(x=>mix[x]=(mix[x]||0)+1);
+  });
+  const top=Object.entries(mix).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const chips = top.length
+    ? '<div class="chips">'+top.map(([k,v])=>`<span class="chip">${esc(k)} <b>${v}</b></span>`).join('')+'</div>'
+    : '<div class="loading">program mix unavailable</div>';
+  body.innerHTML = `<div class="occ-big"><b>${n}</b><small>students enrolled</small></div>
+     <div style="font-size:12px;color:var(--muted);margin-bottom:6px">By program</div>${chips}`;
+}
+
+function renderAdmissions(apps, e, focus){
+  const k=document.getElementById('k-app'), km=document.getElementById('k-app-m');
+  const body=document.getElementById('adm-body');
+  document.getElementById('adm-note').textContent='Application lifecycle · '+focus.display_name;
+  if(!apps){ k.textContent='—'; km.textContent='unavailable';
+    body.innerHTML=`<div class="err">Could not load applications${e?': '+esc(e.message):''}</div>`; return; }
+  const f=(apps.data||[]).filter(a=>a.academic_term_id===focus.id);
+  const applied=f.length;
+  const inReview=f.filter(a=>a.pending_decision_on && !a.decision_on).length;
+  const decided=f.filter(a=>a.decision_on).length;
+  const confirmed=f.filter(a=>a.confirmed_on).length;
+  const withdrawn=f.filter(a=>a.withdrawn_on).length;
+  k.textContent=applied.toLocaleString('en-US');
+  km.textContent = applied? `${confirmed} confirmed · ${withdrawn} withdrawn` : 'cycle opening';
+  const max=Math.max(applied,1);
+  body.innerHTML =
+    bar('Applications',applied,max,'')+
+    bar('In review',inReview,max,'')+
+    bar('Decided',decided,max,'gold')+
+    bar('Confirmed',confirmed,max,'green')+
+    `<div style="font-size:12px;color:var(--muted);margin-top:10px">
+       Inquiry → lead top-of-funnel joins in Phase 1 (term-scoped).</div>`;
+}
+
+function renderHousing(rooms, e, focus){
+  const kOcc=document.getElementById('k-occ'), kOccM=document.getElementById('k-occ-m');
+  const kRev=document.getElementById('k-rev'), kRevM=document.getElementById('k-rev-m');
+  const body=document.getElementById('house-body');
+  document.getElementById('house-note').textContent='Talbot Hall · '+focus.display_name;
+  if(!rooms){ kOcc.textContent='—'; kRev.textContent='—'; kOccM.textContent='unavailable';
+    body.innerHTML=`<div class="err">Could not load housing${e?': '+esc(e.message):''}</div>`; return; }
+  let beds=0,filled=0,revenue=0; const cat={};
+  (rooms.data||[]).forEach(r=>{
+    const cap=Number(r.capacity)||0;
+    const rd=r.report_data||{};
+    const used=Number(rd.capacity_used)||0;
+    const c=catOf(rd.room_plan_name);
+    beds+=cap; filled+=used; revenue+=used*rate(rd.room_plan_name);
+    cat[c]=cat[c]||{beds:0,filled:0}; cat[c].beds+=cap; cat[c].filled+=used;
+  });
+  const pct = beds? Math.round(filled/beds*100):0;
+  kOcc.textContent=pct+'%'; kOccM.textContent=`${filled} of ${beds} beds`;
+  kRev.textContent=fmtUSD(revenue); kRevM.textContent='pending charges, '+focus.name;
+  const order=['Private Efficiency','Shared Efficiency','Private Dorm','Shared Dorm'];
+  const cats=Object.keys(cat).sort((a,b)=>order.indexOf(a)-order.indexOf(b));
+  const maxBeds=Math.max(...cats.map(c=>cat[c].beds),1);
+  body.innerHTML =
+    `<div class="occ-big"><b>${pct}%</b><small>${filled} of ${beds} beds filled · ${fmtUSD(revenue)} revenue</small></div>
+     <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Beds filled by category</div>`+
+    cats.map(c=>{
+      const v=cat[c].filled, m=cat[c].beds;
+      return `<div class="row"><div class="name">${esc(c)}</div>
+        <div class="track"><div class="fill" style="width:${Math.max(2,Math.round(v/maxBeds*100))}%"></div></div>
+        <div class="num">${v}/${m}</div></div>`;
+    }).join('');
+}
+
+function renderDefs(current,focus,lastYear){
+  document.getElementById('foot-defs').innerHTML =
+    `<b>Definitions:</b> "headcount" = Populi Campus Life term roster (default, pending Registrar sign-off); `+
+    `YoY compares ${esc(current.name)} ${current.start_year+1} to ${lastYear?esc(lastYear.name)+' '+(lastYear.start_year+1):'—'}. `+
+    `Housing rates per the FY26–FY27 master tracker.`;
+}
+
+function fail(e){
+  document.getElementById('asof').textContent='';
+  document.getElementById('kpis').innerHTML =
+    `<div class="panel err" style="grid-column:1/-1">Could not reach the Populi connector: ${esc(e.message||e)}.
+     Open this from Cowork with the <b>populi</b> connector running.</div>`;
+}
+load();
+</script>
+</body>
+</html>

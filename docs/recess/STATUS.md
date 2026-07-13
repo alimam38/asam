@@ -14,4 +14,9 @@
 - Live governance constraints: FERPA discipline; conflict-of-interest optics.
 
 ## Open decisions
-- Confirmed 2026-07-02: **no confirmed pilot plan** for 2026–27 yet — awaiting a dedicated working session to define 
+- Confirmed 2026-07-02: **no confirmed pilot plan** for 2026–27 yet — awaiting a dedicated working session to define the summer/fall pilot plan. (reconstructed)
+
+## Next action
+- Schedule the working session to define the 2026–27 pilot plan. (reconstructed)
+
+<!-- Tail restored 2026-07-13: the 2026-07-02 v0.3 commit truncated this file mid-sentence. Unchanged sections recovered verbatim from commit 31bbb6b4 (v1); sentences v0.3 had rewritten were completed from the v0.3 body itself and are marked (reconstructed). -->

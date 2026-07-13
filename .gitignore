@@ -43,7 +43,14 @@ docker-compose.override.yml
 tools/populi-billing-extract/*.xlsx
 
 # Local working archive - client financials, student data, proprietary docs. Never in git.
+# Exception: Claude Workspace job specs, Context/, and Outputs/ are repo assets the
+# scheduled jobs read and write (Context/ and Outputs/ files were already tracked; the
+# old rules only blocked NEW files there, which stranded every scheduled run's output).
 Open Items/*
 !Open Items/Claude Workspace/
 Open Items/Claude Workspace/*
 !Open Items/Claude Workspace/SWEEP.md
+!Open Items/Claude Workspace/SCHEDULES.md
+!Open Items/Claude Workspace/Daily Curation.md
+!Open Items/Claude Workspace/Context/
+!Open Items/Claude Workspace/Outputs/

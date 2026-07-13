@@ -15,3 +15,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-06-20 — skill-creator evals/benchmarking update — claude.com/blog/improving-skill-creator-test-measure-and-refine-agent-skills (Tier 1)
 2026-06-21 — Git MCP server (official) — github.com/modelcontextprotocol/servers (Tier 1/2)
 2026-06-21 — Postgres MCP servers (pgEdge & YawLabs) — PulseMCP/Glama (Tier 2/3)
+2026-07-13 — Claude Code /dataviz skill — code.claude.com changelog (Tier 1)
+2026-07-13 — Claude Design overhaul (design-system imports + code round-trips) — support.claude.com release notes / VentureBeat (Tier 1)
+2026-07-13 — mcp-server-dev plugin (successor to mcp-builder) — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-07-13 — Claude Code /doctor context-cost audit (unused skills/MCP/plugins) — code.claude.com changelog (Tier 1)
+2026-07-13 — Candid MCP connector + Claude for Nonprofits — candid.org (Tier 1/2)

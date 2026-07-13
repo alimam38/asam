@@ -45,12 +45,14 @@ current free/discounted programs (note the validation each requires), dedupe aga
 Outputs/nonprofit-pricing/seen-index.md, write a dated digest to Outputs/nonprofit-pricing/,
 append to seen-index.md, commit and push.
 
-## (5.) market-scout — TUE + FRI (cron `30 11 * * 2,5`) — Routine `trig_01C7oLgeqFhnzrTju4Aj8kH1` "Market scout"
-Created from Cowork 2026-07-13, outside this file's original four. Still **Dropbox-based**
-(reads /Claude Workspace/Context/market-scout-focus.md, writes Dropbox Outputs/market-scout/).
-Not yet migrated to the repo because its Context/ files exist only in Dropbox. To migrate:
-copy market-scout-focus.md + market-scout-sources.md into repo Context/, then recreate the
-Routine repo-based like jobs 1/3/4.
+## 5. market-scout — TUE + FRI (cron `30 11 * * 2,5`) — Routine `trig_01JJuEhYRTgwMnEJpVpYYi3Z` "Market scout"
+Broader software/AI marketplace scan (added from Cowork 2026-07-13, outside the original
+four; migrated to repo-based later the same day). Read Context/market-scout-focus.md (signal
+vs skip vs output stance) and Context/market-scout-sources.md (GitHub queries, HN Algolia,
+X-with-fallback), lookback since the previous run, dedupe against
+Outputs/market-scout/seen-index.md (created on first run), skip the daily skills scout's
+beat, write a ranked 3–5-pick digest with exactly one "worth a session this week"
+recommendation to Outputs/market-scout/, append to seen-index.md, commit and push.
 
 ---
 
@@ -66,7 +68,11 @@ Status log:
   (old IDs trig_01MBrPipmAVn8EaAZK67VY47, trig_01WgDHsMngeNVHreB6fopELa,
   trig_01SwxMQDodx63N44VGNS3gBJ), and repo-based replacements were created with the same
   names and schedules (IDs above). Sweep Routine kept as-is (already repo-targeting);
-  market-scout kept as-is pending migration of its Context files. The Dropbox
-  /Claude Workspace store is retired for jobs 1–4: do not write scout outputs there.
-- ALL FOUR JOBS LIVE. Next fires: skills-scout daily 11:30 UTC; grants-scout Mon 11:45 UTC;
-  sweep Mon 12:00 UTC; nonprofit-pricing 1st 12:00 UTC.
+  market-scout kept as-is pending migration of its Context files.
+- 2026-07-13 (later still) — market-scout migrated too: its focus/sources files copied from
+  Dropbox into repo Context/, the Dropbox-based Routine deleted (old ID
+  trig_01C7oLgeqFhnzrTju4Aj8kH1) and recreated repo-based (ID above). No Dropbox
+  seen-index existed yet (the first-generation Routine never fired). The Dropbox
+  /Claude Workspace store is now retired for ALL jobs: do not write scout outputs there.
+- ALL FIVE JOBS LIVE. Next fires: skills-scout daily 11:30 UTC; market-scout Tue/Fri
+  11:30 UTC; grants-scout Mon 11:45 UTC; sweep Mon 12:00 UTC; nonprofit-pricing 1st 12:00 UTC.

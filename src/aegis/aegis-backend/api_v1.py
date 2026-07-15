@@ -5,6 +5,8 @@ This module defines all REST API endpoints, implementing the interface
 between the frontend prototype and the mock backend.
 """
 
+from datetime import datetime
+
 from fastapi import APIRouter, HTTPException, Query
 from typing import Optional
 
@@ -40,6 +42,10 @@ from data_generator import (
 
 # Initialize API router
 router = APIRouter(prefix="/api/v1", tags=["aegis"])
+
+# In-memory approval record: alert_id -> time the approval was recorded.
+# Cleared on server restart, like all other mock backend state.
+_alert_approvals: dict = {}
 
 
 # ============================================================================
@@ -175,7 +181,16 @@ async def get_governance_alerts(
     that require human oversight before surfacing insights.
     """
     alerts_response = generate_governance_alerts()
-    
+
+    # Reflect recorded approvals
+    for alert in alerts_response.alerts:
+        if alert.id in _alert_approvals:
+            alert.approved = True
+    alerts_response.total_pending_approval = sum(
+        1 for a in alerts_response.alerts
+        if a.requires_approval and not a.approved
+    )
+
     # Apply filters
     if priority or approved is not None:
         filtered_alerts = alerts_response.alerts
@@ -202,18 +217,26 @@ async def get_governance_alerts(
 async def approve_governance_alert(alert_id: str):
     """
     Approve a governance alert for release.
-    
-    In production, this would:
-    1. Record the approval decision
-    2. Notify all recipients
-    3. Release the insight to authorized parties
-    4. Create an audit trail
+
+    Records the approval decision so subsequent /governance-alerts
+    responses reflect the released state. Approval is idempotent:
+    re-approving returns the original approval timestamp.
+
+    In production, this would additionally notify all recipients
+    and write the decision to a durable audit trail.
     """
-    # Mock approval
+    alerts_response = generate_governance_alerts()
+    alert = next((a for a in alerts_response.alerts if a.id == alert_id), None)
+
+    if not alert:
+        raise HTTPException(status_code=404, detail=f"Governance alert {alert_id} not found")
+
+    approved_at = _alert_approvals.setdefault(alert_id, datetime.now())
+
     return {
         "alert_id": alert_id,
         "status": "approved",
-        "approved_at": "2024-01-20T10:30:00Z",
+        "approved_at": approved_at.isoformat(),
         "message": "Governance approval recorded. Insight released to authorized beneficiaries."
     }
 

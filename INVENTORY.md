@@ -53,4 +53,27 @@ Date: 2026-07-02 (baseline corrected with Ali, 2026-07-02) · Owner: Ali · Stat
 2. **A-item classification (C5):** keep / transfer / retire, with dates, for every Turner deliverable.
 3. **First consulting client** for B6 — who is the discounted reference deployment?
 4. **Patent filing order** — B4 gates everything external.
-5. **Disposition review session (queued 2026-07-02):** three initiatives need a worked-through, recorded outcome rather than a one-line answer — **Aegis** (live vs. absorbed into Meridia/integra-core
+5. **Disposition review session (queued 2026-07-02):** three initiatives need a worked-through, recorded outcome rather than a one-line answer — **Aegis** (live vs. absorbed into Meridia/integra-core), **Eden Crown / SentiArch** (ACTIVE / REFERENCE / ARCHIVED), and **KSW** (dormant, stays tracked — scope what it becomes). (reconstructed)
+
+---
+
+## Where each initiative lives (STATUS.md map)
+
+| Initiative | STATUS file |
+|---|---|
+| Plumbline (A1) | `docs/plumbline/STATUS.md` |
+| Turner client work + decommission (A2–A6, C5) | `docs/clients/turner/STATUS.md` |
+| Meridia / AIA corpus / patents (B1, B4) | `docs/meridia/STATUS.md` |
+| Hypomone (B2) | `docs/asam/hypomone/STATUS.md` |
+| WayPoint suite (B3) | `docs/waypoint/STATUS.md` |
+| Recess (B5) | `docs/recess/STATUS.md` |
+| Agency (B6) | `docs/agency/STATUS.md` |
+| Aegis | `docs/aegis/STATUS.md` |
+| Eden Crown / SentiArch | `docs/eden-crown/STATUS.md` |
+| KSW | `docs/ksw/STATUS.md` |
+| NAS / infra (C4) | `infra/STATUS.md` |
+| Consolidation layer (C1) | this file + `Open Items/Claude Workspace/SWEEP.md` |
+| Gates (C2) | `GATES.md` (root, already exists) |
+| Skill library (C3) | tracked by skills-scout outputs in `Open Items/Claude Workspace/Outputs/skills-scout/` |
+
+<!-- Tail restored 2026-07-13: the 2026-07-02 v0.3 commit truncated this file mid-sentence. Unchanged sections recovered verbatim from commit 31bbb6b4 (v1); sentences v0.3 had rewritten were completed from the v0.3 body itself and are marked (reconstructed). -->

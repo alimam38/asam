@@ -24,4 +24,9 @@ Decision made: controlled decommission with written notice; some builds retained
 
 ## Open decisions
 1. Classify all delivered items with dates.
-2. Which builds a
+2. Which builds are retained privately as proof cases (and confirm nothing confidential travels with them).
+
+## Next action
+- Draft the classification table; then the written notice.
+
+<!-- Tail restored 2026-07-13: the 2026-07-02 v0.3 commit truncated this file mid-sentence. Unchanged sections recovered verbatim from commit 31bbb6b4 (v1); sentences v0.3 had rewritten were completed from the v0.3 body itself and are marked (reconstructed). -->

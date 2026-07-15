@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(date)",
+      "Bash(date *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(git rev-parse *)",
+      "Bash(git fetch *)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git rebase *)",
+      "Bash(mkdir *)",
+      "Bash(curl *)",
+      "WebSearch",
+      "WebFetch",
+      "Edit",
+      "Write",
+      "MultiEdit"
+    ]
+  }
+}

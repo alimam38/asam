@@ -8,4 +8,9 @@
 - Code: `src/ksw/circle_of_fifths.jsx`
 
 ## Open decisions
-- Answered 2026-07-02: **dormant, stays tracked** — but it needs a scoping session to define what KSW is g
+- Answered 2026-07-02: **dormant, stays tracked** — but it needs a scoping session to define what KSW is going to be. (reconstructed)
+
+## Next action
+- Schedule the scoping session (part of the queued 2026-07-02 disposition review). (reconstructed)
+
+<!-- Tail restored 2026-07-13: the 2026-07-02 v0.3 commit truncated this file mid-sentence. Unchanged sections recovered verbatim from commit 31bbb6b4 (v1); sentences v0.3 had rewritten were completed from the v0.3 body itself and are marked (reconstructed). -->

@@ -19,4 +19,6 @@
 - How much of the president-view prototype carries into the real Next.js build vs. rebuild clean — **decide at the first build session** (deferred 2026-07-02).
 
 ## Next action
-- Confirmed 2026-07-02: **no TypeScript build code exists** beyond the prob
+- Confirmed 2026-07-02: **no TypeScript build code exists** beyond the probes/prototypes; next step is the first build session against `specs/plumbline/spec-v2.md`, where the president-view carry-over question is decided. (reconstructed)
+
+<!-- Tail restored 2026-07-13: the 2026-07-02 v0.3 commit truncated this file mid-sentence. Unchanged sections recovered verbatim from commit 31bbb6b4 (v1); sentences v0.3 had rewritten were completed from the v0.3 body itself and are marked (reconstructed). -->

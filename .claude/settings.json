@@ -23,7 +23,11 @@
       "WebFetch",
       "Edit",
       "Write",
-      "MultiEdit"
+      "MultiEdit",
+      "Bash(python -c \"import json,sys; json.load\\(open\\('specs/design/south-atlanta-district/tokens.json'\\)\\); print\\('valid JSON ✓'\\)\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('specs/design/south-atlanta-district/tokens.json'\\)\\);console.log\\('valid JSON ✓'\\)\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('specs/design/south-atlanta-district/tokens.json'\\)\\);console.log\\('tokens.json valid'\\)\")",
+      "Bash(python -c \"import json;json.load\\(open\\('specs/design/south-atlanta-district/tokens.json'\\)\\);print\\('tokens.json valid'\\)\")"
     ]
   }
 }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Atlanta District — Living Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+  /* Style-guide chrome only — the SYSTEM lives in theme.css */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--sad-cream); color: var(--sad-ink);
+         font-family: var(--sad-font-serif); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: var(--sad-space-6) var(--sad-space-4); }
+  section { margin-bottom: var(--sad-space-6); }
+  h2.sad-display { font-size: 30px; color: var(--sad-forest); margin: 0 0 var(--sad-space-3); }
+  .lead { font-size: 15px; max-width: 60ch; color: #3a4a3f; }
+  .grid { display: grid; gap: var(--sad-space-3); }
+  .swatches { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .swatch { border-radius: var(--sad-radius); overflow: hidden; border: 1px solid #e4dcc6; background: #fff; }
+  .chip { height: 88px; }
+  .swatch .meta { padding: var(--sad-space-2) var(--sad-space-3); font-family: var(--sad-font-sans); font-size: 12px; }
+  .swatch .role { color: var(--sad-forest); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; }
+  .swatch .hex { color: #6b7a6f; }
+  .two { grid-template-columns: 1fr 1fr; }
+  .card { border-radius: var(--sad-radius); padding: var(--sad-space-5); min-height: 220px;
+          display: flex; flex-direction: column; justify-content: center; }
+  .card.flat { background: var(--sad-forest); color: var(--sad-cream); }  /* correct but flat */
+  .tag { font-family: var(--sad-font-sans); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: var(--sad-space-2); }
+  .tag.bad { color: #d98b6a; } .tag.good { color: var(--sad-sunrise-soft); }
+  .emblem { width: 84px; height: 84px; border-radius: 50%; border: 2px solid var(--sad-gold);
+            display: grid; place-items: center; margin: 0 auto var(--sad-space-3);
+            color: var(--sad-gold); font-family: var(--sad-font-sans); font-size: 10px; letter-spacing: .1em; }
+  .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-radius: var(--sad-radius); overflow: hidden; }
+  .stat { padding: var(--sad-space-4); text-align: center; }
+  .stat .n { font-family: var(--sad-font-display); font-size: 30px; display: block; }
+  .stat .l { font-family: var(--sad-font-sans); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+  .typerow { padding: var(--sad-space-3) 0; border-bottom: 1px solid #e4dcc6; }
+  blockquote { font-family: var(--sad-font-serif); font-style: italic; font-size: 22px;
+               border-left: 3px solid var(--sad-gold); margin: 0; padding-left: var(--sad-space-3); color: var(--sad-forest-ink); }
+  .note { font-family: var(--sad-font-sans); font-size: 12px; color: #6b7a6f; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD — the feel layer, on -->
+<header class="sad-glow-hero sad-texture" style="padding: var(--sad-space-6) var(--sad-space-4); text-align:center;">
+  <div class="emblem">SAD ☩</div>
+  <div class="sad-kicker" style="color:var(--sad-gold-soft);">African Methodist Episcopal Church · Sixth Episcopal District</div>
+  <h1 class="sad-display" style="font-size:44px; margin:.2em 0;">South Atlanta District</h1>
+  <p class="sad-serif" style="font-size:18px; font-style:italic; color:var(--sad-gold-soft); margin:0;">The Best Is Yet to Come.</p>
+  <p class="sad-kicker" style="margin-top:var(--sad-space-3); color:var(--sad-sunrise-soft);">Twenty-four churches · One sunrise</p>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2 class="sad-display">01 · Palette — Three Truths, Three Colors</h2>
+    <p class="lead">Forest is primary at every scale. Gold marks ceremonial moments. Sunrise is reserved — never body text.</p>
+    <div class="grid swatches" style="margin-top:var(--sad-space-3);">
+      <div class="swatch"><div class="chip" style="background:var(--sad-forest)"></div><div class="meta"><div class="role">Forest · primary</div><div class="hex">#1A6B3C · ground, growth, the church</div></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sad-gold)"></div><div class="meta"><div class="role">Heritage Gold · ceremonial</div><div class="hex">#C9A84C · honor, episcopal accent</div></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sad-sunrise)"></div><div class="meta"><div class="role">Sunrise · witness</div><div class="hex">#E8842B · the rising (never body text)</div></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sad-ivory)"></div><div class="meta"><div class="role">Ivory · paper</div><div class="hex">#F6EFDD · warm ground, not #FFF</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sad-display">02 · Type — Three Voices, With Range</h2>
+    <p class="lead">Not a rigid ladder. The three faces are voices to compose with — Cinzel for ceremony, Cormorant for warmth (body <em>and</em> large italic display), Inter for data. Sizes are fluid; let it breathe.</p>
+    <div class="typerow"><span class="sad-kicker">Ceremonial · Cinzel</span><div class="sad-display" style="font-size:var(--sad-t-hero); color:var(--sad-forest);">The Best Is Yet to Come</div></div>
+    <div class="typerow"><span class="sad-kicker">Display · Cormorant (serif as display)</span><div class="sad-display-serif" style="color:var(--sad-forest-ink);">Twenty-four churches. One sunrise.</div></div>
+    <div class="typerow"><span class="sad-kicker">Lead · Cormorant italic</span><div class="sad-lead">A district that walks together, because that is the only way the church has ever walked at all.</div></div>
+    <div class="typerow"><span class="sad-kicker">Body · Cormorant · with drop cap</span><p class="sad-serif sad-dropcap" style="max-width:60ch;">It is with deep gratitude and a full heart that this district stands as a testament to the faithfulness of God and the dedication of twenty-four congregations who, week after week, carry the mission into the communities they serve.</p></div>
+    <div class="typerow"><span class="sad-kicker">Data · Inter</span><div style="font-family:var(--sad-font-sans); font-size:14px;">2,811 full members · $5.59M raised · 24 congregations · +12.2% YoY</div></div>
+  </section>
+
+  <!-- THE THESIS: correct-but-flat vs luminous -->
+  <section>
+    <h2 class="sad-display">03 · The Feel Gate — why "correct" isn't "true"</h2>
+    <p class="lead">Same colors. Same content. The left uses the palette correctly and lands flat — the "AI feel." The right turns the feel layer on. This is the difference we've been chasing.</p>
+    <div class="grid two" style="margin-top:var(--sad-space-3);">
+      <div class="card flat">
+        <div class="tag bad">✗ Correct but flat</div>
+        <div class="emblem">SAD ☩</div>
+        <div class="sad-display" style="font-size:24px; text-align:center;">South Atlanta District</div>
+      </div>
+      <div class="card sad-glow-hero sad-texture">
+        <div class="tag good">✓ Luminous — the true feel</div>
+        <div class="emblem">SAD ☩</div>
+        <div class="sad-display" style="font-size:24px; text-align:center;">South Atlanta District</div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--sad-space-2);">Rule: every major surface carries ≥1 luminous-warmth device (glow · sunrise-wash · texture · warm portrait). Palette-correct but device-free = fail.</p>
+  </section>
+
+  <section>
+    <h2 class="sad-display">04 · District at a Glance (applied)</h2>
+    <div class="stat-strip sad-glow-hero sad-texture">
+      <div class="stat"><span class="n" style="color:var(--sad-gold-soft)">24</span><span class="l">Congregations</span></div>
+      <div class="stat"><span class="n" style="color:var(--sad-gold-soft)">2,811</span><span class="l">Full Members</span></div>
+      <div class="stat"><span class="n" style="color:var(--sad-sunrise-soft)">$5.59M</span><span class="l">Raised · +12.2%</span></div>
+      <div class="stat"><span class="n" style="color:var(--sad-gold-soft)">$36M</span><span class="l">Property</span></div>
+    </div>
+    <hr class="sad-rule-gold" style="margin:var(--sad-space-4) 0;">
+    <blockquote>"Twenty-four pulpits, one mind, one Lord. The South Atlanta District walks together because that is the only way the church has ever walked at all."</blockquote>
+    <p class="sad-kicker" style="margin-top:var(--sad-space-2);">Rev. Dr. Larry W. Hudson, Sr. · Presiding Elder</p>
+  </section>
+
+  <section>
+    <h2 class="sad-display">05 · Voice</h2>
+    <p class="lead"><strong>Scriptural, dignified, familial — never marketing-speak.</strong> Numbers carry testimony ("$5.59M raised," "+12.2%"). Scripture closes, it does not decorate. This is a church, not a brand campaign.</p>
+  </section>
+
+  <p class="note">South Atlanta District · Visual System — living style guide · derived from Brand Standards v1.0 (May 2026). Neutrals marked [CONFIRM] pending exact extraction from source art.</p>
+</div>
+</body>
+</html>

@@ -37,13 +37,25 @@ color:
   ink:            { hex: "#1A2E1F", role: text_dark,  usage: "text on light grounds" }
 ```
 
-### LOOK — type (`Three-Tier System`)
+### LOOK — type (`Three Voices, With Range`)
+
+Not a rigid three-tier ladder — three voices to compose with. Sizes are fluid; the faces
+interplay. **Rigidity itself is part of what reads as the "AI feel," so the system is a range,
+not a rule.**
 
 ```yaml
 type:
-  display: { family: "Cinzel",             use: "mastheads, page titles, the masthead lockup" }
-  serif:   { family: "Cormorant Garamond", use: "body, pull quotes, narrative voice", size: "11–13pt", leading: 1.45, italic: true }
-  sans:    { family: "Inter",              use: "tables, captions, kicker labels" }
+  voices:
+    display: { family: "Cinzel",             use: "ceremonial mastheads, lockups" }
+    serif:   { family: "Cormorant Garamond", use: "body, lead, pull quotes — AND large italic display" }
+    sans:    { family: "Inter",              use: "tables, captions, kicker labels" }
+  scale:    # fluid (clamp) — draw from it, don't obey it
+    hero:    "clamp(2.6rem, 6vw, 5rem)"
+    display: "clamp(1.8rem, 3.6vw, 3rem)"
+    lead:    "clamp(1.15rem, 1.8vw, 1.6rem)   # often italic"
+    body:    "clamp(1rem, 1.1vw, 1.15rem)     # breathes; no longer locked at 12px"
+    meta:    "0.72rem"
+  expressive: [drop-caps, oversized-italic-quotes, serif-as-display, varied-tracking]
 ```
 
 ### LOOK — emblem
@@ -80,7 +92,7 @@ sound:
 
 ```yaml
 feel:
-  target: [reverence, welcome, legacy, belonging, "luminous hope"]
+  target: [reverence, welcome, legacy, belonging, "luminous hope", "immersive reading"]
   achieved_now: [dignity, order, discipline, editorial_clarity]
   gap: >
     The v1.0 system nails DIGNITY and ORDER (Cinzel + forest green + gold reads
@@ -93,6 +105,11 @@ feel:
     - "Let sunrise_orange actually rise: warm gradient washes at section thresholds, not just hairline rules."
     - "Texture, sparingly: a faint stained-glass or paper grain on dark grounds to restore depth the flat fills removed."
     - "Portraiture warmth: the 3:4 'forest duotone' plan is good — keep skin tones warm, never cold-duotoned."
+  immersion:   # make the reader WANT to stay, read, and explore — not skim and leave
+    - "Reading-sized serif (Cormorant ~1.2–1.4rem), leading ~1.7, measure ~62ch — a page you want to read."
+    - "Rhythm and pause: drop caps, small-caps lead-ins, oversized italic pull quotes, stat interludes that break the scroll."
+    - "Reveal-on-scroll on the processional ease so exploring is rewarded; always honor prefers-reduced-motion."
+    - "Atmosphere under the text: sunrise glow + texture, so words sit in light rather than on a flat fill."
 ```
 
 ### TASTE — voice
@@ -119,7 +136,9 @@ voice:
 A conformance check answers: *does this artifact hit the mark, or just the palette?*
 
 - **Color:** only sanctioned hexes; `sunrise_orange` never on body text; grounds are `ivory` not `#FFFFFF`.
-- **Type:** display=Cinzel, narrative=Cormorant, data=Inter — no substitutions.
+- **Type:** the three voices (Cinzel / Cormorant / Inter) are present and composed with *range* —
+  fluid sizes, expressive treatments welcome (serif-as-display, italic leads, drop caps). Rigidity
+  is a fail, not a pass.
 - **Emblem:** a sanctioned lockup, unaltered.
 - **Feel gate (the one that matters):** does at least one *luminous-warmth* device (glow, sunrise
   gradient, texture, warm portraiture) appear per major surface? A page that is correct-but-flat
@@ -132,3 +151,21 @@ A conformance check answers: *does this artifact hit the mark, or just the palet
   (the PE Report is a president's-view executive report) and the **design layer**.
 - Next: confirm the `[DRAFT]` blocks with Ali; extract exact neutral hexes from source files;
   add a Penpot/`opendesign` token export once the feel layer is agreed.
+
+## Machine-readable exports (for Claude Design)
+
+Instance #1 is now emitted as ingestible design-system code in
+`specs/design/south-atlanta-district/`:
+- `tokens.json` — W3C DTCG tokens (color, type, motion, the `feel` layer + gate)
+- `theme.css` — applyable CSS custom properties **plus the feel devices** (`.sad-glow-hero`,
+  `.sad-sunrise-wash`, `.sad-texture`, `.sad-portrait`, `.sad-rule-gold`) — the signature, not just the palette
+- `styleguide.html` — a living style guide (open in a browser) that renders the system and shows
+  **correct-but-flat vs luminous** side by side
+- `immersive-demo.html` — a full scrollable **reading experience** (the Elder's actual message,
+  typeset for immersion: reading-sized serif, drop cap, pull-quote + stat interludes, reveal-on-
+  scroll). The proof that the type *pulls you in* instead of inviting a skim.
+
+**To apply in Claude Design:** point it at that folder and say *"Extract and apply this design
+system."* Claude Design reads a codebase to extract a system — these files are that system, so it
+builds in SAD's voice instead of the generic median. This is also the seed of the first
+**signature skill** (see [[feedback-aim-for-signature-not-polish]]).

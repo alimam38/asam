@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Atlanta District — A Reading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+  /* Immersion demo — the SYSTEM is in theme.css; this composes it into a reading experience. */
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--sad-ivory); color: var(--sad-ink); }
+
+  /* HERO — fills the view, glow rising, invites the scroll */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+          justify-content: center; text-align: center; padding: var(--sad-space-6) var(--sad-space-4); }
+  .emblem { width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--sad-gold);
+            display: grid; place-items: center; color: var(--sad-gold);
+            font-family: var(--sad-font-sans); font-size: 11px; letter-spacing: .12em;
+            margin-bottom: var(--sad-space-4); }
+  .hero h1 { font-family: var(--sad-font-display); font-size: var(--sad-t-hero);
+             line-height: 1.02; margin: 0; }
+  .hero .sub { font-family: var(--sad-font-serif); font-style: italic;
+               font-size: var(--sad-t-lead); color: var(--sad-gold-soft); margin: .5em 0 0; }
+  .scrollcue { margin-top: var(--sad-space-6); font-family: var(--sad-font-sans);
+               font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+               color: var(--sad-gold-soft); opacity: .8; animation: float 2.4s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+  /* READING column */
+  .reading { max-width: 720px; margin: 0 auto; padding: var(--sad-space-6) var(--sad-space-4); }
+  .opener .sad-kicker { display: block; margin-bottom: var(--sad-space-2); }
+  .opener h2 { font-family: var(--sad-font-serif); font-weight: 500;
+               font-size: var(--sad-t-display); color: var(--sad-forest); line-height: 1.1;
+               margin: 0 0 var(--sad-space-5); }
+
+  /* INTERLUDES — a pull quote and a stat band break the rhythm and pull the eye down */
+  .interlude { padding: var(--sad-space-6) var(--sad-space-4); text-align: center; }
+  .interlude .sad-quote { max-width: 780px; margin: 0 auto; color: var(--sad-cream); }
+  .interlude cite { display: block; font-family: var(--sad-font-sans); font-style: normal;
+                    font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+                    color: var(--sad-gold-soft); margin-top: var(--sad-space-3); }
+  .stats { display: grid; grid-template-columns: repeat(4,1fr); max-width: 900px; margin: 0 auto;
+           gap: var(--sad-space-3); }
+  .stat .n { font-family: var(--sad-font-display); font-size: clamp(1.8rem,4vw,2.6rem);
+             display: block; color: var(--sad-gold-soft); }
+  .stat .n.rise { color: var(--sad-sunrise-soft); }
+  .stat .l { font-family: var(--sad-font-sans); font-size: 10px; letter-spacing: .12em;
+             text-transform: uppercase; color: var(--sad-cream); opacity: .85; }
+
+  /* SCRIPTURE close */
+  .close { padding: var(--sad-space-6) var(--sad-space-4) calc(var(--sad-space-6)*1.4); text-align: center; }
+  .close blockquote { font-family: var(--sad-font-serif); font-style: italic;
+                      font-size: clamp(1.3rem,2.4vw,1.9rem); line-height: 1.4;
+                      max-width: 620px; margin: 0 auto; color: var(--sad-forest-ink); }
+  .close .ref { font-family: var(--sad-font-sans); font-size: 11px; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--sad-forest); margin-top: var(--sad-space-3); }
+  .signoff { font-family: var(--sad-font-serif); font-style: italic; font-size: 1.15rem;
+             color: var(--sad-ink); margin-top: var(--sad-space-5); }
+</style>
+</head>
+<body>
+
+<header class="hero sad-glow-hero sad-texture">
+  <div class="emblem sad-reveal">SAD ☩</div>
+  <div class="sad-kicker sad-reveal" style="color:var(--sad-gold-soft);">Presiding Elder's Report · 152nd Annual Conference</div>
+  <h1 class="sad-reveal">The Best<br>Is Yet to Come</h1>
+  <p class="sub sad-reveal">Twenty-four churches. One sunrise.</p>
+  <div class="scrollcue">Scroll ↓</div>
+</header>
+
+<main class="reading">
+  <div class="opener sad-reveal">
+    <span class="sad-kicker">A Message from the Presiding Elder</span>
+    <h2>The district continues to stand as a testament to the faithfulness of God — and to twenty-four congregations who carry the mission, week after week.</h2>
+  </div>
+
+  <div class="sad-prose">
+    <p class="sad-dropcap sad-reveal">It is with deep gratitude and a full heart that I present this report to the 152nd Session of the Atlanta North Georgia Annual Conference. The South Atlanta District continues to stand as a testament to the faithfulness of God and the dedication of twenty-four congregations who, week after week, carry the mission of the African Methodist Episcopal Church into the communities they serve.</p>
+    <p class="sad-reveal">This past conference year has been marked by extraordinary growth and renewed commitment. Across the district, our churches have welcomed one hundred fifty-eight conversions — men and women who have answered the call to discipleship. Fifty-one were baptized. One hundred ninety-three new members were received through accession.</p>
+    <p class="sad-reveal">Even in the shadow of loss, with thirty souls departed from our earthly fellowship, the body of Christ in this district has grown stronger.</p>
+  </div>
+</main>
+
+<section class="interlude sad-glow-hero sad-texture">
+  <p class="sad-quote sad-reveal">"The Best Is Yet to Come — not as an aspiration, but as a conviction. The work before us is great, but so is the God who has called us to it."</p>
+  <cite class="sad-reveal">Rev. Dr. Larry W. Hudson, Sr. · Presiding Elder</cite>
+</section>
+
+<main class="reading">
+  <div class="sad-prose">
+    <p class="sad-reveal">The financial stewardship of this district is a story worth telling with pride. Our twenty-four congregations raised a combined <strong>$5,589,314</strong> locally — a figure that reflects not only the generosity of our membership, but the trust the people of this district place in the mission of the Church. From the smallest charge to our largest congregation, every dollar raised represents a family that believed, a ministry that gave, and a community that continued to invest in the work of the Kingdom.</p>
+  </div>
+</main>
+
+<section class="interlude sad-glow-hero sad-texture">
+  <div class="stats">
+    <div class="stat sad-reveal"><span class="n">24</span><span class="l">Congregations</span></div>
+    <div class="stat sad-reveal"><span class="n">2,811</span><span class="l">Full Members</span></div>
+    <div class="stat sad-reveal"><span class="n rise">$5.59M</span><span class="l">Raised · +12.2%</span></div>
+    <div class="stat sad-reveal"><span class="n">$36M</span><span class="l">In Property</span></div>
+  </div>
+</section>
+
+<main class="reading">
+  <div class="sad-prose">
+    <p class="sad-reveal">The South Atlanta District enters the year ahead from a position of momentum. The growth recorded in this report — in conversions, in stewardship, in civic engagement — is not accidental. It is the fruit of congregations that have committed to their communities, to their calling, and to one another.</p>
+    <p class="sad-reveal">What God has done in this district in this conference year is a foundation — not a ceiling.</p>
+  </div>
+</main>
+
+<section class="close sad-sunrise-wash">
+  <blockquote class="sad-reveal">"Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us — to him be glory in the church and in Christ Jesus throughout all generations."</blockquote>
+  <div class="ref sad-reveal">Ephesians 3:20–21</div>
+  <p class="signoff sad-reveal">In His Service,<br>Rev. Dr. Larry W. Hudson, Sr.</p>
+</section>
+
+<script>
+  // Processional reveal — text settles in as you explore (respects reduced-motion via CSS)
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.sad-reveal').forEach((el, i) => {
+    el.style.transitionDelay = (Math.min(i % 4, 3) * 90) + 'ms';  // gentle stagger
+    io.observe(el);
+  });
+</script>
+</body>
+</html>

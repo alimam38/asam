@@ -10,6 +10,9 @@ Every behavioral correction applied to the AI system: what was corrected, when, 
 | CL-2026-06-30-001 | 2026-06-30 | Recess is not a playground/recess-ops or generic ed-tech tool | OPEN |
 | CL-2026-06-30-002 | 2026-06-30 | Crown's Eye is a *deployment* of Recess; the AI-governance half is core | OPEN |
 | CL-2026-06-30-003 | 2026-06-30 | Fabricated payroll figures instead of reporting only tool-returned data | OPEN |
+| CL-2026-07-15-004 | 2026-07-15 | Referenced Recess across a whole session without loading the governance spine (violated CL-001) | OPEN |
+| CL-2026-07-15-005 | 2026-07-15 | Analysis "all over the place" — anchor to the ASAM initiative map, not generic themes | OPEN |
+| CL-2026-07-15-006 | 2026-07-15 | Output genre-perfect but author-invisible ("great report in our colors") — aim for signature, not polish | OPEN |
 
 ---
 
@@ -49,6 +52,35 @@ Every behavioral correction applied to the AI system: what was corrected, when, 
 - **Resolution / source:** Re-pulled **every** off-cycle check for the full window from Gusto and rebuilt the report from verified per-check data only; the 12-month report supersedes the 3-month draft.
 - **Operative rule:** For any figure sourced from a tool (payroll, financials, connector data), report **only** values present in an actual tool result. If a value wasn't returned, pull it or mark it unknown — never infer or fill. Highest stakes for money and compensation.
 - **Status:** OPEN (corrected same session; re-test: future data reports contain only tool-returned values).
+
+### CL-2026-07-15-004
+- **Date / session:** 2026-07-15 · Claude Code session (repo: asam)
+- **Correction:** Discussed Recess repeatedly — and proposed Recess-adjacent skills work — across a long session **without first loading the operative governance spine.** A direct violation of `CL-2026-06-30-001`'s operative rule ("on any Recess work, load the Recess definition before acting"). The framing recited (bilateral governed learning; Crown's Eye ⊂ Recess; governance-not-guardrails) was pattern-matched from README/INVENTORY/CLAUDE.md, not loaded from source.
+- **Trigger:** Ali asked directly — "Do you know what Recess is?" — surfacing the recited-not-loaded gap.
+- **Condition at time of error:** Assistant treated the orientation summaries as sufficient and did not open `correction-ledger.md` / `architectural-state-graph.md` / the Framework Package before referencing Recess.
+- **Resolution / source:** Read `src/recess/governance/correction-ledger.md`, `architectural-state-graph.md`, and `docs/recess/STATUS.md` this session. Authoritative `specs/recess/2026-05-24-recess-framework-package-2026.docx` still **unread** (binary) — flagged as the remaining load.
+- **Operative rule:** Reaffirm CL-001 — on ANY Recess (or Recess-adjacent) mention, load the spine + Framework Package **before** acting. "Referencing without loading" is itself the logged error — the exact storage-≠-action failure Recess names.
+- **Links:** re-tests → `CL-2026-06-30-001`, `CL-2026-06-30-002`.
+- **Status:** OPEN (re-test: next session, is the spine loaded before Recess is discussed?).
+
+### CL-2026-07-15-005
+- **Date / session:** 2026-07-15 · Claude Code session (asam)
+- **Correction:** When analyzing material for Ali, organize against the **ASAM initiative map** (INVENTORY + per-initiative STATUS) and a layered taxonomy — not generic external themes. Everything must have its place.
+- **Trigger:** Ali: "You're all over the place when this should have been a lot more obvious."
+- **Condition at time of error:** Assistant sorted 54 forks by generic GitHub theme without first reading `INVENTORY.md` / STATUS files.
+- **Resolution / source:** Read INVENTORY + STATUS layer; re-mapped to initiatives (Meridia / Hypomone / Plumbline / Aegis / B6). Filed as memory `feedback-map-work-to-asam-initiatives` — **promoted here** to make it operative, not merely retrievable.
+- **Operative rule:** Read INVENTORY + relevant STATUS first; assign every item to a specific initiative/layer; name what doesn't map; verify against the spec before recommending.
+- **Status:** OPEN.
+
+### CL-2026-07-15-006
+- **Date / session:** 2026-07-15 · Claude Code session (asam)
+- **Correction:** Deliverables must aim at **signature / invention**, not genre-perfect polish. Genre-perfection is what reads as the "AI feel" and makes the author invisible ("great report — you even put it in our colors"). Build the system to discipline, then make one load-bearing *break* that is unmistakably Ali's. Treat his reluctance to ship as **signal the signature is missing**, not procrastination.
+- **Trigger:** Ali named it plainly — the finished product leaves him unseen as an innovator; nothing has crossed into "I can't wait to package and ship this"; Plumbline stalled because he likes none of it.
+- **Condition at time of error:** Assistant (and prior AI work) optimized polish / correctness / on-brand by default.
+- **Resolution / source:** Reframed design work toward the signature (sensory-tokens feel-gate + immersive typography, **built in the web medium** — consistent with `CL-2026-06-30-000`). Filed as memory `feedback-aim-for-signature-not-polish` — **promoted here** to be operative.
+- **Operative rule:** Aim at invention ("no one has seen this") over polish; ship only with one unmistakably-Ali break; reluctance = missing signature.
+- **Links:** relates → `CL-2026-06-30-000` (first-class = built medium, not a prettier doc).
+- **Status:** OPEN.
 
 ---
 *Append a new entry whenever a correction is applied. Do not edit past entries except to change `status` (e.g., OPEN → HELD after a clean later session, or OPEN → REVERTED if the drift recurs — a circuit-breaker event worth its own analysis).*

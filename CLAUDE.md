@@ -14,6 +14,8 @@ Recess for AI's governance spine lives at `src/recess/governance/`. It is a **ru
 4. Corrections and decisions cross-link by ID — that circularity is the framework working.
 
 ## Orientation
+- `docs/asam/session-preflight.md` — environment/capabilities manifest (plugins, connectors, skills, secrets); read at session start to activate what's needed.
+- `docs/asam/session-handoff.md` — living work state + open threads; read at session start to resume.
 - `GATES.md` — the production line; gates are per sub-system and binary (met / not met).
 - `specs/recess/2026-05-24-recess-framework-package-2026.docx` — the authoritative definition of Recess.
 - Guardrails: Meridia / Recess is sensitive IP and Turner client data is confidential — never expose either externally. Draft-then-approve external outputs; never execute payments, only prepare them.

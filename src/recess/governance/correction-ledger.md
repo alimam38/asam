@@ -82,5 +82,15 @@ Every behavioral correction applied to the AI system: what was corrected, when, 
 - **Links:** relates → `CL-2026-06-30-000` (first-class = built medium, not a prettier doc).
 - **Status:** OPEN.
 
+### CL-2026-07-15-007
+- **Date / session:** 2026-07-15 · Claude Code session (asam)
+- **Correction:** **Circuit-breaker recurrence — same session.** After logging CL-004 ("load before acting; don't recite"), I described five plugins (roast, dossier, capture, cwc-makers, arquiteto-de-empresa) from **web-search summaries instead of reading the `SKILL.md` source in the forked repo I already had access to.** Two substantive errors resulted: I called `arquiteto-de-empresa` "unconfirmed" (it is real — a full OKF "company-as-code" skill) and mischaracterized `dossier` as academic research (it is decision-grade *entity diligence* with hypothesis-testing).
+- **Trigger:** Ali asked directly, "Did you actually read through the skills and plugins in the repos?" — ~1 hour after CL-004 was logged.
+- **Condition at time of error:** A fast path existed (WebSearch), and the recite-without-load default reasserted — the 20–30-minute degradation the Framework Package documents as Observation 1 (Circuit Breaker). CL-004's correction did not hold.
+- **Resolution / source:** Read the actual `SKILL.md` files in `alimam38/claude-skills` (roast, dossier, capture, arquiteto-de-empresa, patent) and the `cwc-makers` README in `anthropics/claude-plugins-official`; corrected all descriptions to source.
+- **Operative rule (sharpened from CL-004):** When a skill/plugin/repo is **accessible** (forked, cloned, or reachable via `gh`), read the **source file** (`SKILL.md`/README) — never a web summary. Web search is only for what's out of reach, and its output stays marked *unverified* until sourced.
+- **Links:** recurrence of → `CL-2026-07-15-004`; live instance of Framework Observation 1. **Candidate to flip `CL-004` → REVERTED** (drift recurred) — for Ali to adjudicate (Human Adjudication Memorandum).
+- **Status:** OPEN.
+
 ---
 *Append a new entry whenever a correction is applied. Do not edit past entries except to change `status` (e.g., OPEN → HELD after a clean later session, or OPEN → REVERTED if the drift recurs — a circuit-breaker event worth its own analysis).*

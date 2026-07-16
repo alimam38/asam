@@ -52,7 +52,36 @@ Restart Claude. The `github_*` tools will appear, and the migration can run.
 - Diagnostics: `github_check_config`, `github_request` (generic escape hatch), `github_get_user`
 - Repos: `github_list_repos`, `github_get_repo`, `github_create_repo` (private + auto_init)
 - Files: `github_get_file`, `github_put_file` (single), `github_push_files` (many files → one
-  commit via the Git Data API), `github_create_branch`
+  commit via the Git Data API), `github_verify_files` (confirm GitHub matches local files),
+  `github_create_branch`
+
+## Reliability & connection issues
+
+Lessons from real incidents (a flaky connection failing pushes outright, and a
+2026-07-02 push that landed 7 files truncated mid-sentence — caught 11 days later
+by the weekly sweep):
+
+**Connection handling.** The server keeps one shared HTTP client (connections are
+reused instead of a fresh TLS handshake per request), transparently retries failed
+connection attempts, and backs off + retries on GitHub 5xx responses and both
+primary and secondary rate limits. A read that dies mid-response is retried only
+for GET — a write may already have been applied. Timeout defaults to 60s
+(override with `GITHUB_TIMEOUT`).
+
+**Truncation guard.** Content that travels *through the chat* (`content_text`)
+can be silently cut off; the API will happily commit the fragment. Three defenses:
+
+1. Prefer `local_path` in `github_push_files` — content is read from disk on the
+   machine running the server and never passes through the chat.
+2. Pass `expected_bytes` (the source file's size) with any `content_text` /
+   `content_base64` push — the server refuses to commit if the size doesn't match.
+3. After pushing, run `github_verify_files` with the same paths — it compares git
+   blob SHAs so any truncated or corrupted upload is reported immediately, not
+   discovered weeks later.
+
+If calls fail with `GITHUB_TOKEN is not set` or HTTP 401, start with
+`github_check_config`: it confirms the token is present, valid, and which account
+it authenticates as.
 
 ## Note on field names
 

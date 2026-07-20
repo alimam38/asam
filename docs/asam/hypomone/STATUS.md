@@ -1,7 +1,7 @@
 # STATUS — Hypomone (Meridia member platform)
 
 **State:** 🟡 MVP scope locked; awaiting build start
-**Last reviewed:** 2026-07-02
+**Last reviewed:** 2026-07-20 (sweep — content current through the 2026-07-15 fork-sweep section)
 
 ## Where things live in this repo
 - Spec: `specs/hypomone/spec-v1.md`

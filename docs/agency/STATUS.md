@@ -1,7 +1,7 @@
 # STATUS — AI Integration Consulting Agency (+ white-label platform)
 
 **State:** ⚪ New — decided 2026-07-02, not started
-**Last reviewed:** 2026-07-02
+**Last reviewed:** 2026-07-20 (sweep — content current through the 2026-07-15 update)
 
 ## Where things live in this repo
 - This directory (new). First artifacts land here: positioning one-pager, service tiers, client contract template (IP-retention clause), reference-deployment case study.

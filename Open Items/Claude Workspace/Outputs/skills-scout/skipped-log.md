@@ -94,3 +94,8 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-07-13 — Nonprofit Grant Intelligence MCP (Apify/ryanclinton) — pay-per-call ($0.10), unknown author; grants lane covered by Candid item — apify.com (Tier 4)
 2026-07-13 — Claude Cowork on web + mobile — platform expansion, not an installable skill/plugin — support.claude.com release notes (Tier 1)
 2026-07-13 — tonsofskills.com marketplace (425 plugins / 2,810 skills) — bulk directory churn, low per-item signal — github.com/jeremylongshore/claude-code-plugins-plus-skills (Tier 3/4)
+2026-07-21 — Claude Code Week 29 minor bundle (screen reader mode, /fork, auto mode GA on Bedrock/GCP/Foundry) — accessibility/UX items below the daily-five bar — code.claude.com/docs/en/whats-new (Tier 1)
+2026-07-21 — "Reflect" / Monthly Recap usage-reflection dashboard — feature update, not an installable skill/plugin/MCP — releasebot.io/updates/anthropic/claude (Tier 1)
+2026-07-21 — Nonprofit fund-accounting MCP server — real PulseMCP listing exists ("read the books and post entries") but couldn't pin exact name/author/URL with confidence this pass; revisit with a direct PulseMCP query — pulsemcp.com (Tier 2, unverified)
+2026-07-21 — Claude Design "brand consistency" self-correction/admin lock — actually a June 17 2026 feature, already covered by design-system-imports items logged 06-27/06-30; not new — claude.com/blog/claude-design-stays-on-brand-for-daily-work (Tier 1)
+2026-07-21 — General MCP/skill directory churn (PulseMCP pages, GitHub topic pages, claudemarketplaces.com) — high volume, low per-item signal this pass — various (Tier 2/3)

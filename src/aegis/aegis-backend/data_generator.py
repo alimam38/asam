@@ -183,7 +183,7 @@ def generate_governance_alerts() -> GovernanceAlertsResponse:
     """Generate governance alerts."""
     
     alert = GovernanceAlert(
-        id=str(uuid.uuid4()),
+        id="alert-governance-001",
         title="Governance Review Required",
         subtitle="Insight locked pending multi-party approval",
         message="Aletheia has detected a sensitive pattern in the Foundation's grant commitments that exceeds projected inflows by 18 months. This insight requires approval before being surfaced to beneficiaries.",

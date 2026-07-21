@@ -95,3 +95,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-13 — mcp-server-dev plugin (successor to mcp-builder) — github.com/anthropics/claude-plugins-official (Tier 1)
 2026-07-13 — Claude Code /doctor context-cost audit (unused skills/MCP/plugins) — code.claude.com changelog (Tier 1)
 2026-07-13 — Candid MCP connector + Claude for Nonprofits — candid.org (Tier 1/2)
+2026-07-21 — Artifacts call viewer's own MCP connectors for live data + actions (Week 29, Jul 13-17) — code.claude.com/docs/en/whats-new (Tier 1)
+2026-07-21 — New Relic plugin (official Claude Code plugins marketplace, merged Jul 20) — github.com/anthropics/claude-plugins-official PR #4282 / github.com/newrelic/claude-code-plugin (Tier 1)
+2026-07-21 — Kinetic Gain Protocol Suite MCP server (mcp-kinetic-gain; AI Tutor Cards + Student AI Disclosure FERPA/COPPA) — github.com/mizcausevic-dev/mcp-kinetic-gain (Tier 4)
+2026-07-21 — claude-skill-github-actions (steeef; GitHub Actions troubleshooting skill) — github.com/steeef/claude-skill-github-actions (Tier 4)
+2026-07-21 — US-law-mcp (kaerez; federal compliance-statute lookup incl. FERPA/COPPA) — github.com/kaerez/US-law-mcp (Tier 4)

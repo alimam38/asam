@@ -100,3 +100,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-21 — Kinetic Gain Protocol Suite MCP server (mcp-kinetic-gain; AI Tutor Cards + Student AI Disclosure FERPA/COPPA) — github.com/mizcausevic-dev/mcp-kinetic-gain (Tier 4)
 2026-07-21 — claude-skill-github-actions (steeef; GitHub Actions troubleshooting skill) — github.com/steeef/claude-skill-github-actions (Tier 4)
 2026-07-21 — US-law-mcp (kaerez; federal compliance-statute lookup incl. FERPA/COPPA) — github.com/kaerez/US-law-mcp (Tier 4)
+2026-07-22 — Claude Cowork "Record a skill" (screen recording + voice-over → reusable skill; Pro/Max/Team) — anthropic launch via the-decoder.com (Tier 1)
+2026-07-22 — malskanner (Octolabo; prompt-injection scanner for repos/skills — CLI + MCP server + GitHub Action) — github.com/Octolabo/malskanner (Tier 4)
+2026-07-22 — skillbench (currenjin) + skill-receipts (sjh9714) — baseline/placebo-gated skill benchmarking wave — github.com/currenjin/skillbench (Tier 4)
+2026-07-22 — symaira-brain (danieljustus; portable agent-context layer — vault + memory + skills behind one MCP gateway) — github.com/danieljustus/symaira-brain (Tier 4)
+2026-07-22 — claude-oss-skills (olgaiv39; resource-efficient OSS-dev runbooks: plan→implement→debug→review→release) — github.com/olgaiv39/claude-oss-skills (Tier 3/4)

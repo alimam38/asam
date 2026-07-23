@@ -18,3 +18,16 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-07-17 — LM Studio Bionic — lmstudio.ai
 2026-07-17 — Claude Cowork expands to mobile/web — techcrunch.com
 2026-07-17 — X hosted MCP server (api.x.com/mcp) — x.com/XDevelopers
+2026-07-23 — Kimi K3 (Moonshot) open-weights agentic model, competitive with Fable — fireworks.ai blog / HN
+2026-07-23 — Claude Code v2.1.212–218 (/fork background sessions, runaway-loop budget caps, /code-review subagent) — github.com/anthropics/claude-code releases
+2026-07-23 — eli-labz/Agent-Execution-Partnership (agent authorization control plane) — GitHub topic search (unvetted; star-velocity caution)
+2026-07-23 — risa-labs-inc/BossConsole (native operator console for coding agents) — GitHub topic search
+2026-07-23 — Cursor "Agent swarms and the new model economics" — cursor.com blog / HN
+2026-07-23 — Buzz by Block/Jack Dorsey (team chat + AI agents + Git hosting) — runtimewire.com / HN
+2026-07-23 — Bento single-file HTML slides (PowerPoint in one HTML file) — bento.page / HN
+2026-07-23 — Claude Fable counterexample to Jacobian Conjecture — X via fallback (xcancel/HN)
+2026-07-23 — Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber — blog.google / HN
+2026-07-23 — Claude Code runtime now Bun-written-in-Rust — simonwillison.net / HN
+2026-07-23 — TryCaspian/caspian-sdk (one agent identity across Slack/Discord/email/X) — GitHub topic search
+2026-07-23 — omnigent-ai/omnigent (meta-harness orchestrating Claude Code/Codex/Cursor) — GitHub topic search
+2026-07-23 — vercel-labs/skills v1.5.20 (Grok Build agent support) — github.com/vercel-labs/skills releases

@@ -105,3 +105,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-22 — skillbench (currenjin) + skill-receipts (sjh9714) — baseline/placebo-gated skill benchmarking wave — github.com/currenjin/skillbench (Tier 4)
 2026-07-22 — symaira-brain (danieljustus; portable agent-context layer — vault + memory + skills behind one MCP gateway) — github.com/danieljustus/symaira-brain (Tier 4)
 2026-07-22 — claude-oss-skills (olgaiv39; resource-efficient OSS-dev runbooks: plan→implement→debug→review→release) — github.com/olgaiv39/claude-oss-skills (Tier 3/4)
+2026-07-23 — Claude Security plugin (official Claude Code beta; 6-phase multi-agent vuln scan + verified patches) — code.claude.com/docs/en/claude-security (Tier 1)
+2026-07-23 — "Building verification loops in Claude Code with skills" (standalone/embedded/chained/PR-wide + /verify) — claude.com/blog/building-verification-loops-in-claude-code-with-skills (Tier 1)
+2026-07-23 — finna/Finn-loop (3-skill spec→build→review software factory) — github.com/finna/Finn-loop (Tier 3/4)
+2026-07-23 — ToolMonsters/handoff-skill (conversation → complete handoff doc) — github.com/ToolMonsters/handoff-skill (Tier 4)
+2026-07-23 — fsbtactic-code/marketing-brain-skill (portable GTM second brain, 502 sources) — github.com/fsbtactic-code/marketing-brain-skill (Tier 4)

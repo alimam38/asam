@@ -31,3 +31,15 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-07-23 — TryCaspian/caspian-sdk (one agent identity across Slack/Discord/email/X) — GitHub topic search
 2026-07-23 — omnigent-ai/omnigent (meta-harness orchestrating Claude Code/Codex/Cursor) — GitHub topic search
 2026-07-23 — vercel-labs/skills v1.5.20 (Grok Build agent support) — github.com/vercel-labs/skills releases
+2026-07-24 — onecli/onecli (OSS credential gateway for AI agents) — GitHub / HN
+2026-07-24 — Claude Cookbook (platform.claude.com/cookbook) — HN
+2026-07-24 — Echo open-weight ensemble router (echo.tracerml.ai) — Show HN
+2026-07-24 — Fake GitHub repos lure AI agents into malware — techzine.eu / Google News via SerpAPI
+2026-07-24 — finna/Finn-loop (spec→build→review skill factory for Claude Code) — GitHub topic search (star-velocity caution)
+2026-07-24 — Screenpipe (YC S26) record-work-into-agents — Launch HN
+2026-07-24 — surya-koritala/sigbound (parallel agents, test-gated auto-merge) — GitHub topic search
+2026-07-24 — VinvAI/VinvAI (closed-loop agent verification over MCP) — GitHub topic search
+2026-07-24 — hyungchulc/memory-forest (verifiable local agent memory) — GitHub topic search
+2026-07-24 — MCP 2026-07-28 stateless-spec coverage ahead of stable release — theregister.com via SerpAPI
+2026-07-24 — @claudeai "New in Claude Cowork" post — X via SerpAPI
+2026-07-24 — lawrencecchen "Superrepos" worktree article — X via SerpAPI

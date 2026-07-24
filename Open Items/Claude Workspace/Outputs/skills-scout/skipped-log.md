@@ -110,3 +110,8 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-07-23 — aradar46/reuse-before-generate (MCP that checks GitHub/npm/PyPI for maintained libs before scaffolding) — dev-hygiene nicety, below the daily-five bar — github.com/aradar46/reuse-before-generate (Tier 4)
 2026-07-23 — Anthropic Economic Futures Research Fund agenda — grants-adjacent but academic-economics scope, not education/nonprofit ops — anthropic.com/news/economic-futures-research-fund-agenda (Tier 1)
 2026-07-23 — Claude Code v2.1.217 (emoji shortcodes, subagent/budget controls, stability fixes) — changelog bundle below the daily-five bar — releasebot.io/updates/anthropic/claude-code (Tier 1)
+2026-07-24 — codejunkie99/graph-engineering (knowledge-graph pipeline + task-graph orchestration; 42★ day-one) — fresh and agentic-context adjacent but unvetted; revisit with a track record — github.com/codejunkie99/graph-engineering (Tier 4)
+2026-07-24 — Claude voice mode upgraded to more capable models (Jul 23) — feature/model update, not a skill/plugin/MCP — techcrunch.com (Tier 1 origin)
+2026-07-24 — kennethkhoocy/applied-micro-skills (empirical applied-micro research skills; 57★ day-one) — education-adjacent but econ-research-facing, off ops focus — github.com/kennethkhoocy/applied-micro-skills (Tier 4)
+2026-07-24 — TeodorMCP/universal-connector-mcp + CarlxsMG/mcpbridge (OpenAPI/GraphQL/gRPC→MCP gateways, both day-old) — gateway lane covered (MCPJungle 06-27); unvetted Tier 4 — github.com (Tier 4)
+2026-07-24 — microsoft/power-platform-skills (official MS plugin marketplace for Claude Code/Copilot, 553★) — Power Platform off-stack — github.com/microsoft/power-platform-skills (Tier 2)

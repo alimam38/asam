@@ -110,3 +110,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-23 — finna/Finn-loop (3-skill spec→build→review software factory) — github.com/finna/Finn-loop (Tier 3/4)
 2026-07-23 — ToolMonsters/handoff-skill (conversation → complete handoff doc) — github.com/ToolMonsters/handoff-skill (Tier 4)
 2026-07-23 — fsbtactic-code/marketing-brain-skill (portable GTM second brain, 502 sources) — github.com/fsbtactic-code/marketing-brain-skill (Tier 4)
+2026-07-24 — nexu-io/open-design (open-source Claude Design alternative; local-first, agent-as-design-engine, HTML/PDF/PPTX/MP4 export) — github.com/nexu-io/open-design (Tier 3)
+2026-07-24 — EveryInc/compound-engineering-plugin (Every official; plan→work→review with lessons compounding into agent context) — github.com/EveryInc/compound-engineering-plugin (Tier 2/3)
+2026-07-24 — mksglu/context-mode (tool-output sandboxing ~98% + session memory + routing, 17 platforms) — github.com/mksglu/context-mode (Tier 3/4)
+2026-07-24 — Yeachan-Heo/oh-my-claudecode (teams-first multi-agent orchestration for Claude Code) — github.com/Yeachan-Heo/oh-my-claudecode (Tier 3)
+2026-07-24 — vercel-labs/agent-browser (browser automation CLI for AI agents) — github.com/vercel-labs/agent-browser (Tier 2)

@@ -115,3 +115,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-24 — mksglu/context-mode (tool-output sandboxing ~98% + session memory + routing, 17 platforms) — github.com/mksglu/context-mode (Tier 3/4)
 2026-07-24 — Yeachan-Heo/oh-my-claudecode (teams-first multi-agent orchestration for Claude Code) — github.com/Yeachan-Heo/oh-my-claudecode (Tier 3)
 2026-07-24 — vercel-labs/agent-browser (browser automation CLI for AI agents) — github.com/vercel-labs/agent-browser (Tier 2)
+2026-07-25 — Cowork "SharedRoot" VM-escape flaw (CVE-2026-46331; local-mode host Mac file access) — thehackernews.com/2026/07/claude-cowork-flaw-could-let-ai-agent.html (Tier 4 press)
+2026-07-25 — tw93/Waza (engineering-habit skills pack, 6.6k★) — github.com/tw93/Waza (Tier 3)
+2026-07-25 — zilliztech/memsearch (Markdown+Milvus persistent cross-agent memory plugin) — github.com/zilliztech/memsearch (Tier 2/3)
+2026-07-25 — Figma official guide: design-system skill for Claude Code — figma.com/resource-library/how-to-create-a-skill-in-claude-code (Tier 2)
+2026-07-25 — puppyum/umlib-mcp (university-library paper-access MCP; EZproxy) — github.com/puppyum/umlib-mcp (Tier 4)

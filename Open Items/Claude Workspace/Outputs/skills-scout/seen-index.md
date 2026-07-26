@@ -120,3 +120,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-25 — zilliztech/memsearch (Markdown+Milvus persistent cross-agent memory plugin) — github.com/zilliztech/memsearch (Tier 2/3)
 2026-07-25 — Figma official guide: design-system skill for Claude Code — figma.com/resource-library/how-to-create-a-skill-in-claude-code (Tier 2)
 2026-07-25 — puppyum/umlib-mcp (university-library paper-access MCP; EZproxy) — github.com/puppyum/umlib-mcp (Tier 4)
+2026-07-26 — Claude Code v2.1.219 bundle (dynamic workflow sizing, nested subagents depth 3, strict-allowlist network sandbox) — releasebot.io/updates/anthropic/claude-code (Tier 1)
+2026-07-26 — GitHub MCP Server supports 2026-07-28 MCP spec (stateless migration reference) — github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification (Tier 1/2)
+2026-07-26 — adobe/skills (official Adobe Skills for Agents) — github.com/adobe/skills (Tier 2)
+2026-07-26 — netresearch/skill-repo-skill (skill-repository structuring guide, multi-channel distribution) — github.com/netresearch/skill-repo-skill (Tier 3)
+2026-07-26 — skillci (CI/regression testing for Claude skills; Reddit-only, unverified repo) — reddit.com/r/claudeskills/comments/1v6mp9k (Tier 4)

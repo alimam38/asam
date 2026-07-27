@@ -16,4 +16,9 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-07-13 — Lilly Endowment / Exploring Christian Practices Initiative — closed 2026-05-18; awards Dec 2026 (tracking) — https://lillyendowment.org/exploring-practices/
 2026-07-13 — Arthur Vining Davis Foundations / Private Higher Education — verify (LOI cycle, ~Aug) — https://www.avdf.org/programs-overview/
 2026-07-13 — Georgia Humanities / Fall 2026 grant cycle — opens fall 2026 (verify) — https://www.georgiahumanities.org/grants/
-2026-07-13 — GEMA / Georgia Funds for Protection of Communities (FPC) — FY26 closed 2026-05-22; watch FY27 — https://gema.georgia.gov/georgia-funds-protection-communities-fpc
+2026-07-13 — GEMA / Georgia Funds for Protection of Communities (FPC) — FY26 closed 2026-05-22; watch FY27 — https://gema.georgia.gov/nonprofit-security-grant-program
+2026-07-27 — Fund for Theological Education (FTE) / Ministry Exploration and Mentoring Projects — 2026-11-02 — https://formstack.io/22613
+2026-07-27 — Lilly Endowment / Thriving Congregations (invitational; Shaw Univ Divinity $1M scaling grant signal) — closed to unsolicited proposals — https://lillyendowment.org/thrivingcongregations/
+2026-07-27 — Tyndale House Foundation / General Grants (theological education) — 2027-01-02 (verify) — http://thf.fluxx.io
+2026-07-27 — Community Foundation for Greater Atlanta / Nonprofit Sector Sustainability Fund — opened 2026-01-16, current window verify — https://cfgreateratlanta.org/nonprofit-sector-sustainability-fund/
+2026-07-27 — Witness to Win Inc / General Grant Program — LOI 2026-08-31 — https://www.witness2win.org/grant-application/

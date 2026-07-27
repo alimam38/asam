@@ -125,3 +125,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-26 — adobe/skills (official Adobe Skills for Agents) — github.com/adobe/skills (Tier 2)
 2026-07-26 — netresearch/skill-repo-skill (skill-repository structuring guide, multi-channel distribution) — github.com/netresearch/skill-repo-skill (Tier 3)
 2026-07-26 — skillci (CI/regression testing for Claude skills; Reddit-only, unverified repo) — reddit.com/r/claudeskills/comments/1v6mp9k (Tier 4)
+2026-07-27 — MengTo/Skills (designer/builder agent skills, ~3.6k★) — github.com/MengTo/Skills (Tier 3)
+2026-07-27 — browser-use/browser-harness (self-healing harness; agent authors its own SKILL.md) — github.com/browser-use/browser-harness (Tier 2/3)
+2026-07-27 — anthropics/skills claude-api skill refresh (Opus 5 default + Managed Agents July wave) — github.com/anthropics/skills (Tier 1)
+2026-07-27 — realchendahuang/pi-config (17 plugins + 18 skills + 2 MCPs, one-line installer) — github.com/realchendahuang/pi-config (Tier 4)
+2026-07-27 — abubakarsiddik31/whisperx-transcribe (audio/video → speaker-labeled Markdown skill) — github.com/abubakarsiddik31/whisperx-transcribe (Tier 4)

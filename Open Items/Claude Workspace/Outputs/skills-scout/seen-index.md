@@ -130,3 +130,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-27 — anthropics/skills claude-api skill refresh (Opus 5 default + Managed Agents July wave) — github.com/anthropics/skills (Tier 1)
 2026-07-27 — realchendahuang/pi-config (17 plugins + 18 skills + 2 MCPs, one-line installer) — github.com/realchendahuang/pi-config (Tier 4)
 2026-07-27 — abubakarsiddik31/whisperx-transcribe (audio/video → speaker-labeled Markdown skill) — github.com/abubakarsiddik31/whisperx-transcribe (Tier 4)
+2026-07-28 — MCP 2026-07-28 spec final (stateless; session model dropped, Tasks first-class) — blog.modelcontextprotocol.io / vendor coverage (Tier 1/2)
+2026-07-28 — NVIDIA SkillSpector (+ larsroettig/skillspector-quality companion) — github.com/nvidia/skillspector (Tier 2)
+2026-07-28 — emilkowalski/skills /prototype skill (design-engineer skills, 21.9k★) — github.com/emilkowalski/skills (Tier 2/3)
+2026-07-28 — Official plugin marketplace adds: mattpocock-skills / PayPal / Shippo (Jul 27) — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-07-28 — enowdev/succubus (cross-agent coordination daemon) — github.com/enowdev/succubus (Tier 4)

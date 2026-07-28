@@ -43,3 +43,13 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-07-24 — MCP 2026-07-28 stateless-spec coverage ahead of stable release — theregister.com via SerpAPI
 2026-07-24 — @claudeai "New in Claude Cowork" post — X via SerpAPI
 2026-07-24 — lawrencecchen "Superrepos" worktree article — X via SerpAPI
+2026-07-28 — Claude Opus 5 (1M context, fast mode, default Opus; Claude Code v2.1.219–220) — anthropic.com/news / HN / github releases
+2026-07-28 — "The new rules of context engineering for Claude 5 generation models" — claude.com blog / HN
+2026-07-28 — Opus 5 elevated-errors incidents Jul 26–27 — status.claude.com / HN
+2026-07-28 — TheZvi Opus 5 system-card review — X via SerpAPI
+2026-07-28 — MCP 2026-07-28 spec stable release day (sessions removed, stateless core) — techtimes.com / techtarget.com via SerpAPI
+2026-07-28 — Azure DevOps MCP hidden-PR-comment hijack flaw — thehackernews.com via SerpAPI
+2026-07-28 — NVIDIA Open Secure AI Alliance + NOOA framework — thehackernews.com / techrepublic.com via SerpAPI
+2026-07-28 — deerwork-ai/deer-workflow (graph runtime, replaceable agent runtimes) — GitHub topic search (star-velocity caution)
+2026-07-28 — Salesforce MCP servers for Slack — cloudwars.com via SerpAPI
+2026-07-28 — 0xwilliamortiz/openclaude-improved (suspected star-farming; not picked) — GitHub topic search

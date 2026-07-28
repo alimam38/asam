@@ -134,3 +134,8 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-07-27 — oguzkr/skill-agent-session-handover (continue work across Codex/Claude/Cursor via local transcripts) — handoff lane covered (handoff-skill 07-23) — github.com/oguzkr/skill-agent-session-handover (Tier 4)
 2026-07-27 — GCS-ZHN/opencode-mcp-sentinel (polls long-running MCP tasks outside the LLM loop) — smart token-efficiency pattern but OpenCode-specific — github.com/GCS-ZHN/opencode-mcp-sentinel (Tier 4)
 2026-07-27 — loop-engineering pair (brittanyellich/loop-board + cbdreamer11/CB-loop-kit) — dev-methodology lane well covered (Finn-loop 07-23, compound-engineering 07-24) — github.com (Tier 4)
+2026-07-28 — Anthropic Academy free-course/certificate roundups (13 courses incl. MCP) — not fresh (Academy is ongoing, Apr-2026 update); aggregator churn — globalsouthopportunities.com et al. (Tier 4 carriers, Tier 1 content)
+2026-07-28 — wdm0006/python-skills (Will McGinnis; Python engineering best-practice skills, pushed hours ago) — craft-lane, below the daily-five bar; known OSS author — github.com/wdm0006/python-skills (Tier 3/4)
+2026-07-28 — sickn33/agentic-awesome-skills "AAS Core" (local-first skill manager) — installer/discovery lane covered (npx skills 07-01, gh skill 07-06, ccpi 06-24, openhub 07-23) — github.com/sickn33/agentic-awesome-skills (Tier 4)
+2026-07-28 — Cowork sandbox-escape press wave (appleinsider/9to5mac/sqmagazine, Jul 27; "500k Mac users") — increment of CVE-2026-46331 surfaced 07-25 — appleinsider.com (Tier 4 press)
+2026-07-28 — OneInterface/stormy-cookbook (social-data API MCP cookbook, 72★ day-one) — off focus (creator/social scraping) — github.com/OneInterface/stormy-cookbook (Tier 4)

@@ -135,3 +135,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-28 — emilkowalski/skills /prototype skill (design-engineer skills, 21.9k★) — github.com/emilkowalski/skills (Tier 2/3)
 2026-07-28 — Official plugin marketplace adds: mattpocock-skills / PayPal / Shippo (Jul 27) — github.com/anthropics/claude-plugins-official (Tier 1)
 2026-07-28 — enowdev/succubus (cross-agent coordination daemon) — github.com/enowdev/succubus (Tier 4)
+2026-07-29 — posit-dev/skills (official Posit data-science Claude Skills) — github.com/posit-dev/skills (Tier 2)
+2026-07-29 — neondatabase/agent-skills (official Neon serverless-Postgres agent skills) — github.com/neondatabase/agent-skills (Tier 2)
+2026-07-29 — simonw/mcp-explorer + datasette/datasette-mcp (MCP debugging CLI + Datasette /-/mcp endpoint) — github.com/simonw/mcp-explorer (Tier 2/3)
+2026-07-29 — Manufact "MCP Cloud" for Claude connectors (hosted MCP deploy + observability) — ycombinator.com/launches/RxG-manufact-mcp-cloud (Tier 3/4)
+2026-07-29 — Anthropic Economic Index connector — anthropic.com/news/anthropic-economic-index-connector (Tier 1)

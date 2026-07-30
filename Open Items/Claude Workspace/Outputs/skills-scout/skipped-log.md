@@ -145,3 +145,8 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-07-29 — Amex GBT Egencia AI connector in Claude (Jul 28) — official connector wave, off focus (business travel) — businesstravelexecutive.com (Tier 2 press)
 2026-07-29 — kenn-io/agentsview (4.6k★ local-first session analytics/token stats for Claude Code) — agentic-setup adjacent but not fresh (Feb 2026); revisit for usage attribution — github.com/kenn-io/agentsview (Tier 3)
 2026-07-29 — Marktechpost "Skill-Driven Financial Analysis Agents" (Claude + MCP connectors + deliverables, Jul 27) — finance/QBO-adjacent pattern piece, tutorial not installable — marktechpost.com (Tier 4)
+2026-07-30 — "Bringing MCP 2026-07-28 to Claude" (Claude-side stateless rollout: OAuth/OIDC, Apps/Tasks versioned extensions, tunnels) — near-dup of spec surfaced 07-28; worth a read for connector impact — claude.com/blog/bringing-mcp-2026-07-28-to-claude (Tier 1)
+2026-07-30 — X1 Search MCP connector (enterprise e-discovery search in Claude) — off focus (enterprise legal search) — globenewswire.com (Tier 2 press)
+2026-07-30 — mcpbench (GPT-5.6 + Opus stumble on 2026-07-28 MCP spec knowledge) — benchmark press; skill/agent-benchmark wave covered 07-22 — finance.biggo.com (Tier 4)
+2026-07-30 — Vendor MCP launch churn (Oviond agency reporting / Logimu shopping / JetHost hosting / Trellis courts expansion, Jul 28-29) — off focus — press sweep (Tier 2/3 press)
+2026-07-30 — jztan/pdf-mcp + meodai/skill.color-expert + ahujasid/blender-mcp (last-24h GitHub churn) — off focus or minor; pdf-mcp redundant if Token Saver pans out — github.com (Tier 3/4)

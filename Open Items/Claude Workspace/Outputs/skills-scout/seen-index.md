@@ -140,3 +140,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-29 — simonw/mcp-explorer + datasette/datasette-mcp (MCP debugging CLI + Datasette /-/mcp endpoint) — github.com/simonw/mcp-explorer (Tier 2/3)
 2026-07-29 — Manufact "MCP Cloud" for Claude connectors (hosted MCP deploy + observability) — ycombinator.com/launches/RxG-manufact-mcp-cloud (Tier 3/4)
 2026-07-29 — Anthropic Economic Index connector — anthropic.com/news/anthropic-economic-index-connector (Tier 1)
+2026-07-30 — Official vendor Agent Skills wave: Firebase + Railway + Our World in Data — github.com/firebase/agent-skills · github.com/railwayapp/railway-skills · github.com/owid/skills (Tier 2)
+2026-07-30 — google-labs-code/stitch-skills (Google Stitch UI-design agent skills) — github.com/google-labs-code/stitch-skills (Tier 2/3)
+2026-07-30 — runkids/skillshare (sync one skills library across AI CLIs) — github.com/runkids/skillshare (Tier 3/4)
+2026-07-30 — Token Saver (open-source MCP extension; local hybrid RAG cuts PDF token costs 90–99%) — marktechpost.com/2026/07/30/token-saver-an-open-source-mcp-extension-using-local-hybrid-rag (Tier 4)
+2026-07-30 — Carta official Plugins for Claude (vertical-SaaS-ships-a-plugin GTM pattern) — businesswire.com/news/home/20260729850340 (Tier 2 press)

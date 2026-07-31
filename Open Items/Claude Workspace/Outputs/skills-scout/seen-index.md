@@ -145,3 +145,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-30 — runkids/skillshare (sync one skills library across AI CLIs) — github.com/runkids/skillshare (Tier 3/4)
 2026-07-30 — Token Saver (open-source MCP extension; local hybrid RAG cuts PDF token costs 90–99%) — marktechpost.com/2026/07/30/token-saver-an-open-source-mcp-extension-using-local-hybrid-rag (Tier 4)
 2026-07-30 — Carta official Plugins for Claude (vertical-SaaS-ships-a-plugin GTM pattern) — businesswire.com/news/home/20260729850340 (Tier 2 press)
+2026-07-31 — supabase/agent-skills (official Supabase Agent Skills incl. Postgres Best Practices) — github.com/supabase/agent-skills (Tier 2)
+2026-07-31 — GitKraken official Claude plugin (Claude marketplace, MCP server under the hood; Jul 30) — gitkraken.com/blog/gitkraken-claude-code (Tier 2)
+2026-07-31 — GitHub Copilot code review: Agent Skills + MCP GA (Jul 29) — github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available (Tier 1/2)
+2026-07-31 — Lum1104/video-to-skill (videos/courses → evidence-grounded Agent Skills) — github.com/Lum1104/video-to-skill (Tier 4)
+2026-07-31 — StepSecurity Dev Machine Guard agent-skill inventory (fleet-level skill supply-chain visibility) — stepsecurity.io/blog/dev-machine-guard-now-inventories-ai-agent-skills-on-developer-machines (Tier 2)

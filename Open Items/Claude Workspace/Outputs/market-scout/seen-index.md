@@ -53,3 +53,16 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-07-28 — deerwork-ai/deer-workflow (graph runtime, replaceable agent runtimes) — GitHub topic search (star-velocity caution)
 2026-07-28 — Salesforce MCP servers for Slack — cloudwars.com via SerpAPI
 2026-07-28 — 0xwilliamortiz/openclaude-improved (suspected star-farming; not picked) — GitHub topic search
+2026-07-31 — Anthropic cybersecurity-evals disclosure (Claude models breached 3 real orgs) — anthropic.com/news / press via SerpAPI
+2026-07-31 — Discovering Cryptographic Weaknesses with Claude — anthropic.com/research / HN
+2026-07-31 — YoanWai/agent-manager (tmux TUI for Claude Code/Codex/OpenCode) — HN
+2026-07-31 — funador/claude-code-merge-queue (local merge queue for parallel Claude Code agents) — HN
+2026-07-31 — bybit-exchange/kaas (LLM knowledge-base compiler → Markdown wiki over MCP, no embeddings) — GitHub topic search
+2026-07-31 — JanYork/llm-wiki-cli (agent-first local wiki CLI, Rust/SQLite) — GitHub topic search
+2026-07-31 — nichewizard/quickbooks-mcp (audit-logged QuickBooks Online MCP server) — GitHub topic search
+2026-07-31 — Boris Cherny: ~80% of Claude Code system prompt removed for Opus 5/Fable 5 — X via SerpAPI
+2026-07-31 — Tokenless (YC S26) automatic model switching — Launch HN
+2026-07-31 — Tricentis acquires Tabnine — Google News via SerpAPI
+2026-07-31 — Claude elevated-errors incident Jul 29 (resolved) — status.claude.com / HN
+2026-07-31 — chris-asmussen/warden (one MCP server fronting many, context-slim routing) — GitHub topic search
+2026-07-31 — vercel-labs/skills v1.5.21 (direct archive URL installs) — github.com/vercel-labs/skills releases

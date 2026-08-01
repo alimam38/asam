@@ -32,3 +32,8 @@ Format: `YYYY-MM-DD — program/vendor — source`.
 2026-07-13 — Adobe (Express free / Acrobat ~$15/yr / CC via TechSoup) — helpx.adobe.com + techsoup.org/adobe
 2026-07-13 — Slack for Nonprofits (free Pro ≤250 members) — slack.com/help nonprofit discount
 2026-07-13 — Zoom for Nonprofits (50% off via Goodstack, direct) — support.zoom.com + zoom.com/zoom-cares
+2026-08-01 — Claude for Nonprofits (up to 75% off Team/Enterprise + connectors + free course) — https://www.anthropic.com/news/claude-for-nonprofits
+2026-08-01 — OpenAI for Nonprofits (ChatGPT Team $8/user/mo annual; up to 75% off Enterprise; Goodstack) — https://goodstack.org/software-discounts/openai
+2026-08-01 — Cloudflare Project Galileo (free Business-tier security/CDN/Workers; mission-based review) — https://www.cloudflare.com/galileo/
+2026-08-01 — Okta for Good (50 free Workforce Identity licenses + 50% off; 50% off Auth0; Goodstack) — https://www.okta.com/industries/nonprofits/
+2026-08-01 — PCs for People (low-cost refurb hardware; 501(c)(3) or accredited edu; hardware flag from 06-23 resolved) — https://www.pcsforpeople.org/nonprofits/

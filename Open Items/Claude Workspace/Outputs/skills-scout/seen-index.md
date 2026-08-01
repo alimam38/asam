@@ -150,3 +150,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-07-31 — GitHub Copilot code review: Agent Skills + MCP GA (Jul 29) — github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available (Tier 1/2)
 2026-07-31 — Lum1104/video-to-skill (videos/courses → evidence-grounded Agent Skills) — github.com/Lum1104/video-to-skill (Tier 4)
 2026-07-31 — StepSecurity Dev Machine Guard agent-skill inventory (fleet-level skill supply-chain visibility) — stepsecurity.io/blog/dev-machine-guard-now-inventories-ai-agent-skills-on-developer-machines (Tier 2)
+2026-08-01 — ratchet (0xwilliamortiz; PostToolUse minimalism/rule-compliance measurement for coding agents) — github.com/0xwilliamortiz/ratchet (Tier 4)
+2026-08-01 — better-skill-creator (OpenCnid; trustworthy-measurement rewrite of Anthropic's skill-creator) — github.com/OpenCnid/better-skill-creator (Tier 4)
+2026-08-01 — QuickBooks in Claude adds sales/invoicing/payroll/lending features (Intuit, Jul 28) — intuit.com/blog/news-social/quickbooks-expands-into-claude-and-chatgpt-with-new-sales-invoicing-payroll-and-lending-features (Tier 2)
+2026-08-01 — architecture-drawer (Andy1314Chen; text → editable native-shape PPTX architecture diagrams) — github.com/Andy1314Chen/architecture-drawer (Tier 4)
+2026-08-01 — Book→skill distillation wave (RayCodes_BookToSkill + book-distill; follows video-to-skill 07-31) — github.com/47thtechcorner/RayCodes_BookToSkill (Tier 4)

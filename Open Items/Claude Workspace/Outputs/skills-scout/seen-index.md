@@ -155,3 +155,7 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-01 — QuickBooks in Claude adds sales/invoicing/payroll/lending features (Intuit, Jul 28) — intuit.com/blog/news-social/quickbooks-expands-into-claude-and-chatgpt-with-new-sales-invoicing-payroll-and-lending-features (Tier 2)
 2026-08-01 — architecture-drawer (Andy1314Chen; text → editable native-shape PPTX architecture diagrams) — github.com/Andy1314Chen/architecture-drawer (Tier 4)
 2026-08-01 — Book→skill distillation wave (RayCodes_BookToSkill + book-distill; follows video-to-skill 07-31) — github.com/47thtechcorner/RayCodes_BookToSkill (Tier 4)
+2026-08-02 — impeccable-lite (ilindaniel; single-file design-judgment skill, Impeccable/Bakaus derivative) — github.com/ilindaniel/impeccable-lite (Tier 4)
+2026-08-02 — Skill-Sentinel (handcraftedbygod; behavioral/runtime scanner for Claude skills) — github.com/handcraftedbygod/Skill-Sentinel (Tier 4)
+2026-08-02 — humanizer-cli (0xwilliamortiz; 33-check AI-text detector CLI, 141★ day-one) — github.com/0xwilliamortiz/humanizer-cli (Tier 4)
+2026-08-02 — db-mcp (mdadul; self-hosted read-only DB MCP gateway for agents) — github.com/mdadul/db-mcp (Tier 4)

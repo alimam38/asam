@@ -22,3 +22,9 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-07-27 — Tyndale House Foundation / General Grants (theological education) — 2027-01-02 (verify) — http://thf.fluxx.io
 2026-07-27 — Community Foundation for Greater Atlanta / Nonprofit Sector Sustainability Fund — opened 2026-01-16, current window verify — https://cfgreateratlanta.org/nonprofit-sector-sustainability-fund/
 2026-07-27 — Witness to Win Inc / General Grant Program — LOI 2026-08-31 — https://www.witness2win.org/grant-application/
+2026-08-03 — Lilly Endowment / Wisdom Keepers Hope Seekers (WKHS) consortium (Howard-led; incl. ITC & Payne) — no deadline (awarded; coordinate via ITC) — https://jbhe.com/2026/07/howard-university-to-lead-new-consortium-of-seven-historically-black-theological-institutions/
+2026-08-03 — DHS/FEMA NSGP FY2026 extension push (58-member congressional letter; watch GEMA reopening + FY27) — watch — https://www.jfeda-c.org/fedbeat/federations-backed-letter-requests-extension-for-nsgp-application-window-521032
+2026-08-03 — Wheeler Family Charitable Foundation / Faith & Spiritual Growth Grants — 2026-08-31 (verify GA eligibility; PA focus listed) — https://www.wheelerfamilyfoundation.org/grant-application
+2026-08-03 — Ted & Shannon Skokos Foundation / Faith Initiative — rolling — https://www.kindora.co/funders/262190216
+2026-08-03 — US ED OPE / HBCU & TCCU R&D Infrastructure Grants — deadline TBD (verify on Grants.gov; route via ITC Title III) — https://simpler.grants.gov/opportunity/456673ba-be17-4776-92b3-6505958342da
+2026-08-03 — Arthur Vining Davis Foundations / Private Higher Education — RESOLVED: ineligible (undergrad-only per FAQ); dropped from watch — https://www.avdf.org/grant-seekers/frequently-asked-questions/

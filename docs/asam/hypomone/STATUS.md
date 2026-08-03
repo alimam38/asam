@@ -1,7 +1,7 @@
 # STATUS — Hypomone (Meridia member platform)
 
-**State:** 🟡 MVP scope locked; awaiting build start
-**Last reviewed:** 2026-07-20 (sweep — content current through the 2026-07-15 fork-sweep section)
+**State:** 🟡 Promoted to active build (focus, 2026-08-02) — first build commit not yet landed
+**Last reviewed:** 2026-08-03 (sweep — 08-02 focus promotion noted; no build artifacts yet)
 
 ## Where things live in this repo
 - Spec: `specs/hypomone/spec-v1.md`
@@ -18,7 +18,7 @@
 2. Consolidate `Open Items/Hypomone/` into `docs/asam/hypomone/` — keep one home.
 
 ## Next action
-- Confirmed 2026-07-02: **no movement since scope lock.**
+- First build commit against `specs/hypomone/spec-v1.md` (Gate-1 Charter build) — or an explicit sequencing call vs. Plumbline (open decision #1).
 
 ## 2026-07-15 — Build-input sourcing reviewed (fork sweep)
 Ali forked ~54 fintech/lending repos on 2026-07-14. Reviewed against `specs/hypomone/spec-v1.md`.
@@ -38,3 +38,12 @@ Gate-1 build, which is **The Charter** (compliance-safe intake instrument, §4).
 **Parked (correctly) until §10 item 1 counsel review** — the Gate-3+ lending stack:
 `core-banking-prototype-laravel`, `formancehq/ledger`, `multi-agent-loan-origination`, and the
 underwriting/credit forks. Real assets, wrong gate for now.
+
+## 2026-08-02 — Promoted to active build in current-focus (sweep note)
+Ali promoted Hypomone to **active build** in `Open Items/Claude Workspace/Context/current-focus.md`
+(commit `49e2b35c`, "focus v3: promote Hypomone to active build"). As of the 2026-08-03 sweep
+**no build artifacts have landed** — nothing changed under `src/`, `specs/hypomone/`, or
+`docs/asam/hypomone/` since the 2026-07-15 fork-sweep note — so the state emoji stays 🟡 until the
+first build commit. Open decision #1 (build start relative to Plumbline) is now live rather than
+hypothetical: both ventures are queued for the same build capacity and Plumbline's "before August"
+target has arrived with no build code on either side. (sweep-reconciled 2026-08-03)

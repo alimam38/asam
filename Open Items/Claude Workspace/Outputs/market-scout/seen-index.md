@@ -66,3 +66,13 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-07-31 — Claude elevated-errors incident Jul 29 (resolved) — status.claude.com / HN
 2026-07-31 — chris-asmussen/warden (one MCP server fronting many, context-slim routing) — GitHub topic search
 2026-07-31 — vercel-labs/skills v1.5.21 (direct archive URL installs) — github.com/vercel-labs/skills releases
+2026-08-04 — MCP Apps: MCP servers rendering their own UI (sandboxed iframe in host) — X via SerpAPI
+2026-08-04 — Claude Code v2.1.221 (sandbox credential masking, prompt-audit subcommand, zsh permission bypass fix) — github.com/anthropics/claude-code releases
+2026-08-04 — RinDig/cost-of-remembering (filesystem memory vs long-context, LongMemEval) — GitHub topic search
+2026-08-04 — stalebrainlabs/stalebrain (staleness/provenance audit for agent memory files) — GitHub topic search
+2026-08-04 — Hoplite (YC S26) cloud coding-agent deployment — Launch HN
+2026-08-04 — lennney/mcp-slim-guard (context compression for MCP) — GitHub topic search
+2026-08-04 — JFrog "SQLite Critical CVEs or LLM Slop?" — HN
+2026-08-04 — Cloudflare "Smaller, faster, safer: running Kimi and GLM at scale" — HN
+2026-08-04 — MarbleOS GUI-for-AI-agents demo — Show HN
+2026-08-04 — 0xwilliamortiz/ratchet (star-farming caution; not picked) — GitHub topic search

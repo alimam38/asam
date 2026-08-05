@@ -173,3 +173,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-04 — metahub-ai/assay (one framework to evaluate skills/MCP servers/agents/plugins; static reads + sandboxed runs) — github.com/metahub-ai/assay (Tier 4)
 2026-08-04 — plannotator/effective-html (agent skills for self-contained HTML artifacts, wireframes → interactive prototypes) — github.com/plannotator/effective-html (Tier 3/4)
 2026-08-04 — Blend Autopilot MCP Server (lender-owned agents inside loan workflows w/ audit trails + authorization) [backfilled, May 2026] — nationalmortgageprofessional.com (Tier 2)
+2026-08-05 — trailofbits/skills (official Trail of Bits security-research/vuln/audit Claude Code skills, 6.4k★) — github.com/trailofbits/skills (Tier 2)
+2026-08-05 — tech-leads-club/agent-skills (validated skill registry + progressive-disclosure MCP server, ~5k★) — github.com/tech-leads-club/agent-skills (Tier 3)
+2026-08-05 — Apache Superset MCP server (official admin docs; dashboards/SQL/charts via MCP) — superset.apache.org/admin-docs/configuration/mcp-server (Tier 2)
+2026-08-05 — Google Agent Skills repository oversight tightening (skill supply-chain governance signal) — itbrief.asia (Tier 2 press)
+2026-08-05 — Gentkey governed Stripe MCP proxy (OAuth-fronted official MCP; scoped writes + audit trail) — gentkey.com/connectors/stripe (Tier 4)

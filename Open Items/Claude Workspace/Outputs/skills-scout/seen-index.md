@@ -197,3 +197,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-09 — meleantonio/assessment-cycle (assessment→rubric→marking→feedback skills) — github.com/meleantonio/assessment-cycle (Tier 4)
 2026-08-09 — ray-amjad/peer-sessions (fleet-of-sessions SendMessage orchestration skill) — github.com/ray-amjad/peer-sessions (Tier 4)
 2026-08-09 — LunkiBR/ship-it (pre-ship UX/product checklist skill) — github.com/LunkiBR/ship-it (Tier 4)
+2026-08-10 — ant CLI (anthropics/anthropic-cli; official Claude Platform CLI — messages/agents/sessions/files) — github.com/anthropics/anthropic-cli (Tier 1)
+2026-08-10 — anthropics/claude-plugins-community (community plugin marketplace mirror for Cowork + Claude Code) — github.com/anthropics/claude-plugins-community (Tier 1 infra / community plugins)
+2026-08-10 — cth9191/morning-intel (self-installing scheduled morning-brief skill pack) — github.com/cth9191/morning-intel (Tier 4)
+2026-08-10 — rudini/claude-edu-plugins (Moodle + Kahoot skills; AI essay-grading pipeline, course round-trip, MCP server) — github.com/rudini/claude-edu-plugins (Tier 3/4)
+2026-08-10 — superdesigndev/tools-registry (shared skill & secret vault for teams/agents) — github.com/superdesigndev/tools-registry (Tier 4)

@@ -28,3 +28,9 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-08-03 — Ted & Shannon Skokos Foundation / Faith Initiative — rolling — https://www.kindora.co/funders/262190216
 2026-08-03 — US ED OPE / HBCU & TCCU R&D Infrastructure Grants — deadline TBD (verify on Grants.gov; route via ITC Title III) — https://simpler.grants.gov/opportunity/456673ba-be17-4776-92b3-6505958342da
 2026-08-03 — Arthur Vining Davis Foundations / Private Higher Education — RESOLVED: ineligible (undergrad-only per FAQ); dropped from watch — https://www.avdf.org/grant-seekers/frequently-asked-questions/
+2026-08-10 — DOJ BJA / FY2026 Enhancing Security Measures for Houses of Worship — 2026-09-02 (Grants.gov; JustGrants 2026-09-09) — https://bja.ojp.gov/funding/opportunities/o-bja-2026-172658
+2026-08-10 — In Trust Center / Board Development Grants — 2026-09-30 (opens 2026-08-24) — https://www.intrust.org/how-we-help/grant-opportunities/board-development-grants
+2026-08-10 — In Trust Center / Resource Grants — FY26 cycle closed 2026-04-30; next opens 2027-03-02 — https://www.intrust.org/how-we-help/grant-opportunities/resource-grants
+2026-08-10 — UNCF / Project ACCLAIM Cohort 3 seed grants — open now, no posted deadline (contact UNCF) — https://uncf.org/news/uncf-scales-project-acclaim-into-a-national-model-for-work-integrated-learning-advancing-institutional-wealth-and-career-readiness-across-hbcus
+2026-08-10 — Enterprise Community Partners / Faith-Based Development Initiative — rolling — https://www.enterprisecommunity.org/impact-areas/preservation-and-production/faith-based-development
+2026-08-10 — US ED OPE / HBCU & TCCU R&D Infrastructure Grants — UPDATE: closed/archived 2026-07-23; watch next cycle — https://simpler.grants.gov/opportunity/456673ba-be17-4776-92b3-6505958342da

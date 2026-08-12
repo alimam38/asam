@@ -76,3 +76,16 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-08-04 — Cloudflare "Smaller, faster, safer: running Kimi and GLM at scale" — HN
 2026-08-04 — MarbleOS GUI-for-AI-agents demo — Show HN
 2026-08-04 — 0xwilliamortiz/ratchet (star-farming caution; not picked) — GitHub topic search
+2026-08-12 — Docker Sandboxes (disposable isolated sandboxes for AI agents) — docker.com / HN
+2026-08-12 — Claude Code auto mode now default — claude.com blog / HN / TechCrunch via SerpAPI
+2026-08-12 — Claude Code cross-session messaging — code.claude.com / HN / X via SerpAPI
+2026-08-12 — Claude Code v2.1.224 self-hosted runners + archive plugin source — github.com/anthropics/claude-code releases
+2026-08-12 — Anthropic invisible watermarking of all Claude output (EU AI Act) — support.claude.com / HN / Fortune via SerpAPI
+2026-08-12 — Meta Muse Glimmer 30B open agentic local model — research.meta.ai / HN
+2026-08-12 — Needle2 14MB agentic LLM for edge devices (Cactus Compute) — Show HN
+2026-08-12 — Meridian free QuickBooks MCP connector (press-release caution) — GlobeNewswire via SerpAPI
+2026-08-12 — activeing123/mcptoon (token-efficient MCP CLI client) — Show HN
+2026-08-12 — wanshuiyin/HERO-Anti-OverDefense (anti-overdefense contract for coding agents) — GitHub topic search
+2026-08-12 — LangChain Managed Deep Agents — X via SerpAPI
+2026-08-12 — sv-number/mcp-server (phone numbers for agents; star-velocity caution, not picked) — GitHub topic search
+2026-08-12 — Anthropic Riemann zeta / mathematical capabilities research — anthropic.com/research / HN

@@ -46,3 +46,20 @@ _Window: 2026-08-11 → 2026-08-17 (last digest 2026-08-10). Sources per `skills
 _Skipped-log additions this run: increments + non-fits incl. auto-mode default rollout (increment of 08-08 PSA), the Aug 15–16 Anthropic outage, and the DeepSeek Harness ecosystem — see `skipped-log.md`._
 
 _Evening delta run (same day): merged 2 additional items (Claude output watermarking; FiscalNote PolicyNote MCP) missed by the morning pass; 7 further delta finds were increments/non-fits and went to the skipped log. SerpAPI used (3/3 day-scoped calls)._
+
+---
+
+## Addendum — second pass, ~17:30 UTC scheduled run (increment over the morning digest)
+
+### Official / Tier 1
+- **Claude now watermarks outputs — invisible, text + images, no opt-out** (rolled out Aug 11–13) — EU-AI-Act-driven provenance marking (C2PA-adjacent), applied globally to Claude outputs. Why: Cowork lane — touches every deliverable produced through Claude (client docs, grant drafts, content); detection/removal behavior is still being characterized. Trust: Tier 1 origin (Anthropic change) via heavy press (Forbes, Fortune, Euronews); official docs detail still thin — don't assume any output is watermark-free.
+
+### Skills & plugin ecosystem (dev tooling / curation)
+- **Untrivial-ai/agent-orchestrator** (~9.6k★, very active) — "agent IDE" for managing fleets of coding agents: an orchestrator plans tasks, spawns agents, and auto-handles CI fixes, merge conflicts, and code review. Why: the fleet-of-sessions pattern (SendMessage 08-08, peer-sessions 08-09) as a full product; established repo never previously surfaced. Trust: Tier 3 — popular non-vendor project; evaluate before adopting.
+- **backnotprop/plannotator** (~7.9k★) — visually annotate and review agent plans and code diffs, share with a team, send feedback back to the agent in one click. Why: human-in-the-loop review layer for agentic work (pairs with facet, seen 08-04); author already known (effective-html). Trust: Tier 3.
+- **bozhouDev/anthropic-mind** (Aug 17, day-one) — a Claude skill distilled from 428 primary Anthropic sources, shipped with the full corpus and the distillation pipeline. Why: read it for the corpus→skill distillation pattern (maps directly to the Meridia corpus work) more than for the skill itself. Trust: Tier 4 — unknown author, install-with-caution.
+
+### Other lanes
+- Recess/K-12, Meridia/Hypomone fintech, Aegis governance, Populi/Postgres/NAS, KSW: nothing genuinely new in this increment beyond the morning digest; fresh-repo churn logged to the skipped log.
+
+_Addendum method: SerpAPI last-24h layer (3/3 calls) + GitHub `created:>2026-08-15` sweep + news verification, deduped against seen index and morning skipped-log entries._

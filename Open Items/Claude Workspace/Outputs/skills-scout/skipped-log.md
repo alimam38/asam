@@ -266,3 +266,10 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-08-17 — alexiocassanifm/anthropic-certifications (study kits + quiz skills) — borderline; personal-learning fit only — github.com (Tier 4)
 2026-08-17 — Collibra Data Lineage MCP server — enterprise data-governance adjacent; no current lane pull — collibra.com (Tier 2)
 2026-08-17 — openclaw/agent-skills — OpenClaw ecosystem, out of stack — github.com/openclaw/agent-skills (Tier 4)
+2026-08-17 — Counterfactual Trace Auditing of LLM Agent Skills (ICML 2026 paper) — Aegis/skill-audit pattern reference, not installable — icml.cc/virtual/2026/77900 (Tier 2) [delta run]
+2026-08-17 — Planful MCP Server (governed read-only FP&A data) — finance vendor MCP, off-stack — planful.com/platform/mcp (Tier 2) [delta run]
+2026-08-17 — rohitg00/agentmemory (persistent memory for coding agents) — memory lane saturated (claude-mem 07-13, memsearch 07-25, fellowgeek 08-17); known prolific author — github.com/rohitg00/agentmemory (Tier 3/4) [delta run]
+2026-08-17 — Directory churn Aug 16–17 (sickn33/agentic-awesome-skills, mxyhi/ok-skills cross-agent packs) — directory churn, low per-item signal — github.com (Tier 4) [delta run]
+2026-08-17 — elementalsouls/Claude-BugHunter (bug-hunting skill bundle) — security lane covered (Claude Security 07-23) + offensive-leaning — github.com/elementalsouls/Claude-BugHunter (Tier 4) [delta run]
+2026-08-17 — Cowork built-in web browser experiment ("Super App") — unreleased/experimental; increment of Chrome side panel (surfaced today) — testingcatalog.com (Tier 4) [delta run]
+2026-08-17 — wachawo/mcp-psql (Postgres skills/docs MCP + plugin) — pg-aiguide-pattern derivative (seen 07-02), undated/unverified; Postgres lane saturated — github.com/wachawo/mcp-psql (Tier 4) [delta run]

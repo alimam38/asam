@@ -273,3 +273,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-08-17 — elementalsouls/Claude-BugHunter (bug-hunting skill bundle) — security lane covered (Claude Security 07-23) + offensive-leaning — github.com/elementalsouls/Claude-BugHunter (Tier 4) [delta run]
 2026-08-17 — Cowork built-in web browser experiment ("Super App") — unreleased/experimental; increment of Chrome side panel (surfaced today) — testingcatalog.com (Tier 4) [delta run]
 2026-08-17 — wachawo/mcp-psql (Postgres skills/docs MCP + plugin) — pg-aiguide-pattern derivative (seen 07-02), undated/unverified; Postgres lane saturated — github.com/wachawo/mcp-psql (Tier 4) [delta run]
+2026-08-17 — Anthropic Claude Code cost-guide press wave ("six tips") — likely coverage of existing code.claude.com/docs/en/costs page; newness unverified — finance.biggo.com (Tier 4 press)
+2026-08-17 — "Claude agents sabotaged each other" research coverage — Aegis posture context; single low-tier outlet, unverified framing — sofx.com (Tier 4 press)
+2026-08-17 — rohitg00/agentmemory (cross-agent persistent memory + MCP) — memory lane saturated (claude-mem 07-13, memsearch 07-25, mcp-memory 08-17); known-author increment — github.com/rohitg00/agentmemory (Tier 3)
+2026-08-17 — agentic-community/mcp-gateway-registry (~864★ OAuth MCP gateway/registry) — increment of MCPJungle 06-27; revisit if Aegis needs a governed gateway — github.com/agentic-community/mcp-gateway-registry (Tier 3)
+2026-08-17 — Lifecycle-Innovations-Limited/claude-ops (174★ business-OS bundle w/ unified inbox) — borderline; revisit with traction — github.com/Lifecycle-Innovations-Limited/claude-ops (Tier 4)
+2026-08-17 — Undertone0809/rudder (285★ local harness; feedback → reusable skills) — skill-lifecycle increment (skillsmith, better-skill-creator) — github.com/Undertone0809/rudder (Tier 3/4)
+2026-08-17 — getaero-io/gtm-eng-skills (53★ GTM-engineering skills) — GTM lane fit but low traction — github.com/getaero-io/gtm-eng-skills (Tier 4)
+2026-08-17 — rakib-nyc/skillassay (always-on context-cost static analyzer) — increment of /doctor 07-13 + assay 08-04 — github.com/rakib-nyc/skillassay (Tier 4)
+2026-08-17 — Adobe Experience Governance MCP Server + Governance Agent (AEM) — governance lane but Adobe-stack-specific — bounteous.com (Tier 2)
+2026-08-17 — "How MCP Servers Can Expose Enterprise Secrets" — MCP-curation posture read; article, not a tool — thehackernews.com (Tier 4 press)
+2026-08-17 — Aug 16–17 repo churn roll-up (vuln-report-skill 30★; chinese-font-selector; MemOmics-Agent bioinformatics; requirement-ledger; deep-analysis-skills; security-agent-skills; docs-driven-workflow; ida-headless-mcp; pfsense-mcp-server; comfyui-mcp; oh-my-openagent; Claude-BugHunter; agentforge) — off focus / low per-item signal — github.com repo search created:>2026-08-15 (Tier 4)

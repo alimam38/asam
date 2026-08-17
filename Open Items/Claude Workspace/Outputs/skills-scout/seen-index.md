@@ -218,3 +218,5 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-17 — OpenLabs-so/openanalytics (self-hosted analytics + MCP) — github.com/OpenLabs-so/openanalytics (Tier 3/4)
 2026-08-17 — vasanthsreeram/Alvarmethod (1:1 AI teaching skills) — github.com/vasanthsreeram/Alvarmethod (Tier 4)
 2026-08-17 — bar181/bar-observatory (local-only Claude Code session audit MCP) — github.com/bar181/bar-observatory (Tier 4)
+2026-08-17 — Claude output watermarking (SynthID-Text + C2PA, no opt-out; detection API coming) — anthropic via Forbes/PCMag/explainx (Tier 1 origin / Tier 2 press)
+2026-08-17 — FiscalNote PolicyNote MCP connector (official Claude Connectors Directory) — businesswire.com/news/home/20260813382550 (Tier 2 press)

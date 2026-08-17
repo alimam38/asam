@@ -220,3 +220,7 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-17 — bar181/bar-observatory (local-only Claude Code session audit MCP) — github.com/bar181/bar-observatory (Tier 4)
 2026-08-17 — Claude output watermarking (SynthID-Text + C2PA, no opt-out; detection API coming) — anthropic via Forbes/PCMag/explainx (Tier 1 origin / Tier 2 press)
 2026-08-17 — FiscalNote PolicyNote MCP connector (official Claude Connectors Directory) — businesswire.com/news/home/20260813382550 (Tier 2 press)
+2026-08-17 — Claude invisible output watermarking (text+image, EU AI Act, global, no opt-out) — anthropic change via Forbes/Fortune/Euronews (Tier 1 origin)
+2026-08-17 — Untrivial-ai/agent-orchestrator (fleet-of-agents IDE, ~9.6k★) — github.com/Untrivial-ai/agent-orchestrator (Tier 3)
+2026-08-17 — backnotprop/plannotator (visual plan/diff review + feedback-to-agent, ~7.9k★) — github.com/backnotprop/plannotator (Tier 3)
+2026-08-17 — bozhouDev/anthropic-mind (428-source Anthropic corpus → skill distillation) — github.com/bozhouDev/anthropic-mind (Tier 4)

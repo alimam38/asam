@@ -34,3 +34,8 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-08-10 — UNCF / Project ACCLAIM Cohort 3 seed grants — open now, no posted deadline (contact UNCF) — https://uncf.org/news/uncf-scales-project-acclaim-into-a-national-model-for-work-integrated-learning-advancing-institutional-wealth-and-career-readiness-across-hbcus
 2026-08-10 — Enterprise Community Partners / Faith-Based Development Initiative — rolling — https://www.enterprisecommunity.org/impact-areas/preservation-and-production/faith-based-development
 2026-08-10 — US ED OPE / HBCU & TCCU R&D Infrastructure Grants — UPDATE: closed/archived 2026-07-23; watch next cycle — https://simpler.grants.gov/opportunity/456673ba-be17-4776-92b3-6505958342da
+2026-08-17 — Louisville Institute / Grant for Researchers — 2026-09-02 — https://louisville-institute.org/programs-grants-and-fellowships/grants/grant-for-researchers/
+2026-08-17 — Louisville Institute / First Book Grant (early-career theological faculty) — verify (winter cycle; not posted) — https://louisville-institute.org/programs-grants-and-fellowships/grants/
+2026-08-17 — Atlanta Foundation (Wells Fargo-administered) / Fulton-DeKalb general grants — 2026-09-01 — https://us.fundsforngos.org/type-of-grantgrant/call-for-applications-for-atlanta-foundation-grant-georgia/
+2026-08-17 — Calvin Institute of Christian Worship / Vital Worship Grants ($8K–$25K; incl. Teacher-Scholar) — verify timeline (historically early Jan) — https://worship.calvin.edu/grants/
+2026-08-17 — DHS/FEMA NSGP FY2027 state rounds opening (NJ FY27 open; watch GEMA GA) — GA window TBD (GEMA ~Feb typical) — https://www.facebook.com/NJOHSP/posts/1488287686670226

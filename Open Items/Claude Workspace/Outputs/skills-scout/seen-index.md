@@ -224,3 +224,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-17 — Untrivial-ai/agent-orchestrator (fleet-of-agents IDE, ~9.6k★) — github.com/Untrivial-ai/agent-orchestrator (Tier 3)
 2026-08-17 — backnotprop/plannotator (visual plan/diff review + feedback-to-agent, ~7.9k★) — github.com/backnotprop/plannotator (Tier 3)
 2026-08-17 — bozhouDev/anthropic-mind (428-source Anthropic corpus → skill distillation) — github.com/bozhouDev/anthropic-mind (Tier 4)
+2026-08-18 — anthropics/skills adds: discernment-nudge + claude-academy-guide — github.com/anthropics/skills (Tier 1)
+2026-08-18 — Claude Academy (academy.claude.com official course platform) — academy.claude.com (Tier 1)
+2026-08-18 — yetone/cumora (agent-team chat; agents as first-class teammates, ~2.1k★ day one) — github.com/yetone/cumora (Tier 3)
+2026-08-18 — Grafana gcx + MCP server GA (telemetry-driven agent dev) — infoq.com/news/2026/08/grafana-mcp-server-telemetry (Tier 2)
+2026-08-18 — HKUDS/DeepTutor (agent-native tutoring workspace, ~36k★) [backfilled] — github.com/HKUDS/DeepTutor (Tier 3)

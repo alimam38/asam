@@ -236,3 +236,5 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-19 — caura-ai/caura (governed shared memory for agent fleets; multi-tenant, trust tiers; ex-MemClaw) — github.com/caura-ai/caura (Tier 3)
 2026-08-19 — Yuzzyuk/marketing-os (14-module marketing-department-as-one-skill; 119★ day-one) — github.com/Yuzzyuk/marketing-os (Tier 4)
 2026-08-19 — elevenlabs/skills (official ElevenLabs agent skills) — github.com/elevenlabs/skills (Tier 2)
+2026-08-20 — Gmail connector write actions (send/reply/forward; per-action approval default + Team/Ent admin gate) — support.claude.com via 9to5google.com (Tier 1)
+2026-08-20 — Spielewoy/autoprompt-skill (agentic-coding failure-reduction skill, ~404★/3 days) — github.com/Spielewoy/autoprompt-skill (Tier 3/4)

@@ -238,3 +238,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-19 — elevenlabs/skills (official ElevenLabs agent skills) — github.com/elevenlabs/skills (Tier 2)
 2026-08-20 — Gmail connector write actions (send/reply/forward; per-action approval default + Team/Ent admin gate) — support.claude.com via 9to5google.com (Tier 1)
 2026-08-20 — Spielewoy/autoprompt-skill (agentic-coding failure-reduction skill, ~404★/3 days) — github.com/Spielewoy/autoprompt-skill (Tier 3/4)
+2026-08-21 — Claude Platform: Agent Skills + Files API GA for Managed Agents + web access controls (Aug 19) — releasebot.io/updates/anthropic (Tier 1)
+2026-08-21 — Claude Code v2.1.236–237 (ANTHROPIC_DEFAULT_MODEL, notify_when_idle, Concise output style, gateway prompt-caching fix) — code.claude.com changelog via dev.classmethod.jp (Tier 1)
+2026-08-21 — mcpmarket.com Agent Skills marketplace (cross-platform skills directory + paid marketplace) — mcpmarket.com/tools/skills (Tier 2/4)
+2026-08-21 — panaversity/learn-stateless-mcp (twin Python/TS SDK-v2 tutorial for 2026-07-28 stateless MCP spec) — github.com/panaversity/learn-stateless-mcp (Tier 3)
+2026-08-21 — JFrog MCP Registry GA + AI Catalog MCP/skills governance (shadow-AI/MCP detection) — jfrog.com/blog (Tier 2)

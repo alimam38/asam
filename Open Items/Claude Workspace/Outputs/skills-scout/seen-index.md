@@ -260,3 +260,7 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-23 — oxbshw/watch-skill (video/screen-recordings → timestamped evidence + THE LOOP self-verification) — github.com/oxbshw/watch-skill (Tier 3/4)
 2026-08-23 — mizcausevic-dev evidence-labeling-protocol + deterministic-core-llm-surface-pattern (no-fabrication evidence taxonomy + 95/5 deterministic-core pattern) — github.com/mizcausevic-dev (Tier 4)
 2026-08-23 — Agentic Banking Directory (banks shipping first-party MCP servers; consent/limits/audit trails) — openbankingtracker.com/agentic-banking-and-mcp (Tier 2)
+\n2026-08-24 — Claude platform outage Aug 24 (~3h+ elevated errors, resolved ~10:30 UTC; morning scheduled runs may have failed) — status.anthropic.com via PCMag/Mashable (Tier 1 origin)
+2026-08-24 — tw93/Kami (print-grade document design system: 8 templates; Claude Code plugin + skill + MCP renderer, ~10k★) [backfilled] — github.com/tw93/kami (Tier 3)
+2026-08-24 — PiLastDigit/Code-With-Claude (transcripts of all 19 Code w/ Claude SF 2026 talks, 88★ d1) — github.com/PiLastDigit/Code-With-Claude (Tier 4)
+2026-08-24 — aiopshwang verification trio (evidence-first-problem-solving / verify-regression-tests / ship-mobile-app) — github.com/aiopshwang (Tier 4)

@@ -1,0 +1,35 @@
+# Market scout — 2026-08-24
+
+_Lookback: since the 2026-08-12 run (12 days — the Aug 15 and Aug 19 cadence slots didn't run). Sources: GitHub topic search via Composio connector, HN Algolia, Anthropic changelogs, SerpAPI (news + X). Ranked ruthlessly per focus file._
+
+## Top picks
+
+### 1. DeepSeek Harness (dsh) — the open-source agent-harness land grab
+**[deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)** — created Aug 13, ~190K stars and 21K forks in 11 days, the fastest-growing repo of the year. "Everything is a plugin": model, sandbox, filesystem, shell, agent loop, and UI are all replaceable components ([architecture comparisons vs Claude Code/Codex](https://www.mindstudio.ai/blog/deepseek-harness-vs-claude-code-codex)). An entire ecosystem materialized in under two weeks: [desktop app](https://github.com/vibeinging/dsh-desktop), [iOS-simulator plugin](https://github.com/ZSeven-W/dsh-ios), [IM-bot bridges (Slack/WhatsApp/WeChat)](https://github.com/xmanrui/dsh-im), [memory plugin](https://github.com/ZSeven-W/dsh-noema), multiple awesome-lists and an [hourly-refreshed plugin directory](https://github.com/whyihaveyou/dsh-suite) — the same directory/marketplace pattern the Claude skills ecosystem took months to develop.
+**Why it matters to Ali:** This is the first credible open-source, model-agnostic rival to the Claude Code/Cowork harness itself — not another wrapper. If harnesses commoditize, the durable value shifts to what you own: your skills, repo-as-memory patterns, and MCP integrations (Populi, QuickBooks, Postgres). Worth understanding its plugin contract to see how portable your Claude-side investments would be — and it runs on your Docker/NAS stack.
+
+### 2. New MCP roadmap: long-running tasks and agent auth are coming to the spec
+**[MCP Roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/)** (Aug 22, [HN 241 pts](https://news.ycombinator.com/item?id=49399591)) — five focus areas post-stateless-spec, including long-running/asynchronous operations and agent authentication/identity; coverage notes [Amazon's heavy involvement in the infrastructure rebuild](https://www.technology.org/2026/08/21/inside-mcps-biggest-overhaul-how-amazon-is-rebuilding-the-infrastructure-behind-ai-agents/).
+**Why it matters to Ali:** Long-running operations are exactly the gap you feel with scheduled jobs and slow QuickBooks/Populi syncs over MCP (fire-and-poll hacks today). Agent identity/auth lands directly on the "which agent did what in my books" audit question. Spec direction now is adoption pressure in 3–6 months — worth shaping integration plans around.
+
+### 3. Agent supply-chain attacks got real: Wiz's Snowflake-Jira compromise + split-instruction MCP exfiltration
+**[Wiz "Red Agent" research](https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug)** ([HN 424 pts](https://news.ycombinator.com/item?id=49331423)): an AI-generated GitHub Copilot "Autofix" PR was crafted to compromise Snowflake's Jira via CI/CD — an attack that flowed *through* an agent's normal write path. Same window: [malicious MCP servers splitting instructions across tool descriptions to make coding agents exfiltrate secrets](https://thehackernews.com/2026/08/malicious-mcp-servers-can-split.html), and [mass vulnerability scanners spoofing ClaudeBot](https://news.ycombinator.com/item?id=49272569).
+**Why it matters to Ali:** You run agents with write access to accounting (QuickBooks/Gusto), student data (Populi), and Git. The lesson generalizes: any surface an agent writes to (PR comments, tool descriptions, fetched repos) is untrusted input to the *next* agent. Argues for the audit-logged MCP pattern and least-privilege connector scopes on every scheduled job.
+
+### 4. OpenBot — open-source "AI coworkers" with pre-action approval and full audit trail
+**[CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot)** — ~2.6K stars in a week. Each agent gets its own computer (browser, files, tools); every action is decided *before* it happens and recorded. A governance-first, self-hostable take on the Cowork pattern.
+**Why it matters to Ali:** Closest OSS analog yet to your Cowork workflows, and the approve-before-act + recorded-action design is the compliance posture a higher-ed SaaS (Plumbline) would need if agents ever touch SIS data. Worth a look purely as an architecture reference, and it would run on the NAS.
+
+### 5. Claude Code economics watch: reduced-effort A/B tests, weekly-limit promos, cost tooling
+Users caught [Anthropic A/B testing reduced effort levels in Claude Code](https://news.ycombinator.com/item?id=49401549) (HN 196 pts); Anthropic simultaneously published [Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions), is running a [May–August weekly-limits promotion](https://support.claude.com/en/articles/15910845-claude-code-may-august-2026-weekly-limits-promotion), and shipped cost controls in [v2.1.239](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) (`--max-budget-usd`, truer `/cost` estimates). Also notable in the same releases: claude.ai-synced plugins now first-class in cloud sessions (`name@synced`).
+**Why it matters to Ali:** Your scheduled jobs and long Cowork sessions ride on these economics. If effort levels are being tuned server-side, deterministic checks in your routines (verify commits landed, re-read outputs) matter more — and `--max-budget-usd` is worth adding to any unattended loops.
+
+## Worth a session this week
+**Spin up DeepSeek Harness on the NAS (Docker) and poke its plugin contract** — 60–90 minutes: install, wire it to a local/cheap model, skim how plugins declare tools vs. MCP/skills, and form your own view on whether harness-portability changes how you package Plumbline-side agent work. It's the one item this cycle that could reshape assumptions rather than just add a tool.
+
+## Radar (one-liners)
+- [only-cli/oc](https://github.com/only-cli/oc) — turn any website into a compact CLI for agents; hundreds of tokens instead of tens of thousands. Pattern to steal for token-heavy scraping jobs.
+- [elie222/rakazo](https://github.com/elie222/rakazo) — open-source Grok Bot alternative (bring your own model + sandbox), from the Inbox Zero author.
+- [decionis/agent-safe-pipeline](https://github.com/decionis/agent-safe-pipeline) — reference architecture where agents propose but cannot authorize; pairs with pick #3.
+- [ElevenLabs MCP now in Claude](https://x.com/ElevenLabs/status/2089353435397116280) (X via SerpAPI) and [Databricks Unity AI Gateway](https://x.com/databricks/status/2091543594049896502) adding per-tool MCP budgets/controls — enterprise MCP governance is becoming a product category.
+- [How Claude's text watermarking works](https://www.anthropic.com/news/claude-text-watermark) — Anthropic's explainer for the watermarking flagged last run; loud backlash ([Daring Fireball, HN 823 pts](https://news.ycombinator.com/item?id=49324087)). Watch for whether it survives in current form.

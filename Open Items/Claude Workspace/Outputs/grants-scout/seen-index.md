@@ -39,3 +39,9 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-08-17 — Atlanta Foundation (Wells Fargo-administered) / Fulton-DeKalb general grants — 2026-09-01 — https://us.fundsforngos.org/type-of-grantgrant/call-for-applications-for-atlanta-foundation-grant-georgia/
 2026-08-17 — Calvin Institute of Christian Worship / Vital Worship Grants ($8K–$25K; incl. Teacher-Scholar) — verify timeline (historically early Jan) — https://worship.calvin.edu/grants/
 2026-08-17 — DHS/FEMA NSGP FY2027 state rounds opening (NJ FY27 open; watch GEMA GA) — GA window TBD (GEMA ~Feb typical) — https://www.facebook.com/NJOHSP/posts/1488287686670226
+2026-08-24 — J. Bulow Campbell Foundation / Capital campaign grants (Atlanta/Southeast; Christian-based priority) — quarterly letters; next 2026-10-01 — https://jbcf.org/application-process
+2026-08-24 — Lettie Pate Evans Foundation / Private higher ed + capital (GA) — next 2027-02-01 (Aug 15 cycle passed) — https://www.lpevans.org/faq/
+2026-08-24 — E. Rhodes & Leona B. Carpenter Foundation / Graduate theological education — next 2027-01-31 (Jul 15 cycle passed) — https://carpenterfoundation.us/
+2026-08-24 — Neeb Family Foundation / Faith-based educational institutions — rolling (verify scope at neebff.org) — https://neebff.org/
+2026-08-24 — GBHEM / Worldwide Theological Education Grants — 2027-03-01 (verify AME eligibility; UMC agency) — https://www.gbhem.org/education/higher-education-and-ministry-grants/
+2026-08-24 — Calvin Vital Worship Grants FY26 awards announced (77 grantees incl. North Park, $18K) — status update; watch FY27 cycle — https://www.northpark.edu/stories/north-park-theological-seminary-awarded-grant-to-enrich-community-worship-services/

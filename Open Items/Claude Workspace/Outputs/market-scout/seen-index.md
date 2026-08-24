@@ -89,3 +89,20 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-08-12 — LangChain Managed Deep Agents — X via SerpAPI
 2026-08-12 — sv-number/mcp-server (phone numbers for agents; star-velocity caution, not picked) — GitHub topic search
 2026-08-12 — Anthropic Riemann zeta / mathematical capabilities research — anthropic.com/research / HN
+2026-08-24 — deepseek-ai/deepseek-harness (open agent harness, everything-is-a-plugin; ~190K stars in 11 days) — GitHub topic search / web
+2026-08-24 — DSH ecosystem wave (dsh-desktop, dsh-ios, dsh-im, dsh-noema, dsh-suite, awesome lists) — GitHub topic search
+2026-08-24 — MCP Roadmap (long-running ops, agent auth, five focus areas) — blog.modelcontextprotocol.io / HN
+2026-08-24 — Wiz Red Agent: AI-generated Copilot Autofix compromise of Snowflake Jira — wiz.io / HN
+2026-08-24 — Malicious MCP servers split-instruction secret exfiltration — thehackernews.com via SerpAPI
+2026-08-24 — Mass vuln scans spoofing ClaudeBot (knownagents.com) — HN
+2026-08-24 — CopilotKit/OpenBot (open-source AI coworkers, pre-action approval + audit trail) — GitHub topic search
+2026-08-24 — Claude Code reduced-effort A/B testing observed — X via SerpAPI / HN
+2026-08-24 — Claude Code May–August weekly limits promotion — support.claude.com / HN
+2026-08-24 — "Maximizing the value of your Claude Code sessions" — claude.com blog / HN
+2026-08-24 — Claude Code v2.1.225–241 (cost estimates + --max-budget-usd, /claude-api upgrade, synced plugins in cloud) — github.com/anthropics/claude-code CHANGELOG
+2026-08-24 — only-cli/oc (websites as compact CLIs for agents) — GitHub topic search
+2026-08-24 — elie222/rakazo (open-source Grok Bot alternative) — GitHub topic search
+2026-08-24 — decionis/agent-safe-pipeline (propose-but-not-authorize reference architecture) — GitHub topic search
+2026-08-24 — ElevenLabs MCP in Claude — X via SerpAPI
+2026-08-24 — Databricks Unity AI Gateway (per-tool MCP budgets/controls) — X via SerpAPI
+2026-08-24 — Anthropic "How Claude's text watermarking works" explainer + Daring Fireball backlash — anthropic.com/news / HN

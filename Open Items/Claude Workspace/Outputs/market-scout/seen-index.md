@@ -106,3 +106,19 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-08-24 — ElevenLabs MCP in Claude — X via SerpAPI
 2026-08-24 — Databricks Unity AI Gateway (per-tool MCP budgets/controls) — X via SerpAPI
 2026-08-24 — Anthropic "How Claude's text watermarking works" explainer + Daring Fireball backlash — anthropic.com/news / HN
+2026-08-25 — Claude Code v2.1.243–245 (promptCacheTtl, /usage Loops breakdown, modelPicker, Sonnet 5 $2/$10 standard) — github.com/anthropics/claude-code CHANGELOG
+2026-08-25 — sodiumsun/agenttrail (local observability map for AI coding agents) — GitHub topic search
+2026-08-25 — Supabase MCP enterprise-managed auth GA (Anthropic + Okta) — X via SerpAPI
+2026-08-25 — Headlong microharness for persistent agents — laude.org / HN
+2026-08-25 — Fabien Sanglard agent.md (LLM-assisted code quality) — HN
+2026-08-25 — Anthropic Mythos 5 defender expansion + $35M open-source security fund — SecurityWeek via SerpAPI
+2026-08-25 — duty1g/x64dbg-mcp-server (debugger control over MCP) — GitHub topic search / X via SerpAPI
+2026-08-25 — "LLMs could control their host machines by exploiting inference engines" — HN
+2026-08-25 — Enterprise cooling on Opus-tier pricing + Anthropic IPO reports — FT / CIO / NYT via SerpAPI
+2026-08-25 — Claude multi-model outage Aug 24 (resolved) — status.claude.com / HN
+2026-08-25 — TrueFoundry open-source agent harness (75% cost claim) — InfoWorld via SerpAPI
+2026-08-25 — kgoedecke/doop (multiplayer design canvas, MCP built in) — GitHub topic search
+2026-08-25 — Codex mcp-server command deprecated — X via SerpAPI
+2026-08-25 — truespar/sentio (email inbox API for agents) — GitHub topic search
+2026-08-25 — ApodexAI/FrontierAgent (star-velocity caution; not picked) — GitHub topic search
+2026-08-25 — dragthelake/ambient-context (screen memory to Markdown) — Show HN

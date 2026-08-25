@@ -16,9 +16,14 @@ API attempt then web fallback._
   queries: "claude", "mcp", "ai agent", "llm"
 - Anthropic news & engineering: anthropic.com/news · anthropic.com/engineering · release notes/changelogs
 
+## Readwise (added 2026-08-25 per Ali)
+- Scan Ali's Readwise Reader library via the Readwise connector: reader_list_documents with updated_after={lookback} (plus reader_search_documents on focus themes if the list is large).
+- Treat saves as Ali's own curation signal — surface focus-relevant saves in the digest and use them to weight ranking; cite as "Readwise Reader".
+- Account was new/empty when added (only onboarding docs on 2026-08-25); if nothing relevant, skip silently — never fail the run over Readwise.
+
 ## X / Twitter
 - Queries: "claude code" OR "cowork", "MCP server", "agent framework" (min engagement; skip retweets)
-- NOTE: X API currently has no credits (402) — one cheap attempt max, then WebSearch fallback; label "X via fallback".
+- NOTE: X API currently has no credits (402) — one cheap attempt max, then WebSearch fallback; label "X via fallback". Preferred: SerpAPI site:x.com queries when the key is available; label "X via SerpAPI".
 
 ## Cadence note
 Tue run covers Sat–Mon; Fri run covers Tue–Thu. Seen-index dedups across runs.

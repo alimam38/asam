@@ -264,3 +264,7 @@ Format: `YYYY-MM-DD — name — source`.
 2026-08-24 — tw93/Kami (print-grade document design system: 8 templates; Claude Code plugin + skill + MCP renderer, ~10k★) [backfilled] — github.com/tw93/kami (Tier 3)
 2026-08-24 — PiLastDigit/Code-With-Claude (transcripts of all 19 Code w/ Claude SF 2026 talks, 88★ d1) — github.com/PiLastDigit/Code-With-Claude (Tier 4)
 2026-08-24 — aiopshwang verification trio (evidence-first-problem-solving / verify-regression-tests / ship-mobile-app) — github.com/aiopshwang (Tier 4)
+2026-08-25 — Unity official plugin (Unity Technologies partner listing, #5595) — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-08-25 — NetSuite plugin refresh: netsuite-ai-companion + netsuite-finance-analyst added, suitecloud repointed (#5600) — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-08-25 — ContextLab/claude-skill-compounder (hook: session insights → new skills, auto skill-extraction) — github.com/ContextLab/claude-skill-compounder (Tier 4)
+2026-08-25 — Vishal-Kundar/spawn-guard (PreToolUse hard enforcement of subagent model/effort/output-style) — github.com/Vishal-Kundar/spawn-guard (Tier 4)

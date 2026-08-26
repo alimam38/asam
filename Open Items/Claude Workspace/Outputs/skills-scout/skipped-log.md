@@ -156,6 +156,8 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-07-31 — nichewizard/quickbooks-mcp (community QBO MCP "built for real books") — QBO lane covered by Intuit official MCP (06-23) + QuickBooks Connector (07-03); revisit if official tools disappoint — github.com/nichewizard/quickbooks-mcp (Tier 4)
 2026-07-31 — mingaling19/product-deep-research (source-backed product/company deep-research skill, created today) — product/GTM fit but day-one unvetted; revisit with traction — github.com/mingaling19/product-deep-research (Tier 4)
 2026-07-31 — danielroe/empathy (skill that helps agents talk to humans; known Nuxt-core author) — charming craft skill, below the daily-five bar — github.com/danielroe/empathy (Tier 3/4)
+2026-07-31 — hyperping/mcp-server (official uptime/cron-monitoring MCP) — monitoring lane covered (Kuvasz 06-23) — github.com/hyperping/mcp-server (Tier 2/3)
+2026-07-31 — yussufs/export-md (/export-md session→markdown command) — handy but minor; handoff/export lane covered — github.com/yussufs/export-md (Tier 4)
 2026-08-01 — stanmaygo/dotsweep (domain availability across 1,200+ TLDs w/ renewal pricing, callable from an agent) — venture-naming/GTM utility but 2★ day-one — github.com/stanmaygo/dotsweep (Tier 4)
 2026-08-01 — Lum1104/ambitious-ai-startup-playbook (evidence-grounded founder coach distilled from Altman's Startup School interview) — ventures-in-strategy adjacent, day-one unvetted — github.com/Lum1104/ambitious-ai-startup-playbook (Tier 4)
 2026-08-01 — pruthivim/claude-pm-skills (insight synthesis, problem-clarity checks, RICE) — PM lane well covered (pm-claude-skills 06-25, deanpeters 06-28) — github.com/pruthivim/claude-pm-skills (Tier 4)

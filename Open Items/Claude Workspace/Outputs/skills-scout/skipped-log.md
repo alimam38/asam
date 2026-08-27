@@ -400,3 +400,20 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-08-26 — laurentshowtime/mcp-agent-toolkit (day-one MCP servers + skills + workflows bundle) — bundle churn — github.com/laurentshowtime/mcp-agent-toolkit (Tier 4)
 2026-08-26 — loktar00/agent-skills (drive fleets of local oh-my-pi model instances) — local-model fleet ops, off stack — github.com/loktar00/agent-skills (Tier 4)
 2026-08-26 — Aug 25–26 repo churn roll-up (Ayueh0102/Ronnier-skill zh color science ★10; react-native-pulsar-skill; wechat-video-skill; ai-short-drama-skill; resume-audit zh; OpenFounders PL legal; oi-owarasero JP; cannonball PT; Pedi-Solutions/pedi-skills; Aarvion-AI/stackwise-skills; LeonWongQ/forge-skills; turing-pass-scholar; adadiamonds/agent-tools; nraford7/agent-studio-v2; justinisaiah/claude-skills) — low per-item signal / off focus — github.com repo search created:>2026-08-24 (Tier 4)
+2026-08-27 — neondatabase/postgres-skills — increment: sibling of already-seen neondatabase/agent-skills (07-29); 26★, no description yet
+2026-08-27 — Claude Code 2.1.246 stability update + 36kr "feedback reports" coverage — increment of v2.1.243–246 bundle seen 08-26
+2026-08-27 — Tiger MCP vs generic Postgres MCP (tigerdata.com comparison) — marketing increment of pg-aiguide/Tiger ecosystem seen 07-02
+2026-08-27 — saurabhkumar8112/cyclomatic-complexity-skill (100★ d1) — generic refactoring skill, low differentiation vs existing dev-skill packs
+2026-08-27 — GENEXIS-AI/gpt-image-skill (92★ d1) — image gen via ChatGPT subscription; off-lane
+2026-08-27 — Aarvion-AI/stackwise-skills — crowded end-to-end dev-skills category, 5★, low signal
+2026-08-27 — zxc663/shisan-xinuo-workflow — gated engineering-governance workflow skill; zh-language docs, 9★ — watch if it grows (Aegis-adjacent)
+2026-08-27 — loktar00/agent-skills — drive fleets of local oh-my-pi models; off-lane (local-model ops)
+2026-08-27 — imbad0202/academic-research-skills (16h old) — overlaps paper-fetch-skill surfaced today; watch
+2026-08-27 — skarn-security/cursor-plugin — Cursor-specific security plugin; wrong platform
+2026-08-27 — pokemon225/ax-platform-mcp — agent collaboration network MCP; 11★ unverified
+2026-08-27 — QVerisAI/qveris-agent-toolkit — capability-routing network toolkit; marginal fit
+2026-08-27 — Undertone0809/rudder (feedback → reusable skills, 286★) — on-lane but not new (Mar 2026); promote if it ships something notable
+2026-08-27 — davepoon/buildwithclaude (3.4k★ hub directory) — established directory, not a new item; candidate addition to sources file Tier 2/3
+2026-08-27 — dotnet/skills (5.3k★ official .NET skills) — vendor-official but off-stack for current builds
+2026-08-27 — Vault MCP (vaultbot.ai) + FinAegis MCP-native banking — unverified banking-MCP vendor pages, no dated launch news; Meridia lane watch
+2026-08-27 — skillsllm.com "Skills vs MCP Servers" explainer — article, not a tool

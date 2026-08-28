@@ -417,3 +417,18 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-08-27 — dotnet/skills (5.3k★ official .NET skills) — vendor-official but off-stack for current builds
 2026-08-27 — Vault MCP (vaultbot.ai) + FinAegis MCP-native banking — unverified banking-MCP vendor pages, no dated launch news; Meridia lane watch
 2026-08-27 — skillsllm.com "Skills vs MCP Servers" explainer — article, not a tool
+2026-08-28 — activecampaign official plugin add (#5641, Aug 28) — official marketplace new vendor but marketing-CRM off-stack — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-08-28 — Carta crm/cap-table/investors bumps (Aug 27) — official marketplace version churn — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-08-28 — microsoft/azure-skills (official Azure agent plugin) — vendor skills-wave continuation, Azure off-stack — github.com/microsoft/azure-skills (Tier 2)
+2026-08-28 — HexRaysSA/ida-mcp (official Hex-Rays IDA MCP, experimental) — vendor-official wave, reverse-engineering off-stack — github.com/HexRaysSA/ida-mcp (Tier 2)
+2026-08-28 — Cowork browser-use admin setup doc (Team/Ent) — increment of built-in browser surfaced 08-27 — support.claude.com (Tier 1)
+2026-08-28 — Claude Security help article + Academy "share what you build" Cowork course (private plugin marketplaces) — increments of 07-23 / 08-18 items — support.claude.com / academy.claude.com (Tier 1)
+2026-08-28 — Endokelp/Only-Skill-You-Need (37★ d1 beginner skill-router/bootstrapper) — skill-router lane covered (pickysteve 07-13, skill-router 08-23) — github.com/Endokelp/Only-Skill-You-Need (Tier 4)
+2026-08-28 — jameskomo/config-drift-checker (CI for CLAUDE.md/skills/hooks config) — config/skill-QA lane covered (agnix 08-27, skillci 07-26, skill-doctor 08-17) — github.com/jameskomo/config-drift-checker (Tier 4)
+2026-08-28 — xingkongliang/skills-manager (cross-tool skills manager) — skills-manager lane covered (skillshare 07-30, rolecraft 08-17, skillhub 08-25) — github.com/xingkongliang/skills-manager (Tier 4)
+2026-08-28 — ManceRayder42/jarvis-os (memory hub + curated skills) — memory lane saturated (claude-mem 07-13, memsearch 07-25) — github.com/ManceRayder42/jarvis-os (Tier 4)
+2026-08-28 — civiciq.com SLED Government MCP (K-12/district budget-signal intel) — unverified commercial vendor page, GTM-intel only; Recess watch — civiciq.com/mcp/sled-government-mcp (Tier 4)
+2026-08-28 — IBM watsonx.data intelligence MCP server (data governance/catalog) — enterprise data-governance stack, off stack — dataplatform.cloud.ibm.com (Tier 2)
+2026-08-28 — Nanako0129/sepia (38★ d1 de-AI writing skill, StoryScope-based) — no lane pull; watch traction — github.com/Nanako0129/sepia (Tier 4)
+2026-08-28 — LLM-gateway/router churn (fridge1/llmgateway, hkqr/my-free-code, herliansyah/9router-auto-free) — gateway churn; conflicts with Hypomone Claude-primary model policy — github.com (Tier 4)
+2026-08-28 — Fake-download spam repos (costlynestli/Claude-AI-Free-Unlimited, frillyflesh/Claude-Jailbreak, Aug 27) — malware-pattern spam, never install — github.com (spam)

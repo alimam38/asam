@@ -45,3 +45,8 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-08-24 — Neeb Family Foundation / Faith-based educational institutions — rolling (verify scope at neebff.org) — https://neebff.org/
 2026-08-24 — GBHEM / Worldwide Theological Education Grants — 2027-03-01 (verify AME eligibility; UMC agency) — https://www.gbhem.org/education/higher-education-and-ministry-grants/
 2026-08-24 — Calvin Vital Worship Grants FY26 awards announced (77 grantees incl. North Park, $18K) — status update; watch FY27 cycle — https://www.northpark.edu/stories/north-park-theological-seminary-awarded-grant-to-enrich-community-worship-services/
+2026-08-31 — Robert W. Woodruff Foundation / Education / one-time & capital grants — Aug 15 cycle passed; next 2027-02-01 (informal inquiry first) — https://www.woodruff.org/grants/how-to-apply
+2026-08-31 — Trinity Church Wall Street / Leadership Development grants (faith-based leaders) — rolling (eligibility quiz tws.fluxx.io) — https://trinitychurchnyc.org/community/how-we-give/grants
+2026-08-31 — NEH / Spotlight on Humanities in Higher Education (HBCU/small-institution) — next deadline not yet posted (verify graduate-seminary eligibility) — https://www.neh.gov/program/spotlight-humanities-higher-education
+2026-08-31 — Truist Foundation / Career Pathways to Economic Mobility — rolling; next 2026-11-30 (excludes standard higher-ed/capital & religious unless community-open) — https://www.truistfoundation.org/grant-application
+2026-08-31 — NEH / Awards for Faculty at HBCUs — closed; opens 2027-01-15, deadline 2027-04-14 (verify Turner HBCU designation) — https://www.neh.gov/grants/research/awards-faculty-historically-black-colleges-and-universities

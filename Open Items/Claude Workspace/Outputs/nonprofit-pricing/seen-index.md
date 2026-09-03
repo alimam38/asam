@@ -37,3 +37,9 @@ Format: `YYYY-MM-DD — program/vendor — source`.
 2026-08-01 — Cloudflare Project Galileo (free Business-tier security/CDN/Workers; mission-based review) — https://www.cloudflare.com/galileo/
 2026-08-01 — Okta for Good (50 free Workforce Identity licenses + 50% off; 50% off Auth0; Goodstack) — https://www.okta.com/industries/nonprofits/
 2026-08-01 — PCs for People (low-cost refurb hardware; 501(c)(3) or accredited edu; hardware flag from 06-23 resolved) — https://www.pcsforpeople.org/nonprofits/
+2026-09-03 — Box for Nonprofits (10 free Starter licenses + 50% off Enterprise; TechSoup token; schools excluded — use 501(c)(3) track) — https://www.box.org/use-box
+2026-09-03 — Asana for Nonprofits (50% off Starter/Advanced; 501(c)(3) + higher-ed; Goodstack) — https://asana.com/industry/nonprofit
+2026-09-03 — Airtable (50% off Team; nonprofit track excludes religious orgs — use education track w/ accreditation cert) — https://support.airtable.com/articles/4920135568
+2026-09-03 — Miro for Nonprofits (30% off any plan, stacks with 20% annual ≈ 50%) — https://miro.com/npo/
+2026-09-03 — HubSpot for Nonprofits (40% off net-new Pro/Enterprise; annual contract; new customers only) — https://www.hubspot.com/nonprofits
+2026-09-03 — Checked/dropped: New Relic Observability for Good (faith-based schools ineligible); Tableau donated Desktop (legacy, unverified)

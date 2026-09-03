@@ -499,3 +499,21 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-09-01 — ProfessionalWiki/MediaWiki-MCP-Server (adds claude/codex plugin-marketplace install) — wiki tooling off focus (olgasafonova variant skipped 08-19) — github.com/ProfessionalWiki/mediawiki-mcp-server (Tier 3)
 2026-09-01 — Show HN "MCP server that turns async-work practices into tools" (HN 48994186) — HN returned 429; unverified; re-check — news.ycombinator.com/item?id=48994186 (Tier 4)
 2026-09-01 — Grist August 2026 newsletter (MCP improvements) + timescale/tiger-cli push — off-stack / increment of pg-aiguide 07-02 — community.getgrist.com, github.com/timescale/tiger-cli (Tier 2)
+
+## 2026-09-03
+- duty1g/x64dbg-mcp-server (1.8k★ debugger/malware-analysis MCP) — off-focus: binary/malware RE, no lane
+- AlephAITech/DoubaoWorkGuide — Doubao (ByteDance) ecosystem guide, off-platform
+- op7418/guizang-yingzao-skill (86★) — Chinese-architecture poster-art skill, off-focus
+- axelfreeman/marketing-mindset — GTM skills increment on already-surfaced marketing packs (marketingskills, marketing-os)
+- iosware/skill.state — long-horizon execution skill; low signal yet (6★), watch
+- mgillett43/ontology-skills — ontology/knowledge-graph modeling methodology; Meridia-corpus-adjacent but 2★/unproven — revisit if it gets traction
+- Natan-Mohart/24-finance-skills-for-claude — finance skills, no description/docs, unverifiable
+- Xileades/qonto-api-toolkit — fintech banking-API skill but Qonto-specific (EU SMB banking), not US lending lane
+- uxbyissa/ux-ui-audit — evidence-backed UX/WCAG audit skill; Claude-Design-adjacent, tiny (2★)
+- felixcorleone/html-annotation — self-contained HTML annotation layer skill; artifact-adjacent, tiny
+- Aboudjem/loopify — recurring-job loop skill; overlaps /loop GA (seen 08-28)
+- virgiliojr94/book-to-skill — book→skill wave increment (wave logged 08-01, 08-27)
+- pblsketch/korean-teacher-skills — K-12 teacher plugin but Korea-specific (HWPX renderer)
+- CUHK-Business-School-AI-Hub/Blickwechsel — student-POV teaching-audit skill; higher-ed pedagogy, edu-adjacent, tiny
+- Ashigo-Research/mhs-ics-skills — ICS/OT skills for MHS; MHS itself seen 08-28, industrial OT off-focus
+- pro-vibe-coding/pvc-claude-md — CLAUDE.md hygiene/scoring skill; increment on agnix + open-skill-sunset

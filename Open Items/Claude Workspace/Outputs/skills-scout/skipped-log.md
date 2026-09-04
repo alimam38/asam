@@ -517,3 +517,15 @@ Format: `YYYY-MM-DD — name — reason — source`.
 - CUHK-Business-School-AI-Hub/Blickwechsel — student-POV teaching-audit skill; higher-ed pedagogy, edu-adjacent, tiny
 - Ashigo-Research/mhs-ics-skills — ICS/OT skills for MHS; MHS itself seen 08-28, industrial OT off-focus
 - pro-vibe-coding/pvc-claude-md — CLAUDE.md hygiene/scoring skill; increment on agnix + open-skill-sunset
+
+## 2026-09-04
+- anthropics/skills frontend-design update (#1713, avoid generic design defaults) — minor Tier-1 increment, not a new skill
+- claude-plugins-official Sep 2–3 — version bumps only (carta ×3, salesforce-development, convex, jfrog, figma, logfire, growthbook…), no new plugin adds
+- jaychempan/Agent-Leaderboard — daily star-ranked agent-ecosystem leaderboard; duplicate-of-pattern (LinklyAI/best-skills 08-27), 43★
+- libukai/awesome-agent-skills — 5k★ ZH-language awesome-list/ultimate guide; curation lane already stocked with directories
+- IBM/qradar-mcp-server — official IBM SIEM MCP but 8★/no docs; SIEM/SOC outside lanes
+- genpark skill-flood increment — now also publishing under second org "Alpha-Park" alongside alphaparkinc (caution logged 09-03 stands)
+- Microsoft Copilot "harness, agent skills, richer context" update (Sep 2) — competing-ecosystem increment, no direct Claude fit
+- matlab/simulink-agentic-toolkit — official MathWorks agentic toolkit; engineering-simulation domain off-focus
+- Dreamdata MCP server (read-only B2B GTM data; ppc.land Sep 3) — vendor MCP outside lanes; revisit if external GTM motion starts
+- Superblog MCP/API (Sep 4 press) — AI-publishing vendor MCP, off-focus

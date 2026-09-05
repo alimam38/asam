@@ -529,3 +529,11 @@ Format: `YYYY-MM-DD — name — reason — source`.
 - matlab/simulink-agentic-toolkit — official MathWorks agentic toolkit; engineering-simulation domain off-focus
 - Dreamdata MCP server (read-only B2B GTM data; ppc.land Sep 3) — vendor MCP outside lanes; revisit if external GTM motion starts
 - Superblog MCP/API (Sep 4 press) — AI-publishing vendor MCP, off-focus
+2026-09-05 — dotnet/skills (official .NET team agent skills) — vendor-wave continuation, .NET not in Ali's stack — github.com/dotnet/skills (Tier 2)
+2026-09-05 — nvidia/skills (official NVIDIA agent skills: Physical AI/robotics/CUDA) — off-stack; distinct from SkillSpector (seen 07-28) — github.com/nvidia/skills (Tier 2)
+2026-09-05 — claude-plugins-official nightly bump cap raised 30→60 plugins (Sep 4 mass-bump wave) — routine marketplace refresh automation, increment only — github.com/anthropics/claude-plugins-official (Tier 1 infra)
+2026-09-05 — ChanMeng666/slack-waterline-skill (read-every-message Slack catch-up/digest skill) — comms-ops utility, low lane fit — github.com/ChanMeng666/slack-waterline-skill (Tier 4)
+2026-09-05 — frty2-ai/scrummy-skill (chief-of-staff for a Plane/Scrummy workspace) — PM tooling, no Plane in stack — github.com/frty2-ai/scrummy-skill (Tier 4)
+2026-09-05 — qtsone/learning (0-to-expert programming curriculum + Claude Code tutor skill, mastery gates) — education-adjacent but adult programming, not K-12/Recess — github.com/qtsone/learning (Tier 4)
+2026-09-05 — Ryze-AI-Adgent/open-seo-mcp-skills (SEO+GEO skills on real GSC/GA4 data via MCP) — GTM-adjacent; park until a venture enters SEO motion — github.com/Ryze-AI-Adgent/open-seo-mcp-skills (Tier 3/4)
+2026-09-05 — genpark skill flood now dominating topic:mcp-server + topic:agent-skills recent-created searches (~8★ templated repos) — increment to 09-03 caution, still avoid — github.com sweep (Tier 4 signal)

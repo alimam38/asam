@@ -368,3 +368,5 @@ Format: `YYYY-MM-DD — name — source`.
 2026-09-05 — Daqi029/saas-onboarding-diagnosis (SaaS onboarding/activation/aha/TTV diagnosis skill) — github.com/Daqi029/saas-onboarding-diagnosis (Tier 4)
 2026-09-05 — greenstevester/archlens-postgres (Postgres schema documentation + design-review skill) — github.com/greenstevester/archlens-postgres (Tier 4)
 2026-09-05 — dripips/plain-prose (de-AI writing skill EN/RU/DE, stop-slop + avoid-ai-writing merged, zero-dep checker) — github.com/dripips/plain-prose (Tier 4)
+2026-09-06 — Background computer use in Claude Cowork + Claude Code (macOS, Pro/Max; background click/type/open apps) — x.com/claudeai status 2095226833293685100 / 9to5mac.com (Tier 1 origin)
+2026-09-06 — AuditBadger auditable agentic compliance (agents propose → humans approve → audit trail proves it) — openpr.com/news/4618927 (Tier 4, unverified PR)

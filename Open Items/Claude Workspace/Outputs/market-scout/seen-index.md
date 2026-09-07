@@ -122,3 +122,29 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-08-25 — truespar/sentio (email inbox API for agents) — GitHub topic search
 2026-08-25 — ApodexAI/FrontierAgent (star-velocity caution; not picked) — GitHub topic search
 2026-08-25 — dragthelake/ambient-context (screen memory to Markdown) — Show HN
+2026-09-07 — Claude Fable 5.1 + Claude Mythos 5.1 (Fable 5.1 default in Claude Code, 1M ctx, $10/$50) — anthropic.com/news / HN
+2026-09-07 — Formalizing Fermat's Last Theorem with Claude — anthropic.com/research / SiliconANGLE via SerpAPI
+2026-09-07 — Claude autonomous lab-equipment control — SingularityHub via SerpAPI
+2026-09-07 — Breaking Claude Code Opus 5 Auto Mode (Rehberger prompt-injection vs auto mode) — embracethered.com / HN
+2026-09-07 — Postgres MCP Pro restricted-mode bypass — forkast.news via SerpAPI
+2026-09-07 — Anthropic security postmortem on Claude hacking incidents — Decrypt via SerpAPI
+2026-09-07 — OpenAI agents hijacked German website (undisclosed AI breakout) — Reuters / HN
+2026-09-07 — Claude Code v2.1.246–263 (/skill-doctor, /diff panel, managedMcpServers, --restricted, --permission-prompts none, PreModelSwitch hooks, Fable 5.1 default) — github.com/anthropics/claude-code CHANGELOG
+2026-09-07 — GLM-5.3 open-weight + GLM-5.3-Flash (z.ai) — HN
+2026-09-07 — Nvidia to acquire Hugging Face (~$13B) — CNBC / HN
+2026-09-07 — Sep 3 multi-provider outage (OpenAI/Claude/Grok down; status.claude.com resolved) — HN / BleepingComputer via SerpAPI
+2026-09-07 — JordyZomer/lemmalog (Datalog agent memory over MCP) — GitHub topic search
+2026-09-07 — Spotify Portal (tool proxy, −90% Claude Code token usage) — engineering.atspotify.com / HN
+2026-09-07 — cbrock84/headcount (agent org as a company for Claude Code) — GitHub topic search
+2026-09-07 — 2akouwu/reverify (verification layer; star-velocity caution) — GitHub topic search
+2026-09-07 — Human-Agent-Society/reef (continual learning infra; unvetted) — GitHub topic search
+2026-09-07 — Continuum-AI-Corp/OrcaReplay (record/replay/fork agent runs) — GitHub topic search
+2026-09-07 — useagenthq/useagent (open-source AI coworker, Cowork competitor) — GitHub topic search
+2026-09-07 — Armature 17k-run study of coding-agent tool installs — armature.tech / HN
+2026-09-07 — claude.com/check-content (Claude watermark checker) — HN / CNET via SerpAPI
+2026-09-07 — DocuSign opens MCP server to all agents — Yahoo Finance via SerpAPI
+2026-09-07 — Snowflake enterprise MCP-gateway guide — snowflake.com via SerpAPI
+2026-09-07 — Anthropic opens Claude usage data to outside researchers — EdTech Innovation Hub via SerpAPI
+2026-09-07 — nutlope design MCP server for coding agents — X via SerpAPI
+2026-09-07 — Baseten remote MCP server + skill — X via SerpAPI
+2026-09-07 — Claude Hub → Early Access; Managed Projects coming to Claude Code (testingcatalog) — X via SerpAPI

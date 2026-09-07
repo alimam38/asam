@@ -122,24 +122,23 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-08-25 — truespar/sentio (email inbox API for agents) — GitHub topic search
 2026-08-25 — ApodexAI/FrontierAgent (star-velocity caution; not picked) — GitHub topic search
 2026-08-25 — dragthelake/ambient-context (screen memory to Markdown) — Show HN
-2026-09-07 — Claude Fable 5.1 + Mythos 5.1 (1M context, 75% cheaper cache reads; Claude Code default) — anthropic.com / HN
-2026-09-07 — Claude Code v2.1.246–263 (Fable 5.1 default, managedMcpServers, --restricted, /skill-doctor, PreModelSwitch hooks, diff panel) — github.com/anthropics/claude-code CHANGELOG
-2026-09-07 — Claude Code weekly limits +25% permanent starting Sep 14 — X via fallback
-2026-09-07 — Nvidia agrees to acquire Hugging Face (~$13B) — CNBC / HN
-2026-09-07 — Spotify Portal (90% Claude Code token-usage cut) — engineering.atspotify.com / HN
-2026-09-07 — "Breaking Claude Code Opus 5 Auto Mode" prompt-injection research — embracethered.com / HN
-2026-09-07 — JordyZomer/lemmalog (Datalog agent memory, MCP server) — GitHub topic search
-2026-09-07 — Human-Agent-Society/reef (continual learning infra for agents) — GitHub topic search
-2026-09-07 — Continuum-AI-Corp/OrcaReplay (record/replay/fork agent runs) — GitHub topic search
-2026-09-07 — 2akouwu/reverify (star-velocity caution; not picked) — GitHub topic search
-2026-09-07 — useagenthq/useagent (open-source AI coworker; not picked) — GitHub topic search
-2026-09-07 — XiaoDuoYa/codex-with-chatgpt (star-velocity caution; not picked) — GitHub topic search
-2026-09-07 — cbrock84/headcount (Claude Code agent org; skills-scout adjacent) — GitHub topic search
-2026-09-07 — GLM-5.3 open-weight + GLM-5.3-Flash — z.ai / HN
+2026-09-07 — Claude Fable 5.1 / Mythos 5.1 (agentic jump, 25–45% cheaper, $0.25 cache reads) — anthropic.com/news / HN
+2026-09-07 — Nvidia to acquire Hugging Face (~$13B) — CNBC / HN
+2026-09-07 — Spotify Portal (90% Claude Code token reduction) — engineering.atspotify.com / HN
+2026-09-07 — Breaking Claude Code Opus 5 Auto Mode (embracethered) — HN
+2026-09-07 — Claude Session URL in commits by default (issue #66504) — HN
+2026-09-07 — 2akouwu/reverify (deterministic verification; star-velocity caution) — GitHub topic search
+2026-09-07 — Continuum-AI-Corp/OrcaReplay (agent run record/replay/fork) — GitHub topic search
+2026-09-07 — JordyZomer/lemmalog (Datalog agent memory + MCP) — GitHub topic search
+2026-09-07 — okf-memory/okf-agent-memory (git-native agent memory) — HN
+2026-09-07 — XiaoDuoYa/codex-with-chatgpt (ChatGPT plans / Codex executes) — GitHub topic search
+2026-09-07 — useagenthq/useagent (open-source AI coworker) — GitHub topic search
+2026-09-07 — cbrock84/headcount (agent org skill pack; skills-scout beat, not picked) — GitHub topic search
+2026-09-07 — Sep 3 multi-provider outage (Claude/ChatGPT/Grok) — status.claude.com / HN
+2026-09-07 — armature.tech 17k-run coding-agent tool study — HN
 2026-09-07 — claude.com/check-content watermark checker — HN
-2026-09-07 — Claude Code changelog /cost prompt-cache-miss diagnostics — github.com/anthropics/claude-code CHANGELOG
-2026-09-07 — armature.tech 17k-run coding-agent tool-choice study — HN
-2026-09-07 — Ask HN: Who is using MCP in production? — HN
-2026-09-07 — Anthropic Model Hardware Standard preview (agents operating physical devices) — anthropic.com/news
-2026-09-07 — Claude Session URL appended to commits controversy — github.com/anthropics/claude-code issue / HN
-2026-09-07 — Sep 3 multi-provider outage (OpenAI/Claude/Grok, resolved) — HN / status.claude.com
+2026-09-07 — OpenAI agents hijacked German website (breakout) — Reuters / HN
+2026-09-07 — Anthropic Model Hardware Standard preview — anthropic.com/news
+2026-09-07 — Anthropic Enterprise Frontier Safeguards — anthropic.com/news
+2026-09-07 — Claude Code v2.1.246–263 (/diff, /skill-doctor, managedMcpServers, --restricted, PreModelSwitch hooks) — github.com/anthropics/claude-code CHANGELOG
+2026-09-07 — @claudeai Fable 5.1 launch thread + usage-limits trend — X via fallback

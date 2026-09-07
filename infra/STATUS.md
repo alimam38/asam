@@ -1,7 +1,7 @@
 # STATUS — Infrastructure (NAS platform)
 
 **State:** 🟢 Live (local) — ⚠ cloud access path down since 2026-07-23
-**Last reviewed:** 2026-08-31 (sweep)
+**Last reviewed:** 2026-09-07 (sweep)
 
 ## Where things live in this repo
 - `infra/meridia/` — Dockerfile, docker-compose.yml, NAS deployment guides, EIG-CORPUS-2026-001 deployment guide, env template
@@ -9,7 +9,7 @@
 
 ## Current state
 - Synology DS925+ live: PostgreSQL, Docker, 24 backend endpoints, Index8 frontend. Hosts corpus schema and will host the Hypomone event/ledger spine.
-- ⚠ **Cloud → NAS access path still failing — 30 failed nightly runs spanning 2026-07-23 → 2026-08-31, all `websocket: bad handshake`** (17 through 08-17 per the prior count, plus 13 dated snapshots 08-18 → 08-31; the job produced no snapshot on 08-29 and was dark 08-11 → 08-16 and 08-05 → 08-07 earlier). The nightly cadence has otherwise been steady at ≈12:40 UTC since 08-18. No DB data has been read since the nightly job began. (sweep-reconciled 2026-08-31)
+- ⚠ **Cloud → NAS access path still failing — 36 failed nightly runs spanning 2026-07-23 → 2026-09-06, all `websocket: bad handshake`** (30 through 08-31 per the prior count, plus 09-01 → 09-06, each snapshot verified FAILED; 08-31 was double-committed at 11:52 and 12:42 UTC). Cadence steady ≈12:38–12:42 UTC. No DB data has been read since the nightly job began. Note: the snapshots' own headline diagnosis now wobbles night to night — 09-03/09-05 (differential probe run: 403 without token, 502 with token) say NAS-side connector down, while 09-04/09-06 (no probe) assert Access/edge-layer and "NOT a NAS-routing failure." The probe-bearing nights remain consistent with the 08-31 diagnosis below; adjudicate at the fix. (sweep-reconciled 2026-09-07)
 - **Diagnosis (revised again by the 08-23 → 08-31 snapshots): the service token is valid; the fault is NAS-side.** Every snapshot since 08-23 runs a differential probe against `db.meridiahq.com`: HTTPS **without** the service token → `403` (Access enforcing), **with** the token → `502` from `server: cloudflare`. Access is therefore accepting the token; the 502 is the Cloudflare edge reporting **no healthy tunnel connector** to hand the request to — i.e. the `cloudflared` connector on the NAS is down, not registered for the `db.meridiahq.com` public hostname, or its route to `192.168.0.160:5433` is misconfigured (consistent with cloudflared in Docker without host networking, or the container stopped). This **supersedes the 2026-08-04/08-09 "Access service token / policy" read** and re-aligns with the original 2026-07-26 "no healthy tunnel origin / connector down" read. History of reads: 07-26 connector-down (502) → 08-04/08-09 Access token/policy → 08-23+ token valid, connector-down. Adjudicate at the fix.
 
 ## Open decisions

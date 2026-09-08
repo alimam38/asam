@@ -142,3 +142,15 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-09-07 — Anthropic Enterprise Frontier Safeguards — anthropic.com/news
 2026-09-07 — Claude Code v2.1.246–263 (/diff, /skill-doctor, managedMcpServers, --restricted, PreModelSwitch hooks) — github.com/anthropics/claude-code CHANGELOG
 2026-09-07 — @claudeai Fable 5.1 launch thread + usage-limits trend — X via fallback
+2026-09-08 — trailofbits/coop (isolated VM environments for Claude Code/Codex) — GitHub / HN
+2026-09-08 — OKF (Open Knowledge Format) ecosystem wave: Awesome-OKF catalog + okf-agent-memory acceleration — GitHub topic search
+2026-09-08 — dhishwasher/Girder (semantic code graph + impact analysis MCP, Rust) — GitHub topic search / HN
+2026-09-08 — grith.ai SKILL.md permissions-manifest piece ("hand a stranger your shell") — HN
+2026-09-08 — vercel-labs/skills v1.5.24 (commit-SHA-pinned skill installs) — github.com/vercel-labs/skills releases
+2026-09-08 — hsandhu/mobilecode (opencode fork for iOS/Android build+preview) — GitHub topic search
+2026-09-08 — noskillish/bankmcp (self-hosted read-only open-banking MCP) — GitHub topic search
+2026-09-08 — Stormix/transcripts-mcp (local agent session transcript search via MCP) — GitHub topic search
+2026-09-08 — OpenAI reinstates 5-hour limit for Plus/Business — HN
+2026-09-08 — dbreunig Fable 5.1 system-prompt changes analysis — HN / dbreunig.com
+2026-09-08 — fidetolabs/qanat (agent-native alpha/backtest DAG workflow engine) — GitHub topic search
+2026-09-08 — Alpha-Park/alphaparkinc genpark-* skill flood (star-farming; not picked) — GitHub topic search

@@ -1,0 +1,32 @@
+# Skills Scout — 2026-09-09
+
+_Scan window: last ~48h (Sep 7–9). SerpAPI used (3 calls, 24h-scoped). Grouped by lane, most important first. Trust notes per skills-scout-sources.md tiers._
+
+## Official / Tier 1
+- **qodo-standards plugin added to both official directories** (Sep 8) — Anthropic merged Qodo's code-review-standards plugin into `claude-plugins-official` (#5863) and `knowledge-work-plugins` (#1065), alongside a repoint of greptile to its vendor repo and Box's repo rename. Why it matters: new vendor entrant in the official code-quality lane; relevant if Plumbline/Aegis CI review standards ever move to a packaged plugin. Trust: Anthropic-verified directory add; the plugin itself is vendor-authored (Qodo). — github.com/anthropics/claude-plugins-official
+- **Quiet on product news**: no Anthropic announcements dated Sep 8–9 (releasebot shows nothing after Claude Code 2.1.261 on Sep 5, already surfaced); `anthropics/skills` had zero commits since Sep 8. Official repos active only with routine version bumps.
+
+## Governance / audit / verification (Aegis lane)
+- **2akouwu/reverify** (★1,053 since Aug 31) — "the model proposes, deterministic tools decide": every claim checked against ground truth with evidence before it stands. Why it matters: this is the governance-not-guardrails shape Aegis argues for, implemented as a verification harness; also a useful anti-hallucination pattern for Plumbline data surfaces. Trust: Tier 3/4 community, high velocity — read code before adopting. — github.com/2akouwu/reverify
+- **pigeonlabsHQ/pigeon** (★37, Sep 6) — "Pigeon Pass": a signed delegated-authority artifact stating what an agent may do, MIT/Python. Why it matters: same problem as Aegis governance-alert approvals and the Agent Authority Charter pattern (Lawve, surfaced earlier) — a portable authority format is worth watching for Aegis' disposition decision. Trust: Tier 4, brand-new org, tiny repo — pattern reference only. — github.com/pigeonlabsHQ/pigeon
+- **Continuum-AI-Corp/OrcaReplay** (★178) [backfilled, Aug 2026] — record, replay, fork and debug any agent run, any model. Why it matters: audit-trail adjacent — replayable runs are the evidence layer Aegis-style approvals want; also practical for debugging Cowork/Claude Code fleets. Trust: Tier 4, OrcaRouter team (commercial adjacency). — github.com/Continuum-AI-Corp/OrcaReplay
+
+## Fintech / lending data (Meridia / Hypomone lane)
+- **Nymbus core-banking MCP server** [backfilled, Apr 2026] — 19 tools for AI-driven core banking actions (customer verification, payments) for banks and credit unions, with token auth, RBAC, encrypted connections, audit logging and PII masking in logs. Why it matters: the closest published pattern to what Hypomone's membership-lending core would expose to agents — worth reading their security/governance surface even as a competitor/pattern reference. Trust: Tier 2 vendor press (PRNewswire/IBS Intelligence); no public repo. — nymbus.com/press · ibsintelligence.com
+- **elcukro/bank-mcp** (★41) [backfilled, Feb 2026] — self-hosted read-only banking MCP supporting Plaid, Teller, Enable Banking and Tink; TypeScript, MIT. Why it matters: multi-aggregator abstraction over Plaid is directly in Hypomone's intake path; broader than noskillish/bankmcp (surfaced 09-08, EU-only). Last push May 2026 — check maintenance before use. Trust: Tier 3/4 solo author, real codebase. — github.com/elcukro/bank-mcp
+- **Hiberius/bank-statement-to-table** (Sep 8, ★0) — Agent Skill converting a bank-statement PDF into a spreadsheet, then proving the extraction against the statement's own running balance. Why it matters: exactly the evidence-gated intake pattern The Charter/Hypomone underwriting wants; the self-verification trick is stealable even if the skill isn't. Same author dropped ~10 ops skills same day (lead recon, WhatsApp receptionist, incrementality testing) — mostly off-lane. Trust: Tier 4, day-one, zero traction — read before running. — github.com/Hiberius/bank-statement-to-table
+
+## Claude / Cowork / MCP tooling
+- **punkpeye/awesome-remote-mcp-servers** (★82, Sep 8) — new curated catalog of *remote* MCP servers from the maintainer of awesome-mcp-servers/Glama. Why it matters: remote MCPs are what Cowork cloud sessions can actually reach; a vetted directory of them is a scout source candidate as much as a tool. Trust: Tier 2/3 known directory author. — github.com/punkpeye/awesome-remote-mcp-servers
+- **tigerless-labs/agent-memory** (★709, Sep 1) — long-term memory runtime: plain Markdown as source of truth, local ranked retrieval, independent "sleep-time" manage layer. Why it matters: the Markdown-as-spine design matches the OS-file/lane-memory pattern already used in Cowork-Master; strongest entrant yet in the agent-memory wave (okf-agent-memory surfaced 09-07). Trust: Tier 3/4 community, fast stars — verify claims. — github.com/tigerless-labs/agent-memory
+
+## Product / GTM (Plumbline ops + gates)
+- **andreworia/claude-excel-skills** (Sep 8, ★2) — 12 skills for financial modeling in Excel: model architecture, driver builds, scenarios, sensitivity, formula audit (by Oria). Why it matters: month-end/QBO analysis and Plumbline financial views lean on exactly these moves; cheap to mine even if not adopted wholesale. Trust: Tier 4 vendor-authored, day-one. — github.com/andreworia/claude-excel-skills
+- **emelia-io/claude-outreach** (Sep 8, ★9) — B2B outreach skill: 16 sub-skills + 5 sub-agents (ICP targeting, lead sourcing, verification, personalization). Why it matters: first MIG GTM SaaS motion (Plumbline) will need an outreach stack; this is a full reference architecture. Trust: Tier 4, vendor-tied (Emelia) — expect product pull. — github.com/emelia-io/claude-outreach
+
+## Education / K-12 (Recess lane)
+- **matheuszambonin/teach-me** (Sep 9, ★0) — Claude Code skill that teaches a topic across many sessions with spaced reviews and a study habit; descends from Matt Pocock's "teach". Why it matters: spaced-repetition-in-agent-sessions is a Recess-relevant mechanic (and Crown's Eye educator discovery adjacent). Trust: Tier 4, day-one. — github.com/matheuszambonin/teach-me
+- Otherwise quiet: no new K-12/SIS/Populi items in the window (GarethManning's 165-skill education repo and the Beneficial Deployments program were surfaced earlier).
+
+## Postgres / NAS / infra
+- Nothing new in the window beyond items already surfaced (archlens-postgres 09-05, ToolHive 09-07). One-line lane check, nothing dropped.

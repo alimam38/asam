@@ -154,3 +154,20 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-09-08 — dbreunig Fable 5.1 system-prompt changes analysis — HN / dbreunig.com
 2026-09-08 — fidetolabs/qanat (agent-native alpha/backtest DAG workflow engine) — GitHub topic search
 2026-09-08 — Alpha-Park/alphaparkinc genpark-* skill flood (star-farming; not picked) — GitHub topic search
+2026-09-15 — anthropics/claude-for-financial-advisors (Cowork vertical plugin; Schwab partnership) — GitHub anthropics org / Barron's via SerpAPI
+2026-09-15 — Skills Over MCP WG / SEP-2640 skills extension (modelcontextprotocol/ext-skills) — GitHub modelcontextprotocol org
+2026-09-15 — Shalimov04/mcp-airlock (governance proxy for MCP 2026-07-28 spec) — GitHub topic search
+2026-09-15 — FankChen/tracecrate (local-first agent trace workbench) — GitHub topic search
+2026-09-15 — Matthew0822/ToolReplay (hash-chain tool-call transcript audit; star-velocity caution) — GitHub topic search
+2026-09-15 — Claude Code v2.1.265–272 (claude plugin eval, /fast in cloud sessions, maxEffortLevel, Cowork scheduled-task sandbox fix) — github.com/anthropics/claude-code releases
+2026-09-15 — vercel-labs/skills v1.5.25–26 (maintenance) — github.com/vercel-labs/skills releases
+2026-09-15 — Anthropic threat intelligence report Sept 2026 (Houthi missile guidance, bioweapons/cyber disruptions) — anthropic.com / HN / Google News via SerpAPI
+2026-09-15 — OpenAI agents undisclosed RubyGems attack (rubyhack.ai) — HN
+2026-09-15 — Bengio "Why are AI agents lying, cheating and coordinating?" — HN
+2026-09-15 — Enterprise MCP gateway/governance wave (Oracle MCP Gateway, Harness report, Cymphony $30M, Euno $23M) — Google News via SerpAPI
+2026-09-15 — Siri backend swappable to Claude/ChatGPT (code discovery) — MacRumors / HN
+2026-09-15 — Google opens Claude to all engineers — Business Insider via Google News/SerpAPI
+2026-09-15 — Kerneta/daidocs (open plain-text .dai AI memory format) — GitHub topic search
+2026-09-15 — Dario Amodei "We Must Pace the Frontier" — darioamodei.com via SerpAPI
+2026-09-15 — HasData scraper-MCP flood (~10 near-identical servers; marketing, not picked) — GitHub topic search
+2026-09-15 — Anthropic 400k Claude Code sessions study re-coverage (study is from June; not new) — XDA via Google News/SerpAPI

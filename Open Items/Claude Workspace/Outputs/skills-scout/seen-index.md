@@ -441,5 +441,6 @@ Format: `YYYY-MM-DD — name — source`.
 2026-09-14 — bjcoombs/ai-native-toolkit (/assess /huddle /deslop /skill-forge plugin; ★30) [backfilled, Jan 2026] — github.com/bjcoombs/ai-native-toolkit (Tier 3/4)
 2026-09-14 — Kerneta/daidocs (open .dai plain-text AI-memory format + MCP; ★10 d1) — github.com/Kerneta/daidocs (Tier 4)
 2026-09-14 — DrSmile444/ux-crux (evidence-graded UX review skills: usability/psych/a11y/trust) — github.com/DrSmile444/ux-crux (Tier 4)
-\n2026-09-15 — Claude for Financial Advisors (official Cowork plugin: 8 advisor workflows + partner connectors Addepar/BlackRock/Schwab/Envestnet/iCapital/Orion/Wealthbox/Vanguard/Zocks; Enterprise + audit logs) — claude.com/blog/claude-for-financial-advisors · github.com/anthropics/claude-for-financial-advisors (Tier 1)
+
+2026-09-15 — Claude for Financial Advisors (official Cowork plugin: 8 advisor workflows + partner connectors Addepar/BlackRock/Schwab/Envestnet/iCapital/Orion/Wealthbox/Vanguard/Zocks; Enterprise + audit logs) — claude.com/blog/claude-for-financial-advisors · github.com/anthropics/claude-for-financial-advisors (Tier 1)
 2026-09-15 — Anthropic Threat Intelligence report Sept 2026 (misuse cases + Moonshot/DeepSeek distillation attacks) [backfilled, Sep 10] — anthropic.com/threat-intelligence-report-september-2026 (Tier 1)

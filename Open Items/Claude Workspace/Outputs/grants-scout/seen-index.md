@@ -50,3 +50,8 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-08-31 — NEH / Spotlight on Humanities in Higher Education (HBCU/small-institution) — next deadline not yet posted (verify graduate-seminary eligibility) — https://www.neh.gov/program/spotlight-humanities-higher-education
 2026-08-31 — Truist Foundation / Career Pathways to Economic Mobility — rolling; next 2026-11-30 (excludes standard higher-ed/capital & religious unless community-open) — https://www.truistfoundation.org/grant-application
 2026-08-31 — NEH / Awards for Faculty at HBCUs — closed; opens 2027-01-15, deadline 2027-04-14 (verify Turner HBCU designation) — https://www.neh.gov/grants/research/awards-faculty-historically-black-colleges-and-universities
+2026-09-21 — ACLS / Digital Justice Seed & Development Grants — 2026-11-03 — https://www.acls.org/competitions/acls-digital-justice-seed-grants/
+2026-09-21 — Calvin Institute of Christian Worship / Vital Worship Teacher-Scholar Grants — 2026-10-15 (UPDATE: resolves 8/17 verify; cycle now fall) — https://worship.calvin.edu/grants/info/teacher-scholars/timeline
+2026-09-21 — NEH / Professional Development Programs (Institutes for Higher Ed Faculty) — 2026-12-09 (verify NOFO + seminary eligibility) — https://www.neh.gov/grants/professional-development
+2026-09-21 — National Trust for Historic Preservation / African American Cultural Heritage Action Fund — opens ~2027-01 (2026 cycle Jan 13–Feb 6) — https://savingplaces.org/action-fund-guidelines
+2026-09-21 — We Raise Foundation / GrantsPlus — LOI 2026-09-30 / next 2027-02-28 (geo preference Chicago/StL/Milwaukee — caution) — https://weraise.org/what-we-do/grant-information/grantsplus-grant/

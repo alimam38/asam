@@ -171,3 +171,27 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-09-15 — Dario Amodei "We Must Pace the Frontier" — darioamodei.com via SerpAPI
 2026-09-15 — HasData scraper-MCP flood (~10 near-identical servers; marketing, not picked) — GitHub topic search
 2026-09-15 — Anthropic 400k Claude Code sessions study re-coverage (study is from June; not new) — XDA via Google News/SerpAPI
+2026-09-22 — TypeSafe AI Jev "System One" model launch + week-one ecosystem wave — TechCrunch / HN / X via SerpAPI
+2026-09-22 — awlevin/typesafe-computer-use — GitHub topic search
+2026-09-22 — itsmostafa/typesafe-mcp — GitHub topic search
+2026-09-22 — NiazMorshed2007/jev-review — GitHub topic search
+2026-09-22 — Dicklesworthstone/skillranker — GitHub topic search
+2026-09-22 — GhalebDweikat/winnow (System One context sieve for Claude Code) — GitHub topic search
+2026-09-22 — nassim-arifette/jevgrep — GitHub topic search
+2026-09-22 — gargpratyush/jev-router — HN
+2026-09-22 — AbdelStark/awesome-typesafe-jev + awesome-jev list flood — GitHub topic search
+2026-09-22 — Claude Cowork and chat are now one Claude — claude.com blog / HN / support.claude.com
+2026-09-22 — Claude Code v2.1.273–278 (AGENTS.md, server-side auto classifier, claude.ai skills sync) — github.com/anthropics/claude-code CHANGELOG
+2026-09-22 — Amazon blocks Meta's Muse shopping agent — Forbes / The Register / HN
+2026-09-22 — naw103/foremerge (parallel-agent intent conflicts) — Show HN
+2026-09-22 — "Claude Code just accepted and signed a contract for me" thread — HN
+2026-09-22 — friday-memory/friday (persistent memory for coding agents) — GitHub topic search
+2026-09-22 — mem0ai/dolphinbench (agent memory benchmark) — GitHub topic search
+2026-09-22 — MCPJam (MCP testing & evals platform) — Show HN
+2026-09-22 — pizza-bot-app/pizza-bot (inbox for background agents) — Show HN
+2026-09-22 — Claude elevated-errors incident Sep 22 — status.claude.com / HN
+2026-09-22 — using-system/otelyssey (self-running agent-plugin marketplace) — GitHub topic search
+2026-09-22 — HeyPuter/builder (open-source Lovable alternative) — GitHub topic search
+2026-09-22 — Anthropic "Claude helping build next version of itself" — VINnews via WebSearch
+2026-09-22 — hirotomasato/yowes (forgery-adjacent; not picked) — GitHub topic search
+2026-09-22 — "The Claude Delusion" (Doctorow; skipped, thought piece) — HN

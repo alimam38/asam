@@ -707,3 +707,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-09-21 — andylumax33-glitch/paper2agent-skill (papers→interactive agents; ★2 d1) — corpus-adjacent, too thin — github.com/andylumax33-glitch/paper2agent-skill (Tier 4)
 2026-09-21 — 67even/paynow-billpay-skill (Zimbabwe BillPay/ZESA vending skill; d1) — fintech, wrong market — github.com/67even/paynow-billpay-skill (Tier 4)
 2026-09-21 — small meta-skills batch: JustinK33/foreman (diff-scope hook), grivedko/why-now-skill (value gate), JOwen-ster/agent-skill-installer — below bar — github.com (Tier 4)
+2026-09-22 — Jev-wave increments (wuyoscar/jev-skill ★406, nassim-arifette/jevgrep, ~8 new jev-mcp wrappers, n23eos/jev-skills, E-FL/typesafe-as-a-judge, dr-dimitru/claude-jev-plugin, wuyoscar use-case lists) — wave surfaced 09-20; these are increments, watch for a breakout repo
+2026-09-22 — Router/skill-selection increments (Jimuelle07/Helm, deyna256/langchain-loadout, safzanpirani/pi-jev-skill-picker, jon-devlapaz/tink-route) — router wave covered by Routed/skill-router/agent-dispatcher (09-07/09-20)
+2026-09-22 — 00200200/tokencut (output budgets + targeted reads CLI/MCP) — context-economy lane covered by context-mode (07-24) and lean-ctx (08-23)
+2026-09-22 — Browser-drive increments (ItaiZeilig/pawbrowse — logged-in Chrome via MV3+CDP; miter37/hyper-browsing) — pattern covered by agent-browser (07-24) and huashu-mac-use (09-07)
+2026-09-22 — dees91/agent-skill-manager (macOS app/TUI/CLI to toggle skills) — skill-cabinet (09-01) increment
+2026-09-22 — javiergradiche/extractos-ar-claude-plugin (Argentine bank statements PDF/CSV→CSV w/ balance reconciliation) — bank-statement-to-table (09-09) increment; revisit if Hypomone statement ingestion becomes live
+2026-09-22 — TiancongLx/open-mcp-gateway (MCP→OpenAPI 3.1 gateway, ★51) — gateway lane saturated (MCPJungle, lunar, Oracle, Credal)
+2026-09-22 — Video-production skill increments (trustfuture/investigation-video-skill ★61, H0nGzA1/product-ui-promo, Rylaispirit/cinematic-video-prompt-skill) — op7418 product-video wave (09-20); no venture consumes video production
+2026-09-22 — aipoch/open-science (★4.9k local-first AI research workbench w/ skills + MCP) — strong repo, no current lane consumes a science workbench; revisit if Meridia corpus/research work resumes
+2026-09-22 — kyopark2014/agent-skills (LangGraph skills tutorial, KR) + minorun365/agent-builder-skills (AWS web-app skills, JP) — tutorials / marginal lane fit
+2026-09-22 — M-Ismail-ZA/IsmailsProtocols (credibility-check + AI-writing review protocols) + andylumax33-glitch/paper2agent-skill — de-AI-writing and paper2agent waves already covered

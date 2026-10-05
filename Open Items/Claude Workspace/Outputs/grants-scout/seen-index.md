@@ -55,3 +55,6 @@ Format: `YYYY-MM-DD — funder/program — deadline — source`.
 2026-09-21 — NEH / Professional Development Programs (Institutes for Higher Ed Faculty) — 2026-12-09 (verify NOFO + seminary eligibility) — https://www.neh.gov/grants/professional-development
 2026-09-21 — National Trust for Historic Preservation / African American Cultural Heritage Action Fund — opens ~2027-01 (2026 cycle Jan 13–Feb 6) — https://savingplaces.org/action-fund-guidelines
 2026-09-21 — We Raise Foundation / GrantsPlus — LOI 2026-09-30 / next 2027-02-28 (geo preference Chicago/StL/Milwaukee — caution) — https://weraise.org/what-we-do/grant-information/grantsplus-grant/
+2026-10-05 — Lilly Endowment / Serving Neighbors Through Congregational Collaborations Initiative — concept paper 2027-01-19 (audited financials required) — https://lillyendowment.org/serving-neighbors-initiative/
+2026-10-05 — CLIR / Digitizing Hidden Collections: Amplifying Unheard Voices (Cycle 5) — 2026-10-20 — https://www.clir.org/2026/08/digitizing-hidden-collections-amplifying-unheard-voices-application-now-open/
+2026-10-05 — Lilly Endowment / National Initiative to Strengthen Chaplaincies at Colleges & Universities — DROPPED: accredited 4-yr colleges only (concept 2027-01-11) — https://lillyendowment.org/chaplaincy-initiative/

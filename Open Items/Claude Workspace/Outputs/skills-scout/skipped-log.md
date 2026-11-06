@@ -733,6 +733,7 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-06 — zengziyu1312007-rgb/claude-antifeng-skill (account "anti-risk-control" skill) — policy-evasion flavored; do not adopt
 2026-11-06 — Plaid personal-finance MCP increments (MSPbotsAIFramework/plaid-mcp, fredwang1012/personal-finance-mcp, Plaid Sandbox chat PoCs) — fin + aggregate-finance surfaced instead
 
+<!-- 2026-11-06: late append — the 2026-11-02 run paused after its digest commit; its skipped entries land below the 11-06 block -->
 2026-11-02 — Scout gap notice: no digests 2026-09-23 → 2026-11-01; window not backfilled beyond flagged items — process note — skills-scout folder listing
 2026-11-02 — Claude text watermark expansion to older models from Nov 3 (Opus 4.7 / Sonnet 4.6 per press) — increment of watermark item surfaced 08-17 — gigazine.net / pasqualepillitteri.it (Tier 1 origin)
 2026-11-02 — Claude Code game-recreation rule (two-sentence Opus 5.5 system-prompt addition; devs report false blocks) — behavior policy, not a tool; no venture builds games — ghacks.net / gamedeveloper.com (Tier 2 press)

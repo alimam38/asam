@@ -732,3 +732,25 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-06 — Glen-Web-App/best-agent-memory-mcp (ranked memory-MCP list ★164) — memory lane covered; list-only
 2026-11-06 — zengziyu1312007-rgb/claude-antifeng-skill (account "anti-risk-control" skill) — policy-evasion flavored; do not adopt
 2026-11-06 — Plaid personal-finance MCP increments (MSPbotsAIFramework/plaid-mcp, fredwang1012/personal-finance-mcp, Plaid Sandbox chat PoCs) — fin + aggregate-finance surfaced instead
+
+2026-11-02 — Scout gap notice: no digests 2026-09-23 → 2026-11-01; window not backfilled beyond flagged items — process note — skills-scout folder listing
+2026-11-02 — Claude text watermark expansion to older models from Nov 3 (Opus 4.7 / Sonnet 4.6 per press) — increment of watermark item surfaced 08-17 — gigazine.net / pasqualepillitteri.it (Tier 1 origin)
+2026-11-02 — Claude Code game-recreation rule (two-sentence Opus 5.5 system-prompt addition; devs report false blocks) — behavior policy, not a tool; no venture builds games — ghacks.net / gamedeveloper.com (Tier 2 press)
+2026-11-02 — Claude Opus 5.5 model — out of category (model, not skill/plugin/MCP) — press (Tier 1 origin)
+2026-11-02 — Anthropic × GSA expanded partnership (Claude to all levels of government, Oct 28) — gov procurement, no lane consumes it — anthropic.com/news/expanding-partnership-gsa (Tier 1)
+2026-11-02 — DeepSeek Super-Agent (open-source Claude Code competitor, Nov 1) — out of category (competitor agent) — bloomberg.com / techzine.eu (Tier 2)
+2026-11-02 — OpenCode restores Claude subscription use (dealroom note) — single unverified source; revisit if confirmed by Anthropic — app.dealroom.co (Tier 4)
+2026-11-02 — knowledge-work-plugins bumps (security-guidance → 41f619d6, claude-for-financial-advisors → ab454f4c) + claude-plugins-official runway-api 4.0.0 — version increments, no new capability in focus lanes — github.com/anthropics (Tier 1)
+2026-11-02 — Video/animation/3D skill flood (zhanghao123vip/ai-manju-skills ★363, mromidev/claude-animated-shorts ★330, Moh4696/open-3d-skills ★158, artemnovitckii/claude-animation-skills, mankidev/codixel, brewed-ops/talking-explainer, leodavincs/kalem, Awa67572/awa-video-reel, Sagargupta16/kinograph, liveliho/cinematic-motion-skill, bayshier/pixelfx-zh) — no venture consumes video/animation production — github.com (Tier 3/4)
+2026-11-02 — Orchestration/session-handoff increments (ghvinashvili/specagent, oarthurbg/orchestra, khuonghung/claude-agent-fleet, littlehole2025/claude-saver, ocpipun/session-guard, BSSE23047/nauraiz-dev, MikaelJohnAndersson/glance-statusline) — lanes covered (agent-dispatcher 09-20, taskcut 09-22) — github.com (Tier 4)
+2026-11-02 — Evidence-first / spec-gate skill increments (Mucaktr/vibe-code-guardian, alexandre180345678910-cmd/tracker-skills, rubenmarcus/agent-skills, codejunkie99/system-design-skill, baptiste-beep-boss/super-reprompt) — SDD/evidence wave covered (spec-kit 07-01, sdd-skill 09-07) — github.com (Tier 4)
+2026-11-02 — Account-rotation / subscription-routing tools (senadaruc/orca-grazr, Yousha-dev/team-routing, PapeMati98/Ai-Stack) — ToS-risk caution; subscription-piggyback wave flagged 09-22 — github.com (Tier 4 caution)
+2026-11-02 — Country gov-data MCP servers (wendersoon/radar-cnpj-mcp BR, sepehr071/codal-mcp IR, mazulo/leis-mcp BR) — wrong jurisdiction; pattern only (public-registry → MCP), revisit for FDIC/HMDA-style builds — github.com (Tier 4)
+2026-11-02 — Governance thin repos (oakallow/oakallow-mcp runtime permission/approval/audit layer ★1; renasami/tegata ★1) — Aegis pattern but no traction; lane saturated (Credal 09-19, mcp-governance-layer 09-22) — github.com (Tier 4)
+2026-11-02 — truespar/traverse (in-memory GQL/openCypher graph DB with MCP endpoint; ★13) — Meridia corpus-adjacent, no current graph need — github.com/truespar/traverse (Tier 4)
+2026-11-02 — albertirgi/replica (rebuild UI from reference + similarity score; ★8 d0) — Claude Design lane, too new; revisit with traction — github.com/albertirgi/replica (Tier 4)
+2026-11-02 — GTM/product thin skills (isabellae1/ai-pm-skills, Jakeschincariol/seed-skill + closer-skill) — d1, thin; product-gate lane covered — github.com (Tier 4)
+2026-11-02 — leapwithluvi/storycraft-skills (23 novel-writing craft skills) — possible reference vs serial-fiction-pipeline skill, but no active fiction lane in current-focus — github.com/leapwithluvi/storycraft-skills (Tier 4)
+2026-11-02 — Domain non-fits (duyunzhoudyz/dyz-med-paper-skills, India trading skill packs, ronitgupta43-ops/country-skills, cavaleiro-ai/android-optimizer, vahungx/Game-Config-Skill-Kit, ghcardhq/skills+githubcard-mcp) — off focus — github.com (Tier 4)
+2026-11-02 — Awesome-list churn (Sagargupta16/awesome-skills, futantan/agent-skills.md) — directory increments — github.com (Tier 4)
+2026-11-02 — Anthropic pharma document-review case study (−89% review time) — case study, out of category — tech.yahoo.com (Tier 2 press)

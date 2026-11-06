@@ -1,6 +1,6 @@
 # Skills Scout — 2026-11-06
 
-_Window: Nov 3 – Nov 6 (everything since the 11-02 digest), plus a few never-logged items marked [backfill]. SerpAPI: 3/3 calls used (Google News qdr:d for Anthropic, `site:` Anthropic/Claude qdr:w, fintech/K-12 "MCP server" qdr:w). GitHub via Composio (commits since 11-02 on the official repos; repo search created ≥ 10-30). **Repair note:** the 11-02 run wrote its digest but never appended to `seen-index.md`. Its 12 items are backfilled into the seen index in this commit so they are not repeated._
+_Window: Nov 3 – Nov 6 (everything since the 11-02 digest), plus a few never-logged items marked [backfill]. SerpAPI: 3/3 calls used (Google News qdr:d for Anthropic, `site:` Anthropic/Claude qdr:w, fintech/K-12 "MCP server" qdr:w). GitHub via Composio (commits since 11-02 on the official repos; repo search created ≥ 10-30). **Repair note:** the 11-02 run wrote its digest but never appended to `seen-index.md`. Its 11 items are backfilled into the seen index in this commit so they are not repeated._
 
 ## Official / Tier 1
 

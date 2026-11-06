@@ -755,3 +755,15 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-02 — Domain non-fits (duyunzhoudyz/dyz-med-paper-skills, India trading skill packs, ronitgupta43-ops/country-skills, cavaleiro-ai/android-optimizer, vahungx/Game-Config-Skill-Kit, ghcardhq/skills+githubcard-mcp) — off focus — github.com (Tier 4)
 2026-11-02 — Awesome-list churn (Sagargupta16/awesome-skills, futantan/agent-skills.md) — directory increments — github.com (Tier 4)
 2026-11-02 — Anthropic pharma document-review case study (−89% review time) — case study, out of category — tech.yahoo.com (Tier 2 press)
+
+<!-- 2026-11-06: late merge — recovered skipped entries from the paused 2026-10-27 run -->
+2026-11-06 — Process note: 10-27 run completed research but paused before committing (session idle ~10 days); findings merged into the 11-06 digest as a backfill section — skills-scout run log
+2026-11-06 — Claude Enterprise: chat + Cowork unified GA, Efficient mode, model entitlements (Oct 23) — increment of 09-17 Cowork fold + 11-02 Enterprise admin bundle — releasebot.io/updates/anthropic (Tier 1)
+2026-11-06 — boyuchengz/canvas-mcp (read-only Canvas LMS MCP, created 10-25) — Canvas lane covered (canvas-mcp 06-26); Turner runs Populi — github.com/boyuchengz/canvas-mcp (Tier 4)
+2026-11-06 — rsaryev/tokendoctor (token-use audit + settings-tuning plugin, 10-25) — context-economy lane covered (context-mode 07-24, session-lens 11-02) — github.com/rsaryev/tokendoctor (Tier 4)
+2026-11-06 — afel6/section-team (supervisor + specialist agents + Opus review gate plugin, 10-26) — orchestration lane covered — github.com/afel6/section-team (Tier 4)
+2026-11-06 — t3dotgg/tstack (★3.2k personal coding skill pack, 10-24) — known author, generic dev skills; no lane gain — github.com/t3dotgg/tstack (Tier 3)
+2026-11-06 — Narmi Microsoft 365 Copilot connector (read-only banking data for CU/bank staff, 10-26) — Copilot not Claude; increment of Narmi MCP (11-02) — fintech.global (Tier 2)
+2026-11-06 — marklynd/mcp-approvals (HITL approval gate + hash-chained audit) + dtjohnson83/agent-audit-trail — date unverified; Aegis lane saturated (argus / open-agent-guard 11-06) — github.com (Tier 4)
+2026-11-06 — andyhuo520/digital-human-koubo (talking-head video skill) + DenisSergeevitch/ex-ussr-kinship-research (genealogy skill), 10-25/26 — no lane — github.com (Tier 3/4)
+2026-11-06 — Anthropic staff departures (Thariq, Anthony Morris; 10-25/26) + Opus 5.5 refusal reports — news, not tooling — pasqualepillitteri.it / biggo (Tier 4 press)

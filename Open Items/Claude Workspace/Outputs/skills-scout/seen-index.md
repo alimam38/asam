@@ -558,3 +558,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-06 — Claude Code 2.1.307–2.1.311 (safety_event OTel, idempotent-only HTTP MCP retries, sandbox hardening, custom roles for cloud sessions) [backfill] — code.claude.com/docs/en/changelog (Tier 1)
 2026-11-06 — Claude Models on Google Cloud (Anthropic-managed) GA + Opus 5.5 fast mode pricing (Oct 22) [backfill] — releasebot.io/updates/anthropic (Tier 1)
 2026-11-06 — xiaoyang111222/cn-math-taxonomy (K-12 knowledge graph, 2,403 prerequisite edges, adaptive prerequisite diagnosis; ★6.9k) [backfill] — github.com/xiaoyang111222/cn-math-taxonomy (Tier 3)
+2026-11-06 — [re-run] mauriciosutton/rag-ingestion-pipeline (dropbox-rag: Dropbox → OCR → Postgres hybrid search → MCP w/ page citations) — github.com/mauriciosutton/rag-ingestion-pipeline (Tier 4)
+2026-11-06 — [re-run] VIABLE-Learning-Lab/viable (teacher-controlled tutoring harness skill + engine; misconception-first) — github.com/VIABLE-Learning-Lab/viable (Tier 4)
+2026-11-06 — [re-run] Ravi041/mcp-policy-library (OPA/Rego default-deny packs for MCP tool calls: filesystem/GitHub/Postgres) — github.com/Ravi041/mcp-policy-library (Tier 4)
+2026-11-06 — [re-run] Prashant-thakur77/Shadow-Run (rehearse risky agent plans on a clone microVM; requester≠approver) — github.com/Prashant-thakur77/Shadow-Run (Tier 4)
+2026-11-06 — [re-run] elehmanndev/clickedu-mcp + fabioov/moodle-mcp (school SIS/LMS MCPs: local-only, read-only, per-action-confirmed writes) — github.com (Tier 4)

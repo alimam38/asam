@@ -61,6 +61,58 @@ _Window: Nov 3 – Nov 6 (everything since the 11-02 digest), plus a few never-l
 - **NAS / Docker / Postgres:** only `Balanov/shim` (★466, a tiny local-first harness with MCP and skills), logged as skipped.
 - **Recess teacher-facing AI:** coverage is still the July Claude for Teachers launch (already seen).
 
+## Late-October backfill (Oct 18 – 26), recovered from the paused 10-27 run
+
+_The scheduled 10-27 run did its research but paused before committing; it resumed today. The 11-02 digest flagged a 09-23 → 11-01 gap and did not backfill these. Each item below was checked against the seen index (none present) and against the 11-02 and 11-06 digests. SerpAPI on 10-27: 3/3 calls (two `site:github.com` qdr:d queries returned nothing; the Google News query found the leads)._
+
+### Official / Tier 1 [backfill]
+
+20. **Claude for Nonprofits plugin (Oct 26, free)**. It installs automatically for verified nonprofits on Team and Enterprise plans. Skills cover four areas:
+    - **Set-up:** a records map (where donor data, grant files, finances and policies live) and a check of staff questions against your AI-use policy.
+    - **Funding:** funder and grant research with cited sources, RFP eligibility breakdowns, proposal and report drafting, and donor stewardship (call briefs, thank-you notes).
+    - **People:** job posts, interview guides and 90-day onboarding.
+    - **Board:** skills-gap analysis, candidate outreach, onboarding packets and meeting decks.
+
+    It builds on the Blackbaud, Candid and Benevity connectors (seen 07-05). Webinars: **Nov 10** (admins: data handling and AI-use policy) and **Nov 12** (staff, day one). **Why it matters (Turner, KSW grants):** if Turner's Claude seats are on a Team plan under a verified nonprofit, this arrives without any setup. The board-support and grant skills overlap the monthly report, the Phase III / Elevation materials and the KSW PG-2 grant work. Check Turner's nonprofit verification status before building more grant tooling yourself. **Trust:** Tier 1 (claude.com article, Oct 26). — https://claude.com/resources/articles/expanding-claude-for-nonprofits
+21. **Agent Skills standard donated to the Agentic AI Foundation (Linux Foundation), Oct 22**. MCP already sits under the same foundation. Anthropic says the standard stays "open, community-driven, and vendor-neutral". No change to the SKILL.md format was announced. **Why it matters (skill-forge lane):** your roughly 60-skill fleet is now written to a vendor-neutral standard, which makes the skills more portable to Codex and other agents and lowers the risk of relying on them for Plumbline and venture IP. Watch the AAIF repo for spec changes rather than Anthropic's docs alone. **Trust:** Tier 1 (Anthropic announcement, via Simon Willison and the Linux Foundation press release). — https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation · https://simonwillison.net/2026/Oct/22/donating-agent-skills/
+22. **"When to fold subagents into your main agent loop" guidance, plus `anthropics/single-agent-loop-kit` (Apache-2.0, ★525)**. Anthropic says split-up subagent designs (routers, org-chart-style domain agents) often add delay and lose context. It recommends one loop with skills and progressive tool disclosure, and warns that tool-selection accuracy can drop past about **30–50 tools**. Keep subagents for real context bloat, parallel fresh-context work, verification, or separating privileges. The migration method: build about 10 golden test cases, fold tightly coupled agents first, turn the rest into tools, and keep any subagent whose removal makes results worse. It comes with `/claude-api` migration skills (build-eval, prompt-audit, hillclimb, cost-optimize) and `/skill-doctor`. The kit is an unmaintained reference repo. **Why it matters:** this directly informs the council and multi-agent skills and the routine fleet. Runs like this one load Composio, Dropbox and GitHub tools at once, which puts them in the range where selection accuracy drops. The 10-golden-case method is also a cheap eval harness for the receivables and monthly-report skills. **Trust:** Tier 1 (claude.com article and the anthropics org repo). The summary of specifics comes from SmartScope (Tier 3). — https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop · https://github.com/anthropics/single-agent-loop-kit
+23. **Claude Duet, research preview (Oct 21)**. A proactive agent that runs on its own cloud machine and browser, across email, calendar and payments. It sends a morning briefing and checks connected accounts every few hours. Safety tiers:
+    - **Approval needed** for payments, signing documents and deleting.
+    - **Always blocked**, even with approval: moving money and acting in someone else's account.
+    - **Credentials** stay isolated; Duet never sees passwords or tokens.
+    - **Outbound messages** pass a classifier that looks for sensitive data.
+
+    Access: Pro and Max plans, US only, from a waitlist. Not available on Team or Enterprise yet. **Why it matters:** (a) for **Aegis**, the three tiers (approve / never allowed even with approval / credential isolation) are a clean reference structure for governance alerts. (b) It overlaps the morning-brief and routine fleet, so compare it before building more "watch my accounts" routines. **Trust:** Tier 1 (release notes via releasebot) plus Tier 2 press. — https://www.vktr.com/ai-platforms/claude-duet-anthropic-previews-an-ai-agent-that-messages-you-first/ · https://releasebot.io/updates/anthropic
+24. **Cowork / desktop October changes (Oct 1 – 22) that affect your skills and routines**:
+    - **Skill descriptions longer than 1,024 characters are now refused (Oct 6).** Audit the fleet, since several long descriptions may be near the cap.
+    - Skill uploads now keep every file in the archive, not only `SKILL.md` (Oct 5).
+    - Cowork scheduled tasks default to "Automatically approve" where the organization allows it (Oct 1). Tasks under an "ask" policy now stop and wait (Oct 8).
+    - `/schedule` was removed from the Cowork slash menu (Oct 22).
+    - Skills, local MCP servers and plugins can be imported from third-party Claude (Oct 8, Oct 15).
+    - Chart.js, Grid.js and Mermaid ship with the app, so artifacts render them offline (Oct 13).
+
+    **Why it matters:** the 1,024-character cap can silently block a skill-forge or skill-creator output, and the approval-default change decides whether routines like this one run unattended. **Trust:** Tier 1 (Claude desktop changelog). — https://claude.com/docs/cowork/changelog
+25. **Claude Code 2.1.307 → 2.1.311 (Oct 21 – 26)**:
+    - New `claude_code.safety_event` OpenTelemetry event for every tool call that a permission rule, auto mode, hook or sandbox stopped, prompted or sent back.
+    - HTTP MCP tool calls are retried **only if the tool is read-only or idempotent** (fixes calls being sent twice).
+    - Sandbox hardening: shell startup files no longer run outside the sandbox, and `--mcp-config` can't be edited by sandboxed commands.
+    - Enterprise custom roles control access to cloud sessions and Remote Control.
+    - Subagents can now use MCP servers that connect after the subagent starts.
+    - Claude Tag gets a skills-analytics view.
+
+    **Why it matters:** `safety_event` is a ready-made audit feed for the Aegis approvals model. The idempotent-only retry rule is the same discipline the Hypomone ledger needs (never post twice). This complements 2.1.314–318 (item 3). **Trust:** Tier 1 (Claude Code changelog). — https://code.claude.com/docs/en/changelog
+26. **Claude Models on Google Cloud, Anthropic-managed, GA (Oct 22)**. You reach the Claude API through your own Google Cloud project, with Google Cloud IAM, and the spend counts toward existing Google Cloud commitments. Opus 5.5 fast mode is priced at $8 / $40 per million input / output tokens. **Why it matters:** low today. It becomes relevant if Meridia or Hypomone hosting moves to GCP, since Hypomone's model policy is Claude first and Gemini second and both could then sit on one bill. Note the fast-mode price alongside the Nov 30 removal of Opus 4.8 fast mode (item 4). **Trust:** Tier 1 (platform release notes via releasebot). — https://releasebot.io/updates/anthropic
+
+### Recess / K-12 [backfill]
+
+27. **xiaoyang111222/cn-math-taxonomy (★6.9k, created Oct 18, custom license)**. An open K-12 knowledge graph covering math (elementary through high school), English and middle-school physics. It has 1,644 knowledge points, **2,403 prerequisite edges** and 6,723 practice items, aligned to the curriculum standard, with **adaptive prerequisite diagnosis** and a live demo. **Why it matters (Recess):** this is close to the Shadow Rock 5th-grade prerequisite-routing and math-gap work, as a data model and diagnostic flow. The curriculum is Chinese, so use it as a schema and algorithm reference and pair it with the connected Learning Commons Knowledge Graph for US standards. **Trust:** Tier 3 (fast-rising, active today). The license is non-standard ("Other"), so read its terms before reusing any data. — https://github.com/xiaoyang111222/cn-math-taxonomy
+
+**Added asks:**
+- (f) Confirm whether Turner's seats get the **Nonprofits plugin**, and put the Nov 10 admin webinar on the calendar.
+- (g) Audit the skill fleet for **descriptions over 1,024 characters**.
+- (h) Use the **single-agent-loop** golden-case method on one routine.
+- (i) Point the Recess prerequisite-routing work at **cn-math-taxonomy**'s schema.
+
 ---
 **Ask (for Ali):** Which do you want to adopt? Suggested:
 - (a) **Set the Console IP allowlist** for the hub API key, and check scripts for `speed:"fast"` before Nov 30.

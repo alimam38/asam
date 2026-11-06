@@ -548,3 +548,13 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-06 — iDiagoValeta/mouseketool (prior-art check MCP + skill) — github.com/iDiagoValeta/mouseketool (Tier 4)
 2026-11-06 — ai-agent-manager/agent-lint (SKILL.md validator) — github.com/ai-agent-manager/agent-lint (Tier 4)
 2026-11-06 — Star-farm cluster caution 11-05 (AcrossTopazcache8602 / WolfZorace44832 / Vespermagnet / RainedFeral / … + globalmpc/backendskills) — github.com sweep (Tier 4 caution)
+
+<!-- 2026-11-06: late merge — recovered findings from the paused 2026-10-27 run (backfill, Oct 18–26) -->
+2026-11-06 — Claude for Nonprofits plugin (Oct 26; auto-install for verified nonprofits on Team/Enterprise; grants/board/hiring/AI-policy skills) [backfill] — claude.com/resources/articles/expanding-claude-for-nonprofits (Tier 1)
+2026-11-06 — Agent Skills standard donated to Agentic AI Foundation / Linux Foundation (Oct 22) [backfill] — anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation (Tier 1)
+2026-11-06 — Fold-subagents-into-main-loop guidance + anthropics/single-agent-loop-kit (Apache-2.0) + /claude-api migration skills [backfill] — github.com/anthropics/single-agent-loop-kit (Tier 1)
+2026-11-06 — Claude Duet research preview (proactive cloud-VM agent; approve / never-allowed tiers; Pro/Max US waitlist) [backfill] — vktr.com / releasebot.io (Tier 1 via Tier 2)
+2026-11-06 — Cowork desktop Oct changes (skill description 1,024-char cap; skill archives keep all files; scheduled-task auto-approve default; /schedule removed; 3P import) [backfill] — claude.com/docs/cowork/changelog (Tier 1)
+2026-11-06 — Claude Code 2.1.307–2.1.311 (safety_event OTel, idempotent-only HTTP MCP retries, sandbox hardening, custom roles for cloud sessions) [backfill] — code.claude.com/docs/en/changelog (Tier 1)
+2026-11-06 — Claude Models on Google Cloud (Anthropic-managed) GA + Opus 5.5 fast mode pricing (Oct 22) [backfill] — releasebot.io/updates/anthropic (Tier 1)
+2026-11-06 — xiaoyang111222/cn-math-taxonomy (K-12 knowledge graph, 2,403 prerequisite edges, adaptive prerequisite diagnosis; ★6.9k) [backfill] — github.com/xiaoyang111222/cn-math-taxonomy (Tier 3)

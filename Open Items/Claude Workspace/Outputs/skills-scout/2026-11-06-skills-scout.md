@@ -56,7 +56,7 @@ _Window: Nov 3 – Nov 6 (everything since the 11-02 digest), plus a few never-l
 
 ## Lanes searched, nothing new in window
 
-- **Populi / SIS-LMS / FERPA:** nothing.
+- **Populi / SIS-LMS / FERPA:** nothing in the first run; the same-day re-run found #30 (patterns only, no Populi-specific tool).
 - **KSW (grants / music-ed):** nothing.
 - **NAS / Docker / Postgres:** only `Balanov/shim` (★466, a tiny local-first harness with MCP and skills), logged as skipped.
 - **Recess teacher-facing AI:** coverage is still the July Claude for Teachers launch (already seen).
@@ -120,3 +120,29 @@ _The scheduled 10-27 run did its research but paused before committing; it resum
 - (c) Try **fdic-mcp-server + cu_MCP** in a Meridia session for the NCUA gap.
 - (d) Point the Shadow Rock analysis at **mcp-education-data**.
 - (e) Decide whether **Personal Finance in Claude** changes the Hypomone member-experience pitch.
+
+## Same-day re-run (Nov 6, 16:05 UTC): last-24h additions
+
+_A second scheduled pass today. SerpAPI 3/3 more calls (Google News qdr:d "Anthropic Claude", `site:github.com` skill/MCP qdr:d, a fintech/K-12/governance "MCP server" qdr:d query that returned nothing), GitHub repo search for repos created Nov 5–6, and commit checks on the official repos since the first run. Official repos had only increments since the first run (claude-code "privacy mod", MCP reference servers v2.3.0); both went to the skipped log. Everything below was checked against the seen index and this file._
+
+### Aegis (governance, approvals, audit)
+
+28. **Ravi041/mcp-policy-library (Apache-2.0, v0.1, created Nov 5)**. Tested OPA/Rego policy packs that decide whether an agent may make a given MCP tool call, for the filesystem, GitHub and Postgres servers. Default is deny, and every refusal says why. It is policy content only: you load it into OPA behind whatever gateway sits between agents and MCP servers (only agentgateway is tested live). The README says plainly that the Postgres pack inspects SQL as text and cannot catch everything, so least-privilege database roles stay underneath. **Why it matters (Aegis):** this is the "the decision lives in reviewed policy, not in the model" layer, and it pairs directly with the inference-hooks allow/deny contract (#2). The Postgres pack is a ready starting point for governing agent access to integra-core. **Trust:** Tier 4 (★0, single author), but tested and candid about its limits. — https://github.com/Ravi041/mcp-policy-library
+29. **Prashant-thakur77/Shadow-Run (MIT, created Nov 5)**. Before an agent touches production, it rehearses the risky plan on a clone inside a no-network microVM, measures the effect in Postgres, and applies the plan only if the result matches. The person who requests a change cannot approve it (separate `judge` and `reviewer` identities). Its own test: on 23 held-out risky tasks, harm on prod fell from 10.67 to 2.67 even when every plan was approved unread. **Why it matters (Aegis):** "rehearse, compare, then apply" plus requester-is-not-approver is a stronger approval model than a plain yes/no gate, and its numbers are a benchmark the Aegis spec can cite. It runs on Vultr microVMs, so treat it as a pattern, not something to deploy. **Trust:** Tier 4 (★0, hackathon-style live demo). — https://github.com/Prashant-thakur77/Shadow-Run
+
+### Populi / SIS-LMS (FERPA patterns)
+
+30. **Two school-system MCP servers with student-data guardrails (both MIT, created Nov 5)**. `elehmanndev/clickedu-mcp` lets a teacher run a school-management system (schedule, rosters, attendance, messages) from Claude. It runs locally only, keeps the session cookie on the teacher's disk, and allows writes only as single actions the teacher confirms in the moment: no bulk mode, no loop over a class, no scheduled runs, and student impersonation refused outright. `fabioov/moodle-mcp` is a read-only LMS server (courses, assignments, deadlines, grades, forums) with CI. **Why it matters (Plumbline / Populi / Recess):** neither is Populi, but together they spell out a clean policy for an MCP over student records: read-only by default, one confirmed write at a time, never autonomous. A Populi MCP for Plumbline should take the same stance, and the clickedu "Ethics and scope" section is worth copying into the FERPA notes. **Trust:** Tier 4 (★0 each, single authors). — https://github.com/elehmanndev/clickedu-mcp · https://github.com/fabioov/moodle-mcp
+
+### Recess / K-12
+
+31. **VIABLE-Learning-Lab/viable (code MIT, data CC BY 4.0, created Nov 5)**. An open kit for "AI that teaches the way a teacher wants." The Harness wraps any agent so that, before answering a learner, it reads the teacher's limit for today, picks a teaching move and the one misconception that fits, and asks how the learner got there instead of handing over the answer. It installs as a skill (`npx skills add VIABLE-Learning-Lab/viable --skill teaching-with-viable`); a separate Engine runs classes on your own server, and a hosted platform sits outside the repo. **Why it matters (Recess):** this is the teacher-controlled, misconception-first behavior the Shadow Rock math-gap and prerequisite-routing work needs, as a reusable skill rather than a product to buy. It pairs with cn-math-taxonomy (#27): that gives the prerequisite graph, this gives the teaching move. Check its misconception data against the 5th-grade gap report before relying on it. **Trust:** Tier 4 (organization account, ★0, day-1, CI tests). — https://github.com/VIABLE-Learning-Lab/viable
+
+### Meridia (corpus / RAG)
+
+32. **mauriciosutton/rag-ingestion-pipeline ("dropbox-rag", MIT, created Nov 5)**. Indexes chosen Dropbox folders for search. Docling OCR and a local llama.cpp summary per document run in Docker on your own host; chunks then go to Postgres (pgvector, full-text and trigram search), and an MCP server answers questions with citations to document and page. It needs a Voyage AI key (the free tier works) and assumes Supabase, though the schema is plain Postgres. **Why it matters (Meridia corpus):** this is close to the AIA corpus pipeline that has stalled, and it reads straight from Dropbox, where the hub lives. The main change is swapping Supabase for the NAS Postgres; the prompts are tuned for real-estate deal documents and need re-pointing. **Trust:** Tier 4 (★0, single author, day-1). Read the code before giving it a Dropbox token, and use a read-only app scope as its README says. — https://github.com/mauriciosutton/rag-ingestion-pipeline
+
+**Re-run asks:**
+- (j) Load **mcp-policy-library**'s Postgres pack as the first Aegis policy-as-code layer, and add Shadow Run's requester-is-not-approver rule to the spec.
+- (k) Try the **VIABLE** teaching skill, with cn-math-taxonomy, against the Shadow Rock 5th-grade gap report.
+- (l) Decide whether **dropbox-rag** (re-pointed at NAS Postgres) unblocks the Meridia corpus ingestion.

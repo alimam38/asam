@@ -49,3 +49,9 @@ Format: `YYYY-MM-DD — program/vendor — source`.
 2026-11-01 — Buffer for Nonprofits (50% off) — https://support.buffer.com/articles/buffers-nonprofit-discount-5DWYhyusYn
 2026-11-01 — Zapier for Nonprofits (15% off paid plans) — https://help.zapier.com/hc/en-us/articles/8496197165581-Discounts-for-Zapier-plans
 2026-11-01 — Checked/dropped: monday.com nonprofits (excludes educational orgs); Heroku (no nonprofit discount; OSS credits only); Anthropic Cyber Mission (OSS/critical infra); Bitwarden (no published nonprofit program)
+2026-11-06 — Blackbaud First Year Free (ResearchPoint/ProspectPoint/DM Analytics/Identity Thread; new purchases only; expires 2026-12-31) — https://www.blackbaud.com/nonprofit-first-year-free-promo
+2026-11-06 — Microsoft 365 Copilot nonprofit ($25.50/user/mo, 15% off) + Power BI Pro $3/user/mo (verify seminary accepted under nonprofit vs education track) — https://www.microsoft.com/en-us/nonprofits/empower-your-nonprofit-with-AI
+2026-11-06 — JetBrains (50% off for accredited edu internal dev; 25–50% nonprofit by quote; free classroom licenses) — https://www.jetbrains.com/store/
+2026-11-06 — Constant Contact nonprofit prepay (20% for 6 mo / 30% for 12 mo; IRS determination letter; confirm before buying) — https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/5374-non-profit-discount-and-sales-tax-exemption-information
+2026-11-06 — Mailchimp nonprofit (15% off; EIN; request before purchase) — https://mailchimp.com/help/about-nonprofit-discount/
+2026-11-06 — Checked/dropped: Cloudflare for Startups nonprofit track (cohort closed 2025-12-01; edu institutions excluded); Claude for Open Source (individual OSS maintainers; closed 2026-06-30)

@@ -195,3 +195,65 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-09-22 — Anthropic "Claude helping build next version of itself" — VINnews via WebSearch
 2026-09-22 — hirotomasato/yowes (forgery-adjacent; not picked) — GitHub topic search
 2026-09-22 — "The Claude Delusion" (Doctorow; skipped, thought piece) — HN
+
+<!-- 2026-11-06: backfill. The 2026-09-29, 2026-10-16 and 2026-10-20 runs committed digests but no seen-index update; entries below are taken from those digests' picks and notable items. -->
+2026-09-29 — Claude Opus 5.5 (Sep 22) and Sonnet 5.5 (Sep 28) — anthropic.com / backfill
+2026-09-29 — Rogue-agent week (OpenAI agents breach government sites; training pauses) — HN / news / backfill
+2026-09-29 — Claude Code v2.1.280–284 (skill namespace change, deniedModels, AGENTS.md fix) — CHANGELOG / backfill
+2026-09-29 — GoLive skill + Cloudflare agentic cf CLI — GitHub / Cloudflare blog / backfill
+2026-09-29 — Jev week two (open alternatives, benchmark, Claude Code integrations) — GitHub / HN / backfill
+2026-09-29 — yetone/magpie (coding-agent model switcher + gateway) — GitHub / backfill
+2026-09-29 — scarletkc/seiso (linter for AI-written project docs) — GitHub / backfill
+2026-09-29 — Vespper docx MCP — Launch HN / backfill
+2026-09-29 — Anthropic IPO prospectus (Reuters) and Pentagon supply-chain-risk ruling (CNBC) — news / backfill
+2026-09-29 — Mercury 2.5 (770 tok/s diffusion LLM) — artificialanalysis.ai / backfill
+2026-09-29 — Opus 5.5 video/animation repo flood; Alpha-Park genpark-* flood (not picked) — GitHub / backfill
+2026-10-16 — Claude Dashboards (beta) and Claude Motion — anthropic.com / backfill
+2026-10-16 — Claude Haiku 5.5 — anthropic.com / backfill
+2026-10-16 — Anthropic agents went off-script; policy tightening — news / backfill
+2026-10-16 — Claude Code v2.1.285–301 (write-success fix, DST scheduling fix, MCP 2026-07-28 default) — CHANGELOG / backfill
+2026-10-16 — Agent sandboxes (Anthropic OSS scanner, Strands Box, Microsoft MXC, Docker Agent) — vendor blogs / backfill
+2026-10-16 — Gemini 4 Argon — blog.google / HN / backfill
+2026-10-16 — Anthropic "Redesigning source control" (Scion) + feder-cr/open_scion — anthropic.com / GitHub / backfill
+2026-10-16 — Figma restricts MCP to allow-listed clients — X / HN / backfill
+2026-10-16 — Codex CLI background daemon by default — GitHub issue / HN / backfill
+2026-10-16 — AgentMemoryRepo spec; "Agents don't need memory, they need documentation" — GitHub / HN / backfill
+2026-10-16 — Graphicle-AI/graphicle (code graph + memory over MCP) — GitHub / backfill
+2026-10-16 — McDonald's China MCP skill flood; rehan-remade/universal-modder (not picked) — GitHub / backfill
+2026-10-20 — Managed Agents dynamic workflows (public beta) + Claude Code desktop nested sessions — platform.claude.com / X via SerpAPI / backfill
+2026-10-20 — Anthropic employment study (80% of delays = agents waiting on humans) — anthropic.com / Fortune / backfill
+2026-10-20 — Websites closing to AI agents; WhatsApp hidden AI instructions — The Verge / Redact / backfill
+2026-10-20 — Agent identity layer (Sumsub KYA for MCP, Proof x401, ServiceNow/NVIDIA AI Passport) — Google News via SerpAPI / backfill
+2026-10-20 — Digits Write MCP (Locked Periods approval gate) — cpapracticeadvisor.com / backfill
+2026-10-20 — Claude Code v2.1.302–304 (Claude Design closes Dec 14; routine fixes) — CHANGELOG / backfill
+2026-10-20 — Claude Code team code-review playbook + Sphinx quiz hook — claude.dev / HN / backfill
+2026-10-20 — iha2/superlite; feder-cr/git-ai; google-research/harness2; Laminar — GitHub / HN / backfill
+2026-10-20 — LiCinCan/blender-ai-mcp-addon (farmed; not picked) — GitHub / backfill
+
+2026-11-06 — Trojanized Claude Code extension on Cursor marketplace (2.1.312–313, SSH backdoor) — StepSecurity / HN / Google News via SerpAPI
+2026-11-06 — Claude Code email-in-User-Agent leak (issue #107757; fixed v2.1.317) — GitHub / HN
+2026-11-06 — Claude Code background-agent transcripts sent to model (gist) — HN
+2026-11-06 — Claude Duet (proactive agent, research preview) — claude.com / HN
+2026-11-06 — KKKKhazix/agent-autoloop — GitHub topic search
+2026-11-06 — Claude in Google Docs, Sheets and Slides — claude.com / HN
+2026-11-06 — Claude Personal Finance (Plaid, read-only) — Google News via SerpAPI
+2026-11-06 — Claude employer chat analytics reports (Futurism) — Google News via SerpAPI
+2026-11-06 — Claude Message Threads beta — Google News via SerpAPI
+2026-11-06 — Claude Code v2.1.305–318 (Opus 4.8 fast mode removed Nov 30; routine effort; plugins in cloud tasks) — CHANGELOG
+2026-11-06 — Anthropic S-1 / $17B Q3 / junk rating — sec.gov / CNBC / TechCrunch / HN
+2026-11-06 — LLM price cuts up to 80% (minimaxir) — HN
+2026-11-06 — Anthropic usage enforcement (training larger models; game reverse-engineering) — HN / Mashable
+2026-11-06 — NVIDIA OpenShell — HN
+2026-11-06 — Cursor Agent SDK — HN
+2026-11-06 — rivet-dev/rivet; omnara-ai/omnara; FrigadeHQ/hob — Launch/Show HN
+2026-11-06 — Dayjob: Tax agent benchmark — HN
+2026-11-06 — Anthropic formal verification / attack-surface reduction / provable inference research — HN
+2026-11-06 — LLM confidence scoring is a bad idea — HN
+2026-11-06 — Revolut self-hosted GLM; Swedish government bans ChatGPT and Claude — HN
+2026-11-06 — boyuchengz/canvas-mcp; Ellucian Student AI-native platform — GitHub / Google via SerpAPI
+2026-11-06 — emanuele-em/kanzo; Charonyuu/whatsmyagentdoing — GitHub topic search
+2026-11-06 — MCP Explained — HN
+2026-11-06 — "Gitbook Breached" (unverified) — HN
+2026-11-06 — diurnix / agent-purge / sapper-v2 (farming pattern; not picked) — GitHub topic search
+2026-11-06 — muaaz9329/cheap-ag; qybaihe/bla (skipped) — GitHub topic search
+2026-11-06 — Video/animation skill flood (pixelfx, tstack, teardown, reanimate) (skills-scout beat) — GitHub search

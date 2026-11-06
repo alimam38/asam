@@ -43,3 +43,9 @@ Format: `YYYY-MM-DD — program/vendor — source`.
 2026-09-03 — Miro for Nonprofits (30% off any plan, stacks with 20% annual ≈ 50%) — https://miro.com/npo/
 2026-09-03 — HubSpot for Nonprofits (40% off net-new Pro/Enterprise; annual contract; new customers only) — https://www.hubspot.com/nonprofits
 2026-09-03 — Checked/dropped: New Relic Observability for Good (faith-based schools ineligible); Tableau donated Desktop (legacy, unverified)
+2026-11-01 — Claude Corps host (fully funded 12-mo AI fellow + $10k implementation grant; rolling for Jan/Aug 2027 cohorts; host criteria unconfirmed) — https://www.anthropic.com/claude-corps/host
+2026-11-01 — Human-I-T Non-Profit Gold Membership (free; refurb laptops 40–60% off, 1-yr warranty; IRS letter/990) — https://www.human-i-t.org/buying-laptops-for-nonprofits/
+2026-11-01 — Gemini app + Gemini Notebook free in all Workspace for Education editions (Core services, no model training) — https://knowledge.workspace.google.com/admin/getting-started/editions/quickstart-guide-to-gemini-and-gemini-notebook-for-education
+2026-11-01 — Buffer for Nonprofits (50% off) — https://support.buffer.com/articles/buffers-nonprofit-discount-5DWYhyusYn
+2026-11-01 — Zapier for Nonprofits (15% off paid plans) — https://help.zapier.com/hc/en-us/articles/8496197165581-Discounts-for-Zapier-plans
+2026-11-01 — Checked/dropped: monday.com nonprofits (excludes educational orgs); Heroku (no nonprofit discount; OSS credits only); Anthropic Cyber Mission (OSS/critical infra); Bitwarden (no published nonprofit program)

@@ -718,3 +718,17 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-09-22 — aipoch/open-science (★4.9k local-first AI research workbench w/ skills + MCP) — strong repo, no current lane consumes a science workbench; revisit if Meridia corpus/research work resumes
 2026-09-22 — kyopark2014/agent-skills (LangGraph skills tutorial, KR) + minorun365/agent-builder-skills (AWS web-app skills, JP) — tutorials / marginal lane fit
 2026-09-22 — M-Ismail-ZA/IsmailsProtocols (credibility-check + AI-writing review protocols) + andylumax33-glitch/paper2agent-skill — de-AI-writing and paper2agent waves already covered
+2026-11-06 — Smart Reports "managers monitor usage" press wave (Times of India, Futurism, Mashable, 11-03/05) — increment of Enterprise admin bundle surfaced 11-02
+2026-11-06 — claude-plugins-official security-guidance hardening batch (~15 commits 11-04/05) — increment of 09-10 security-guidance entry
+2026-11-06 — claude-plugins-official new adds champion-kit + Xcode plugin; greptile repoint — outside every lane
+2026-11-06 — claude.com connector directory adds (Jasper, Jaz Accounting, SpotDraft, WordPress.com, Ample Computer, Blaxel) — no lane consumes them; Jaz is IFRS accounting (Plumbline uses QBO) — revisit if a non-QBO tenant appears
+2026-11-06 — MCP spec SEP-2106 tool-examples rendering + schema oneOf fix; registry v1.8.8 (remote URLs shareable across server names) — spec/registry plumbing, no action
+2026-11-06 — Anthropic "How researchers use Claude" (11-05), Copilot EU Data Boundary for Claude models (11-05), game-cloning policy loosening (11-03/05), Cat Wu departure (11-03/05) — news, not tooling
+2026-11-06 — Balanov/shim (★466 local-first harness, MCP + Agent Skills, zero deps) — harness lane saturated; revisit if a NAS-local runner is needed
+2026-11-06 — ABLingss/awesome-agent-loops (★105 directory, day-1) — thin; watch, possible sources-file add if it matures
+2026-11-06 — pipeworx-io/mcp-college-scorecard + mcp-education-feeds — siblings of mcp-education-data; surface only if Plumbline peer benchmarking needs College Scorecard
+2026-11-06 — zack0x01/burp-sectivai (★80 skill-driven Burp security review), Kemerd/claude-hardware-in-the-loop (★80) — no lane
+2026-11-06 — Viral novelty skills (imraywang/ray-sticker-shop ★273, kubai087/kubai-icons ★228, fantuan-lab/animated-sticker-studio) + MCPs (roblox-studio-mcp ★428, JosssphZhou/poki iPhone MCP ★361, gpt-image-2-6-mcp-server) — no lane
+2026-11-06 — Glen-Web-App/best-agent-memory-mcp (ranked memory-MCP list ★164) — memory lane covered; list-only
+2026-11-06 — zengziyu1312007-rgb/claude-antifeng-skill (account "anti-risk-control" skill) — policy-evasion flavored; do not adopt
+2026-11-06 — Plaid personal-finance MCP increments (MSPbotsAIFramework/plaid-mcp, fredwang1012/personal-finance-mcp, Plaid Sandbox chat PoCs) — fin + aggregate-finance surfaced instead

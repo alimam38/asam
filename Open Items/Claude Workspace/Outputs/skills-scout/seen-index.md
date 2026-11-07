@@ -563,3 +563,16 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-06 — [re-run] Ravi041/mcp-policy-library (OPA/Rego default-deny packs for MCP tool calls: filesystem/GitHub/Postgres) — github.com/Ravi041/mcp-policy-library (Tier 4)
 2026-11-06 — [re-run] Prashant-thakur77/Shadow-Run (rehearse risky agent plans on a clone microVM; requester≠approver) — github.com/Prashant-thakur77/Shadow-Run (Tier 4)
 2026-11-06 — [re-run] elehmanndev/clickedu-mcp + fabioov/moodle-mcp (school SIS/LMS MCPs: local-only, read-only, per-action-confirmed writes) — github.com (Tier 4)
+
+<!-- 2026-11-07 run -->
+2026-11-07 — Claude Code cloud auto environment setup (deps/network/API keys as proxy-injected network secrets; Pro/Max/Ultra; Nov 6) — code.claude.com/docs/en/cloud-environments (Tier 1)
+2026-11-07 — Claude Code 2.1.319 (MCP tasks backgrounding, permissions.denyInsteadOfPrompting, /claude-api latency-optimize, /loop cloud note, Desktop Nov 10 gateway warnings) — github.com/anthropics/claude-code CHANGELOG (Tier 1)
+2026-11-07 — Project EVE: Claude plays MMORPGs (saboteur in 4-agent team rarely caught; audit trails/separation of duties) — anthropic.com/research/project-eve-claude-plays-mmorpgs (Tier 1)
+2026-11-07 — Cowork EDR sensor support + CrowdStrike Falcon Guardian in Cowork (Nov 3–5) — crowdstrike.com/en-us/blog/crowdstrike-secures-ai-agents-inside-claude-cowork (Tier 1/2)
+2026-11-07 — Claude Marketplace 25+ partner agents (Nov 4) + Enterprise project spend tags beta (Nov 6) — support.claude.com release notes (Tier 1)
+2026-11-07 — Dispatch won't-fix RCE via browser extension (Gal Weizman; Nov 5) — theregister.com (Tier 2)
+2026-11-07 — Claude Code email in HTTP User-Agent report (Nov 6) — cybersecuritynews.com/claude-code-leaks-user-email (Tier 2/4)
+2026-11-07 — mairp/specstride-plugin (signed/committed phase gates) — github.com/mairp/specstride-plugin (Tier 4)
+2026-11-07 — hamarshehmhmd/skillwall (skill/plugin supply-chain firewall, pin + CI drift) — github.com/hamarshehmhmd/skillwall (Tier 4)
+2026-11-07 — novantir/claude-plugins secret-input-card — github.com/novantir/claude-plugins (Tier 4)
+2026-11-07 — AvaneshJ/observe-mcp (read-only Postgres/Sentry/GitHub, SELECT-only, PII redaction) — github.com/AvaneshJ/observe-mcp (Tier 4)

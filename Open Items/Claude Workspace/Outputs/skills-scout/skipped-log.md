@@ -778,3 +778,17 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-06 — [re-run] Misc non-fits (evilsocket/tmail agent email on Tailscale — AgentMail covers it; Isagoge-Labs/LeanWarp-SDK; avinashgaurav/bidline; PerDiemInc/gantrix; codejunkie99/cracked-engineer; trustabl reliability skills; Jakeschincariol/whale-skill increment; thin Cowork plugins sediment/cowork-catalyst/praxis) — off focus or thin — github.com (Tier 4)
 2026-11-06 — [re-run] Snowflake-Labs/coco-skills, microsoft awesome-copilot dependabot skill — vendor skills for stacks not in use — github.com (Tier 2)
 2026-11-06 — [re-run] Pompliano accuses Anthropic of copying his startup with Personal Finance (Decrypt, Nov 5) + METR acceleration report / Bloomberg risk piece — news, not tooling — decrypt.co / apnews.com (Tier 2 press)
+
+<!-- 2026-11-07 run -->
+2026-11-07 — Faixiang/Moodle-MCP (read-only Moodle MCP, ★197, created 10-26) — increment of fabioov/moodle-mcp (11-06); Moodle not in stack — github.com/Faixiang/Moodle-MCP (Tier 4)
+2026-11-07 — Star-farm cluster increment (Galehashoid/flow-map-resp, NightUnderAurora41899/pc-game-…-resp-skill, AgainstStoneGold/rpocket-…, riverenpaw2708/vibe-resp-skill, gravityellestone/resp-polish, UponNuclearastro/claude-resocket-plugin, BehindProxySolar/exasol-rpocket-agent-skills, AcrossTopazcache8602/abogado…, WolfZorace44832/Orderflow…, Vespermagnet/jet-reports…, RainedFeral/mcp-typography…) — same resp/rpocket/resocket naming, no license, ~40★ day-1; caution — github.com (Tier 4 caution)
+2026-11-07 — SKILL.md linters (Rushford444/kanso, Joopp1/skill-file-checker) — covered by agent-lint 11-06 — github.com (Tier 4)
+2026-11-07 — Plaid-sandbox finance-chat PoCs (kauan-beep, limenez, ViniciusRamoss, brenolrocha22) — student demos, no license — github.com (Tier 4)
+2026-11-07 — shanselman/sandbox-mcp (Windows Sandbox MCP, known author ★107) — no current need; revisit for Windows app testing — github.com/shanselman/sandbox-mcp (Tier 3)
+2026-11-07 — phuryn/mini-harness (~1.4k-line teaching agent harness w/ skills+MCP) — learning aid, not a tool to adopt — github.com/phuryn/mini-harness (Tier 4)
+2026-11-07 — chutingyean/Agent-Cockpit (evidence-chain whiteboard + MCP, ★417, created 10-26) — off-window; borderline Aegis audit-trail pattern, revisit — github.com/chutingyean/Agent-Cockpit (Tier 4)
+2026-11-07 — Thin Postgres MCPs (JoongHyuk-Shin/multigres-mcp, botmartz/mcp-postgres-wal-server, George23792M/postgres-mcp) — observe-mcp surfaced instead — github.com (Tier 4)
+2026-11-07 — Off-focus repos (lexifina/global-law, emanuele-em/kanzo, HerdBuilderEstimate/roblox-studio-mcp, BetaNYC/ny-data-registry-mcp, iambeniwal/awesome-indian-legal-skills, game/sticker/video skills) — no venture fit — github.com (Tier 3/4)
+2026-11-07 — Lance Martin "old prompts make Claude worse / one command cuts 72%" (AI Engineer talk recap) — press figure unverified; /claude-api migration covered 11-06 — finance.biggo.com (Tier 4)
+2026-11-07 — Athenahealth MCP server for patient records into Claude (Nov 2–3) — healthcare, off focus — healthcareitnews.com (Tier 2)
+2026-11-07 — Claude Desktop Nov 10 change (unified Claude; coworkTabEnabled/chatSessionRetentionDays admin policies) — unified Claude already in seen; enterprise-admin only — claude.com/docs (Tier 1)

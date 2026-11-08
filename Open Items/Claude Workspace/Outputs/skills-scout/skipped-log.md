@@ -792,3 +792,17 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-07 — Lance Martin "old prompts make Claude worse / one command cuts 72%" (AI Engineer talk recap) — press figure unverified; /claude-api migration covered 11-06 — finance.biggo.com (Tier 4)
 2026-11-07 — Athenahealth MCP server for patient records into Claude (Nov 2–3) — healthcare, off focus — healthcareitnews.com (Tier 2)
 2026-11-07 — Claude Desktop Nov 10 change (unified Claude; coworkTabEnabled/chatSessionRetentionDays admin policies) — unified Claude already in seen; enterprise-admin only — claude.com/docs (Tier 1)
+
+<!-- 2026-11-08 run -->
+2026-11-08 — claude-plugins-official: plugin.json added to 14 plugins (#7013) — infrastructure housekeeping, no user-facing capability — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-08 — Anthropic loosens game-cloning refusal (offers original game in same genre; Nov 5) — usage-policy tweak, off focus — tomshardware.com (Tier 2)
+2026-11-08 — Anthropic must face Claude Max marketing lawsuit (Nov 7) — legal news, no tooling impact — courthousenews.com (Tier 2)
+2026-11-08 — Claude "Morning Brief" proactive feature rollout to select users — date unverified; Ali already has a morning skill; watch for official announcement — cryptobriefing.com (Tier 4)
+2026-11-08 — mouve-it/ekool-helper (Chrome ext + MCP filling Estonian eKool gradebook) — non-US SIS; teacher-write pattern only — github.com/mouve-it/ekool-helper (Tier 4)
+2026-11-08 — TaoYu-ds/EduMind + lsx12138/evolution-classroom (multi-agent tutoring / agent classroom, Chinese-language) — increments on already-seen tutoring patterns — github.com (Tier 4)
+2026-11-08 — teferi26/franky-mcp (Spanish university admissions MCP) — off-geography — github.com/teferi26/franky-mcp (Tier 4)
+2026-11-08 — Sharathreddysuram/ai-banking-operations-platform (KYC/fraud/loan-underwriting agent demo, 0 stars) — toy demo — github.com (Tier 4)
+2026-11-08 — kauan-beep/agente-financeiro-mcp (Plaid sandbox chat demo, PT-BR) — toy demo — github.com (Tier 4)
+2026-11-08 — kajisho5/ffmpeg-skill, win4r/video-director, leogallego/claude-ansible-skills — off focus — github.com (Tier 4)
+2026-11-08 — morluto/rea (reverse-engineer-anything; ~442k stars on a Apr-2026 repo) — star count implausible, treat as star-farm caution; off focus — github.com/morluto/rea (Tier 4 caution)
+2026-11-08 — Stockroom (MCP/hook tool-description offloader; awesome-claude-code issue #3537) — submission only, no verified repo yet — github.com/hesreallyhim/awesome-claude-code/issues/3537 (Tier 4)

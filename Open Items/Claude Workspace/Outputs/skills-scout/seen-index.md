@@ -576,3 +576,12 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-07 — hamarshehmhmd/skillwall (skill/plugin supply-chain firewall, pin + CI drift) — github.com/hamarshehmhmd/skillwall (Tier 4)
 2026-11-07 — novantir/claude-plugins secret-input-card — github.com/novantir/claude-plugins (Tier 4)
 2026-11-07 — AvaneshJ/observe-mcp (read-only Postgres/Sentry/GitHub, SELECT-only, PII redaction) — github.com/AvaneshJ/observe-mcp (Tier 4)
+
+<!-- 2026-11-08 run -->
+2026-11-08 — anthropics/skills Office skills (docx/pdf/pptx/xlsx) relicensed to Apache 2.0 (PR #2146, Nov 6) — github.com/anthropics/skills/pull/2146 (Tier 1)
+2026-11-08 — Yu-Peng-Tu/zhiheng-enterprise-agent (auditable workflow agent: human approval, idempotent execution, audit log) — github.com/Yu-Peng-Tu/zhiheng-enterprise-agent (Tier 4)
+2026-11-08 — rainyZhou2/SreAgentHarness (multi-tenant harness, risk-gated tool approvals, durable resumable runs) — github.com/rainyZhou2/SreAgentHarness (Tier 4)
+2026-11-08 — dockndevai/mcp-github-enterprise (safe-by-default GitHub Enterprise MCP, write opt-in) — github.com/dockndevai/mcp-github-enterprise (Tier 4)
+2026-11-08 — morrowdock/marty (AI teacher MCP; plan-author-check-repair loop) — github.com/morrowdock/marty (Tier 4)
+2026-11-08 — Carrington Labs MCP server (cash-flow credit models for AI lending; launch date unverified) — ffnews.com/newsarticle/fintech/carrington-labs-launches-first-mcp-server-bringing-compliant-credit-models-into-ai-lending-workflows (Tier 2/4)
+2026-11-08 — "CLAUDE.md rules are requests; hooks are enforced" (commentary) — fourweekmba.com/ai-anthropic-claude-md-rules-are-requests-hooks-are-enforced (Tier 4)

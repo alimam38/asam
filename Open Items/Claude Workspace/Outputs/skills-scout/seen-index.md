@@ -585,3 +585,11 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-08 — morrowdock/marty (AI teacher MCP; plan-author-check-repair loop) — github.com/morrowdock/marty (Tier 4)
 2026-11-08 — Carrington Labs MCP server (cash-flow credit models for AI lending; launch date unverified) — ffnews.com/newsarticle/fintech/carrington-labs-launches-first-mcp-server-bringing-compliant-credit-models-into-ai-lending-workflows (Tier 2/4)
 2026-11-08 — "CLAUDE.md rules are requests; hooks are enforced" (commentary) — fourweekmba.com/ai-anthropic-claude-md-rules-are-requests-hooks-are-enforced (Tier 4)
+
+<!-- 2026-11-09 run -->
+2026-11-09 — MBotirjonDev/skillset-lint (set-level SKILL.md linter: overlap/trigger/broken paths/risky scripts) — github.com/MBotirjonDev/skillset-lint (Tier 4)
+2026-11-09 — avivgerz-hue/vibe-shield (60-rule scanner + MCP + skill-poisoning auditor) — github.com/avivgerz-hue/vibe-shield (Tier 4 caution)
+2026-11-09 — tailucanh/offload-mcp-server (delegate heavy reading to a second agent) — github.com/tailucanh/offload-mcp-server (Tier 4)
+2026-11-09 — assassin808/learn-from-lessons (corrections → durable agent lessons) — github.com/assassin808/learn-from-lessons (Tier 4)
+2026-11-09 — psd401/psd401-prr (district public-records manager, RCW 42.56 + FERPA compliance engine) — github.com/psd401/psd401-prr (Tier 4)
+2026-11-09 — greebrit32-lgtm/privacy-portfolio (edtech vendor review FERPA/COPPA/SDPC NDPA, PIA, tabletop) — github.com/greebrit32-lgtm/privacy-portfolio (Tier 4)

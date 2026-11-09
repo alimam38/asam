@@ -806,3 +806,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-08 — kajisho5/ffmpeg-skill, win4r/video-director, leogallego/claude-ansible-skills — off focus — github.com (Tier 4)
 2026-11-08 — morluto/rea (reverse-engineer-anything; ~442k stars on a Apr-2026 repo) — star count implausible, treat as star-farm caution; off focus — github.com/morluto/rea (Tier 4 caution)
 2026-11-08 — Stockroom (MCP/hook tool-description offloader; awesome-claude-code issue #3537) — submission only, no verified repo yet — github.com/hesreallyhim/awesome-claude-code/issues/3537 (Tier 4)
+
+<!-- 2026-11-09 run -->
+2026-11-09 — Comply ComplyAI MCP Server (broker-dealer compliance; Claude Cowork client) — dated Apr 23 2026, not new; off lending/CRA focus — comply.com (Tier 2)
+2026-11-09 — POSaBIT MCP server (cannabis POS, Nov 5) — off focus — financialcontent.com (Tier 2)
+2026-11-09 — anthropics/knowledge-work-plugins security-guidance 2.0.18 bump (PR #1428, Nov 7) — version increment only — github.com/anthropics/knowledge-work-plugins (Tier 1)
+2026-11-09 — modelcontextprotocol/registry Gateway Fabric migration (Nov 7–9) — registry infra, no user-facing change — github.com/modelcontextprotocol/registry (Tier 1/2)
+2026-11-09 — wboudiche/linshare-skill (confirm-before-send share skill) — increment on confirmation-gate patterns already seen — github.com (Tier 4)
+2026-11-09 — Zotriq/postgres-mcp-server, max-dataguru/memohub, Fllenorium/open-brain — thin Postgres/memory MCP increments — github.com (Tier 4)
+2026-11-09 — dipto-thakur/idea-roaster (startup-idea roast skill) — overlaps proposal-review + PreVibe — github.com (Tier 4)
+2026-11-09 — robertkeus/elyx-claude-canvas-plugin, azizu06/job-agent, islam-diab/duo-adapt, Nanoutrolley/roblox-studio-mcp, kanaworksai-hue/sozai-search-mcp, avivgerz-hue/unslop, wanshuiyin/SuperARIS — off focus — github.com (Tier 4)
+2026-11-09 — pisan-labs/letter-ledger (recommendation-letter request tool) — higher-ed adjacent, no Turner need now — github.com (Tier 4)

@@ -817,3 +817,18 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-09 — dipto-thakur/idea-roaster (startup-idea roast skill) — overlaps proposal-review + PreVibe — github.com (Tier 4)
 2026-11-09 — robertkeus/elyx-claude-canvas-plugin, azizu06/job-agent, islam-diab/duo-adapt, Nanoutrolley/roblox-studio-mcp, kanaworksai-hue/sozai-search-mcp, avivgerz-hue/unslop, wanshuiyin/SuperARIS — off focus — github.com (Tier 4)
 2026-11-09 — pisan-labs/letter-ledger (recommendation-letter request tool) — higher-ed adjacent, no Turner need now — github.com (Tier 4)
+
+<!-- 2026-11-10 run -->
+2026-11-10 — Anthropic IPO roadshow launch (Nov 10) — market context, not tooling — anthropic.com/news/roadshow-launch (Tier 1)
+2026-11-10 — "Claude For Advisors" InvestmentNews piece (Nov 9) — appears to cover Claude for Financial Advisors (surfaced 09-15); increment — investmentnews.com (Tier 2)
+2026-11-10 — knowledge-work-plugins small-business airwallex server-key rename (#1295) — housekeeping — github.com/anthropics/knowledge-work-plugins (Tier 1)
+2026-11-10 — lmartin712/postgres-readonly-mcp (JSONL audit log) + denden121/postgres-mcp-template — increments on observe-mcp (11-07) — github.com (Tier 4)
+2026-11-10 — BankingMCP (banking-mcp.com) — unverified remote MCP, no source/operator detail — mcp.so (Tier 4)
+2026-11-10 — Prembly KYC/identity MCP — Africa-focused KYC vendor; revisit only if Hypomone KYC vendor selection opens — mcpservers.org (Tier 2/4)
+2026-11-10 — cotlet-connect/teachers-pay-teachers-mcp — unofficial scraper-style MCP, no API key; ToS risk — github.com (Tier 4)
+2026-11-10 — SolutionLabsIO/course-engine-skills, Severnbli/edu-by-agent — vendor/off-geography school site tooling — github.com (Tier 4)
+2026-11-10 — Dodaios/ste80-humanizer (★221, STE writing skill) — overlaps Idiolect/voice-match writing stack — github.com (Tier 4)
+2026-11-10 — Rajvardhman05/claude-model-router, punyawatt51/token-saver, leomattos7/claude-workbench, DaveaMorgan/claude-team-skills — thin Claude Code setup increments — github.com (Tier 4)
+2026-11-10 — android/skills (official Android skills) — off focus — github.com/android/skills (Tier 2)
+2026-11-10 — Moh4696/cinematic-skill, JDhruv14/line-art-animation, vamsireddy4/claude-watch, Nanoutrolley/roblox-studio-mcp (seen-skip 11-09), SandhyaMadhusuthanan/Idea-Jury + Pre-Mortem-Investor — off focus / overlaps proposal-review — github.com (Tier 4)
+2026-11-10 — Ask HN "How do you evaluate the skills your agents use?" — discussion only — news.ycombinator.com/item?id=50426070 (Tier 4)

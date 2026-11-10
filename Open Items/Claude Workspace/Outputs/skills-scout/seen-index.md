@@ -593,3 +593,13 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-09 — assassin808/learn-from-lessons (corrections → durable agent lessons) — github.com/assassin808/learn-from-lessons (Tier 4)
 2026-11-09 — psd401/psd401-prr (district public-records manager, RCW 42.56 + FERPA compliance engine) — github.com/psd401/psd401-prr (Tier 4)
 2026-11-09 — greebrit32-lgtm/privacy-portfolio (edtech vendor review FERPA/COPPA/SDPC NDPA, PIA, tabletop) — github.com/greebrit32-lgtm/privacy-portfolio (Tier 4)
+
+<!-- 2026-11-10 run -->
+2026-11-10 — Claude Fable 5.2 + Mythos 5.2 (claude-fable-5-2; $8/$40; fast mode; Advisor/Orchestrator roles; Mythos gated to verification programs) — anthropic.com/claude-fable-and-mythos-5-2 (Tier 1)
+2026-11-10 — claude-plugins-official security-guidance 2.0.19 (project rules persist after cd, credential routing, reviewer OAuth) — github.com/anthropics/claude-plugins-official/pull/7034 (Tier 1)
+2026-11-10 — distronode-corporation/mcp-patchbay (MCP host w/ human-confirmed server enable via elicitation) — github.com/distronode-corporation/mcp-patchbay (Tier 4)
+2026-11-10 — LSUDOKO/Apprentice (learn-by-watching triage agent, backtests, trust-ladder autonomy) — github.com/LSUDOKO/Apprentice (Tier 4)
+2026-11-10 — YusufSizmaz/bekci (offline zero-dep scanner for skills/plugins/MCP/hooks) — github.com/YusufSizmaz/bekci (Tier 4)
+2026-11-10 — rpg36/parent-school-skills (read-only Canvas + ParentVUE skills, allowlisted endpoints) — github.com/rpg36/parent-school-skills (Tier 4)
+2026-11-10 — AI-Native-Ventures/jemma (teacher-fed learner-profile gap tutor + MCP) — github.com/AI-Native-Ventures/jemma (Tier 4)
+2026-11-10 — Cloudsmith AI Skills Registry (Claude plugins + Agent Skills hosting/governance) — cloudsmith.com/product/ai-skills-registry (Tier 2)

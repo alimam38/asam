@@ -257,3 +257,15 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-11-06 — diurnix / agent-purge / sapper-v2 (farming pattern; not picked) — GitHub topic search
 2026-11-06 — muaaz9329/cheap-ag; qybaihe/bla (skipped) — GitHub topic search
 2026-11-06 — Video/animation skill flood (pixelfx, tstack, teardown, reanimate) (skills-scout beat) — GitHub search
+
+2026-11-10 — Claude Fable 5.2 / Mythos 5.2 ($8/$40, 1M ctx; default in Claude Code 2.1.321, auto-migrates 5.1 picks) — anthropic.com / HN / Google News via SerpAPI
+2026-11-10 — Claude Code 2.1.321–322 (MCP OAuth refresh-token redirect leak fix; Bash sandbox/permission fixes; Vertex fast mode) — CHANGELOG
+2026-11-10 — Apiiro: "Don't ask again" secrets in .claude/settings.local.json (1,122 repos; 2,539 secrets incl. MEMORY.md) — apiiro.com / HN
+2026-11-10 — Anthropic "The components of agent memory" (dreaming, wikis, CL-Bench 1.0) — anthropic.com/research / HN
+2026-11-10 — shanselman/sandbox-mcp (Windows Sandbox MCP) — GitHub topic search
+2026-11-10 — Goldman pulling Claude Code (unverified); "Goodbye Claude, hello Pi"; Opus 5.5 nerf reports — HN
+2026-11-10 — stevenmichaelthomas/numbrone; tailucanh/offload-mcp-server — GitHub topic search
+2026-11-10 — Claude electronics design research — anthropic.com / Google News via SerpAPI
+2026-11-10 — Google Ads MCP write tools — Google News via SerpAPI
+2026-11-10 — Hightouch Jev-escalates-to-Opus; synchopate/llama-modchip; Claude credits 12-month expiry — HN
+2026-11-10 — ai-manus clone farm; dhruvthakur11/youtube-ai-video-editing-system (farming pattern; not picked) — GitHub topic search

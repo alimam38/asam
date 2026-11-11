@@ -603,3 +603,13 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-10 — rpg36/parent-school-skills (read-only Canvas + ParentVUE skills, allowlisted endpoints) — github.com/rpg36/parent-school-skills (Tier 4)
 2026-11-10 — AI-Native-Ventures/jemma (teacher-fed learner-profile gap tutor + MCP) — github.com/AI-Native-Ventures/jemma (Tier 4)
 2026-11-10 — Cloudsmith AI Skills Registry (Claude plugins + Agent Skills hosting/governance) — cloudsmith.com/product/ai-skills-registry (Tier 2)
+
+<!-- 2026-11-11 run -->
+2026-11-11 — Claude Sheets + Whiteboards (beta, all paid plans) + Claude Data GA (formerly Claude Dashboards; Sheets 100k-cell cap; Enterprise default change Nov 19) — claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors (Tier 1)
+2026-11-11 — Claude Meetings (beta Team/Enterprise; Google Meet first; joins calls, drafts plans, pulls connected-app data) — techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks (Tier 1 via Tier 2)
+2026-11-11 — Interactive connectors upgrade (full tool UI inside Claude: Adobe/Atlassian/Box; 9,000+ MCP connectors) — x.com/claudeai/status/2120206375137484875 (Tier 1)
+2026-11-11 — agentisend/agent-email-guard (agent email blast-radius control: budgets, kill switch, approval holds) — github.com/agentisend/agent-email-guard (Tier 4)
+2026-11-11 — timescale/memory-engine (agentic memory on Postgres as MCP server) — github.com/timescale/memory-engine (Tier 2)
+2026-11-11 — vianido/ai (US nonprofit public-record MCP + skills) — github.com/vianido/ai (Tier 4)
+2026-11-11 — Digital-Tax-LLC/990tax-mcp (IRS nonprofit lookup + Form 990-N filing MCP; caution) — github.com/Digital-Tax-LLC/990tax-mcp (Tier 4)
+2026-11-11 — TheDecipherist/claude-packs (rules/checks/hooks/skills enforcing senior-engineer standards) — github.com/TheDecipherist/claude-packs (Tier 4)

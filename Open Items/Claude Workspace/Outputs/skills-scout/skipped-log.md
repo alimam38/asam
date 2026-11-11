@@ -832,3 +832,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-10 — android/skills (official Android skills) — off focus — github.com/android/skills (Tier 2)
 2026-11-10 — Moh4696/cinematic-skill, JDhruv14/line-art-animation, vamsireddy4/claude-watch, Nanoutrolley/roblox-studio-mcp (seen-skip 11-09), SandhyaMadhusuthanan/Idea-Jury + Pre-Mortem-Investor — off focus / overlaps proposal-review — github.com (Tier 4)
 2026-11-10 — Ask HN "How do you evaluate the skills your agents use?" — discussion only — news.ycombinator.com/item?id=50426070 (Tier 4)
+
+<!-- 2026-11-11 run -->
+2026-11-11 — "New connectors for everyday life" (AllTrails, Instacart, Audible, Booking.com, TripAdvisor; Nov 10) — consumer connectors, off focus — claude.com/blog/connectors-for-everyday-life (Tier 1)
+2026-11-11 — Impala MCP server for philanthropy data + Benevity nonprofit MCP — launch dates unverified (possibly older); grants lane, revisit if Candid gaps appear — impala.digital/mcp, causeshelp.benevity.org (Tier 2)
+2026-11-11 — kishormorol/ineedsilence (3-vendor judges sign off a document over 3 rounds) — overlaps council skill — github.com (Tier 4)
+2026-11-11 — aatoo100/build-malware-hunter (read-only scanners for build-time malware in Git repos) — security increment on skillwall/bekci (11-07/11-10) — github.com (Tier 4)
+2026-11-11 — pycodebr/pycode-skills (interactive lessons in PycodeBR brand) + pycodebr/nfseai (Brazilian NFS-e) — off-geography/brand-specific — github.com (Tier 4)
+2026-11-11 — imbad0202/academic-research-skills update — increment (logged 06-25/08-03/08-27) — github.com (Tier 3)
+2026-11-11 — Nov 10–11 repo churn: abhigyan6/tri-agent-orchestrator, aicodeking/Fable-Cheap, enricpedro/factum-skills, JohnJiahao/Easy-reading-papers, AmrSabbagh35/project-explainer, Hainrixz/higgsfield-studio, buddytrip05/design-partner, mikerva/council-1000, wensity/skills, Comfy-Org/comfy-skills, netresearch/file-search-skill, AminBlg/SimpleEnglish, morluto/rea, zhuyansen/awesome-claude-video-skills, dgokcin/skills — off focus or thin increments — github.com (Tier 4)
+2026-11-11 — MCP churn: jmrplens/gitlab-mcp-server, UseJunior/email-agent-mcp, t8y2/dbx MCP, HelpCode-ai SAP B1 MCP, pacjung64-cmyk/mcp-nexus (Rust MCP gateway), dusevitch/cadence, permitzip/mutinybim — off stack — github.com (Tier 4)
+2026-11-11 — pktq/lasik (undoes agent-blinding code hardening) — caution, offensive-leaning — github.com/pktq/lasik (Tier 4)

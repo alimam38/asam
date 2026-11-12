@@ -843,3 +843,18 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-11 — Nov 10–11 repo churn: abhigyan6/tri-agent-orchestrator, aicodeking/Fable-Cheap, enricpedro/factum-skills, JohnJiahao/Easy-reading-papers, AmrSabbagh35/project-explainer, Hainrixz/higgsfield-studio, buddytrip05/design-partner, mikerva/council-1000, wensity/skills, Comfy-Org/comfy-skills, netresearch/file-search-skill, AminBlg/SimpleEnglish, morluto/rea, zhuyansen/awesome-claude-video-skills, dgokcin/skills — off focus or thin increments — github.com (Tier 4)
 2026-11-11 — MCP churn: jmrplens/gitlab-mcp-server, UseJunior/email-agent-mcp, t8y2/dbx MCP, HelpCode-ai SAP B1 MCP, pacjung64-cmyk/mcp-nexus (Rust MCP gateway), dusevitch/cadence, permitzip/mutinybim — off stack — github.com (Tier 4)
 2026-11-11 — pktq/lasik (undoes agent-blinding code hardening) — caution, offensive-leaning — github.com/pktq/lasik (Tier 4)
+
+<!-- 2026-11-12 run -->
+2026-11-12 — claude-plugins-official claude-for-manufacturing plugin (#7084, Nov 12) — off focus — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-12 — claude-plugins-official CI: submissions now pointed to claude.ai/directory/manage (#7086) — increment on directory submission (06-29) — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-12 — security-guidance fix batch (one review-model setting, PowerShell commit/push review, custom-rule globs/regex time limit, credential-host detection; #7047–#7081) — increment on 2.0.19 (11-10); no new version tag seen — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-12 — "Operate Claude Managed Agents inside your security perimeter" (claude.com article) — increment on self-hosted sandboxes/MCP tunnels (06-28) — claude.com/resources/articles/self-hosted-claude-managed-agents (Tier 1)
+2026-11-12 — Claude mobile claude:// URL scheme + Software Directory policy help pages (re-indexed) — minor/undated help-center items — support.claude.com (Tier 1)
+2026-11-12 — Account-ban rules for unsupported regions effective Nov 12 — policy context, not tooling — finance.biggo.com (Tier 4)
+2026-11-12 — Claude electronics-design research (Nov 10) — off focus (hardware) — anthropic.com/research/claude-electronics-design (Tier 1)
+2026-11-12 — immrx113/classroom-agent (lecture recording→notes/Q&A, FastAPI+pgvector; Chinese, personal study) — not K-12 teacher-facing; pattern only — github.com/immrx113/classroom-agent (Tier 4)
+2026-11-12 — MidasAI/finvector-mcp (hosted SEC filing search MCP, cited answers) — overlaps FinancialFilings connector already available — github.com/MidasAI/finvector-mcp (Tier 4)
+2026-11-12 — N3XT live banking data MCP, RelPro relationship-intel MCP, MindBridge MCP — launch dates unverified; revisit if Hypomone bank-data vendor selection opens — letsdatascience.com / acg.org / cpapracticeadvisor.com (Tier 2/4)
+2026-11-12 — sktjgudals/fable-5-2-prompting (unofficial Fable 5.2 prompt-audit skill) — overlaps f5/50 prompt skills — github.com (Tier 4)
+2026-11-12 — albkhachikyan/claude-code-repo-audit (audit untrusted repo before running) — security increment on skillwall/bekci — github.com (Tier 4)
+2026-11-12 — Nov 11–12 repo churn: op7418/guizang-game-skill, enoch3712/spine-hero-skill, memcpython/deobf, memcpython/no-slop, gopkg-dev/damail, CreativityHouse2025/pm-skills-for-claude, Geemir/Exam-Quiz-Preparation-Skill, telerik/maui-agent-skills, ErLingSan0/MCP-Manager — off focus / covered lanes — github.com (Tier 4)

@@ -613,3 +613,12 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-11 — vianido/ai (US nonprofit public-record MCP + skills) — github.com/vianido/ai (Tier 4)
 2026-11-11 — Digital-Tax-LLC/990tax-mcp (IRS nonprofit lookup + Form 990-N filing MCP; caution) — github.com/Digital-Tax-LLC/990tax-mcp (Tier 4)
 2026-11-11 — TheDecipherist/claude-packs (rules/checks/hooks/skills enforcing senior-engineer standards) — github.com/TheDecipherist/claude-packs (Tier 4)
+
+<!-- 2026-11-12 run -->
+2026-11-12 — Claude Platform per-message effort (change effort mid-conversation via system message, cache preserved; launch date unverified) — platform.claude.com/docs/en/build-with-claude/effort-per-message (Tier 1)
+2026-11-12 — Lydia Hallie AI Engineer talk (humans caught ~14% of dangerous commands; auto mode blocked ~89%) — finance.biggo.com/podcast/38f9e32eae85e487 (Tier 1 origin via Tier 4)
+2026-11-12 — Claude Code "don't ask again" secrets in .claude/settings.local.json (31,088 secrets on GitHub; GitGuardian Nov 9) — blog.gitguardian.com/claude-code-settings-local-json-secrets-docker-hub (Tier 2)
+2026-11-12 — Darktrace: stolen Claude API keys → Claude Code implant via memory stores + Files API (Nov 12) — helpnetsecurity.com/2026/11/12/stolen-claude-api-keys-remote-controlled-implant (Tier 2)
+2026-11-12 — ckaico/patty (local MCP: provisional patent packet + prior-art chart + trademark knockout) — github.com/ckaico/patty (Tier 4)
+2026-11-12 — PrashnaLabs/agent-blast-radius (agent boundary + blast-radius audit skill, OWASP ASI) — github.com/PrashnaLabs/agent-blast-radius (Tier 4)
+2026-11-12 — pamelafox/skills-mcp-server (serve SKILL.md folders over MCP, hot reload) — github.com/pamelafox/skills-mcp-server (Tier 3)

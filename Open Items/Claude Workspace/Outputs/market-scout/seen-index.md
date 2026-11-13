@@ -269,3 +269,14 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-11-10 — Google Ads MCP write tools — Google News via SerpAPI
 2026-11-10 — Hightouch Jev-escalates-to-Opus; synchopate/llama-modchip; Claude credits 12-month expiry — HN
 2026-11-10 — ai-manus clone farm; dhruvthakur11/youtube-ai-video-editing-system (farming pattern; not picked) — GitHub topic search
+
+2026-11-13 — Claude Sheets / Whiteboards (beta), Claude Data (GA; Enterprise default Nov 19), Claude Meetings (beta) — claude.com / TechCrunch / HN / Google News via SerpAPI
+2026-11-13 — Claude Code 2.1.323 (Code Mode; plugin engines gate; permission/sandbox hardening; subagentStatusLine removed, issue #109446) — CHANGELOG / GitHub / HN
+2026-11-13 — Corelight: uvx-launched "pinned" MCP servers drift (23/35 pull fresh deps) — Help Net Security / Google News via SerpAPI
+2026-11-13 — Brave Search API x402 payments; Schwab agentic MCP servers; United bans AI agent bookings; Pomerado (YC F26); Darwinbox Claude connector — HN / Google News via SerpAPI
+2026-11-13 — Atuin Threads (cross-machine agent session sync) — blog.atuin.sh / HN
+2026-11-13 — aws/aws-emulator; Google A2UI 1.0; GoogleChrome/modern-web-guidance; Parcha-ai/agentrun — GitHub / HN
+2026-11-13 — VulnCheck Glasswing tracker; Grok Build leak; Inception diffusion API shutdown; Claude outage Nov 13 — HN
+2026-11-13 — Anthropic IPO roadshow / safety-alarm headline; Prompting Claude Fable 5.2 guide — anthropic.com / HN
+2026-11-13 — janestreet socratic-tutor skill; op7418/guizang-game-skill (skills-scout beat) — HN / GitHub
+2026-11-13 — hitkeeen/blender-ai-mcp-addon; precygtrucqui1981/blender-ai-copilot-lab; abhigyan6/tri-agent-orchestrator (farming pattern; not picked) — GitHub topic search

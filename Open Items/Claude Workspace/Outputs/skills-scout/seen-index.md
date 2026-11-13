@@ -622,3 +622,12 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-12 — ckaico/patty (local MCP: provisional patent packet + prior-art chart + trademark knockout) — github.com/ckaico/patty (Tier 4)
 2026-11-12 — PrashnaLabs/agent-blast-radius (agent boundary + blast-radius audit skill, OWASP ASI) — github.com/PrashnaLabs/agent-blast-radius (Tier 4)
 2026-11-12 — pamelafox/skills-mcp-server (serve SKILL.md folders over MCP, hot reload) — github.com/pamelafox/skills-mcp-server (Tier 3)
+
+<!-- 2026-11-13 run -->
+2026-11-13 — Claude Code 2.1.323 (experimental Code Mode; plugin.json engines["claude-code"] version pinning; plugin validate TS-hook type checks; 30s hook heartbeat in -p/SDK; .docx artifact uploads; ~30 permission/sandbox fixes) — github.com/anthropics/claude-code CHANGELOG (Tier 1)
+2026-11-13 — Claude Code 2.1.321–2.1.322 (MCP OAuth refresh-token redirect leak fix; remote-control --settings; PreToolUse ask/defer hook fixes; Vertex fast mode) — github.com/anthropics/claude-code CHANGELOG (Tier 1)
+2026-11-13 — Anthropic Usage Policy update effective Nov 12 (deceptive activity, high-risk use rewrite, physical-action reqs, abuse ban; announced Oct 8) — anthropic.com/news/2026-usage-policy-update via cdnping.org (Tier 1 origin via Tier 4)
+2026-11-13 — McGraw Hill K-12 curriculum in Claude for Teachers (Nov 4) [backfill] — morningstar.com/news/business-wire/20261104013238 (Tier 2)
+2026-11-13 — Finom read-only MCP for Claude/ChatGPT (hosted consent, role-scoped, revocable, no money movement) — thefintechtimes.com/finom-adds-mcp-connection-for-claude-and-chatgpt-account-queries (Tier 2)
+2026-11-13 — AGP Agent Governance Protocol (allow/require_approval/deny/quarantine, hash-chained ledger, agp-mcp; BIAN link unverified) — agp.bian.org/docs (Tier 4)
+2026-11-13 — SidClaw governance MCP server / approval layer (Apache-2.0 SDKs, hash-chain audit) [backfill, ~Mar 2026] — glama.ai/mcp/servers/sidclawhq/platform (Tier 2/4)

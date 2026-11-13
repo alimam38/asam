@@ -858,3 +858,10 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-12 — sktjgudals/fable-5-2-prompting (unofficial Fable 5.2 prompt-audit skill) — overlaps f5/50 prompt skills — github.com (Tier 4)
 2026-11-12 — albkhachikyan/claude-code-repo-audit (audit untrusted repo before running) — security increment on skillwall/bekci — github.com (Tier 4)
 2026-11-12 — Nov 11–12 repo churn: op7418/guizang-game-skill, enoch3712/spine-hero-skill, memcpython/deobf, memcpython/no-slop, gopkg-dev/damail, CreativityHouse2025/pm-skills-for-claude, Geemir/Exam-Quiz-Preparation-Skill, telerik/maui-agent-skills, ErLingSan0/MCP-Manager — off focus / covered lanes — github.com (Tier 4)
+
+<!-- 2026-11-13 run -->
+2026-11-13 — Druid AI 26-component agent-governance reference model + MCP bridge (Oct 14) — vendor-proprietary, out of window; AGP/SidClaw cover the pattern more openly — forkast.news/druid-ai-maps-the-agentic-black-box-with-26-component-governance-reference-model (Tier 2)
+2026-11-13 — Celigo MCP Management (enterprise MCP control plane, per-tool approval; Oct 20) — enterprise iPaaS, wrong scale for Aegis/Plumbline; pattern noted — letsdatascience.com/news/celigo-launches-mcp-management-for-enterprise-ai-governance-af4f9e1f (Tier 2)
+2026-11-13 — claude.com articles Nov 12: "Using Claude Opus 5.5 as your daily driver" + "Claude Tag guide for startups" — usage guides, not tooling — claude.com/resources/articles (Tier 1)
+2026-11-13 — GitHub last-48h churn: op7418/guizang-game-skill, enoch3712/spine-hero-skill (game skills), precygtrucqui1981/blender-ai-copilot-lab + hitkeeen/blender-ai-mcp-addon (Blender), YashSharmaa/codefast (code intelligence), Alaeddin-Ebrahimi/fabric-claude-code-template (MS Fabric) — off focus — github.com (Tier 4)
+2026-11-13 — SerpAPI qdr:d queries (3/3) returned no results — tooling note, not an item; consider qdr:w + site: scoping next run

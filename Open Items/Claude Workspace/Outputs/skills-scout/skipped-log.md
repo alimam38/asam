@@ -865,3 +865,13 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-13 — claude.com articles Nov 12: "Using Claude Opus 5.5 as your daily driver" + "Claude Tag guide for startups" — usage guides, not tooling — claude.com/resources/articles (Tier 1)
 2026-11-13 — GitHub last-48h churn: op7418/guizang-game-skill, enoch3712/spine-hero-skill (game skills), precygtrucqui1981/blender-ai-copilot-lab + hitkeeen/blender-ai-mcp-addon (Blender), YashSharmaa/codefast (code intelligence), Alaeddin-Ebrahimi/fabric-claude-code-template (MS Fabric) — off focus — github.com (Tier 4)
 2026-11-13 — SerpAPI qdr:d queries (3/3) returned no results — tooling note, not an item; consider qdr:w + site: scoping next run
+
+<!-- 2026-11-14 run -->
+2026-11-14 — Delinea Fastpath MCP server (access governance + audit readiness; Oct 21 / Nov 2) — out of window, enterprise ERP-access scale; Aegis pattern already covered by AGP/SidClaw/mcp-attest — finance.yahoo.com/technology/ai/articles/delinea-fastpath-launches-mcp-server-120200924.html (Tier 2)
+2026-11-14 — pgEdge Starfleet (managed Postgres + MCP + RAG + branching; ~late Sep) — out of window, increment of pgEdge MCP seen 06-21/09-17; cloud-hosted, NAS stack is self-hosted — postgresql.org/about/news/...-3389 (Tier 2)
+2026-11-14 — dyunwei/tvendo (self-hosted Go/Vue MCP tool gateway w/ API keys + usage tracking; 13★, Nov 13) — day-one, gateway pattern noted for Aegis; revisit if it gains traction — github.com/dyunwei/tvendo (Tier 4)
+2026-11-14 — dipto-hello/AetherGuard (1★) + tanbir78/agentgate (0★) agent-governance approval prototypes (Nov 12–13) — too immature; pattern covered — github.com (Tier 4)
+2026-11-14 — disinfeqt/rulebook (native macOS CLAUDE.md/AGENTS.md editor, 20★) — macOS-only; Ali's machines are Windows — github.com/disinfeqt/rulebook (Tier 4)
+2026-11-14 — GitHub last-48h churn: lowdevco/Clip-Forge (video clips), nocodehack-roblox-engine, msveshnikov/claude-game-pipeline, wajahatkarim3/play-data-safety-skill (Android), mankidev/antialgorithm (creative de-averaging), ArsenOria job-research skills+MCP, FrigadeHQ/yogurt (local meeting notes), new Blender "ai-copilot" clone wave (~230★ each day one — likely star-farmed) — off focus — github.com (Tier 4)
+2026-11-14 — Webflow MCP connector for Microsoft Copilot, MSP360 MCP, Freight Right MCP (Nov 12) — off lanes — globenewswire.com / prnewswire.com (Tier 2)
+2026-11-14 — SerpAPI: qdr:d site:github query returned 1 aggregator hit; Anthropic qdr:d returned none; Google News governance-MCP query returned only older launches — tooling note; qdr:d remains low-yield, suggest qdr:w next run

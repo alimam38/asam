@@ -631,3 +631,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-13 — Finom read-only MCP for Claude/ChatGPT (hosted consent, role-scoped, revocable, no money movement) — thefintechtimes.com/finom-adds-mcp-connection-for-claude-and-chatgpt-account-queries (Tier 2)
 2026-11-13 — AGP Agent Governance Protocol (allow/require_approval/deny/quarantine, hash-chained ledger, agp-mcp; BIAN link unverified) — agp.bian.org/docs (Tier 4)
 2026-11-13 — SidClaw governance MCP server / approval layer (Apache-2.0 SDKs, hash-chain audit) [backfill, ~Mar 2026] — glama.ai/mcp/servers/sidclawhq/platform (Tier 2/4)
+
+<!-- 2026-11-14 run -->
+2026-11-14 — Claude Code 2.1.325 (scheduled tasks/loop ask before skills with allowed-tools/hooks → Skill(name) allow rule; sandboxed Bash follows normal permissions; stricter "Always allow"; sandbox refuses .claude writes in added dirs; plugin validate unsafe paths) — code.claude.com/docs/en/changelog (Tier 1)
+2026-11-14 — Balanov/mcp-attest (MCP authorization conformance harness, identity×tool matrix, deterministic CI gate, auditor evidence, OWASP/OAuth checks) — github.com/Balanov/mcp-attest (Tier 4)
+2026-11-14 — Charles Schwab first-party MCP servers, read-only → agentic for retail brokerage (Nov 13) — riabiz.com/a/2026/11/13/schwab-surprises-analysts-with-extra-rapid-launch-of-own-mcp-servers... ; fxnewsgroup.com/forex-news/retail-forex/charles-schwab-introduces-its-own-mcp-server (Tier 2)

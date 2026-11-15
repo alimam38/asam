@@ -875,3 +875,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-14 — GitHub last-48h churn: lowdevco/Clip-Forge (video clips), nocodehack-roblox-engine, msveshnikov/claude-game-pipeline, wajahatkarim3/play-data-safety-skill (Android), mankidev/antialgorithm (creative de-averaging), ArsenOria job-research skills+MCP, FrigadeHQ/yogurt (local meeting notes), new Blender "ai-copilot" clone wave (~230★ each day one — likely star-farmed) — off focus — github.com (Tier 4)
 2026-11-14 — Webflow MCP connector for Microsoft Copilot, MSP360 MCP, Freight Right MCP (Nov 12) — off lanes — globenewswire.com / prnewswire.com (Tier 2)
 2026-11-14 — SerpAPI: qdr:d site:github query returned 1 aggregator hit; Anthropic qdr:d returned none; Google News governance-MCP query returned only older launches — tooling note; qdr:d remains low-yield, suggest qdr:w next run
+
+<!-- 2026-11-15 run -->
+2026-11-15 — Andsu-dev/runelay (self-hosted MCP gateway, one endpoint for accounts/skills/memory; 9★, Nov 14) — increment of tvendo gateway pattern (11-14); revisit if it gains traction — github.com/Andsu-dev/runelay (Tier 4)
+2026-11-15 — digitaltracer/agent-skills "council" (Claude/Codex/OpenCode plan-build-review) — overlaps existing council skill — github.com/digitaltracer/agent-skills (Tier 4)
+2026-11-15 — aaldelaimy/learn-skill (study plans without AI doing the learning) — overlaps existing learn / learning-path-generator skills — github.com/aaldelaimy/learn-skill (Tier 4)
+2026-11-15 — Purestblues/winpilot-mcp (Rust Windows GUI-control MCP) — computer-use already covers desktop control; day-one, 2★ — github.com/Purestblues/winpilot-mcp (Tier 4)
+2026-11-15 — claude-education-skills-library (claude-plugins-community listing via claudeskills.info) + claudepluginhub education-skills forks — date unverified; appear to mirror GarethManning/education-agent-skills (seen 06-25) — claudeskills.info (Tier 2/4)
+2026-11-15 — Teachfloor MCP server (corporate-training LMS) — undated, not K-12/Populi — teachfloor.com/product-updates/announcing-the-teachfloor-mcp-server (Tier 2)
+2026-11-15 — The Financial Brand "From whether to how: agentic playbook for community banks and credit unions" — Hypomone context, not tooling; undated — thefinancialbrand.com (Tier 2)
+2026-11-15 — GitHub last-48h churn: mankidev/antialgorithm (seen), EriOmeganet/agent-wallet-guard (crypto wallet agents), ArsenOria job-research skills+MCP, game/Roblox/Unity/GTA clip skills, turbo-browser-mcp, macOS MCPs, Duong-hub-ai MCP bulk uploads — off focus — github.com (Tier 4)
+2026-11-15 — Tooling note: code.claude.com/docs changelog page lags GitHub CHANGELOG (shows 2.1.312 Oct 27 vs 2.1.325 seen 11-14); releasebot last updated Nov 13; SerpAPI qdr:w site:github returned only explainer/aggregator pages

@@ -636,3 +636,7 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-14 — Claude Code 2.1.325 (scheduled tasks/loop ask before skills with allowed-tools/hooks → Skill(name) allow rule; sandboxed Bash follows normal permissions; stricter "Always allow"; sandbox refuses .claude writes in added dirs; plugin validate unsafe paths) — code.claude.com/docs/en/changelog (Tier 1)
 2026-11-14 — Balanov/mcp-attest (MCP authorization conformance harness, identity×tool matrix, deterministic CI gate, auditor evidence, OWASP/OAuth checks) — github.com/Balanov/mcp-attest (Tier 4)
 2026-11-14 — Charles Schwab first-party MCP servers, read-only → agentic for retail brokerage (Nov 13) — riabiz.com/a/2026/11/13/schwab-surprises-analysts-with-extra-rapid-launch-of-own-mcp-servers... ; fxnewsgroup.com/forex-news/retail-forex/charles-schwab-introduces-its-own-mcp-server (Tier 2)
+
+<!-- 2026-11-15 run -->
+2026-11-15 — codersanjay3/mcp-leash (scan MCP servers for dangerous tools → lock down via Claude Code permissions; MIT, 2★, created Nov 15) — github.com/codersanjay3/mcp-leash (Tier 4)
+2026-11-15 — simbaTmotsi/simba-skills (self-hosted production safety skills: safe deploys, server maintenance, Claude Code hygiene; MIT, 2★, created Nov 13) — github.com/simbaTmotsi/simba-skills (Tier 4)

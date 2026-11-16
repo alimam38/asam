@@ -886,3 +886,12 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-15 — The Financial Brand "From whether to how: agentic playbook for community banks and credit unions" — Hypomone context, not tooling; undated — thefinancialbrand.com (Tier 2)
 2026-11-15 — GitHub last-48h churn: mankidev/antialgorithm (seen), EriOmeganet/agent-wallet-guard (crypto wallet agents), ArsenOria job-research skills+MCP, game/Roblox/Unity/GTA clip skills, turbo-browser-mcp, macOS MCPs, Duong-hub-ai MCP bulk uploads — off focus — github.com (Tier 4)
 2026-11-15 — Tooling note: code.claude.com/docs changelog page lags GitHub CHANGELOG (shows 2.1.312 Oct 27 vs 2.1.325 seen 11-14); releasebot last updated Nov 13; SerpAPI qdr:w site:github returned only explainer/aggregator pages
+
+<!-- 2026-11-16 run -->
+2026-11-16 — andi-xd/mcp-verify (per-user MCP allow/deny matrix, tenant-leak canaries, OAuth, CI; 5★, Nov 15) — increment of Balanov/mcp-attest (seen 11-14) — github.com/andi-xd/mcp-verify (Tier 4)
+2026-11-16 — UiPath native coding-agent integration (Claude Code + Codex first) — Nov 16 coverage is a rehash of May 12 release; enterprise RPA, off lanes — diginomica.com / businesswire 20260512 (Tier 2)
+2026-11-16 — Narmi AI Marketplace for community FIs — undated re-surfacing; Narmi already seen — pulse2.com (Tier 2)
+2026-11-16 — GSA MCP Server & SI Agent Government Hackathon (submissions due Nov 20) — federal, not a venture fit; noted for Aegis/governance awareness only — gsa.gov/super-intelligence/... (Tier 2)
+2026-11-16 — Okta for AI Agents MCP registration/DCR, Apideck fintech MCP, SAS CI360 MCP — Okta/Apideck already seen; SAS off lanes — okta.com / apideck.com / communities.sas.com (Tier 2)
+2026-11-16 — github 48h churn: aileron-tech/wingbox (code blast-radius), shahvatsal IncidentSutra/EdgeSutra, Wolflakechip uiprobe Figma-diff plugin (50★ pattern, likely star-farmed), cycanics/session-sentinel, vaibhav-space/my-ai-coding-workflow, crypto/Solana "rpocket/respocket" star-farm wave, game/GTA/Roblox skills — off focus or generic — github.com (Tier 4)
+2026-11-16 — tooling note: anthropics/claude-code CHANGELOG still at 2.1.325; SerpAPI site:github qdr:d returned zero results again — recommend switching that slot to qdr:w or a GitHub created:>= query

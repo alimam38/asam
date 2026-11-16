@@ -640,3 +640,9 @@ Format: `YYYY-MM-DD — name — source`.
 <!-- 2026-11-15 run -->
 2026-11-15 — codersanjay3/mcp-leash (scan MCP servers for dangerous tools → lock down via Claude Code permissions; MIT, 2★, created Nov 15) — github.com/codersanjay3/mcp-leash (Tier 4)
 2026-11-15 — simbaTmotsi/simba-skills (self-hosted production safety skills: safe deploys, server maintenance, Claude Code hygiene; MIT, 2★, created Nov 13) — github.com/simbaTmotsi/simba-skills (Tier 4)
+
+<!-- 2026-11-16 run -->
+2026-11-16 — Google Esmeralda (governed multi-agent platform blueprint: ADK/A2A + MCP, Agent Gateway/Registry, zero-trust, mortgage-underwriting scenario) — google.github.io/esmeralda (Tier 2)
+2026-11-16 — Arcade × Mastra Agent Action Governance template (Loan Desk MCP, per-user policy hooks, Slack human approval) — mastra.ai/templates/agent-action-governance-with-arcade (Tier 2)
+2026-11-16 — VentureBeat "One compromised MCP server can trick an AI agent into misusing tools you already trust" — venturebeat.com/orchestration/one-compromised-mcp-server-can-trick-an-ai-agent-into-misusing-tools-you-already-trust (Tier 2)
+2026-11-16 — diego3g/craft (design skills: brief → state-complete screens → critique; Paper/Figma/HTML; MIT) — github.com/diego3g/craft (Tier 3/4)

@@ -646,3 +646,12 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-16 — Arcade × Mastra Agent Action Governance template (Loan Desk MCP, per-user policy hooks, Slack human approval) — mastra.ai/templates/agent-action-governance-with-arcade (Tier 2)
 2026-11-16 — VentureBeat "One compromised MCP server can trick an AI agent into misusing tools you already trust" — venturebeat.com/orchestration/one-compromised-mcp-server-can-trick-an-ai-agent-into-misusing-tools-you-already-trust (Tier 2)
 2026-11-16 — diego3g/craft (design skills: brief → state-complete screens → critique; Paper/Figma/HTML; MIT) — github.com/diego3g/craft (Tier 3/4)
+
+<!-- 2026-11-17 run -->
+2026-11-17 — Claude Code 2.1.326 (auto-mode default when policy unloaded; HIPAA config auto; sign-in file write refusals; more asks/unattended refusals; malformed plugin.json fields load; .mcpb cleanup on uninstall; Code Mode + agent teams; /claude-api → Managed Agents default) — code.claude.com/docs/en/changelog (Tier 1)
+2026-11-17 — Self-hosted Managed Agents (Developer Platform, Nov 12; agents/sessions/history on own infra) — releasebot.io/updates/anthropic/claude-developer-platform (Tier 1 via Tier 2 mirror)
+2026-11-17 — FastMCP 4.2 skills over MCP (serve SKILL.md folders via MCP Skills extension; ResourcesAsTools fallback; Nov 13) — prefect.io/blog/fastmcp-4-2-skills-over-mcp (Tier 2)
+2026-11-17 — NVIDIA SkillEvaluator v0.9.0 (measure skill effect on task results; Nov 13) — github.com/NVIDIA/SkillEvaluator (Tier 2/3)
+2026-11-17 — Sushegaad/Claude-Skills-Governance-Risk-and-Compliance (GRC skills incl. EU AI Act/ISO 42001/NIST AI RMF; MIT ★1083) — github.com/Sushegaad/Claude-Skills-Governance-Risk-and-Compliance (Tier 3/4)
+2026-11-17 — Omni-53 (Coeus Institute) credit-union intelligence MCP (NCUA call reports + HMDA; beta) [backfill ~Oct 2026] — ffnews.com/news/omni-53-opens-credit-union-intelligence-to-chatgpt-claude-and-copilot-through-mc-1d5c9035 (Tier 2)
+2026-11-17 — petrkindlmann/qa-skills (50 QA/test-automation skills; MIT ★282) — github.com/petrkindlmann/qa-skills (Tier 4)

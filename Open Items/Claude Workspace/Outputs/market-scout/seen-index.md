@@ -280,3 +280,15 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-11-13 — Anthropic IPO roadshow / safety-alarm headline; Prompting Claude Fable 5.2 guide — anthropic.com / HN
 2026-11-13 — janestreet socratic-tutor skill; op7418/guizang-game-skill (skills-scout beat) — HN / GitHub
 2026-11-13 — hitkeeen/blender-ai-mcp-addon; precygtrucqui1981/blender-ai-copilot-lab; abhigyan6/tri-agent-orchestrator (farming pattern; not picked) — GitHub topic search
+
+2026-11-17 — How the Claude Code team thinks about verification (E2E/property/differential) — claude.dev / HN
+2026-11-17 — Darktrace: Claude Code memory as C2 implant; Claude Code extension symlink escape — GBHackers / Google News via SerpAPI
+2026-11-17 — lend (agent credential broker) — blog.antonio.cx / HN
+2026-11-17 — Windows 11 MissionControlAggregator coding-agent telemetry — xusheng.dev / HN
+2026-11-17 — Claude Code 2.1.325–326 (background-session API-key billing fix; zstd security fix; MCP headersHelper/auth recovery; managed-mcp notice) — CHANGELOG
+2026-11-17 — withcoral/coral; db-branch/db-branch — Show HN / GitHub
+2026-11-17 — Claude Code Projects redesigned (article dated 2026-09-17; HN resurfacing) — claude.com / HN
+2026-11-17 — Mythos 5.2 individual Defense Access; Cursor extension root cause (Fireworks key); AdMob for agents; UiPath/Dataiku/Webex Claude Code integrations; llama.cpp v1.0 — Google News via SerpAPI / HN
+2026-11-17 — Tthanh2k6/turbo-browser-mcp; yocontra/pulsar; Andsu-dev/runelay; paul-nameless/agweb; localixai/tokendoctor — GitHub / Show HN
+2026-11-17 — "The Claude Delusion" (netmeister.org essay); Your Agent Will Pick the Hackable One — HN
+2026-11-17 — ai--manus2.0 clone farm (11 repos); artjory316-cmd/youtube-ai-video-editing-system (farming pattern; not picked); boringmarketer/boring-marketing-skills (skills-scout beat) — GitHub topic search

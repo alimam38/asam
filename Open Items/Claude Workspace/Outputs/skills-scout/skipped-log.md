@@ -895,3 +895,12 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-16 — Okta for AI Agents MCP registration/DCR, Apideck fintech MCP, SAS CI360 MCP — Okta/Apideck already seen; SAS off lanes — okta.com / apideck.com / communities.sas.com (Tier 2)
 2026-11-16 — github 48h churn: aileron-tech/wingbox (code blast-radius), shahvatsal IncidentSutra/EdgeSutra, Wolflakechip uiprobe Figma-diff plugin (50★ pattern, likely star-farmed), cycanics/session-sentinel, vaibhav-space/my-ai-coding-workflow, crypto/Solana "rpocket/respocket" star-farm wave, game/GTA/Roblox skills — off focus or generic — github.com (Tier 4)
 2026-11-16 — tooling note: anthropics/claude-code CHANGELOG still at 2.1.325; SerpAPI site:github qdr:d returned zero results again — recommend switching that slot to qdr:w or a GitHub created:>= query
+
+<!-- 2026-11-17 run -->
+2026-11-17 — Developer Platform text watermark on select models (non-default temperature/top_p/top_k may disable; Nov 16) — increment of watermark items (08-17, 11-02) — releasebot.io (Tier 1 via Tier 2)
+2026-11-17 — anthropics/skills docx/pptx/xlsx fixes (zipfile unpack, zip -y, validate.py/soffice.py; #2221, Nov 16) — maintenance increment on skills already in use — github.com/anthropics/skills (Tier 1)
+2026-11-17 — security-guidance fix batch #7101–#7141 (brace globs, line continuation, edit-hook hang, fewer false warnings, macOS CA file) + cloudflare/amd-skills bumps (#7114/#7115) — increment on 11-12 batch — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-17 — ag-ui-protocol/ag-ui (agent↔UI event protocol, trending Nov 16) — older project, not Claude-specific; revisit if Plumbline/Hypomone front end needs streaming agent UI — github.com/ag-ui-protocol/ag-ui (Tier 3)
+2026-11-17 — microsoft/TokenEconomizer (Berkeley+MS plugin to cut coding-agent cost in frequent repos) — not Claude-specific, unverified gains; watch — github.com/microsoft/TokenEconomizer (Tier 2/3)
+2026-11-17 — Off-focus churn (SerpAPI 24h): chrisbanes/skills (Kotlin/Compose), oil-oil/oil-ui (UI design skill), cursor/plugins pstack, neuralinitiative/claude-dnd-skill, OSideMedia/higgsfield-ai-prompt-skill; Qwen4-Max, Browser Use 1.0.6, Qwen Code, Paradev, Agent Relay — non-fits (Tier 4 / non-Claude)
+2026-11-17 — Omni-53 adjacent: The Financial Brand agentic playbook already logged 11-15; Blend/Nymbus MCPs already seen — dedupe note

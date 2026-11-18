@@ -655,3 +655,10 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-17 — Sushegaad/Claude-Skills-Governance-Risk-and-Compliance (GRC skills incl. EU AI Act/ISO 42001/NIST AI RMF; MIT ★1083) — github.com/Sushegaad/Claude-Skills-Governance-Risk-and-Compliance (Tier 3/4)
 2026-11-17 — Omni-53 (Coeus Institute) credit-union intelligence MCP (NCUA call reports + HMDA; beta) [backfill ~Oct 2026] — ffnews.com/news/omni-53-opens-credit-union-intelligence-to-chatgpt-claude-and-copilot-through-mc-1d5c9035 (Tier 2)
 2026-11-17 — petrkindlmann/qa-skills (50 QA/test-automation skills; MIT ★282) — github.com/petrkindlmann/qa-skills (Tier 4)
+
+<!-- 2026-11-18 run -->
+2026-11-18 — Claude Code 2.1.327 (`claude mcp add-json <name> -` stdin; /status lists broken skills/agents + ignored settings + never-matching hook matchers; .mcp.json project-scope key-loss fix; remote MCP ~1-day background retry; cloud scheduled-task artifact approval fix; Remote Control worktree .env deletion fix) — github.com/anthropics/claude-code CHANGELOG (Tier 1)
+2026-11-18 — Anthropic × AFT/UFT enforceable data-privacy + safety contract terms for Claude for Teachers (Nov 10; no-training, breach duty, human review of grading/discipline) [backfill] — edweek.org/technology/anthropic-agrees-to-protections-for-teachers-who-use-claude/2026/11 (Tier 2)
+2026-11-18 — fluki3-06s/songngan-mcp (self-hosted Google Classroom MCP; own OAuth, keychain token; MIT, 7★, created Nov 16) — github.com/fluki3-06s/songngan-mcp (Tier 4)
+2026-11-18 — min-1225/veil-skill (local PII mask/unmask skill + leak check; MIT, 9★, created Nov 17) — github.com/min-1225/veil-skill (Tier 4)
+2026-11-18 — tusharsrivastava/shark-skills (operator pattern: parallel lanes, audited merges, root-cause-before-fix; MIT, 12★, created Nov 16) — github.com/tusharsrivastava/shark-skills (Tier 4)

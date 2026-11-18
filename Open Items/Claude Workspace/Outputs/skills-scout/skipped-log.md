@@ -904,3 +904,13 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-17 — microsoft/TokenEconomizer (Berkeley+MS plugin to cut coding-agent cost in frequent repos) — not Claude-specific, unverified gains; watch — github.com/microsoft/TokenEconomizer (Tier 2/3)
 2026-11-17 — Off-focus churn (SerpAPI 24h): chrisbanes/skills (Kotlin/Compose), oil-oil/oil-ui (UI design skill), cursor/plugins pstack, neuralinitiative/claude-dnd-skill, OSideMedia/higgsfield-ai-prompt-skill; Qwen4-Max, Browser Use 1.0.6, Qwen Code, Paradev, Agent Relay — non-fits (Tier 4 / non-Claude)
 2026-11-17 — Omni-53 adjacent: The Financial Brand agentic playbook already logged 11-15; Blend/Nymbus MCPs already seen — dedupe note
+
+<!-- 2026-11-18 run -->
+2026-11-18 — security-guidance fix batch #7102–#7108, #7140 (commit/push review memory, no-verdict re-review, renamed-file review, metric rows; Nov 17–18) — increment on 11-12/11-17 batches — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-18 — claude-plugins-official discord create_thread tool (#7153, Nov 18) — off focus (no Discord lane) — github.com/anthropics/claude-plugins-official (Tier 1)
+2026-11-18 — CopilotKit OpenBot 1.0 (MIT self-hostable AI coworker with built-in governance; Nov 12) — could not verify (page fetch failed); revisit for Aegis — marktechpost.com/2026/11/12/copilotkit-openbot-1-0-open-source-ai-coworker (Tier 2)
+2026-11-18 — pgEdge hosted MCP server for Postgres — launch date unverified, likely outside window; Postgres lane already covered — letsdatascience.com/news/pgedge-launches-hosted-mcp-server-for-databases-8c654e84 (Tier 2)
+2026-11-18 — Slice insurance in brokers' AI assistants (Nov 18) — insurance, off focus — fintech.global/2026/11/18/slice-pushes-insurance-into-brokers-ai-assistants (Tier 2)
+2026-11-18 — timjurca/Course-workflow (6 study skills for a course; created Nov 16) — student study aid, weak fit for Recess (K-12 teacher-facing) — github.com/timjurca/Course-workflow (Tier 4)
+2026-11-18 — Off-focus GitHub churn (created ≥ Nov 16): ronkenx9/motion-library-skill, tipsai/product-seo, AnandJogawade/Zazy-Pentest-Plugin (offensive, caution), SecFathy/otpkit (temp SMS/OTP MCP, abuse-prone), yocontra/pulsar (agent-to-agent messaging MCP), erkamyaman/rust-anything, enhancv/mcp-server, intincrab/blueprint, Git-Agni/apple-app-review-skill — no venture fit
+2026-11-18 — Releasebot: Developer Platform text watermark (Nov 16) — already logged 11-17 — dedupe note

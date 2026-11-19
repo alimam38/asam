@@ -914,3 +914,13 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-18 — timjurca/Course-workflow (6 study skills for a course; created Nov 16) — student study aid, weak fit for Recess (K-12 teacher-facing) — github.com/timjurca/Course-workflow (Tier 4)
 2026-11-18 — Off-focus GitHub churn (created ≥ Nov 16): ronkenx9/motion-library-skill, tipsai/product-seo, AnandJogawade/Zazy-Pentest-Plugin (offensive, caution), SecFathy/otpkit (temp SMS/OTP MCP, abuse-prone), yocontra/pulsar (agent-to-agent messaging MCP), erkamyaman/rust-anything, enhancv/mcp-server, intincrab/blueprint, Git-Agni/apple-app-review-skill — no venture fit
 2026-11-18 — Releasebot: Developer Platform text watermark (Nov 16) — already logged 11-17 — dedupe note
+
+<!-- 2026-11-19 run -->
+2026-11-19 — claude-plugins-official Nov 18–19: version bumps only (coderabbit #7155, postman #7166, figma #7164) + discord list-emojis (#7154); knowledge-work-plugins figma bump #1453; skills & financial-services no commits — increments (Tier 1)
+2026-11-19 — Wealth.com estate/tax planning in Claude for Financial Advisors; Salesforce "Sales Cloud in Claude" plugin article (37 skills) — increments of CFA (09-15) and Claudeforce (08-27) — SerpAPI 24h (Tier 2)
+2026-11-19 — Anthropic IPO pricing Nov 18 / ANT trading Nov 19 — market context, not tooling — cnn.com/2026/11/18/investing/anthropic-ipo-wall-street-ai (Tier 2)
+2026-11-19 — Stanford UIT "Claude for Education" service page — institutional licence page, not a tool; possible Turner/Plumbline pricing reference — uit.stanford.edu/service/claude (Tier 2)
+2026-11-19 — Other Postgres MCPs created Nov 17–18 (fqueis/pg-mcp, xiaohan815/postgres-mcp-server-x, The-DevOps-Daily/neon-mcp-oauth, tkiros/hybrid-rag-assistant pgvector+ParadeDB) — 0★, pgharbor surfaced as the strongest; hybrid-rag worth a look if the Meridia corpus RAG resumes (Tier 4)
+2026-11-19 — ommundada16/Sentinel_Agent_Project (access-governance agent w/ approval gate; 0★) — weaker duplicate of Bastion pattern (Tier 4)
+2026-11-19 — Off-focus GitHub churn (created ≥ Nov 17): moluyao/ai-talking-head-edit, Viprasol-Tech/claude-video-editing-skills, arcticloud/ai-stream-clipper, vossashtonai/gta6-clipper, Nyxera0x/simulator, lgarbayo/product-walkthrough-video, ThiagoLelis/TailorCV, tuladhar devops skills, grmchn/vector-avator, ilien-dev/jano, redhat-cop/skills, sibylsea-hub/atlas-mod, nocodeanish/write-without-ai-slop; aimcp.info UniFi/claude-tools skill listings — no venture fit (Tier 4)
+2026-11-19 — OX Security "15,465 MCP Servers. 0 Governance." ebook (Sep 24) and Delinea Fastpath access-governance MCP (Oct 21) — outside window; governance-context only (Tier 2)

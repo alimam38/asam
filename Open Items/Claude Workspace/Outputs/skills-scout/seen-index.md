@@ -662,3 +662,10 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-18 — fluki3-06s/songngan-mcp (self-hosted Google Classroom MCP; own OAuth, keychain token; MIT, 7★, created Nov 16) — github.com/fluki3-06s/songngan-mcp (Tier 4)
 2026-11-18 — min-1225/veil-skill (local PII mask/unmask skill + leak check; MIT, 9★, created Nov 17) — github.com/min-1225/veil-skill (Tier 4)
 2026-11-18 — tusharsrivastava/shark-skills (operator pattern: parallel lanes, audited merges, root-cause-before-fix; MIT, 12★, created Nov 16) — github.com/tusharsrivastava/shark-skills (Tier 4)
+
+<!-- 2026-11-19 run -->
+2026-11-19 — Claude Code 2.1.328 (mcp_tool hooks onFailure:block; deniedMcpServers applies in cloud/self-hosted; /code-review Important/Pre-existing/Nit + suggested fix; scheduled-task file-erase fixes; auto mode for 4.6 on 3P clouds) — code.claude.com/docs/en/changelog (Tier 1)
+2026-11-19 — Claude-issued plugin auto-connect beta, Team/Enterprise, 14 plugins (Nov 3) [backfill] — support.claude.com/en/articles/15537633-auto-connect-your-organization-s-apps-to-claude ; runtimewire.com/article/claude-auto-connects-workplace-plugins-enterprise-login (Tier 1)
+2026-11-19 — Infobip Message verified Claude connector (SMS/RCS/MMS/Viber; ~Nov 17) — claude.com/marketplace/connectors/infobip-message (Tier 1 directory / Tier 2 press)
+2026-11-19 — DanielFreitasDev/pgharbor (Postgres MCP, read-only default, human approval for prod/changes; MIT, created Nov 17) — github.com/DanielFreitasDev/pgharbor (Tier 4)
+2026-11-19 — VishnuChivukula/bastion-agent-governance (policy MCP gateway, argument-bound approvals, kill switch, tamper-evident audit, evidence pack; Apache-2.0, reference only; created Nov 16) — github.com/VishnuChivukula/bastion-agent-governance (Tier 4)

@@ -924,3 +924,12 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-19 — ommundada16/Sentinel_Agent_Project (access-governance agent w/ approval gate; 0★) — weaker duplicate of Bastion pattern (Tier 4)
 2026-11-19 — Off-focus GitHub churn (created ≥ Nov 17): moluyao/ai-talking-head-edit, Viprasol-Tech/claude-video-editing-skills, arcticloud/ai-stream-clipper, vossashtonai/gta6-clipper, Nyxera0x/simulator, lgarbayo/product-walkthrough-video, ThiagoLelis/TailorCV, tuladhar devops skills, grmchn/vector-avator, ilien-dev/jano, redhat-cop/skills, sibylsea-hub/atlas-mod, nocodeanish/write-without-ai-slop; aimcp.info UniFi/claude-tools skill listings — no venture fit (Tier 4)
 2026-11-19 — OX Security "15,465 MCP Servers. 0 Governance." ebook (Sep 24) and Delinea Fastpath access-governance MCP (Oct 21) — outside window; governance-context only (Tier 2)
+
+<!-- 2026-11-20 run -->
+2026-11-20 — claude-plugins-official Nov 19–20: code-modernization version-support lookup (#7170), theme-examples /custom-theme desc (#7152), datadog bump (#6981; knowledge-work-plugins #1420) — increments (Tier 1)
+2026-11-20 — Webex for Claude connector listed in Claude directory (Cisco; announced WebexOne Oct) — Webex not in Ali's stack (Read AI/Zoom); log only — claude.com/marketplace (Tier 1 directory)
+2026-11-20 — anonb3ll/ua-rust (governed MCP tool surface, approvals, tamper-evident ledger; Apache-2.0, 1★) — duplicate of Bastion/SidClaw pattern already surfaced (Tier 4)
+2026-11-20 — bcrypto0/addon-declaration (draft spec + checker for signed publisher declarations of MCP servers; Apache-2.0, 0★) — MCP supply-chain idea worth watching for Aegis; too early (Tier 4)
+2026-11-20 — AntSworD/libra-db-mcp (read-only MySQL/Postgres MCP, Streamable HTTP; 0★) — pgharbor (11-19) stronger (Tier 4)
+2026-11-20 — Anthropic IPO day-2 coverage (Nasdaq debut, ~17% close up) — market context, increment of 11-19 entry
+2026-11-20 — Off-focus GitHub churn (created ≥ Nov 18): blender-ai-mcp-addon, bytx-skills (crypto trading), gta6 clippers, editorial-taste, icons8/hub, Fusion-CAM-MCP, opentargets-link, openinbox-mcp (disposable inbox, abuse-prone), solidgate engineering-skills, ZERO-X jailbreak tool (malicious — never install) — non-fits

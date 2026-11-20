@@ -292,3 +292,14 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-11-17 — Tthanh2k6/turbo-browser-mcp; yocontra/pulsar; Andsu-dev/runelay; paul-nameless/agweb; localixai/tokendoctor — GitHub / Show HN
 2026-11-17 — "The Claude Delusion" (netmeister.org essay); Your Agent Will Pick the Hackable One — HN
 2026-11-17 — ai--manus2.0 clone farm (11 repos); artjory316-cmd/youtube-ai-video-editing-system (farming pattern; not picked); boringmarketer/boring-marketing-skills (skills-scout beat) — GitHub topic search
+
+2026-11-20 — Microsoft agent-framework PyPI 1.26.1/1.26.2 compromised (.pth credential stealer) — Socket / The Register / HN / X via SerpAPI
+2026-11-20 — Claude Code 2.1.327–329 (saved scheduled tasks need rescheduling; MCP octet-stream file fix; hooks trust dialog; mcp_tool onFailure block; /code-review bugs-only) — CHANGELOG
+2026-11-20 — MCP servers outside Claude Code sandbox / Codex proxy (Superpower Daily); Azure ARM MCP write tools inherit full permissions; SonarQube MCP OAuth — Google News via SerpAPI
+2026-11-20 — Vercel Board (headless Slack for agents); Mastra Factory (mastra-ai/template-factory) — The New Stack / Show HN
+2026-11-20 — Element451 Connected Campus agentic AI; McGraw Hill agentic AI investor day — Google News via SerpAPI
+2026-11-20 — Anthropic Nasdaq debut / IPO pricing / safety-branding coalition; Claude black-hole physics research — HN / anthropic.com
+2026-11-20 — Gemini 4 Neon ($3/$15); Harvard code-review bottleneck study; KPMG audit-agent trial — HN / Google News via SerpAPI
+2026-11-20 — HubSpot Aviator harness; ADE Index; _philschmid harness-as-MCP post; Axe MCP free plan — HN / X via SerpAPI
+2026-11-20 — StarSling; Maritime; Onlook; hackclub/orchard; Esri ArcGIS MCP; Snap Lens Studio + Claude Code — HN / GitHub / Google News via SerpAPI
+2026-11-20 — bookwjitchieni1986/blender-ai-mcp-addon; ai--manus2.0 clone farm (9+ repos); setyamickala/airdrop-agent (farming pattern; not picked) — GitHub topic search

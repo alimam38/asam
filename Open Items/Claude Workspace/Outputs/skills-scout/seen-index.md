@@ -669,3 +669,11 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-19 — Infobip Message verified Claude connector (SMS/RCS/MMS/Viber; ~Nov 17) — claude.com/marketplace/connectors/infobip-message (Tier 1 directory / Tier 2 press)
 2026-11-19 — DanielFreitasDev/pgharbor (Postgres MCP, read-only default, human approval for prod/changes; MIT, created Nov 17) — github.com/DanielFreitasDev/pgharbor (Tier 4)
 2026-11-19 — VishnuChivukula/bastion-agent-governance (policy MCP gateway, argument-bound approvals, kill switch, tamper-evident audit, evidence pack; Apache-2.0, reference only; created Nov 16) — github.com/VishnuChivukula/bastion-agent-governance (Tier 4)
+
+<!-- 2026-11-20 run -->
+2026-11-20 — Claude Code 2.1.329 (hook-origin trust dialog; managed-hook load warning in Desktop; /tasks lists scheduled tasks + /loop wakeups; /mcp Server message row; MCP octet-stream PDFs/docs no longer .bin; tool-search reports MCP tools failed to load; mcp login 410 fix) — github.com/anthropics/claude-code CHANGELOG (Tier 1)
+2026-11-20 — metabase/agent-skills (vendor-official Metabase skills; Learn Metabase v2 Nov 18–19; Metabase MCP optional; MIT ~60★) — github.com/metabase/agent-skills (Tier 2)
+2026-11-20 — google/skills repo (Google official Agent Skills, Claude Code marketplace-installable; new agent-registry, Spanner Graph, Cloud CI/CD skills; gemini-api footprint cut; Apache-2.0 ~24k★) — github.com/google/skills (Tier 2)
+2026-11-20 — aiwithremy/session-skill-audit (session mistake root-cause → prune/fix skills; ~8★, no license, created Nov 18) — github.com/aiwithremy/session-skill-audit (Tier 4)
+2026-11-20 — Lendflow SBA MCP expansion (SBA lender profiles, credit criteria, docs, checkout via Claude/ChatGPT/Grok) — lendflow.com/post/expanded-sba-lending-capabilities-through-lendflows-ai-connectors (Tier 2)
+2026-11-20 — Built Technologies Built MCP + Draw Agent Overview (construction loans in Claude/ChatGPT/Copilot; Nov release) — getbuilt.com/blog/november-release-lenders (Tier 2)

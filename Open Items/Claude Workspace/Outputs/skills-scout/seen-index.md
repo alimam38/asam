@@ -677,3 +677,10 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-20 — aiwithremy/session-skill-audit (session mistake root-cause → prune/fix skills; ~8★, no license, created Nov 18) — github.com/aiwithremy/session-skill-audit (Tier 4)
 2026-11-20 — Lendflow SBA MCP expansion (SBA lender profiles, credit criteria, docs, checkout via Claude/ChatGPT/Grok) — lendflow.com/post/expanded-sba-lending-capabilities-through-lendflows-ai-connectors (Tier 2)
 2026-11-20 — Built Technologies Built MCP + Draw Agent Overview (construction loans in Claude/ChatGPT/Copilot; Nov release) — getbuilt.com/blog/november-release-lenders (Tier 2)
+
+<!-- 2026-11-21 run -->
+2026-11-21 — Claude Code 2.1.330 (Enterprise Admin Console org sign-in; easel built-in chart mod; self-hosted runner --start-dir; claude.ai connectors sharing a server URL no longer dropped; connector/plugin MCP resource @-mention fix; subagent-declared MCP shutdown fix; invalid MCP schema turn failures fixed) — github.com/anthropics/claude-code CHANGELOG (Tier 1)
+2026-11-21 — Computer use beta for Team/Enterprise plans (Nov 20) + Claude Desktop release channels Stable/Latest (Nov 17) — support.claude.com/en/articles/12138966-release-notes (Tier 1)
+2026-11-21 — sybil-solutions/skill-distill (session → skill for open-weight executor; MIT ★98, created Nov 21) — github.com/sybil-solutions/skill-distill (Tier 4)
+2026-11-21 — DebugDyanmo/skillaudit (npm-audit-style skill scanner: prompt injection / hidden instructions / exfiltration; MIT ★11, created Nov 19) — github.com/DebugDyanmo/skillaudit (Tier 4)
+2026-11-21 — AlterAIDev/alter-mcp-servers (Gmail/LinkedIn MCP, agent never holds token, human-approved sends, audited calls; MIT ★5, created Nov 19) — github.com/AlterAIDev/alter-mcp-servers (Tier 4)

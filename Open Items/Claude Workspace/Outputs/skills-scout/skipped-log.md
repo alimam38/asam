@@ -933,3 +933,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-20 — AntSworD/libra-db-mcp (read-only MySQL/Postgres MCP, Streamable HTTP; 0★) — pgharbor (11-19) stronger (Tier 4)
 2026-11-20 — Anthropic IPO day-2 coverage (Nasdaq debut, ~17% close up) — market context, increment of 11-19 entry
 2026-11-20 — Off-focus GitHub churn (created ≥ Nov 18): blender-ai-mcp-addon, bytx-skills (crypto trading), gta6 clippers, editorial-taste, icons8/hub, Fusion-CAM-MCP, opentargets-link, openinbox-mcp (disposable inbox, abuse-prone), solidgate engineering-skills, ZERO-X jailbreak tool (malicious — never install) — non-fits
+
+<!-- 2026-11-21 run -->
+2026-11-21 — claude-plugins-official Nov 20–21: security-guidance 2.0.21 + pyenv-win probe + other-repo settings (#7143/#7176/#7177), theme-examples nine shader scenes + sound (#7189/#7191), aikido bump (#7188); anthropics/skills and knowledge-work-plugins no commits — increments (Tier 1)
+2026-11-21 — recordari-labs/postgres-mcp (read-only Postgres MCP, YAML policies, Docker; Apache-2.0 ★3) — pgharbor (11-19) stronger; keep in mind for NAS Docker deploys (Tier 4)
+2026-11-21 — gravion-ux/mcp-shield (MCP security auditor: tool poisoning, secrets, rug-pull hashing; ★2) — overlaps mcp-leash (11-15) and mcp-attest (11-14) (Tier 4)
+2026-11-21 — CTHua/hearth (team "Home Repo" of shared rules/skills/MCP/subagents for Claude Code + Codex; ★2) — similar to the asam repo pattern; too early (Tier 4)
+2026-11-21 — leonardomacielfonseca/which-skill (recommends best installed skill from local index; ★2) and sevenevesai/claude-team-loop (self-improving team plugin starter) — skill-curation ideas, too early (Tier 4)
+2026-11-21 — r/ClaudeCode "skill that has Claude Code build an MCP server for desktop software with no API" (Nov 20) — idea only; computer use (surfaced today) covers the same need — reddit.com/r/ClaudeCode/comments/1y1ar6x (Tier 4)
+2026-11-21 — Allocore MCP lending/servicing tools (Jun 2026) and LoanPro MCP AI gateway (Oct 2025) — outside window; lending-MCP backfill reference for Hypomone — aithority.com/news/allocore-launches-mcp-based-ai-tools-to-simplify-lending-and-servicing ; loanpro.io/blog/announcing-loanpros-mcp (Tier 2)
+2026-11-21 — "Free Anthropic plugin with 44 skills for invoicing/payroll/contracts" social posts — increment of Claude for Small Business (09-16) (Tier 4)
+2026-11-21 — Off-focus GitHub churn (created ≥ Nov 19): danielwh2/sprite-stacking, ronyfadel/lochness, gta6 clippers, autoRecording, podcast-clipping, reels-kits, sim-guard, empco-check, automotive assurance kit, blender-ai-mcp-addon, runidbg, local-binary-index (binary RE), esim-mcp, Ableton/Inventor/Origin MCPs, Telegram MCPs, Binance MCP, Activepieces MCP, Bambu printer MCP — no venture fit

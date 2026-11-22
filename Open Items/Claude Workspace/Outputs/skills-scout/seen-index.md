@@ -684,3 +684,9 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-21 — sybil-solutions/skill-distill (session → skill for open-weight executor; MIT ★98, created Nov 21) — github.com/sybil-solutions/skill-distill (Tier 4)
 2026-11-21 — DebugDyanmo/skillaudit (npm-audit-style skill scanner: prompt injection / hidden instructions / exfiltration; MIT ★11, created Nov 19) — github.com/DebugDyanmo/skillaudit (Tier 4)
 2026-11-21 — AlterAIDev/alter-mcp-servers (Gmail/LinkedIn MCP, agent never holds token, human-approved sends, audited calls; MIT ★5, created Nov 19) — github.com/AlterAIDev/alter-mcp-servers (Tier 4)
+
+<!-- 2026-11-22 run -->
+2026-11-22 — Artesiana/bridge-anything (agent skill that builds REST/MCP/CLI bridges for software with no API; MIT ★46, created Nov 20) — github.com/Artesiana/bridge-anything (Tier 4)
+2026-11-22 — pritamux/gridlines (UI alignment-pass agent skill; MIT ★135, created Nov 21) — github.com/pritamux/gridlines (Tier 4)
+2026-11-22 — VinVirtual/skill-ci (GitHub Action + CLI: SKILL.md lint, secrets scan, script safety for skill repos; MIT 0★, created Nov 22) — github.com/VinVirtual/skill-ci (Tier 4)
+2026-11-22 — ibl.ai PowerSchool SIS + Infinite Campus MCP server & agent skill pages + K-12 MCP guide (undated) — ibl.ai/developer/connectors/powerschool-sis ; ibl.ai/developer/connectors/infinite-campus ; ibl.ai/solutions/k-12/mcp-guide (Tier 4)

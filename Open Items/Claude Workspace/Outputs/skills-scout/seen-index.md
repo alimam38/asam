@@ -690,3 +690,10 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-22 — pritamux/gridlines (UI alignment-pass agent skill; MIT ★135, created Nov 21) — github.com/pritamux/gridlines (Tier 4)
 2026-11-22 — VinVirtual/skill-ci (GitHub Action + CLI: SKILL.md lint, secrets scan, script safety for skill repos; MIT 0★, created Nov 22) — github.com/VinVirtual/skill-ci (Tier 4)
 2026-11-22 — ibl.ai PowerSchool SIS + Infinite Campus MCP server & agent skill pages + K-12 MCP guide (undated) — ibl.ai/developer/connectors/powerschool-sis ; ibl.ai/developer/connectors/infinite-campus ; ibl.ai/solutions/k-12/mcp-guide (Tier 4)
+
+<!-- 2026-11-23 run -->
+2026-11-23 — MCP Registry OSV malware checks on publish + daily sweep (v1.8.12–1.8.15 to production, Nov 22) — github.com/modelcontextprotocol/registry (Tier 2, official MCP project)
+2026-11-23 — bluesky-social/diderot (self-hosted org-knowledge search: Slack/Notion/Linear/agent sessions/Markdown → Postgres event log + Qdrant; scoped retrieval; MCP server; Apache-2.0 ★48, created Nov 20) — github.com/bluesky-social/diderot (Tier 3/4)
+2026-11-23 — mq-yuan/project-docs (converged in-place project docs + structural linter skill; MIT ★17, created Nov 22) — github.com/mq-yuan/project-docs (Tier 4)
+2026-11-23 — fazxes/questionnaire (task-intake skill that routes agents to skills/rules; MIT ★31, created Nov 22) — github.com/fazxes/questionnaire (Tier 4)
+2026-11-23 — soodhere/saktum-check (MCP server test: OWASP MCP Top 10, OAuth, conformance, context cost; Apache-2.0 ★2, created Nov 22) — github.com/soodhere/saktum-check (Tier 4)

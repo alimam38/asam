@@ -697,3 +697,8 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-23 — mq-yuan/project-docs (converged in-place project docs + structural linter skill; MIT ★17, created Nov 22) — github.com/mq-yuan/project-docs (Tier 4)
 2026-11-23 — fazxes/questionnaire (task-intake skill that routes agents to skills/rules; MIT ★31, created Nov 22) — github.com/fazxes/questionnaire (Tier 4)
 2026-11-23 — soodhere/saktum-check (MCP server test: OWASP MCP Top 10, OAuth, conformance, context cost; Apache-2.0 ★2, created Nov 22) — github.com/soodhere/saktum-check (Tier 4)
+
+<!-- 2026-11-24 run -->
+2026-11-24 — Unified Plugins page replaces Skills/Connectors/Plugins tabs (Customize → Plugins; Team rollout Nov 30, Enterprise after; Skills-off orgs lose plugins in Desktop from Nov 30) — support.claude.com/en/articles/17740565-manage-plugins-skills-and-connectors-from-one-plugins-page (Tier 1)
+2026-11-24 — CSA RiskRubric v2 live (free scorecards: 203 MCP servers + 44 models; 0–1000 composite, A–F, pillars incl. Excessive Agency; multi-scanner, published methodology; Nov 23) — cloudsecurityalliance.org/blog/2026/11/23/riskrubric-v2-is-live-know-the-risk-before-you-deploy ; riskrubric.ai (Tier 2)
+2026-11-24 — uxpilot-ai/user-interview-skill (neutral 1:1 user-interview guide skill; Apache-2.0 ★119, created Nov 23; + uxpilot-ai/agent-skills) — github.com/uxpilot-ai/user-interview-skill (Tier 3/4)

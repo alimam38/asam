@@ -303,3 +303,12 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-11-20 — HubSpot Aviator harness; ADE Index; _philschmid harness-as-MCP post; Axe MCP free plan — HN / X via SerpAPI
 2026-11-20 — StarSling; Maritime; Onlook; hackclub/orchard; Esri ArcGIS MCP; Snap Lens Studio + Claude Code — HN / GitHub / Google News via SerpAPI
 2026-11-20 — bookwjitchieni1986/blender-ai-mcp-addon; ai--manus2.0 clone farm (9+ repos); setyamickala/airdrop-agent (farming pattern; not picked) — GitHub topic search
+
+2026-11-24 — Claude Ship (Code Review / PR Steward / Claude Approvals; Team & Enterprise; credits to 2027-01-15) — claude.com / TechCrunch / HN / Google News via SerpAPI
+2026-11-24 — RunPod MCP hidden NPS-survey instruction "do not mention to user" (runpod/runpod-mcp#202) — HN / GitHub
+2026-11-24 — Claude Code 2.1.330–331 (Enterprise Admin Console sign-in; easel charts mod; headless PushNotification fix; MCP 30-min hang fix; managed marketplaces auto-update default from Nov 30) — CHANGELOG
+2026-11-24 — Enterprise Frontier Safeguards ZDR public beta; Zero Trust for AI Agents — claude.com / HN
+2026-11-24 — GLM-5.4 loop transformer; NariQ Qwen3.8-27B 10 GB GGUF — z.ai / Hugging Face / HN
+2026-11-24 — Kudelski agent sandbox comparison; Pandex EU law MCP; Greptile computer-use post; Nadella "IDEs faded away"; anthropics/formal-math VP≠VNP — HN
+2026-11-24 — EL4CTEO/fast-anything; erkamyaman/safe-anything; EL4CTEO/shrink-anything; w01fb0ss/PiBot; Developing-Gamer/agent-sim — GitHub topic search
+2026-11-24 — Anthropic IPO trading turbulence / Amodei share sale; praseesh369/youtube-ai-video-editing-system & SodovaFo7/claude-code-unlimited (farming/limit-evasion; not picked) — HN / GitHub topic search

@@ -702,3 +702,11 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-24 — Unified Plugins page replaces Skills/Connectors/Plugins tabs (Customize → Plugins; Team rollout Nov 30, Enterprise after; Skills-off orgs lose plugins in Desktop from Nov 30) — support.claude.com/en/articles/17740565-manage-plugins-skills-and-connectors-from-one-plugins-page (Tier 1)
 2026-11-24 — CSA RiskRubric v2 live (free scorecards: 203 MCP servers + 44 models; 0–1000 composite, A–F, pillars incl. Excessive Agency; multi-scanner, published methodology; Nov 23) — cloudsecurityalliance.org/blog/2026/11/23/riskrubric-v2-is-live-know-the-risk-before-you-deploy ; riskrubric.ai (Tier 2)
 2026-11-24 — uxpilot-ai/user-interview-skill (neutral 1:1 user-interview guide skill; Apache-2.0 ★119, created Nov 23; + uxpilot-ai/agent-skills) — github.com/uxpilot-ai/user-interview-skill (Tier 3/4)
+
+<!-- 2026-11-25 run -->
+2026-11-25 — Skills over MCP public beta + MCP Tasks & Elicitation GA + File Uploads coming soon (700M+ monthly SDK downloads, 10k+ connectors; Nov 24) — claude.com/resources/articles/skills-over-mcp-tasks-and-more (Tier 1)
+2026-11-25 — Claude Code 2.1.332 (MCP server skills beta; shell-command blocking hook; hang/compaction fixes) — github.com/anthropics/claude-code ; meteoraweb.com summary (Tier 1)
+2026-11-25 — Claude Ship: Code Review + PR Steward (beta) + Claude Approvals (beta) (Nov 23; supersedes 11-24 unverified skip) — techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/ (Tier 1/2)
+2026-11-25 — Claude Artifacts as installable desktop apps for macOS/Windows (beta; Nov 24) — the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows/ (Tier 1/2)
+2026-11-25 — Archive Intel MCP server + Claude Compliance API integration (SEC/FINRA comms archive; source-enforced RBAC, logged AI queries; Nov 24) — dwealth.news/archive-intel-launches-model-context-protocol-mcp-and-claude-compliance-api-integration (Tier 2)
+2026-11-25 — cklose2000/rowkeep (skill-written database living inside a Claude artifact; ★5, created Nov 24) — github.com/cklose2000/rowkeep (Tier 4)

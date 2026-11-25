@@ -979,3 +979,14 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-24 — genspark-ai/genoffice (open-source AI office suite accepting SKILL.md) — interesting but not tied to a venture need (Tier 3)
 2026-11-24 — DataGroomr Salesforce data-quality MCP, Cycloid IDPP governance platform + MCP, TylerIlunga/procore-mcp-server, jmrplens/gitlab-mcp-server, Lab Thread MCP, Visdenda MCP — off-focus MCP launches (Tier 2/4)
 2026-11-24 — Off-focus GitHub churn (created ≥ Nov 23): mit-trader-skill, ai-studio-skill, dipesh-skills, lean-verify, readback, ganeko-skills, limberpix, erdostack, claude-neverbanned-skills (account-evasion — avoid), claude-implementation-plan-skill, claude-delphi, frappe_core_skills, video-edits-effects-skill, design-references, plumb, Content-Engine, PaperHelper, device-compliance-dossier, google-ai-offer-subscription (rooted-emulator billing — avoid), 100x-engineer-skill, muse-skills-collection, anti-slop, tapveo/core, nextime, wa-mcp, antigravity renamer — no venture fit
+
+<!-- 2026-11-25 run -->
+2026-11-25 — Claude Code experimental Code Mode (InfoQ, Nov 23) — already indexed via 2.1.323 (11-13); press increment (Tier 2)
+2026-11-25 — thedefiant "Claude Unifies Connectors and Skills in One Plugins Hub" (Nov 24) — press increment of the 11-24 Plugins page item (Tier 2)
+2026-11-25 — OpenAI hiring of Claude Code team members / Anthropic post-IPO stock moves (36kr, biggo, Nov 25) — business news, not a tool (Tier 4)
+2026-11-25 — temporalio/temporal-mcp (Temporal workflow investigation MCP w/ audit log) — infra not in Ali's stack (Tier 3)
+2026-11-25 — Microsoft MCP Server for IT Admins (Graph; access governance), Levitate MCP, Sabre Mosaic MCP, SimScale MCP, Lansweeper AI governance — off-focus MCP launches (Tier 2)
+2026-11-25 — voftec/blackboard-mcp (Blackboard Ultra via student's own browser session; ★5) — higher-ed student scraper, session-cookie auth; not Recess/K-12 or Populi (Tier 4)
+2026-11-25 — umeshkumar20540-oss/agent-skill-guard + softworldt20 clone, sunqi-2025/agent-skill-eval-kit, whiplashf/skilldesk — skill-audit duplicates of skillaudit/skill-ci/SkillSpector (Tier 4)
+2026-11-25 — mappingburk-hub/prd-architect-skill (PRD drafting skill, ★1) — generic; existing spec workflow covers it (Tier 4)
+2026-11-25 — Off-focus GitHub churn (created ≥ Nov 24): mit-trader-skill (seen 11-24 skip), skill-prospeccao, blueprint, news-documentary-video-skill, guizang-magi2-skill, postiz-content-skills, oil-showcase, nonhuman, app-launch-video, orchestrate-skills, ratchet-skills, whetstone, storyboard-to-video-system, coollabsio/skills, epochal, icons, caldrin-search-oss, cueston-mcp, swarmfleet-MCP, korea-data-mcp, RAGDial-MCP and similar — no venture fit

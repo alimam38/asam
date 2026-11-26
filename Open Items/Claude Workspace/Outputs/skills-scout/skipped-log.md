@@ -990,3 +990,10 @@ Format: `YYYY-MM-DD — name — reason — source`.
 2026-11-25 — umeshkumar20540-oss/agent-skill-guard + softworldt20 clone, sunqi-2025/agent-skill-eval-kit, whiplashf/skilldesk — skill-audit duplicates of skillaudit/skill-ci/SkillSpector (Tier 4)
 2026-11-25 — mappingburk-hub/prd-architect-skill (PRD drafting skill, ★1) — generic; existing spec workflow covers it (Tier 4)
 2026-11-25 — Off-focus GitHub churn (created ≥ Nov 24): mit-trader-skill (seen 11-24 skip), skill-prospeccao, blueprint, news-documentary-video-skill, guizang-magi2-skill, postiz-content-skills, oil-showcase, nonhuman, app-launch-video, orchestrate-skills, ratchet-skills, whetstone, storyboard-to-video-system, coollabsio/skills, epochal, icons, caldrin-search-oss, cueston-mcp, swarmfleet-MCP, korea-data-mcp, RAGDial-MCP and similar — no venture fit
+2026-11-26 — Gmail/Workspace "MCP-only from 1 Feb 2027" mandate — unverified (YouTube short only); re-check against Google announcements — youtube.com/shorts/VmPiJ_nZKhU (Tier 4)
+2026-11-26 — taylorwilsdon/google_workspace_mcp managing-google-workspace SKILL.md — increment to community server; official Google MCP surfaced instead — github.com/taylorwilsdon/google_workspace_mcp (Tier 4)
+2026-11-26 — Newsfilter financial-news MCP server (SEC filings + press releases) — duplicative of FinancialFilings connector already available — newsfilter.io/financial-news-mcp-server (Tier 4)
+2026-11-26 — Truthifi MCP (personal investment-account aggregation for AI) — consumer finance, not Meridia/Hypomone fit — truthifi.com/features/mcp (Tier 4)
+2026-11-26 — CyberArk Idira SCA MCP server (AWS access elevation) — enterprise IAM, out of focus — docs.cyberark.com (Tier 2)
+2026-11-26 — miniOrange Secure MCP Server (WordPress, 743 tools, approvals) — no WordPress in stack — wordpress.org/plugins/miniorange-secure-mcp-server (Tier 4)
+2026-11-26 — MinishLab/semble (code-search MCP), incu6us/loki-mcp-server, AceDataCloud MidjourneyMCP, stablyai/orca orchestration skill — generic dev/creative tooling, below bar — github.com (Tier 4)

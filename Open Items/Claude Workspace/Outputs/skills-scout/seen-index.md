@@ -710,3 +710,9 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-25 — Claude Artifacts as installable desktop apps for macOS/Windows (beta; Nov 24) — the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows/ (Tier 1/2)
 2026-11-25 — Archive Intel MCP server + Claude Compliance API integration (SEC/FINRA comms archive; source-enforced RBAC, logged AI queries; Nov 24) — dwealth.news/archive-intel-launches-model-context-protocol-mcp-and-claude-compliance-api-integration (Tier 2)
 2026-11-25 — cklose2000/rowkeep (skill-written database living inside a Claude artifact; ★5, created Nov 24) — github.com/cklose2000/rowkeep (Tier 4)
+
+<!-- 2026-11-26 run -->
+2026-11-26 — Google Workspace official MCP servers (Gmail/Drive/Calendar endpoints; Claude a listed client; Feb-2027 MCP-only claim unverified) — developers.google.com/workspace/guides/configure-mcp-servers (Tier 2)
+2026-11-26 — Microsoft Agent 365 admin governance for plugins/skills/MCP servers (registration approval, tool-level blocking) [backfill, Nov 6/16] — learn.microsoft.com/en-us/microsoft-agent-365/admin/manage-plugins-skills-mcp-servers (Tier 2)
+2026-11-26 — Duco MCP server GA (audited agent actions on reconciliation breaks, human decision gate) — du.co/duco-mcp-server-brings-agentic-operations-for-post-trade-into-production (Tier 2)
+2026-11-26 — modelcontextprotocol/servers #5659 (proposal: bundle Agent Skills in reference git MCP server) — github.com/modelcontextprotocol/servers/issues/5659 (Tier 2)

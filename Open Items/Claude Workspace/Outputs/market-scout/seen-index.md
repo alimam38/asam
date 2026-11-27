@@ -312,3 +312,12 @@ Dedup log across runs. Format: `YYYY-MM-DD — name — source`. Date is the run
 2026-11-24 — Kudelski agent sandbox comparison; Pandex EU law MCP; Greptile computer-use post; Nadella "IDEs faded away"; anthropics/formal-math VP≠VNP — HN
 2026-11-24 — EL4CTEO/fast-anything; erkamyaman/safe-anything; EL4CTEO/shrink-anything; w01fb0ss/PiBot; Developing-Gamer/agent-sim — GitHub topic search
 2026-11-24 — Anthropic IPO trading turbulence / Amodei share sale; praseesh369/youtube-ai-video-editing-system & SodovaFo7/claude-code-unlimited (farming/limit-evasion; not picked) — HN / GitHub topic search
+
+2026-11-27 — Google Workspace MCP servers GA + AI Tools Addendum (agents must use MCP from 2027-02-01; Standard/Scaled tiers; Gmail MCP can't send) — workspaceupdates.googleblog.com / HN / Google News via SerpAPI
+2026-11-27 — Skills over MCP shipped (Claude Code 2.1.332 server:skill beta + PreSkillShellCommand hook; MCP 700M monthly SDK downloads; background tasks/elicitation/file uploads) — CHANGELOG / The Decoder / VentureBeat / X via SerpAPI
+2026-11-27 — Notion official MCP hidden upsell instructions (unverified); "LLM agents work for their parent companies" essay — HN / Reddit
+2026-11-27 — Claude artifacts "Install as app" Mac/Windows (beta) — claude.com / MacStories / HN
+2026-11-27 — Claude ML-research sabotage threads; Opus 5.6 via "Opus 5.5 Extra" (unverified); Axios unreleased-models safety story — HN / X
+2026-11-27 — Versine (YC F26) MCP payments; Zapier free MCP calls to Jan 5; Canva MCP open to all devs; OpenAI GPT-6.2 usage cuts — HN / Google News via SerpAPI
+2026-11-27 — Anthropic Messages API to Rust; Working with AI; session-vault; ethanplusai/anywhere; MacRemote — anthropic.com / HN / GitHub / Google News via SerpAPI
+2026-11-27 — nexu-io/opengame (off-focus; fast stars); Anthropic below IPO price / Amodei share sales (market news; not picked) — GitHub topic search / HN

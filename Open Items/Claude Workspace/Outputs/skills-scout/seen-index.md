@@ -725,3 +725,6 @@ Format: `YYYY-MM-DD — name — source`.
 2026-11-27 — ckz/edu_data_mcp_server (Urban Institute Education Data API: CCD/CRDC/IPEDS; MIT) — github.com/ckz/edu_data_mcp_server ; mcpservers.org (Tier 3)
 2026-11-27 — Cloudflare Search for Agents (/.well-known/search Markdown endpoint for agents via AI Search; Nov 25) — developers.cloudflare.com/changelog/product/ai-search (Tier 2)
 2026-11-27 — Claude Google Drive file browser (in development, unreleased) — testingcatalog.com/anthropic-prepares-google-drive-file-browser-for-claude/ (Tier 4 watch)
+
+<!-- 2026-11-28 run -->
+2026-11-28 — Canva MCP on-brand video generation in Claude/ChatGPT (Seedance 2.5, Magic Layers; ~Nov 27; limits unverified) — canva.com/newsroom/news/canva-mcp-video-generation (Tier 2)
